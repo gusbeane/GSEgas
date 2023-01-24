@@ -1,0 +1,48 @@
+.DS_Store
+__pycache__/
+anlys/tensor_rot/*.h5
+anlys/tensor_rot/movies/
+anlys/tensor_rot/logs/
+movie/
+
+# paper/
+paper/ms.pdf
+paper/ms.aux
+paper/ms.log
+paper/mnras_guide.*
+paper/ms.blg
+paper/ms.synctex.gz
+
+# ics/
+MakeNewDisk*/
+*.vc
+*.vci
+*.gsd
+*.eqs
+*.sd
+*.vc2comp
+MND_output.txt
+MND-GSE_output.txt
+create_ics_output.txt
+BG_output.txt
+arepo_BG/
+
+
+# runs/
+runs/lvl*
+*fpsync*.out
+*fpsync*.err
+
+# dev/
+.ipynb_checkpoints/
+
+# AREPO related ignores
+arepo/
+output/
+WARNINGS
+*.dat
+*.hdf5
+MakeNewDisk/
+uses-machines.txt
+*-usedvalues
+
