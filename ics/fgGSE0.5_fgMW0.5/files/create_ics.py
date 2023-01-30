@@ -2,6 +2,7 @@ import arepo
 import numpy as np
 import os
 import sys
+import pickle
 
 from numba import njit
 
@@ -182,6 +183,47 @@ for i in range(6):
         part = getattr(ics, 'part'+str(i))
         part.id[:] = np.arange(current_id+1, current_id+1+npart[i])
         current_id = current_id + npart[i]
+
+print('MW ', sn_MW.NumPart_Total)
+print('GSE ', sn_GSE.NumPart_Total)
+
+NTYPES = len(sn_MW.NumPart_Total)
+IDs = {'MW': np.zeros((NTYPES, 2), dtype='int'),
+       'GSE': np.zeros((NTYPES, 2), dtype='int')}
+
+for i in range(len(sn_MW.NumPart_Total)):
+    if sn_MW.NumPart_Total[i] > 0:
+        sn_MW_part = getattr(sn_MW, 'part'+str(i))
+        ics_part = getattr(ics, 'part'+str(i))
+        id_start = ics_part.id[0]
+        id_end = ics_part.id[sn_MW.NumPart_Total[i]-1]
+
+        
+
+        IDs['MW'][i][0] = id_start
+        IDs['MW'][i][1] = id_end
+    else:
+        IDs['MW'][i][0] = -1
+        IDs['MW'][i][1] = -1
+
+    if sn_GSE.NumPart_Total[i] > 0:
+        sn_MW_part = getattr(sn_MW, 'part'+str(i))
+        sn_GSE_part = getattr(sn_MW, 'part'+str(i))
+        ics_part = getattr(ics, 'part'+str(i))
+        id_start = ics_part.id[sn_MW.NumPart_Total[i]]
+        id_end = ics_part.id[sn_MW.NumPart_Total[i]+sn_GSE.NumPart_Total[i]-1]
+
+        IDs['GSE'][i][0] = id_start
+        IDs['GSE'][i][1] = id_end
+    else:
+        IDs['GSE'][i][0] = -1
+        IDs['GSE'][i][1] = -1
+
+pickle.dump(IDs, open('IDs.p', 'wb'))
+
+print('part0 MW ID: ', ics.part0.id[0], ' to ', ics.part0.id[sn_MW.NumPart_Total[0]-1])
+print('part0 GSE ID: ', ics.part0.id[sn_MW.NumPart_Total[0]], ics.part0.id[sn_MW.NumPart_Total[0] + sn_GSE.NumPart_Total[0]-1])
+print('test: ', ics.part0.id[-1])
 
 ics.write()
 
