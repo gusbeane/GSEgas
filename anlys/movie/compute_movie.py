@@ -92,7 +92,7 @@ if __name__ == '__main__':
     Nbody = 'Nbody'
     fgMW05_fgGSE05 = 'fgGSE0.5_fgMW0.5'
 
-    rng0 = [[-50, 50], [-50, 50]]
+    rng0 = [[-80, 80], [-80, 80]]
     
     pair_list = [(Nbody, 'lvl4', rng0), # 0
                  (Nbody, 'lvl3', rng0), # 1
@@ -100,9 +100,14 @@ if __name__ == '__main__':
                  (fgMW05_fgGSE05, 'lvl3', rng0), # 3
                  ]
 
-    name_list = [           p[0] + '-' + p[1] for p in pair_list]
+    rng_list     = [                        p[2] for p in pair_list]
+    rng_str_list = [str(rng).replace('[','').replace(']','').replace(', ','_') 
+                    for rng in rng_list]
+
+    name_list = [           p[0] + '-' + p[1] + '-rng_' + rng_str 
+                            for p, rng_str in zip(pair_list, rng_str_list)]
     path_list = [basepath + p[0] + '/' + p[1] for p in pair_list]
-    rng_list  = [                        p[2] for p in pair_list]
+    
 
     nsnap_list = [len(glob.glob(path+'/output/snapdir*/*.0.hdf5')) for path in path_list]
 
