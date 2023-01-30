@@ -113,7 +113,7 @@ GasSoftFactor        2.5
 %----- Mesh regularization options
 CellShapingSpeed       0.5               
 CellMaxAngleFactor     2.25          
-ReferenceGasPartMass   7.38414e-07 
+ReferenceGasPartMass   7.5e-07 
 TargetGasMassFactor    1
 RefinementCriterion    1
 DerefinementCriterion  1

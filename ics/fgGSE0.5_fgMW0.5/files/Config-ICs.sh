@@ -204,7 +204,7 @@ NODEREFINE_BACKGROUND_GRID
 #--------------------------------------- Mesh-relaxing or mesh-adding (this will not carry out a simulation)
 #MESHRELAX                     # this keeps the mass constant and only regularizes the mesh
 #MESHRELAX_DENSITY_IN_INPUT
-ADDBACKGROUNDGRID=16
+ADDBACKGROUNDGRID=32
 
 ADAPTIVE_HYDRO_SOFTENING
 #NSOFTTYPES_HYDRO=64           # this is only relevant for ADAPTIVE_HYDRO_SOFTENING can can be set to override default value of 64
