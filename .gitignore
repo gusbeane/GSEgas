@@ -3,7 +3,8 @@ __pycache__/
 anlys/tensor_rot/*.h5
 anlys/tensor_rot/movies/
 anlys/tensor_rot/logs/
-movie/
+anlys/movie/movies/
+anlys/movie/logs/
 
 # paper/
 paper/ms.pdf
