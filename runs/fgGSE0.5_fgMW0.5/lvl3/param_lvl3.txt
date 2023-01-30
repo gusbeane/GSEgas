@@ -30,7 +30,7 @@ TypeOfTimestepCriterion                           0
 ErrTolIntAccuracy                                 0.025
 CourantFac                                        0.4
 MaxSizeTimestep                                   0.0005
-MinSizeTimestep                                   0
+MinSizeTimestep                                   1e-10 
 CritOverDensity                                   57.7
 SfrEfficiency                                     0.01
 InitGasTemp                                       1e+04
