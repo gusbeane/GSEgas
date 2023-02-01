@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "compute_COM.py", line 106, in <module>
-    out = run(path, ic, name, nsnap, nproc)
-  File "compute_COM.py", line 59, in run
-    out = Parallel(n_jobs=nproc) (delayed(_runner)(path, name, i, rng=rng) for i in tqdm(range(nsnap)))
-TypeError: 'str' object cannot be interpreted as an integer

@@ -1,37 +1,0 @@
-  0%|          | 0/1601 [00:00<?, ?it/s]  3%|▎         | 48/1601 [00:00<00:10, 149.21it/s]  6%|▌         | 96/1601 [00:06<01:02, 24.18it/s]   9%|▉         | 144/1601 [00:07<00:50, 28.98it/s]joblib.externals.loky.process_executor._RemoteTraceback: 
-"""
-Traceback (most recent call last):
-  File "/n/home01/abeane/.local/lib/python3.6/site-packages/joblib/externals/loky/process_executor.py", line 436, in _process_worker
-    r = call_item()
-  File "/n/home01/abeane/.local/lib/python3.6/site-packages/joblib/externals/loky/process_executor.py", line 288, in __call__
-    return self.fn(*self.args, **self.kwargs)
-  File "/n/home01/abeane/.local/lib/python3.6/site-packages/joblib/_parallel_backends.py", line 595, in __call__
-    return self.func(*args, **kwargs)
-  File "/n/home01/abeane/.local/lib/python3.6/site-packages/joblib/parallel.py", line 263, in __call__
-    for func, args, kwargs in self.items]
-  File "/n/home01/abeane/.local/lib/python3.6/site-packages/joblib/parallel.py", line 263, in <listcomp>
-    for func, args, kwargs in self.items]
-  File "compute_COM.py", line 36, in _runner
-    in_MW = np.logical_and(sn0.part2.id >= IDs['MW'][2][0], sn0.part2.id <= IDs['MW'][2][1])
-NameError: name 'sn0' is not defined
-"""
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "compute_COM.py", line 106, in <module>
-    out = run(path, ic, name, nsnap, nproc)
-  File "compute_COM.py", line 59, in run
-    out = Parallel(n_jobs=nproc) (delayed(_runner)(path, ic, name, i) for i in tqdm(range(nsnap)))
-  File "/n/home01/abeane/.local/lib/python3.6/site-packages/joblib/parallel.py", line 1056, in __call__
-    self.retrieve()
-  File "/n/home01/abeane/.local/lib/python3.6/site-packages/joblib/parallel.py", line 935, in retrieve
-    self._output.extend(job.get(timeout=self.timeout))
-  File "/n/home01/abeane/.local/lib/python3.6/site-packages/joblib/_parallel_backends.py", line 542, in wrap_future_result
-    return future.result(timeout=timeout)
-  File "/n/helmod/apps/centos7/Core/Anaconda3/5.0.1-fasrc02/x/lib/python3.6/concurrent/futures/_base.py", line 432, in result
-    return self.__get_result()
-  File "/n/helmod/apps/centos7/Core/Anaconda3/5.0.1-fasrc02/x/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
-    raise self._exception
-NameError: name 'sn0' is not defined
-
