@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "compute_COM.py", line 100, in <module>
+    i = int(sys.argv[2])
+IndexError: list index out of range
