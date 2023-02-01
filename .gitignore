@@ -5,6 +5,7 @@ anlys/tensor_rot/movies/
 anlys/tensor_rot/logs/
 anlys/movie/movies/
 anlys/movie/logs/
+anlys/*/logs/
 
 # paper/
 paper/ms.pdf
