@@ -73,11 +73,14 @@ if __name__ == '__main__':
 
     Nbody = 'Nbody'
     fgMW05_fgGSE05 = 'fgGSE0.5_fgMW0.5'
+    fgMW05_fgGSE05_COM = 'fgGSE0.5_fgMW0.5-COM'
 
     pair_list = [(Nbody, 'lvl4'), # 0
                  (Nbody, 'lvl3'), # 1
                  (fgMW05_fgGSE05, 'lvl4'), # 2
                  (fgMW05_fgGSE05, 'lvl3'), # 3
+                 (fgMW05_fgGSE05_COM, 'lvl4'), # 4
+                 (fgMW05_fgGSE05_COM, 'lvl3'), # 5
                  ]
 
 
@@ -90,9 +93,12 @@ if __name__ == '__main__':
     i = int(sys.argv[2])
     path = path_list[i]
     name = name_list[i]
-    nsnap = nsnap_list[i]
+    # nsnap = nsnap_list[i]
     ic = ic_list[i]
     
     COM = np.load(basepath+'/anlys/COM/COM_'+name+'.npy', allow_pickle=True).item()
+
+    # pull nsnap from COM in case new snaps have been written since COM was computed
+    nsnap = COM['Tot_COM'].shape[0]
 
     out = run(path, COM, name, nsnap, nproc)
