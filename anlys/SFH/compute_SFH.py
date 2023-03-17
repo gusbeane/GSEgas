@@ -24,6 +24,20 @@ def get_COM(pos, vel, rmin=1, rmax=20, rfac=0.9):
     
     return COM, COMV
 
+def _runner_GSEiso(path, COM, name, snap, ptypes=[0], rcut=15):
+    sn = arepo.Snapshot(path + '/output/', snap, 
+                        parttype=ptypes, 
+                        fields=['StarFormationRate'],
+                        combineFiles=True)
+   
+    SFR_MW = 0.0
+    SFR_GSE = np.sum(sn.part0.sfr.value)
+
+    Time = sn.Time.value
+    
+    return (SFR_MW, SFR_GSE, Time)
+
+
 def _runner(path, COM, name, snap, ptypes=[0], rcut=15):
     sn = arepo.Snapshot(path + '/output/', snap, 
                         parttype=ptypes, 
@@ -54,7 +68,12 @@ def _runner(path, COM, name, snap, ptypes=[0], rcut=15):
 
 def run(path, ic, name, nsnap, nproc):
 
-    out = Parallel(n_jobs=nproc) (delayed(_runner)(path, ic, name, i) for i in tqdm(range(nsnap)))
+    if 'GSEiso' in name:
+        runner = _runner_GSEiso
+    else:
+        runner = _runner
+
+    out = Parallel(n_jobs=nproc) (delayed(runner)(path, ic, name, i) for i in tqdm(range(nsnap)))
 
     SFR_MW  = np.array([out[i][0] for i in range(len(out))])
     SFR_GSE = np.array([out[i][1] for i in range(len(out))])
@@ -74,6 +93,7 @@ if __name__ == '__main__':
     Nbody = 'Nbody'
     fgMW05_fgGSE05 = 'fgGSE0.5_fgMW0.5'
     fgMW05_fgGSE05_COM = 'fgGSE0.5_fgMW0.5-COM'
+    GSEiso = 'GSEiso_fg0.5_Z-1.2'
 
     pair_list = [(Nbody, 'lvl4'), # 0
                  (Nbody, 'lvl3'), # 1
@@ -81,6 +101,7 @@ if __name__ == '__main__':
                  (fgMW05_fgGSE05, 'lvl3'), # 3
                  (fgMW05_fgGSE05_COM, 'lvl4'), # 4
                  (fgMW05_fgGSE05_COM, 'lvl3'), # 5
+
                  ]
 
 
