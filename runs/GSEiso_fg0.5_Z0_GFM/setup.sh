@@ -1,13 +1,14 @@
 #!/bin/bash
 
 export AREPO_commit=956184545147294eedcbd80516b7e635faae60cc
+export AREPO_commit=bff5bb997c62f57298bfd30fd6f0592f0a22e13a
 export REPLACE=GSEisoZ0
 export ICS_DIR=../../../ics/GSEiso_fg0.5
 
 source load-modules.sh
 
 #for i in 5 4 3 2 1
-for i in 3
+for i in 4
 do
     mkdir lvl${i}
     cd lvl${i}
@@ -22,7 +23,7 @@ do
 
     cd arepo
     git checkout ${AREPO_commit}
-    cp ../../Config-SMUGGLE.sh Config.sh
+    cp ../../Config-GFM.sh Config.sh
     cp ../../Makefile.systype .
     # make -j # commented out bc will be recompiled at runtime anyways
     cd ../
