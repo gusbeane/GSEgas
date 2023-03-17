@@ -40,7 +40,7 @@ def make_movie(H, time, nres, vmin, vmax, fout,
                    norm=mpl.colors.LogNorm(vmin=vmin, vmax=vmax))
 
     # initialize time if needed
-    txt = ax.text(0.6, 0.85, ' ', transform=ax.transAxes, fontsize=7, c='w')
+    txt = ax.text(0.6, 0.85, ' ', transform=ax.transAxes, fontsize=7, c='k')
 
     animate = animate_maker(H, time, im, txt, vmin, vmax)
 
