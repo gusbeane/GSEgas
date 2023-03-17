@@ -28,7 +28,7 @@ MND-GSE_output.txt
 create_ics_output.txt
 BG_output.txt
 arepo_BG/
-
+arepo_BG-old/
 
 # runs/
 runs/lvl*
@@ -40,11 +40,12 @@ runs/lvl*
 
 # AREPO related ignores
 arepo/
-output/
+output*/
 WARNINGS
 *.dat
 *.hdf5
 MakeNewDisk/
+makenewdiskhalogas/
 uses-machines.txt
 *-usedvalues
 
