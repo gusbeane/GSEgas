@@ -12,9 +12,9 @@ GasFraction             0.5
 DiskHeight              0.45
 BulgeSize               0.04
 N_HALO                  1596839
-N_DISK                  49901 
-N_GAS                   49901
-N_BULGE                 232872
+N_DISK                  99802 
+N_GAS                   99802
+N_BULGE                 133070 
 RadialDispersionFactor  1.0
 %RadialDispersionFactor0  9.84937936e-01
 %RadialDispersionFactor1  1.58385470e-01
