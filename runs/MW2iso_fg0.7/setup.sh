@@ -1,13 +1,13 @@
 #!/bin/bash
 
-export AREPO_commit=956184545147294eedcbd80516b7e635faae60cc
+export AREPO_commit=386b18555863
 export REPLACE=MW2isofg7
 export ICS_DIR=../../../ics/MW2iso_fg0.7
 
 source load-modules.sh
 
 #for i in 5 4 3 2 1
-for i in 4
+for i in 3
 do
     mkdir lvl${i}
     cd lvl${i}
