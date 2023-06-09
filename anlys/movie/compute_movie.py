@@ -111,7 +111,10 @@ if __name__ == '__main__':
     GSEiso = 'GSEiso_fg0.5_Z-1.2'
     GSEiso_Z0 = 'GSEiso_fg0.5_Z0'
     MWiso_Z0 = 'MWiso_fg0.5_Z0'
+    MWiso_Z0_newS = 'MWiso_fg0.5_Z0-newSMUGGLE'
     MWiso_Z0_corona5 = 'MWiso_fg0.5_Z0_coronaMHG0.5'
+    MW2iso_fg05 = 'MW2iso_fg0.5'
+    MW3iso_fg05 = 'MW3iso_fg0.5'
 
     rng0 = [[-80, 80], [-80, 80]]
     rng1 = [[-5, 5], [-5, 5]]
@@ -129,6 +132,15 @@ if __name__ == '__main__':
                  (GSEiso_Z0, 'lvl4', rng1, 'BoxCenter'), # 7
                  (MWiso_Z0, 'lvl4', rng2, 'BoxCenter'), # 8
                  (MWiso_Z0_corona5, 'lvl4', rng1, 'BoxCenter'), # 9
+                 (MW2iso_fg05, 'lvl4', rng2, 'BoxCenter'), # 10
+                 (MW2iso_fg05, 'lvl3', rng2, 'BoxCenter'), # 11
+                 (MW2iso_fg05, 'lvl4-nov', rng2, 'BoxCenter'), # 12
+                 (MW2iso_fg05, 'lvl4-SFE1', rng2, 'BoxCenter'), # 13
+                 (MW2iso_fg05, 'lvl4-novSFE1', rng2, 'BoxCenter'), # 14
+                 (MW2iso_fg05, 'lvl4-hydrosoft', rng2, 'BoxCenter'), # 15
+                 (MWiso_Z0_newS, 'lvl2-soft0.04', rng2, 'BoxCenter'), # 16
+                 (MWiso_Z0_newS, 'lvl3', rng2, 'BoxCenter'), # 17
+                 (MW3iso_fg05, 'lvl3', rng2, 'BoxCenter'), # 18
                  ]
 
     rng_list     = [                        p[2] for p in pair_list]
