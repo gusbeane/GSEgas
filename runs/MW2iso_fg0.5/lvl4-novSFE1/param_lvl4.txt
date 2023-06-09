@@ -32,7 +32,7 @@ CourantFac                                        0.4
 MaxSizeTimestep                                   0.0005
 MinSizeTimestep                                   0
 CritOverDensity                                   57.7
-SfrEfficiency                                     0.01
+SfrEfficiency                                     1
 InitGasTemp                                       1e+04
 MinGasTemp                                        5
 LimitUBelowThisDensity                            0

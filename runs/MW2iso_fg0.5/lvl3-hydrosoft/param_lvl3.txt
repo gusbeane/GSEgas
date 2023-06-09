@@ -1,4 +1,4 @@
-InitCondFile                                      ICs/MW_ICs.dat-with-grid
+InitCondFile                                      ICs/MW_ICs.dat-with-grid 
 OutputDir                                         output
 SnapshotFileBase                                  snapshot
 OutputListFilename                                /ptmp/mpa/lsales/sim_dwarfs/dwarf1/outputlist_final.txt
@@ -50,12 +50,12 @@ UnitMass_in_g                                     1.989e+43
 UnitVelocity_in_cm_per_s                          100000
 GravityConstantInternal                           0
 GasSoftFactor                                     2.5
-SofteningComovingType0                            0.04
-SofteningComovingType1                            0.04
-SofteningComovingType2                            0.04
-SofteningComovingType3                            0.04
-SofteningComovingType4                            0.04
-SofteningComovingType5                            0.04
+SofteningComovingType0                            0.02
+SofteningComovingType1                            0.02
+SofteningComovingType2                            0.02
+SofteningComovingType3                            0.02
+SofteningComovingType4                            0.02
+SofteningComovingType5                            0.02
 SofteningMaxPhysType0                             1.0
 SofteningMaxPhysType1                             1.0
 SofteningMaxPhysType2                             1.0
@@ -68,7 +68,7 @@ SofteningTypeOfPartType2                          1
 SofteningTypeOfPartType3                          1
 SofteningTypeOfPartType4                          1
 SofteningTypeOfPartType5                          1
-MinimumComovingHydroSoftening                     0.035
+MinimumComovingHydroSoftening                     0.005
 AdaptiveHydroSofteningSpacing                     1.2
 ActivePartFracForNewDomainDecomp                  0.05
 CellShapingSpeed                                  0.5
@@ -107,10 +107,11 @@ MaxNumNgbDeviationEnrichment                      1
 CoolingTablePath                                  /n/holystore01/LABS/hernquist_lab/Users/abeane/ArepoTables/Arepo_GFM_Tables/Cooling/cooling_metal_UVB_self_shielding_Rahmati12.hdf5
 %CoolingTablePath                                  /home6/abeane/arepo-tables/Arepo_GFM_Tables/Cooling/cooling_metal_UVB_self_shielding_Rahmati12.hdf5
 MinMetalTemp                                      10000
-MeanVolume                                        162.68635849464277
-ReferenceGasPartMass                              6.0e-06 
+MeanVolume                                         21.17348061253556 
+ReferenceGasPartMass                              7.5e-07 
 MinimumDensityOnStartUp                           1.e-10
 GasMetallicityInSolar                             1.0
 SelfShieldingFile                                 ./arepo/data/SelfShielding_Rahmati12
 %TracerMCPerCell                                    4
 WindSpeedFactor                                   1.0
+
