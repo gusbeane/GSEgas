@@ -84,7 +84,7 @@ def run(path, name, fout, nsnap, nproc, rng, COM_key):
     output = {'COM': COM,
               'time': time}
 
-    pickle.dump(output, open(fout+'.pickle', 'wb'))
+    # pickle.dump(output, open(fout+'.pickle', 'wb'))
 
     # Make movies
     make_movie(Hxy_s, time, Hxy_s.shape[1], 1E-3, 1E0, 'movies/'+fout+'_star_xy.mp4')
@@ -116,6 +116,9 @@ if __name__ == '__main__':
     MW2iso_fg05 = 'MW2iso_fg0.5'
     MW3iso_fg05 = 'MW3iso_fg0.5'
     GSE2iso_fg07 = 'GSE2iso_fg0.7'
+    MW3iso_corona1 = 'MW3iso_fg0.7_MHG0.1_RC30'
+    MW3iso_corona2 = 'MW3iso_fg0.7_MHG0.15_RC9'
+    GSE2iso_corona1 = 'GSE2iso_fg0.7_MHG0.18_RC6.5'
 
     rng0 = [[-80, 80], [-80, 80]]
     rng1 = [[-5, 5], [-5, 5]]
@@ -146,6 +149,12 @@ if __name__ == '__main__':
                  (MW3iso_fg05, 'lvl2-limiter', rng2, 'BoxCenter'), # 20
                  (MW3iso_fg05, 'lvl2-limiter2', rng2, 'BoxCenter'), # 21
                  (GSE2iso_fg07, 'lvl3', rng1, 'BoxCenter'), # 22
+                 (MW3iso_corona1, 'lvl4', rng2, 'BoxCenter'), # 23
+                 (MW3iso_corona1, 'lvl3', rng2, 'BoxCenter'), # 24
+                 (MW3iso_corona2, 'lvl4', rng2, 'BoxCenter'), # 25
+                 (MW3iso_corona2, 'lvl3', rng2, 'BoxCenter'), # 26
+                 (GSE2iso_corona1, 'lvl4', rng1, 'BoxCenter'), # 27
+                 (GSE2iso_corona1, 'lvl3', rng1, 'BoxCenter'), # 28
                  ]
 
     rng_list     = [                        p[2] for p in pair_list]
