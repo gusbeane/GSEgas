@@ -139,8 +139,23 @@ def _runner(path, ic, name, COM_file, sn0_prop, snap):
     MC_Prop = add_rotate_pos(MC_Prop, MW_COM, MW_COMV, MW_AngMom)
     
     MC_Prop['Time'] = sn.Time.value
-
-    np.save(name+'/'+'MC_Prop_'+str(snap).zfill(3)+'.npy', MC_Prop)
+    
+    t = h5.File(name+'/MC_Prop_'+str(snap).zfill(3)+'.h5', mode='w')
+    
+    t.create_dataset('PartType5/Coordinates', data=MC_Prop['Coordinates'])
+    t.create_dataset('PartType5/Velocities', data=MC_Prop['Velocities'])
+    t.create_dataset('PartType5/Masses', data=MC_Prop['Masses'])
+    t.create_dataset('PartType5/PartType', data=MC_Prop['PartType'])
+    t.create_dataset('PartType5/Membership', data=MC_Prop['Membership'])
+    
+    t.create_dataset('PartType5/RotatedCoordinates', data=MC_Prop['RotatedCoordinates'])
+    t.create_dataset('PartType5/RotatedVelocities', data=MC_Prop['RotatedVelocities'])
+    
+    t.create_group('Header')
+    t['Header'].attrs.create('Time', sn.Time.value)
+    
+    t.close()
+    
     
     # Package it all together
     # output = (MC_Prop,)
