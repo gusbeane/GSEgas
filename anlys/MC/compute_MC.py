@@ -91,6 +91,12 @@ def extract_MC_info(sn0_prop, sn):
     MC_Prop['Masses']      = Masses[key]
     MC_Prop['PartType']    = PartType[key]
     MC_Prop['Membership']  = MCMembershipsn
+    MC_Prop['TracerID'] = TracerIDs
+    
+    # now reorder based on TracerID
+    key = np.argsort(TracerIDs)
+    for field in ['Coordinates', 'Velocities', 'Masses', 'PartType', 'Membership', 'TracerID']:
+        MC_Prop[field] = MC_Prop[field][key]
     
     return MC_Prop
 
@@ -138,8 +144,6 @@ def _runner(path, ic, name, COM_file, sn0_prop, snap):
     
     MC_Prop = add_rotate_pos(MC_Prop, MW_COM, MW_COMV, MW_AngMom)
     
-    MC_Prop['Time'] = sn.Time.value
-    
     t = h5.File(name+'/MC_Prop_'+str(snap).zfill(3)+'.h5', mode='w')
     
     t.create_dataset('PartType5/Coordinates', data=MC_Prop['Coordinates'])
@@ -147,6 +151,7 @@ def _runner(path, ic, name, COM_file, sn0_prop, snap):
     t.create_dataset('PartType5/Masses', data=MC_Prop['Masses'])
     t.create_dataset('PartType5/PartType', data=MC_Prop['PartType'])
     t.create_dataset('PartType5/Membership', data=MC_Prop['Membership'])
+    t.create_dataset('PartType5/TracerID', data=MC_Prop['TracerID'])
     
     t.create_dataset('PartType5/RotatedCoordinates', data=MC_Prop['RotatedCoordinates'])
     t.create_dataset('PartType5/RotatedVelocities', data=MC_Prop['RotatedVelocities'])
@@ -194,13 +199,13 @@ if __name__ == '__main__':
 
     basepath = '../../'
 
+    MW3iso_corona3 = 'MW3iso_fg0.7_MHG0.25_RC9'
     MW3_GSE2_merge0 = 'MW3_MHG0.25_GSE2_MHG0.18'
     MW3_GSE2_merge1 = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut30'
     MW3_GSE2_merge2 = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut10'
 
-    pair_list = [(MW3_GSE2_merge0, 'lvl4'), # 0
-                 (MW3_GSE2_merge1, 'lvl4'), # 1
-                 (MW3_GSE2_merge2, 'lvl4'), # 2
+    pair_list = [(MW3iso_corona3, 'lvl4'), # 0
+                 (MW3_GSE2_merge2, 'lvl4'), # 1
                  ]
 
 
