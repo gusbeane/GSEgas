@@ -70,6 +70,7 @@ def run(path, name, fout, nsnap, nproc, rng, COM_key):
         COM_file = np.load(COM_fpath, allow_pickle=True).item()
 
         COM_list = COM_file[COM_key]
+        nsnap = len(COM_list)
 
     out = Parallel(n_jobs=nproc) (delayed(_runner)(path, i, COM_list[i], rng=rng) for i in tqdm(range(nsnap)))
 
@@ -118,7 +119,12 @@ if __name__ == '__main__':
     GSE2iso_fg07 = 'GSE2iso_fg0.7'
     MW3iso_corona1 = 'MW3iso_fg0.7_MHG0.1_RC30'
     MW3iso_corona2 = 'MW3iso_fg0.7_MHG0.15_RC9'
+    MW3iso_corona3 = 'MW3iso_fg0.7_MHG0.25_RC9'
     GSE2iso_corona1 = 'GSE2iso_fg0.7_MHG0.18_RC6.5'
+    MW3_GSE2_merge0 = 'MW3_MHG0.25_GSE2_MHG0.18'
+    MW3_GSE2_merge1 = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut30'
+    MW3_GSE2_merge2 = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut10'
+    MW3iso_corona3_V06 = 'MW3iso_fg0.7_MHG0.25_RC9_V0.6'
 
     rng0 = [[-80, 80], [-80, 80]]
     rng1 = [[-5, 5], [-5, 5]]
@@ -153,8 +159,17 @@ if __name__ == '__main__':
                  (MW3iso_corona1, 'lvl3', rng2, 'BoxCenter'), # 24
                  (MW3iso_corona2, 'lvl4', rng2, 'BoxCenter'), # 25
                  (MW3iso_corona2, 'lvl3', rng2, 'BoxCenter'), # 26
-                 (GSE2iso_corona1, 'lvl4', rng1, 'BoxCenter'), # 27
-                 (GSE2iso_corona1, 'lvl3', rng1, 'BoxCenter'), # 28
+                 (MW3iso_corona3, 'lvl4', rng0, 'BoxCenter'), # 27
+                 (GSE2iso_corona1, 'lvl4', rng1, 'BoxCenter'), # 28
+                 (GSE2iso_corona1, 'lvl3', rng1, 'BoxCenter'), # 29
+                 (MW3_GSE2_merge0, 'lvl4', rng0, 'Tot_COM'), # 30
+                 (MW3_GSE2_merge0, 'lvl4', rng4, 'GSE_COM'), # 31
+                 (MW3_GSE2_merge1, 'lvl4', rng0, 'Tot_COM'), # 32
+                 (MW3_GSE2_merge2, 'lvl4', rng0, 'Tot_COM'), # 33
+                 (MW3_GSE2_merge0, 'lvl4', rng0, 'MW_COM'), # 34
+                 (MW3_GSE2_merge1, 'lvl4', rng0, 'MW_COM'), # 35
+                 (MW3_GSE2_merge2, 'lvl4', rng0, 'MW_COM'), # 36
+                 (MW3iso_corona3_V06, 'lvl4', rng0, 'BoxCenter'), # 37
                  ]
 
     rng_list     = [                        p[2] for p in pair_list]
@@ -162,7 +177,7 @@ if __name__ == '__main__':
                     for rng in rng_list]
 
     name_list = [           p[0] + '-' + p[1] for p in pair_list]
-    fout_list = [           p[0] + '-' + p[1] + '-rng_' + rng_str 
+    fout_list = [           p[0] + '-' + p[1] + '-rng_' + rng_str + '_' + p[3]
                             for p, rng_str in zip(pair_list, rng_str_list)]
     path_list = [basepath + p[0] + '/' + p[1] for p in pair_list]
     
