@@ -94,6 +94,7 @@ if __name__ == '__main__':
     fgMW05_fgGSE05 = 'fgGSE0.5_fgMW0.5'
     fgMW05_fgGSE05_COM = 'fgGSE0.5_fgMW0.5-COM'
     GSEiso = 'GSEiso_fg0.5_Z-1.2'
+    MW3_GSE2_merge0 = 'MW3_MHG0.25_GSE2_MHG0.18'
 
     pair_list = [(Nbody, 'lvl4'), # 0
                  (Nbody, 'lvl3'), # 1
@@ -101,7 +102,7 @@ if __name__ == '__main__':
                  (fgMW05_fgGSE05, 'lvl3'), # 3
                  (fgMW05_fgGSE05_COM, 'lvl4'), # 4
                  (fgMW05_fgGSE05_COM, 'lvl3'), # 5
-
+                 (MW3_GSE2_merge0, 'lvl4'), # 6
                  ]
 
 
