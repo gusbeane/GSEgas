@@ -21,6 +21,8 @@ class animate_maker(object):
         self.vmax = vmax
 
     def __call__(self, frame):
+        self.H[frame][self.H[frame] < self.vmin] = self.vmin
+
         self.im.set_data(self.H[frame].T)
         
         self.txt.set_text('t='+'{0:.2f}'.format(self.time[frame])+' Gyr')
@@ -40,7 +42,7 @@ def make_movie(H, time, nres, vmin, vmax, fout,
                    norm=mpl.colors.LogNorm(vmin=vmin, vmax=vmax))
 
     # initialize time if needed
-    txt = ax.text(0.6, 0.85, ' ', transform=ax.transAxes, fontsize=7, c='k')
+    txt = ax.text(0.6, 0.85, ' ', transform=ax.transAxes, fontsize=7, c='w')
 
     animate = animate_maker(H, time, im, txt, vmin, vmax)
 
