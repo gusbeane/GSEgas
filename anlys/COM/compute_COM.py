@@ -40,25 +40,36 @@ def _runner(path, ic, name, snap, ptypes=[2]):
                         fields=['Coordinates', 'Velocities', 'Masses', 'ParticleIDs'],
                         combineFiles=True)
     
-    IDs = pickle.load(open(ic + '/IDs.p', 'rb'))
+    if 'iso' in name:
+        in_MW = in_GSE = None
+        MW_pos = sn.part2.pos.value
+        MW_vel = sn.part2.vel.value
+        
+        MW_COM, MW_COMV = get_COM(MW_pos, MW_vel)
+        MW_AngMom = get_AngMom(MW_pos, MW_vel, sn.MassTable[2], MW_COM, MW_COMV)
+        
+        GSE_COM = GSE_COMV = GSE_AngMom = None
+        
+    else:    
+        IDs = pickle.load(open(ic + '/IDs.p', 'rb'))
 
-    # Get where each particle is
-    in_MW = np.logical_and(sn.part2.id >= IDs['MW'][2][0], sn.part2.id <= IDs['MW'][2][1])
-    in_GSE = np.logical_and(sn.part2.id >= IDs['GSE'][2][0], sn.part2.id <= IDs['GSE'][2][1])
+        # Get where each particle is
+        in_MW = np.logical_and(sn.part2.id >= IDs['MW'][2][0], sn.part2.id <= IDs['MW'][2][1])
+        in_GSE = np.logical_and(sn.part2.id >= IDs['GSE'][2][0], sn.part2.id <= IDs['GSE'][2][1])
     
-    MW_pos  = sn.part2.pos.value[in_MW]
-    MW_vel  = sn.part2.vel.value[in_MW]
-    GSE_pos = sn.part2.pos.value[in_GSE]
-    GSE_vel = sn.part2.vel.value[in_GSE]
+        MW_pos  = sn.part2.pos.value[in_MW]
+        MW_vel  = sn.part2.vel.value[in_MW]
+        GSE_pos = sn.part2.pos.value[in_GSE]
+        GSE_vel = sn.part2.vel.value[in_GSE]
     
-    MW_COM, MW_COMV = get_COM(MW_pos, MW_vel)
-    GSE_COM, GSE_COMV = get_COM(GSE_pos, GSE_vel)
+        MW_COM, MW_COMV = get_COM(MW_pos, MW_vel)
+        MW_AngMom = get_AngMom(MW_pos, MW_vel, sn.MassTable[2], MW_COM, MW_COMV)
+    
+        GSE_COM, GSE_COMV = get_COM(GSE_pos, GSE_vel)
+        GSE_AngMom = get_AngMom(GSE_pos, GSE_vel, sn.MassTable[2], GSE_COM, GSE_COMV)
     
     Tot_COM  = np.mean(sn.part2.pos.value, axis=0)
     Tot_COMV = np.mean(sn.part2.vel.value, axis=0)
-    
-    MW_AngMom = get_AngMom(MW_pos, MW_vel, sn.MassTable[2], MW_COM, MW_COMV)
-    GSE_AngMom = get_AngMom(GSE_pos, GSE_vel, sn.MassTable[2], GSE_COM, GSE_COMV)
     
     Time = sn.Time.value
 
