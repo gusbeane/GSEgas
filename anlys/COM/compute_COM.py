@@ -24,6 +24,16 @@ def get_COM(pos, vel, rmin=1, rmax=20, rfac=0.9):
     
     return COM, COMV
 
+def get_AngMom(pos, vel, mass, COM, COMV, rcut=8):
+    r = np.linalg.norm(pos-COM)
+    key = r < rcut
+    
+    ang = np.cross(pos-COM, vel-COMV)
+    ang = np.sum(ang, axis=0)
+    ang *= mass
+    
+    return ang
+
 def _runner(path, ic, name, snap, ptypes=[2]):
     sn = arepo.Snapshot(path + '/output/', snap, 
                         parttype=ptypes, 
@@ -47,10 +57,16 @@ def _runner(path, ic, name, snap, ptypes=[2]):
     Tot_COM  = np.mean(sn.part2.pos.value, axis=0)
     Tot_COMV = np.mean(sn.part2.vel.value, axis=0)
     
+    MW_AngMom = get_AngMom(MW_pos, MW_vel, sn.MassTable[2], MW_COM, MW_COMV)
+    GSE_AngMom = get_AngMom(GSE_pos, GSE_vel, sn.MassTable[2], GSE_COM, GSE_COMV)
+    
     Time = sn.Time.value
 
     # Package it all together
-    output = (Tot_COM, Tot_COMV, MW_COM, MW_COMV, GSE_COM, GSE_COMV, Time)
+    output = (Tot_COM, Tot_COMV, 
+              MW_COM, MW_COMV, MW_AngMom, 
+              GSE_COM, GSE_COMV, GSE_AngMom, 
+              Time)
     
     return output
 
@@ -58,21 +74,25 @@ def run(path, ic, name, nsnap, nproc):
 
     out = Parallel(n_jobs=nproc) (delayed(_runner)(path, ic, name, i) for i in tqdm(range(nsnap)))
 
-    Tot_COM  = np.array([out[i][0] for i in range(len(out))])
-    Tot_COMV = np.array([out[i][1] for i in range(len(out))])
-    MW_COM   = np.array([out[i][2] for i in range(len(out))])
-    MW_COMV  = np.array([out[i][3] for i in range(len(out))])
-    GSE_COM  = np.array([out[i][4] for i in range(len(out))])
-    GSE_COMV = np.array([out[i][5] for i in range(len(out))])
-    Time     = np.array([out[i][6] for i in range(len(out))])
+    Tot_COM    = np.array([out[i][0] for i in range(len(out))])
+    Tot_COMV   = np.array([out[i][1] for i in range(len(out))])
+    MW_COM     = np.array([out[i][2] for i in range(len(out))])
+    MW_COMV    = np.array([out[i][3] for i in range(len(out))])
+    MW_AngMom  = np.array([out[i][4] for i in range(len(out))])
+    GSE_COM    = np.array([out[i][5] for i in range(len(out))])
+    GSE_COMV   = np.array([out[i][6] for i in range(len(out))])
+    GSE_AngMom = np.array([out[i][7] for i in range(len(out))])
+    Time       = np.array([out[i][8] for i in range(len(out))])
 
-    out = {'Tot_COM' : Tot_COM,
-           'Tot_COMV': Tot_COMV,
-           'MW_COM'  : MW_COM,
-           'MW_COMV' : MW_COMV,
-           'GSE_COM' : GSE_COM,
-           'GSE_COMV': GSE_COMV,
-           'Time'    : Time}
+    out = {'Tot_COM'    : Tot_COM,
+           'Tot_COMV'   : Tot_COMV,
+           'MW_COM'     : MW_COM,
+           'MW_COMV'    : MW_COMV,
+           'MW_AngMom'  : MW_AngMom,
+           'GSE_COM'    : GSE_COM,
+           'GSE_COMV'   : GSE_COMV,
+           'GSE_AngMom' : GSE_AngMom,
+           'Time'       : Time}
     
     np.save('COM_'+name+'.npy', out)
 
@@ -82,15 +102,11 @@ if __name__ == '__main__':
     basepath = '../../'
 
     Nbody = 'Nbody'
-    fgMW05_fgGSE05 = 'fgGSE0.5_fgMW0.5'
-    fgMW05_fgGSE05_COM = 'fgGSE0.5_fgMW0.5-COM'
+    MW3iso_corona3 = 'MW3iso_fg0.7_MHG0.25_RC9'
+    MW3_GSE2_merge2 = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut10'
 
-    pair_list = [(Nbody, 'lvl4'), # 0
-                 (Nbody, 'lvl3'), # 1
-                 (fgMW05_fgGSE05, 'lvl4'), # 2
-                 (fgMW05_fgGSE05, 'lvl3'), # 3
-                 (fgMW05_fgGSE05_COM, 'lvl4'), # 4
-                 (fgMW05_fgGSE05_COM, 'lvl3'), # 5
+    pair_list = [(MW3iso_corona3, 'lvl4'), # 0
+                 (MW3_GSE2_merge2, 'lvl4'), # 1
                  ]
 
 
