@@ -47,12 +47,14 @@ def extract_MC_info(sn0_prop, sn):
         Coordinates = np.concatenate((sn.part0.Coordinates, sn.part4.Coordinates))
         Velocities = np.concatenate((sn.part0.Velocities, sn.part4.Velocities))
         Masses = np.concatenate((sn.part0.Masses, sn.part4.Masses))
+        GFM_Metallicity = np.concatenate((sn.part0.GFM_Metallicity, sn.part4.GFM_Metallicity))
         PartType = np.concatenate((np.full(sn.NumPart_Total[0], 0), np.full(sn.NumPart_Total[4], 4)))
     else:
         ParticleIDs = sn.part0.ParticleIDs
         Coordinates = sn.part0.Coordinates
         Velocities = sn.part0.Velocities
         Masses = sn.part0.Masses
+        GFM_Metallicity = sn.part0.GFM_Metallicity
         PartType = np.full(sn.NumPart_Total[0], 0)
     
     # Get initial membership based on metallicity
@@ -89,13 +91,15 @@ def extract_MC_info(sn0_prop, sn):
     MC_Prop['Coordinates'] = Coordinates[key]
     MC_Prop['Velocities']  = Velocities[key]
     MC_Prop['Masses']      = Masses[key]
+    MC_Prop['GFM_Metallicity'] = GFM_Metallicity[key]
     MC_Prop['PartType']    = PartType[key]
     MC_Prop['Membership']  = MCMembershipsn
     MC_Prop['TracerID'] = TracerIDs
     
     # now reorder based on TracerID
     key = np.argsort(TracerIDs)
-    for field in ['Coordinates', 'Velocities', 'Masses', 'PartType', 'Membership', 'TracerID']:
+    for field in ['Coordinates', 'Velocities', 'Masses', 'GFM_Metallicity', 
+                  'PartType', 'Membership', 'TracerID']:
         MC_Prop[field] = MC_Prop[field][key]
     
     return MC_Prop
@@ -149,6 +153,7 @@ def _runner(path, ic, name, COM_file, sn0_prop, snap):
     t.create_dataset('PartType5/Coordinates', data=MC_Prop['Coordinates'])
     t.create_dataset('PartType5/Velocities', data=MC_Prop['Velocities'])
     t.create_dataset('PartType5/Masses', data=MC_Prop['Masses'])
+    t.create_dataset('PartType5/GFM_Metallicity', data=MC_Prop['GFM_Metallicity'])
     t.create_dataset('PartType5/PartType', data=MC_Prop['PartType'])
     t.create_dataset('PartType5/Membership', data=MC_Prop['Membership'])
     t.create_dataset('PartType5/TracerID', data=MC_Prop['TracerID'])
