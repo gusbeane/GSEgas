@@ -8,6 +8,7 @@ anlys/movie/logs/
 anlys/*/logs/
 anlys/MC/*/*.h5
 anlys/COM/*.npy
+anlys/dilution/*.npy
 
 # paper/
 paper/ms.pdf
