@@ -22,7 +22,7 @@ MW3_GSE2_merge2 = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut10'
 
 lvl = 4
 
-def run(snap=800):
+def run(snap=1000):
     fname = dil_path+'dil_'+MW3_GSE2_merge2+'-lvl'+str(lvl)+'.npy'
     dil = np.load(fname, allow_pickle=True).item()
     
