@@ -32,17 +32,6 @@ def _runner(path, snap, COM, ptypes=[0, 2, 3, 4],
                         fields=['Coordinates', 'Velocities', 'Masses'],
                         combineFiles=True)
     
-    # Get pos and vel of ptypes
-    pos, vel = get_pos_vel(sn, [2, 3, 4])
-    pos_gas, vel_gas = get_pos_vel(sn, [0])
-    
-    # if 'Nbody' in name:
-    #     COM = np.array([0., 0., 0.])
-    # #elif 'iso' in name:
-    # #    COM = np.array([50., 50., 50.])
-    # else:
-    #     COM = np.array([sn.BoxSize])/2.
-
     # Compute projection
     Hxy_s, Hxz_s, Hxy_g, Hxz_g = compute_projections(sn, COM, rng=rng)
     # Hxy_s, Hxz_s, Hxy_g, Hxz_g = None, None, None, None
@@ -124,6 +113,8 @@ if __name__ == '__main__':
     MW3_GSE2_merge0 = 'MW3_MHG0.25_GSE2_MHG0.18'
     MW3_GSE2_merge1 = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut30'
     MW3_GSE2_merge2 = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut10'
+    MW3_GSE2_merge2_pro = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut10_pro'
+    MW3_GSE2_merge3 = 'MW3_MHG0.25_GSE2'
     MW3iso_corona3_V06 = 'MW3iso_fg0.7_MHG0.25_RC9_V0.6'
 
     rng0 = [[-80, 80], [-80, 80]]
@@ -166,10 +157,12 @@ if __name__ == '__main__':
                  (MW3_GSE2_merge0, 'lvl4', rng4, 'GSE_COM'), # 31
                  (MW3_GSE2_merge1, 'lvl4', rng0, 'Tot_COM'), # 32
                  (MW3_GSE2_merge2, 'lvl4', rng0, 'Tot_COM'), # 33
-                 (MW3_GSE2_merge0, 'lvl4', rng0, 'MW_COM'), # 34
-                 (MW3_GSE2_merge1, 'lvl4', rng0, 'MW_COM'), # 35
-                 (MW3_GSE2_merge2, 'lvl4', rng0, 'MW_COM'), # 36
-                 (MW3iso_corona3_V06, 'lvl4', rng0, 'BoxCenter'), # 37
+                 (MW3_GSE2_merge2_pro, 'lvl4', rng0, 'Tot_COM'), # 34
+                 (MW3_GSE2_merge0, 'lvl4', rng0, 'MW_COM'), # 35
+                 (MW3_GSE2_merge1, 'lvl4', rng0, 'MW_COM'), # 36
+                 (MW3_GSE2_merge2, 'lvl4', rng0, 'MW_COM'), # 37
+                 (MW3_GSE2_merge3, 'lvl4', rng0, 'Tot_COM'), # 38
+                 (MW3iso_corona3_V06, 'lvl4', rng0, 'BoxCenter'), # 39
                  ]
 
     rng_list     = [                        p[2] for p in pair_list]
