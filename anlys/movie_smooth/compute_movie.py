@@ -115,6 +115,7 @@ if __name__ == '__main__':
     MW3_GSE2_merge2 = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut10'
     MW3_GSE2_merge2_pro = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut10_pro'
     MW3_GSE2_merge3 = 'MW3_MHG0.25_GSE2'
+    MW3_GSE2_merge4 = 'MW3_MHG0.35_GSE2'
     MW3iso_corona3_V06 = 'MW3iso_fg0.7_MHG0.25_RC9_V0.6'
 
     rng0 = [[-80, 80], [-80, 80]]
@@ -162,7 +163,8 @@ if __name__ == '__main__':
                  (MW3_GSE2_merge1, 'lvl4', rng0, 'MW_COM'), # 36
                  (MW3_GSE2_merge2, 'lvl4', rng0, 'MW_COM'), # 37
                  (MW3_GSE2_merge3, 'lvl4', rng0, 'Tot_COM'), # 38
-                 (MW3iso_corona3_V06, 'lvl4', rng0, 'BoxCenter'), # 39
+                 (MW3_GSE2_merge4, 'lvl4', rng0, 'Tot_COM'), # 39
+                 (MW3iso_corona3_V06, 'lvl4', rng0, 'BoxCenter'), # 40
                  ]
 
     rng_list     = [                        p[2] for p in pair_list]
