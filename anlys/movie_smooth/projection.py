@@ -31,10 +31,7 @@ def _compute_gas_projection(pos, rho, BoxSize, COM, rng, nres):
     
     return dat_xy, dat_xz
 
-def compute_projections(sn, COM, rng=[[-15, 15], [-15, 15]]):
-    # rng = [[-15, 15], [-15, 15]]
-    nres = 256
-
+def compute_projections(sn, COM, nres=256, rng=[[-15, 15], [-15, 15]]):
     dx = (rng[0][1]-rng[0][0]) / nres
     dy = (rng[1][1]-rng[1][0]) / nres
     surf_area = dx * dy

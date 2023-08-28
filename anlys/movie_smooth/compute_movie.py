@@ -25,7 +25,7 @@ def get_pos_vel(sn, ptypes):
     vel = np.concatenate(vel)
     return pos, vel
 
-def _runner(path, snap, COM, ptypes=[0, 2, 3, 4], 
+def _runner(path, snap, COM, nres, ptypes=[0, 2, 3, 4], 
             rng=[[-15, 15], [-15, 15]]):
     sn = arepo.Snapshot(path + '/output/', snap, 
                         parttype=ptypes, 
@@ -33,7 +33,7 @@ def _runner(path, snap, COM, ptypes=[0, 2, 3, 4],
                         combineFiles=True)
     
     # Compute projection
-    Hxy_s, Hxz_s, Hxy_g, Hxz_g = compute_projections(sn, COM, rng=rng)
+    Hxy_s, Hxz_s, Hxy_g, Hxz_g = compute_projections(sn, COM, nres, rng=rng)
     # Hxy_s, Hxz_s, Hxy_g, Hxz_g = None, None, None, None
 
     # Grab time
@@ -44,7 +44,7 @@ def _runner(path, snap, COM, ptypes=[0, 2, 3, 4],
     
     return output
 
-def run(path, name, fout, nsnap, nproc, rng, COM_key):
+def run(path, name, fout, nres, nsnap, nproc, rng, COM_key):
 
     if COM_key == 'BoxCenter':
         sn = arepo.Snapshot(path + '/output/', 0, 
@@ -61,7 +61,7 @@ def run(path, name, fout, nsnap, nproc, rng, COM_key):
         COM_list = COM_file[COM_key]
         nsnap = len(COM_list)
 
-    out = Parallel(n_jobs=nproc) (delayed(_runner)(path, i, COM_list[i], rng=rng) for i in tqdm(range(nsnap)))
+    out = Parallel(n_jobs=nproc) (delayed(_runner)(path, i, COM_list[i], nres, rng=rng) for i in tqdm(range(nsnap)))
 
     COM = np.array([out[i][0] for i in range(len(out))])
     Hxy_s = np.array([out[i][1] for i in range(len(out))])
@@ -109,6 +109,7 @@ if __name__ == '__main__':
     MW3iso_corona1 = 'MW3iso_fg0.7_MHG0.1_RC30'
     MW3iso_corona2 = 'MW3iso_fg0.7_MHG0.15_RC9'
     MW3iso_corona3 = 'MW3iso_fg0.7_MHG0.25_RC9'
+    MW3iso_corona4 = 'MW3iso_fg0.7_MHG0.35_RC9'
     GSE2iso_corona1 = 'GSE2iso_fg0.7_MHG0.18_RC6.5'
     MW3_GSE2_merge0 = 'MW3_MHG0.25_GSE2_MHG0.18'
     MW3_GSE2_merge1 = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut30'
@@ -164,15 +165,19 @@ if __name__ == '__main__':
                  (MW3_GSE2_merge2, 'lvl4', rng0, 'MW_COM'), # 37
                  (MW3_GSE2_merge3, 'lvl4', rng0, 'Tot_COM'), # 38
                  (MW3_GSE2_merge4, 'lvl4', rng0, 'Tot_COM'), # 39
-                 (MW3iso_corona3_V06, 'lvl4', rng0, 'BoxCenter'), # 40
+                 (MW3iso_corona4, 'lvl4', rng0, 'BoxCenter'), # 40
+                 (MW3iso_corona3_V06, 'lvl4', rng0, 'BoxCenter'), # 41
                  ]
 
     rng_list     = [                        p[2] for p in pair_list]
     rng_str_list = [str(rng).replace('[','').replace(']','').replace(', ','_') 
                     for rng in rng_list]
 
+    nres = int(sys.argv[3])
+    
     name_list = [           p[0] + '-' + p[1] for p in pair_list]
     fout_list = [           p[0] + '-' + p[1] + '-rng_' + rng_str + '_' + p[3]
+                            + '_nres' + str(nres)
                             for p, rng_str in zip(pair_list, rng_str_list)]
     path_list = [basepath + p[0] + '/' + p[1] for p in pair_list]
     
@@ -189,4 +194,4 @@ if __name__ == '__main__':
     rng = rng_list[i]
     COM_key = COM_key_list[i]
 
-    out = run(path, name, fout, nsnap, nproc, rng, COM_key)
+    out = run(path, name, fout, nres, nsnap, nproc, rng, COM_key)
