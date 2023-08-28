@@ -1,7 +1,8 @@
 #!/bin/sh
-#SBATCH -p itc_cluster,shared,conroy,hernquist,hernquist_ice
+##SBATCH -p itc_cluster,shared,conroy,hernquist,hernquist_ice
+#SBATCH -p hernquist_ice
 #SBATCH -J movie 
-#SBATCH -n 48
+#SBATCH -n 64
 #SBATCH -N 1
 #SBATCH -o logs/OUTPUT_frames.%j.out
 #SBATCH -e logs/ERROR_frames.%j.err
@@ -9,12 +10,12 @@
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
 #SBATCH --mail-type=FAIL
-#SBATCH --mem=120G
-#SBATCH -t 0-06:00           # Runtime in D-HH:MM
+#SBATCH --mem=490G
+#SBATCH -t 1-00:00           # Runtime in D-HH:MM
 
 source ../../load-modules.sh
 
 ulimit -c unlimited
 
-python3 compute_movie.py ${SLURM_NTASKS} $1
+python3 compute_movie.py ${SLURM_NTASKS} $1 $2
 
