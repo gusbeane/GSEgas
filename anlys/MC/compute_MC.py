@@ -208,9 +208,11 @@ if __name__ == '__main__':
     MW3_GSE2_merge0 = 'MW3_MHG0.25_GSE2_MHG0.18'
     MW3_GSE2_merge1 = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut30'
     MW3_GSE2_merge2 = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut10'
+    MW3_GSE2_merge3 = 'MW3_MHG0.25_GSE2'
 
     pair_list = [(MW3iso_corona3, 'lvl4'), # 0
                  (MW3_GSE2_merge2, 'lvl4'), # 1
+                 (MW3_GSE2_merge3, 'lvl4'), # 2
                  ]
 
 

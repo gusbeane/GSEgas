@@ -9,7 +9,7 @@
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
 #SBATCH --mail-type=FAIL
-#SBATCH --mem=185G
+#SBATCH --mem=145G
 #SBATCH -t 0-06:00           # Runtime in D-HH:MM
 
 source ../../load-modules.sh
