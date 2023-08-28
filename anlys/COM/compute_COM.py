@@ -114,6 +114,7 @@ if __name__ == '__main__':
 
     Nbody = 'Nbody'
     MW3iso_corona3 = 'MW3iso_fg0.7_MHG0.25_RC9'
+    MW3iso_corona4 = 'MW3iso_fg0.7_MHG0.35_RC9'
     MW3_GSE2_merge2 = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut10'
     MW3_GSE2_merge2_pro = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut10_pro'
     MW3_GSE2_merge3 = 'MW3_MHG0.25_GSE2'
@@ -124,6 +125,7 @@ if __name__ == '__main__':
                  (MW3_GSE2_merge2_pro, 'lvl4'), # 2
                  (MW3_GSE2_merge3, 'lvl4'), # 3
                  (MW3_GSE2_merge4, 'lvl4'), # 4
+                 (MW3iso_corona4, 'lvl4'), # 5
                  ]
 
 
