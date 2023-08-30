@@ -46,14 +46,12 @@ def extract_MC_info(sn0_prop, sn):
         ParticleIDs = np.concatenate((sn.part0.ParticleIDs, sn.part4.ParticleIDs))
         Coordinates = np.concatenate((sn.part0.Coordinates, sn.part4.Coordinates))
         Velocities = np.concatenate((sn.part0.Velocities, sn.part4.Velocities))
-        Masses = np.concatenate((sn.part0.Masses, sn.part4.Masses))
         GFM_Metallicity = np.concatenate((sn.part0.GFM_Metallicity, sn.part4.GFM_Metallicity))
         PartType = np.concatenate((np.full(sn.NumPart_Total[0], 0), np.full(sn.NumPart_Total[4], 4)))
     else:
         ParticleIDs = sn.part0.ParticleIDs
         Coordinates = sn.part0.Coordinates
         Velocities = sn.part0.Velocities
-        Masses = sn.part0.Masses
         GFM_Metallicity = sn.part0.GFM_Metallicity
         PartType = np.full(sn.NumPart_Total[0], 0)
     
@@ -90,7 +88,6 @@ def extract_MC_info(sn0_prop, sn):
     MC_Prop = {}
     MC_Prop['Coordinates'] = Coordinates[key]
     MC_Prop['Velocities']  = Velocities[key]
-    MC_Prop['Masses']      = Masses[key]
     MC_Prop['GFM_Metallicity'] = GFM_Metallicity[key]
     MC_Prop['PartType']    = PartType[key]
     MC_Prop['Membership']  = MCMembershipsn
@@ -98,7 +95,7 @@ def extract_MC_info(sn0_prop, sn):
     
     # now reorder based on TracerID
     key = np.argsort(TracerIDs)
-    for field in ['Coordinates', 'Velocities', 'Masses', 'GFM_Metallicity', 
+    for field in ['Coordinates', 'Velocities', 'GFM_Metallicity', 
                   'PartType', 'Membership', 'TracerID']:
         MC_Prop[field] = MC_Prop[field][key]
     
@@ -152,7 +149,6 @@ def _runner(path, ic, name, COM_file, sn0_prop, snap):
     
     t.create_dataset('PartType5/Coordinates', data=MC_Prop['Coordinates'])
     t.create_dataset('PartType5/Velocities', data=MC_Prop['Velocities'])
-    t.create_dataset('PartType5/Masses', data=MC_Prop['Masses'])
     t.create_dataset('PartType5/GFM_Metallicity', data=MC_Prop['GFM_Metallicity'])
     t.create_dataset('PartType5/PartType', data=MC_Prop['PartType'])
     t.create_dataset('PartType5/Membership', data=MC_Prop['Membership'])
@@ -163,6 +159,7 @@ def _runner(path, ic, name, COM_file, sn0_prop, snap):
     
     t.create_group('Header')
     t['Header'].attrs.create('Time', sn.Time.value)
+    t['Header'].attrs.create('TracerMass', sn0_prop['TracerMass'])
     
     t.close()
     
@@ -182,6 +179,9 @@ def get_sn0_prop(path):
     sn0_prop['part5.ParentID'] = sn0.part5.ParentID
     sn0_prop['part0.ParticleIDs'] = sn0.part0.ParticleIDs
     sn0_prop['part5.TracerID'] = sn0.part5.TracerID
+    
+    TotGasMass = np.sum(sn0.part0.mass.value)
+    sn0_prop['TracerMass'] = TotGasMass / sn0.NumPart_Total[5]
     
     return sn0_prop
     
