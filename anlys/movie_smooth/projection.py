@@ -1,6 +1,7 @@
 import numpy as np
 from numba import njit
 from vortrace import vortrace as vt
+import logging
 
 def get_pos_mass(sn, ptypes):
     pos = []
@@ -26,7 +27,10 @@ def _compute_gas_projection(pos, rho, BoxSize, COM, rng, nres):
 
     bounds = [0., BoxSize]
 
+    logging.debug('right before pc.projection')
     dat_xy = pc.projection(extent_xy, nres, bounds, COM, proj='xy')
+    logging.debug('right after pc.projection')
+
     dat_xz = pc.projection(extent_xz, nres, bounds, COM, proj='xz')
     
     return dat_xy, dat_xz
@@ -48,7 +52,7 @@ def compute_projections(sn, COM, nres=256, rng=[[-15, 15], [-15, 15]]):
 
     # Now do gas
     if sn.NumPart_Total[0] > 0:
-        print(dir(sn.part0))
+        # print(dir(sn.part0))
         pos = sn.part0.pos.value
         rho = sn.part0.Density.value
         BoxSize = sn.BoxSize
