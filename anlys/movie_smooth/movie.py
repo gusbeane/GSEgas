@@ -21,7 +21,9 @@ class animate_maker(object):
         self.vmax = vmax
 
     def __call__(self, frame):
-        self.H[frame][self.H[frame] < self.vmin] = self.vmin
+        H_ = np.copy(self.H[frame])
+        H_[H_ < self.vmin] = self.vmin
+        #self.H[frame][self.H[frame] < self.vmin] = self.vmin
 
         self.im.set_data(self.H[frame].T)
         
