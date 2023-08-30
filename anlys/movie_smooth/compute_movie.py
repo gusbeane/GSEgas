@@ -121,19 +121,18 @@ def run(snap, path, name, fout, nres, nsnap, rng, COM_key):
         print(Time)
         
         # Make movies
-        make_movie(Hxy_s, Time, Hxy_s.shape[1], 1E-3, 1E0, 'movies/'+fout+'_star_xy.mp4')
-        make_movie(Hxz_s, Time, Hxz_s.shape[1], 1E-3, 1E0, 'movies/'+fout+'_star_xz.mp4')
-        make_movie(Hxy_g, Time, Hxy_g.shape[1], 1E-4, 1E-1, 'movies/'+fout+'_gas_xy.mp4')
-        make_movie(Hxz_g, Time, Hxz_g.shape[1], 1E-4, 1E-1, 'movies/'+fout+'_gas_xz.mp4')
+        H_list = [Hxy_s, Hxz_s, Hxy_g, Hxz_g]
+        vmin_list = [1E-3, 1E-3, 1E-4, 1E-4]
+        vmax_list = [1E0, 1E0, 1E-1, 1E-1]
+        fname_list = ['movies/'+fout+'_star_xy.mp4',
+                      'movies/'+fout+'_star_xz.mp4',
+                      'movies/'+fout+'_gas_xy.mp4',
+                      'movies/'+fout+'_gas_xz.mp4',
+                      ]
 
-    # Output movie stuff
-    # f = h5.File('proj-'+name+'.h5', 'w')
-    # f.create_dataset("Hxy_s", data=Hxy_s)
-    # f.create_dataset("Hxz_s", data=Hxz_s)
-    # f.create_dataset("Hxy_g", data=Hxy_g)
-    # f.create_dataset("Hxz_g", data=Hxz_g)
-    # f.close()
-
+        _ = Parallel(n_jobs=4) (delayed(make_movie)(H, Time, H.shape[1], vmin, vmax, fname) 
+                                for H, vmin, vmax, fname in zip(H_list, vmin_list, vmax_list, fname_list))
+        
 if __name__ == '__main__':
     basepath = '../../runs/'
     
@@ -141,6 +140,7 @@ if __name__ == '__main__':
     Nbody = 'Nbody'
     MW3iso_fg05 = 'MW3iso_fg0.5'
     GSE2iso_fg07 = 'GSE2iso_fg0.7'
+    GSE3iso_fg07 = 'GSE3iso_fg0.7'
     MW3iso_corona1 = 'MW3iso_fg0.7_MHG0.1_RC30'
     MW3iso_corona2 = 'MW3iso_fg0.7_MHG0.15_RC9'
     MW3iso_corona3 = 'MW3iso_fg0.7_MHG0.25_RC9'
@@ -163,26 +163,28 @@ if __name__ == '__main__':
                  (MW3iso_fg05, 'lvl2', rng2, 'BoxCenter'), # 1
                  (MW3iso_fg05, 'lvl2-limiter', rng2, 'BoxCenter'), # 2
                  (MW3iso_fg05, 'lvl2-limiter2', rng2, 'BoxCenter'), # 3
-                 (GSE2iso_fg07, 'lvl3', rng1, 'BoxCenter'), # 4
-                 (MW3iso_corona1, 'lvl4', rng2, 'BoxCenter'), # 5
-                 (MW3iso_corona1, 'lvl3', rng2, 'BoxCenter'), # 6
-                 (MW3iso_corona2, 'lvl4', rng2, 'BoxCenter'), # 7
-                 (MW3iso_corona2, 'lvl3', rng2, 'BoxCenter'), # 8
-                 (MW3iso_corona3, 'lvl4', rng0, 'BoxCenter'), # 9
-                 (MW3iso_corona4, 'lvl4', rng0, 'BoxCenter'), # 10
-                 (GSE2iso_corona1, 'lvl4', rng1, 'BoxCenter'), # 11
-                 (GSE2iso_corona1, 'lvl3', rng1, 'BoxCenter'), # 12
-                 (MW3_GSE2_merge0, 'lvl4', rng0, 'Tot_COM'), # 13
-                 (MW3_GSE2_merge0, 'lvl4', rng4, 'GSE_COM'), # 14
-                 (MW3_GSE2_merge1, 'lvl4', rng0, 'Tot_COM'), # 15
-                 (MW3_GSE2_merge2, 'lvl4', rng0, 'Tot_COM'), # 16
-                 (MW3_GSE2_merge2_pro, 'lvl4', rng0, 'Tot_COM'), # 17
-                 (MW3_GSE2_merge0, 'lvl4', rng0, 'MW_COM'), # 18
-                 (MW3_GSE2_merge1, 'lvl4', rng0, 'MW_COM'), # 19
-                 (MW3_GSE2_merge2, 'lvl4', rng0, 'MW_COM'), # 20
-                 (MW3_GSE2_merge3, 'lvl4', rng0, 'Tot_COM'), # 21
-                 (MW3_GSE2_merge4, 'lvl4', rng0, 'Tot_COM'), # 22
-                 (MW3iso_corona4, 'lvl4', rng0, 'BoxCenter'), # 23
+                 (GSE2iso_fg07, 'lvl4', rng1, 'BoxCenter'), # 4
+                 (GSE2iso_fg07, 'lvl3', rng1, 'BoxCenter'), # 5
+                 (MW3iso_corona1, 'lvl4', rng2, 'BoxCenter'), # 6
+                 (MW3iso_corona1, 'lvl3', rng2, 'BoxCenter'), # 7
+                 (MW3iso_corona2, 'lvl4', rng2, 'BoxCenter'), # 8
+                 (MW3iso_corona2, 'lvl3', rng2, 'BoxCenter'), # 9
+                 (MW3iso_corona3, 'lvl4', rng0, 'BoxCenter'), # 10
+                 (MW3iso_corona4, 'lvl4', rng0, 'BoxCenter'), # 11
+                 (GSE2iso_corona1, 'lvl4', rng1, 'BoxCenter'), # 12
+                 (GSE2iso_corona1, 'lvl3', rng1, 'BoxCenter'), # 13
+                 (MW3_GSE2_merge0, 'lvl4', rng0, 'Tot_COM'), # 14
+                 (MW3_GSE2_merge0, 'lvl4', rng4, 'GSE_COM'), # 15
+                 (MW3_GSE2_merge1, 'lvl4', rng0, 'Tot_COM'), # 16
+                 (MW3_GSE2_merge2, 'lvl4', rng0, 'Tot_COM'), # 17
+                 (MW3_GSE2_merge2_pro, 'lvl4', rng0, 'Tot_COM'), # 18
+                 (MW3_GSE2_merge0, 'lvl4', rng0, 'MW_COM'), # 19
+                 (MW3_GSE2_merge1, 'lvl4', rng0, 'MW_COM'), # 20
+                 (MW3_GSE2_merge2, 'lvl4', rng0, 'MW_COM'), # 21
+                 (MW3_GSE2_merge3, 'lvl4', rng0, 'Tot_COM'), # 22
+                 (MW3_GSE2_merge4, 'lvl4', rng0, 'Tot_COM'), # 23
+                 (MW3iso_corona4, 'lvl4', rng0, 'BoxCenter'), # 24
+                 (GSE3iso_fg07, 'lvl4', rng1, 'BoxCenter'), # 25
                  ]
 
     i = int(sys.argv[1])
