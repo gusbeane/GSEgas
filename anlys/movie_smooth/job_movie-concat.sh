@@ -2,7 +2,7 @@
 ##SBATCH -p itc_cluster,shared,conroy,hernquist,hernquist_ice
 #SBATCH -p hernquist_ice
 #SBATCH -J movie 
-#SBATCH -n 64
+#SBATCH -n 1
 #SBATCH -N 1
 #SBATCH -o logs/OUTPUT_frames.%j.out
 #SBATCH -e logs/ERROR_frames.%j.err
@@ -17,5 +17,5 @@ source ../../load-modules.sh
 
 ulimit -c unlimited
 
-python3 compute_movie.py ${SLURM_NTASKS} $1 $2
+python3 compute_movie.py $1 $2 -1
 

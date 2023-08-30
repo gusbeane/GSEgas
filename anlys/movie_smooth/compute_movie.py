@@ -9,6 +9,7 @@ from projection import compute_projections
 import h5py as h5
 from numba import njit
 from movie import make_movie
+import logging
 
 from joblib import Parallel, delayed
 
@@ -44,8 +45,13 @@ def _runner(path, snap, COM, nres, ptypes=[0, 2, 3, 4],
     
     return output
 
-def run(path, name, fout, nres, nsnap, nproc, rng, COM_key):
+def run(snap, path, name, fout, nres, nsnap, rng, COM_key):
 
+    try:
+        os.makedirs('frames/'+fout)
+    except FileExistsError:
+        pass
+    
     if COM_key == 'BoxCenter':
         sn = arepo.Snapshot(path + '/output/', 0, 
                         parttype=0, 
@@ -60,27 +66,65 @@ def run(path, name, fout, nres, nsnap, nproc, rng, COM_key):
 
         COM_list = COM_file[COM_key]
         nsnap = len(COM_list)
+    
+    # Make sure that the snap exists
+    if snap >= nsnap:
+        return -1
 
-    out = Parallel(n_jobs=nproc) (delayed(_runner)(path, i, COM_list[i], nres, rng=rng) for i in tqdm(range(nsnap)))
+    if snap >= 0:
+    
+        logging.debug('before _runner')
+        out = _runner(path, snap, COM_list[snap], nres, rng=rng)
 
-    COM = np.array([out[i][0] for i in range(len(out))])
-    Hxy_s = np.array([out[i][1] for i in range(len(out))])
-    Hxz_s = np.array([out[i][2] for i in range(len(out))])
-    Hxy_g = np.array([out[i][3] for i in range(len(out))])
-    Hxz_g = np.array([out[i][4] for i in range(len(out))])
-    time = np.array([out[i][5] for i in range(len(out))])
+        COM = out[0]
+        Hxy_s = out[1]
+        Hxz_s = out[2]
+        Hxy_g = out[3]
+        Hxz_g = out[4]
+        time = out[5]
+        
+        f = h5.File('frames/'+fout+'/frame'+str(snap).zfill(3)+'.h5', mode='w')
+        
+        f.create_dataset('COM', data=COM)
+        f.create_dataset('Hxy_s', data=Hxy_s)
+        f.create_dataset('Hxz_s', data=Hxz_s)
+        f.create_dataset('Hxy_g', data=Hxy_g)
+        f.create_dataset('Hxz_g', data=Hxz_g)
+        f.create_dataset('Time', data=time)
 
-    # Output non-movie stuff
-    output = {'COM': COM,
-              'time': time}
-
-    # pickle.dump(output, open(fout+'.pickle', 'wb'))
-
-    # Make movies
-    make_movie(Hxy_s, time, Hxy_s.shape[1], 1E-3, 1E0, 'movies/'+fout+'_star_xy.mp4')
-    make_movie(Hxz_s, time, Hxz_s.shape[1], 1E-3, 1E0, 'movies/'+fout+'_star_xz.mp4')
-    make_movie(Hxy_g, time, Hxy_g.shape[1], 1E-4, 1E-1, 'movies/'+fout+'_gas_xy.mp4')
-    make_movie(Hxz_g, time, Hxz_g.shape[1], 1E-4, 1E-1, 'movies/'+fout+'_gas_xz.mp4')
+    elif snap == -1:
+        nsnap = len(glob.glob('frames/'+fout+'/frame*.h5'))
+        Hxy_s = []
+        Hxz_s = []
+        Hxy_g = []
+        Hxz_g = []
+        Time = []
+        
+        for i in range(nsnap):
+            f = h5.File('frames/'+fout+'/frame'+str(i).zfill(3)+'.h5', mode='r')
+            
+            Hxy_s.append(f['Hxy_s'][:])
+            Hxz_s.append(f['Hxz_s'][:])
+            Hxy_g.append(f['Hxy_g'][:])
+            Hxz_g.append(f['Hxz_g'][:])
+            
+            Time.append(f['Time'][()])
+        
+            f.close()
+        
+        Hxy_s = np.array(Hxy_s)
+        Hxz_s = np.array(Hxz_s)
+        Hxy_g = np.array(Hxy_g)
+        Hxz_g = np.array(Hxz_g)
+        
+        print(Hxy_s.shape)
+        print(Time)
+        
+        # Make movies
+        make_movie(Hxy_s, Time, Hxy_s.shape[1], 1E-3, 1E0, 'movies/'+fout+'_star_xy.mp4')
+        make_movie(Hxz_s, Time, Hxz_s.shape[1], 1E-3, 1E0, 'movies/'+fout+'_star_xz.mp4')
+        make_movie(Hxy_g, Time, Hxy_g.shape[1], 1E-4, 1E-1, 'movies/'+fout+'_gas_xy.mp4')
+        make_movie(Hxz_g, Time, Hxz_g.shape[1], 1E-4, 1E-1, 'movies/'+fout+'_gas_xz.mp4')
 
     # Output movie stuff
     # f = h5.File('proj-'+name+'.h5', 'w')
@@ -91,8 +135,6 @@ def run(path, name, fout, nres, nsnap, nproc, rng, COM_key):
     # f.close()
 
 if __name__ == '__main__':
-    nproc = int(sys.argv[1])
-
     basepath = '../../runs/'
     
 
@@ -127,26 +169,29 @@ if __name__ == '__main__':
                  (MW3iso_corona2, 'lvl4', rng2, 'BoxCenter'), # 7
                  (MW3iso_corona2, 'lvl3', rng2, 'BoxCenter'), # 8
                  (MW3iso_corona3, 'lvl4', rng0, 'BoxCenter'), # 9
-                 (GSE2iso_corona1, 'lvl4', rng1, 'BoxCenter'), # 10
-                 (GSE2iso_corona1, 'lvl3', rng1, 'BoxCenter'), # 11
-                 (MW3_GSE2_merge0, 'lvl4', rng0, 'Tot_COM'), # 12
-                 (MW3_GSE2_merge0, 'lvl4', rng4, 'GSE_COM'), # 13
-                 (MW3_GSE2_merge1, 'lvl4', rng0, 'Tot_COM'), # 14
-                 (MW3_GSE2_merge2, 'lvl4', rng0, 'Tot_COM'), # 15
-                 (MW3_GSE2_merge2_pro, 'lvl4', rng0, 'Tot_COM'), # 16
-                 (MW3_GSE2_merge0, 'lvl4', rng0, 'MW_COM'), # 17
-                 (MW3_GSE2_merge1, 'lvl4', rng0, 'MW_COM'), # 18
-                 (MW3_GSE2_merge2, 'lvl4', rng0, 'MW_COM'), # 19
-                 (MW3_GSE2_merge3, 'lvl4', rng0, 'Tot_COM'), # 20
-                 (MW3_GSE2_merge4, 'lvl4', rng0, 'Tot_COM'), # 21
-                 (MW3iso_corona4, 'lvl4', rng0, 'BoxCenter'), # 22
+                 (MW3iso_corona4, 'lvl4', rng0, 'BoxCenter'), # 10
+                 (GSE2iso_corona1, 'lvl4', rng1, 'BoxCenter'), # 11
+                 (GSE2iso_corona1, 'lvl3', rng1, 'BoxCenter'), # 12
+                 (MW3_GSE2_merge0, 'lvl4', rng0, 'Tot_COM'), # 13
+                 (MW3_GSE2_merge0, 'lvl4', rng4, 'GSE_COM'), # 14
+                 (MW3_GSE2_merge1, 'lvl4', rng0, 'Tot_COM'), # 15
+                 (MW3_GSE2_merge2, 'lvl4', rng0, 'Tot_COM'), # 16
+                 (MW3_GSE2_merge2_pro, 'lvl4', rng0, 'Tot_COM'), # 17
+                 (MW3_GSE2_merge0, 'lvl4', rng0, 'MW_COM'), # 18
+                 (MW3_GSE2_merge1, 'lvl4', rng0, 'MW_COM'), # 19
+                 (MW3_GSE2_merge2, 'lvl4', rng0, 'MW_COM'), # 20
+                 (MW3_GSE2_merge3, 'lvl4', rng0, 'Tot_COM'), # 21
+                 (MW3_GSE2_merge4, 'lvl4', rng0, 'Tot_COM'), # 22
+                 (MW3iso_corona4, 'lvl4', rng0, 'BoxCenter'), # 23
                  ]
 
+    i = int(sys.argv[1])
+    nres = int(sys.argv[2])
+    snap = int(sys.argv[3])
+    
     rng_list     = [                        p[2] for p in pair_list]
     rng_str_list = [str(rng).replace('[','').replace(']','').replace(', ','_') 
                     for rng in rng_list]
-
-    nres = int(sys.argv[3])
     
     name_list = [           p[0] + '-' + p[1] for p in pair_list]
     fout_list = [           p[0] + '-' + p[1] + '-rng_' + rng_str + '_' + p[3]
@@ -159,12 +204,11 @@ if __name__ == '__main__':
     nsnap_list = [len(glob.glob(path+'/output/snapdir*/*.0.hdf5')) for path in path_list]
 
   
-    i = int(sys.argv[2])
     path = path_list[i]
     name = name_list[i]
     fout = fout_list[i]
     nsnap = nsnap_list[i]
     rng = rng_list[i]
     COM_key = COM_key_list[i]
-
-    out = run(path, name, fout, nres, nsnap, nproc, rng, COM_key)
+    
+    out = run(snap, path, name, fout, nres, nsnap, rng, COM_key)
