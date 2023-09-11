@@ -12,7 +12,7 @@
 #SBATCH --mail-type=END
 #SBATCH --mail-type=FAIL
 #SBATCH --mem=1G
-#SBATCH -t 1-00:00           # Runtime in D-HH:MM
+#SBATCH -t 0-01:00           # Runtime in D-HH:MM
 
 source ../../load-modules.sh
 
