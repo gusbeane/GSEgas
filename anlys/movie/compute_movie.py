@@ -141,6 +141,8 @@ if __name__ == '__main__':
     MW3iso_fg05 = 'MW3iso_fg0.5'
     GSE2iso_fg07 = 'GSE2iso_fg0.7'
     GSE3iso_fg07 = 'GSE3iso_fg0.7'
+    GSE4iso_fg07 = 'GSE4iso_fg0.7'
+    GSE5iso_fg07 = 'GSE5iso_fg0.7'
     MW3iso_corona1 = 'MW3iso_fg0.7_MHG0.1_RC30'
     MW3iso_corona2 = 'MW3iso_fg0.7_MHG0.15_RC9'
     MW3iso_corona3 = 'MW3iso_fg0.7_MHG0.25_RC9'
@@ -152,6 +154,11 @@ if __name__ == '__main__':
     MW3_GSE2_merge2_pro = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut10_pro'
     MW3_GSE2_merge3 = 'MW3_MHG0.25_GSE2'
     MW3_GSE2_merge4 = 'MW3_MHG0.35_GSE2'
+    MW3_GSE2_merge5 = 'MW3_MHG0.35_GSE2_Vvir110'
+    MW3_GSE2_merge6 = 'MW3_MHG0.35_GSE2_e0.25'
+    MW3_GSE5_merge0 = 'MW3_MHG0.25_GSE5'
+    MW3_GSE3_merge0 = 'MW3_MHG0.35_GSE3'
+    Seq1iso_fg07 = 'Seq1iso_fg0.7'
 
     rng0 = [[-80, 80], [-80, 80]]
     rng1 = [[-5, 5], [-5, 5]]
@@ -183,8 +190,17 @@ if __name__ == '__main__':
                  (MW3_GSE2_merge2, 'lvl4', rng0, 'MW_COM'), # 21
                  (MW3_GSE2_merge3, 'lvl4', rng0, 'Tot_COM'), # 22
                  (MW3_GSE2_merge4, 'lvl4', rng0, 'Tot_COM'), # 23
-                 (MW3iso_corona4, 'lvl4', rng0, 'BoxCenter'), # 24
-                 (GSE3iso_fg07, 'lvl4', rng1, 'BoxCenter'), # 25
+                 (MW3_GSE2_merge5, 'lvl4', rng0, 'Tot_COM'), # 24
+                 (MW3_GSE2_merge6, 'lvl4', rng0, 'Tot_COM'), # 25
+                 (MW3_GSE3_merge0, 'lvl4', rng0, 'Tot_COM'), # 26
+                 (MW3iso_corona4, 'lvl4', rng0, 'BoxCenter'), # 27
+                 (GSE3iso_fg07, 'lvl4', rng1, 'BoxCenter'), # 28
+                 (GSE2iso_fg07, 'lvl4', rng4, 'BoxCenter'), # 29
+                 (GSE4iso_fg07, 'lvl4', rng4, 'BoxCenter'), # 30
+                 (GSE5iso_fg07, 'lvl4', rng4, 'BoxCenter'), # 31
+                 (GSE2iso_fg07, 'lvl4-fSN', rng4, 'BoxCenter'), # 32
+                 (MW3_GSE5_merge0, 'lvl4', rng0, 'Tot_COM'), # 33
+                 (Seq1iso_fg07, 'lvl4', rng1, 'Boxcenter'), # 34
                  ]
 
     i = int(sys.argv[1])
