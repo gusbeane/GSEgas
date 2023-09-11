@@ -1,5 +1,6 @@
 #!/bin/sh
-#SBATCH -p itc_cluster,shared,conroy,hernquist,hernquist_ice
+###SBATCH -p itc_cluster,shared,conroy,hernquist,hernquist_ice
+#SBATCH -p itc_cluster,shared,conroy,hernquist
 #SBATCH -J MC 
 #SBATCH -n 48
 #SBATCH -N 1
