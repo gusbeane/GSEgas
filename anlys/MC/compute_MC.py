@@ -92,11 +92,12 @@ def extract_MC_info(sn0_prop, sn):
     MC_Prop['PartType']    = PartType[key]
     MC_Prop['Membership']  = MCMembershipsn
     MC_Prop['TracerID'] = TracerIDs
+    MC_Prop['ParentID'] = ParentIDs
     
     # now reorder based on TracerID
     key = np.argsort(TracerIDs)
     for field in ['Coordinates', 'Velocities', 'GFM_Metallicity', 
-                  'PartType', 'Membership', 'TracerID']:
+                  'PartType', 'Membership', 'TracerID', 'ParentID']:
         MC_Prop[field] = MC_Prop[field][key]
     
     return MC_Prop
@@ -153,6 +154,7 @@ def _runner(path, ic, name, COM_file, sn0_prop, snap):
     t.create_dataset('PartType5/PartType', data=MC_Prop['PartType'])
     t.create_dataset('PartType5/Membership', data=MC_Prop['Membership'])
     t.create_dataset('PartType5/TracerID', data=MC_Prop['TracerID'])
+    t.create_dataset('PartType5/ParentID', data=MC_Prop['ParentID'])
     
     t.create_dataset('PartType5/RotatedCoordinates', data=MC_Prop['RotatedCoordinates'])
     t.create_dataset('PartType5/RotatedVelocities', data=MC_Prop['RotatedVelocities'])
@@ -211,12 +213,20 @@ if __name__ == '__main__':
     MW3_GSE2_merge2 = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut10'
     MW3_GSE2_merge3 = 'MW3_MHG0.25_GSE2'
     MW3_GSE2_merge4 = 'MW3_MHG0.35_GSE2'
+    MW3_GSE2_merge5 = 'MW3_MHG0.35_GSE2_Vvir110'
+    MW3_GSE2_merge6 = 'MW3_MHG0.35_GSE2_e0.25'
+    MW3_GSE5_merge0 = 'MW3_MHG0.25_GSE5'
+    MW3_GSE3_merge0 = 'MW3_MHG0.35_GSE3'
 
     pair_list = [(MW3iso_corona3, 'lvl4'), # 0
                  (MW3iso_corona4, 'lvl4'), # 1
                  (MW3_GSE2_merge2, 'lvl4'), # 2
                  (MW3_GSE2_merge3, 'lvl4'), # 3
                  (MW3_GSE2_merge4, 'lvl4'), # 4
+                 (MW3_GSE2_merge5, 'lvl4'), # 5
+                 (MW3_GSE2_merge6, 'lvl4'), # 6
+                 (MW3_GSE5_merge0, 'lvl4'), # 7
+                 (MW3_GSE3_merge0, 'lvl4'), # 8
                  ]
 
 
