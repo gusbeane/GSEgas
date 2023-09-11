@@ -35,7 +35,26 @@ def _compute_gas_projection(pos, rho, BoxSize, COM, rng, nres):
     
     return dat_xy, dat_xz
 
-def compute_projections(sn, COM, nres=256, rng=[[-15, 15], [-15, 15]]):
+def get_massMC(ParticleIDs, ParentIDs, TracerMass):
+    massMC = np.zeros(np.shape(ParticleIDs))
+
+    partid_sort = np.argsort(ParticleIDs)
+    parentid_sort = np.argsort(ParentIDs)
+
+    i = j = 0
+    while i < len(ParentIDs):
+        parentid = ParentIDs[parentid_sort[i]]
+        partid = ParticleIDs[partid_sort[j]]
+
+        if parentid == partid:
+            massMC[partid_sort[j]] += TracerMass
+            i += 1
+        else:
+            j += 1
+    
+    return massMC
+
+def compute_projections(sn, MC, COM, nres=256, rng=[[-15, 15], [-15, 15]]):
     dx = (rng[0][1]-rng[0][0]) / nres
     dy = (rng[1][1]-rng[1][0]) / nres
     surf_area = dx * dy
@@ -54,10 +73,22 @@ def compute_projections(sn, COM, nres=256, rng=[[-15, 15], [-15, 15]]):
     if sn.NumPart_Total[0] > 0:
         # print(dir(sn.part0))
         pos = sn.part0.pos.value
-        rho = sn.part0.Density.value
+        rho = sn.part0.rho.value
+        mass = sn.part0.mass.value
+        vol = mass/rho
+
+        is_gas = MC['PartType5/PartType'][:] == 0
+        is_GSE = MC['PartType5/Membership'][:] == 2
+        is_GSE_gas = np.logical_and(is_gas, is_GSE)
+
+        massMC = get_massMC(sn.part0.ParticleIDs, MC['PartType5/ParentID'][is_GSE_gas],
+                            MC['Header'].attrs['TracerMass'])
+
+        rhoMC = massMC / vol
+
         BoxSize = sn.BoxSize
 
-        Hxy_g, Hxz_g = _compute_gas_projection(pos, rho, BoxSize, COM, rng, nres)
+        Hxy_g, Hxz_g = _compute_gas_projection(pos, rhoMC, BoxSize, COM, rng, nres)
     else:
         Hxy_g = Hxz_g = np.zeros((nres, nres))
 
