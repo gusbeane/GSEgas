@@ -26,16 +26,20 @@ def get_pos_vel(sn, ptypes):
     vel = np.concatenate(vel)
     return pos, vel
 
-def _runner(path, snap, COM, nres, ptypes=[0, 2, 3, 4], 
+def _runner(path, pathMC, snap, COM, nres, ptypes=[0, 2, 3, 4], 
             rng=[[-15, 15], [-15, 15]]):
     sn = arepo.Snapshot(path + '/output/', snap, 
                         parttype=ptypes, 
-                        fields=['Coordinates', 'Velocities', 'Masses', 'Density'],
+                        fields=['Coordinates', 'Velocities', 'Masses', 'Density', 'ParticleIDs'],
                         combineFiles=True)
     
+    MC = h5.File(pathMC + '/MC_Prop_' + str(snap).zfill(3) + '.h5', mode='r')
+
     # Compute projection
-    Hxy_s, Hxz_s, Hxy_g, Hxz_g = compute_projections(sn, COM, nres, rng=rng)
+    Hxy_s, Hxz_s, Hxy_g, Hxz_g = compute_projections(sn, MC, COM, nres, rng=rng)
     # Hxy_s, Hxz_s, Hxy_g, Hxz_g = None, None, None, None
+
+    MC.close()
 
     # Grab time
     time = sn.Time.value
@@ -45,7 +49,7 @@ def _runner(path, snap, COM, nres, ptypes=[0, 2, 3, 4],
     
     return output
 
-def run(snap, path, name, fout, nres, nsnap, rng, COM_key):
+def run(snap, path, pathMC, name, fout, nres, nsnap, rng, COM_key):
 
     try:
         os.makedirs('frames/'+fout)
@@ -74,7 +78,7 @@ def run(snap, path, name, fout, nres, nsnap, rng, COM_key):
     if snap >= 0:
     
         logging.debug('before _runner')
-        out = _runner(path, snap, COM_list[snap], nres, rng=rng)
+        out = _runner(path, pathMC, snap, COM_list[snap], nres, rng=rng)
 
         COM = out[0]
         Hxy_s = out[1]
@@ -135,7 +139,7 @@ def run(snap, path, name, fout, nres, nsnap, rng, COM_key):
         
 if __name__ == '__main__':
     basepath = '../../runs/'
-    
+    basepathMC = '../../anlys/MC/'
 
     Nbody = 'Nbody'
     MW3iso_fg05 = 'MW3iso_fg0.5'
@@ -158,6 +162,7 @@ if __name__ == '__main__':
     rng2 = [[-8, 8], [-8, 8]]
     rng3 = [[-30, 30], [-30, 30]]
     rng4 = [[-15, 15], [-15, 15]]
+    rng5 = [[-140, 140], [-140, 140]]
 
     pair_list = [(MW3iso_fg05, 'lvl3', rng2, 'BoxCenter'), # 0
                  (MW3iso_fg05, 'lvl2', rng2, 'BoxCenter'), # 1
@@ -182,9 +187,10 @@ if __name__ == '__main__':
                  (MW3_GSE2_merge1, 'lvl4', rng0, 'MW_COM'), # 20
                  (MW3_GSE2_merge2, 'lvl4', rng0, 'MW_COM'), # 21
                  (MW3_GSE2_merge3, 'lvl4', rng0, 'Tot_COM'), # 22
-                 (MW3_GSE2_merge4, 'lvl4', rng0, 'Tot_COM'), # 23
-                 (MW3iso_corona4, 'lvl4', rng0, 'BoxCenter'), # 24
-                 (GSE3iso_fg07, 'lvl4', rng1, 'BoxCenter'), # 25
+                 (MW3_GSE2_merge3, 'lvl4', rng5, 'Tot_COM'), # 23
+                 (MW3_GSE2_merge4, 'lvl4', rng0, 'Tot_COM'), # 24
+                 (MW3iso_corona4, 'lvl4', rng0, 'BoxCenter'), # 25
+                 (GSE3iso_fg07, 'lvl4', rng1, 'BoxCenter'), # 26
                  ]
 
     i = int(sys.argv[1])
@@ -200,6 +206,7 @@ if __name__ == '__main__':
                             + '_nres' + str(nres)
                             for p, rng_str in zip(pair_list, rng_str_list)]
     path_list = [basepath + p[0] + '/' + p[1] for p in pair_list]
+    pathMC_list = [basepathMC + p[0] + '-' + p[1] + '/' for p in pair_list]
     
     COM_key_list = [p[3] for p in pair_list]
 
@@ -207,10 +214,11 @@ if __name__ == '__main__':
 
   
     path = path_list[i]
+    pathMC = pathMC_list[i]
     name = name_list[i]
     fout = fout_list[i]
     nsnap = nsnap_list[i]
     rng = rng_list[i]
     COM_key = COM_key_list[i]
     
-    out = run(snap, path, name, fout, nres, nsnap, rng, COM_key)
+    out = run(snap, path, pathMC, name, fout, nres, nsnap, rng, COM_key)
