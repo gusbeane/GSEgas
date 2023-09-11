@@ -119,13 +119,21 @@ if __name__ == '__main__':
     MW3_GSE2_merge2_pro = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut10_pro'
     MW3_GSE2_merge3 = 'MW3_MHG0.25_GSE2'
     MW3_GSE2_merge4 = 'MW3_MHG0.35_GSE2'
+    MW3_GSE2_merge5 = 'MW3_MHG0.35_GSE2_Vvir110'
+    MW3_GSE2_merge6 = 'MW3_MHG0.35_GSE2_e0.25'
+    MW3_GSE5_merge0 = 'MW3_MHG0.25_GSE5'
+    MW3_GSE3_merge0 = 'MW3_MHG0.35_GSE3'
 
     pair_list = [(MW3iso_corona3, 'lvl4'), # 0
                  (MW3_GSE2_merge2, 'lvl4'), # 1
                  (MW3_GSE2_merge2_pro, 'lvl4'), # 2
                  (MW3_GSE2_merge3, 'lvl4'), # 3
                  (MW3_GSE2_merge4, 'lvl4'), # 4
-                 (MW3iso_corona4, 'lvl4'), # 5
+                 (MW3_GSE2_merge5, 'lvl4'), # 5
+                 (MW3_GSE2_merge6, 'lvl4'), # 6
+                 (MW3_GSE5_merge0, 'lvl4'), # 7
+                 (MW3_GSE3_merge0, 'lvl4'), # 8
+                 (MW3iso_corona4, 'lvl4'), # 9
                  ]
 
 
