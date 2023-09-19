@@ -159,6 +159,8 @@ if __name__ == '__main__':
     MW3_GSE5_merge0 = 'MW3_MHG0.25_GSE5'
     MW3_GSE3_merge0 = 'MW3_MHG0.35_GSE3'
     Seq1iso_fg07 = 'Seq1iso_fg0.7'
+    GSE2_Seq1 = 'GSE2_Seq1'
+    GSE2_Seq1_R16 = 'GSE2_Seq1_R16'
 
     rng0 = [[-80, 80], [-80, 80]]
     rng1 = [[-5, 5], [-5, 5]]
@@ -200,7 +202,9 @@ if __name__ == '__main__':
                  (GSE5iso_fg07, 'lvl4', rng4, 'BoxCenter'), # 31
                  (GSE2iso_fg07, 'lvl4-fSN', rng4, 'BoxCenter'), # 32
                  (MW3_GSE5_merge0, 'lvl4', rng0, 'Tot_COM'), # 33
-                 (Seq1iso_fg07, 'lvl4', rng1, 'Boxcenter'), # 34
+                 (Seq1iso_fg07, 'lvl4', rng1, 'BoxCenter'), # 34
+                 (GSE2_Seq1, 'lvl4', rng4, 'BoxCenter'), # 35
+                 (GSE2_Seq1_R16, 'lvl4', rng3, 'BoxCenter'), # 36
                  ]
 
     i = int(sys.argv[1])
