@@ -2,7 +2,7 @@
 #SBATCH -p itc_cluster,shared,conroy,hernquist,hernquist_ice
 ##SBATCH -p hernquist_ice
 #SBATCH -J movie 
-#SBATCH -n 4
+#SBATCH -n 6
 #SBATCH -N 1
 #SBATCH -o logs/OUTPUT_frames.%j.out
 #SBATCH -e logs/ERROR_frames.%j.err
