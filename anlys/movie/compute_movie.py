@@ -121,13 +121,15 @@ def run(snap, path, name, fout, nres, nsnap, rng, COM_key):
         print(Time)
         
         # Make movies
-        H_list = [Hxy_s, Hxz_s, Hxy_g, Hxz_g]
-        vmin_list = [1E-3, 1E-3, 1E-4, 1E-4]
-        vmax_list = [1E0, 1E0, 1E-1, 1E-1]
+        H_list = [Hxy_s, Hxz_s, Hxy_g, Hxz_g, Hxy_g, Hxz_g]
+        vmin_list = [1E-3, 1E-3, 1E-4, 1E-4, 1E-5, 1E-5]
+        vmax_list = [1E0, 1E0, 1E-1, 1E-1, 1E-2, 1E-2]
         fname_list = ['movies/'+fout+'_star_xy.mp4',
                       'movies/'+fout+'_star_xz.mp4',
                       'movies/'+fout+'_gas_xy.mp4',
                       'movies/'+fout+'_gas_xz.mp4',
+                      'movies/'+fout+'_lowdens_gas_xy.mp4',
+                      'movies/'+fout+'_lowdens_gas_xz.mp4',
                       ]
 
         _ = Parallel(n_jobs=4) (delayed(make_movie)(H, Time, H.shape[1], vmin, vmax, fname) 
