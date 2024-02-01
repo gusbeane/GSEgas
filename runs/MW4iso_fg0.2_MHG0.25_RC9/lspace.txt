@@ -1,0 +1,6 @@
+28K	./param
+264G	./lvl4
+221G	./lvl4-adiabatic
+560M	./lvl4-GFM
+24K	./scripts
+484G	.
