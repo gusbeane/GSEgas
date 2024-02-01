@@ -1,0 +1,4 @@
+28K	./param
+660M	./lvlMNDnofs-GSE
+24K	./scripts
+660M	.
