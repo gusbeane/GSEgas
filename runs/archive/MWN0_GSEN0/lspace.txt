@@ -1,0 +1,8 @@
+28K	./param
+855M	./lvl4
+757M	./lvlRN-nofs-soft0.0625
+24K	./scripts
+757M	./lvlRN-nofs
+551M	./lvlRN10x
+571M	./lvlRN
+6.0G	.
