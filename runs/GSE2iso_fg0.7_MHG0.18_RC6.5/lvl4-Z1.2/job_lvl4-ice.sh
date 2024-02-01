@@ -1,7 +1,7 @@
 #!/bin/sh
-##SBATCH -p itc_cluster,shared,conroy
+##SBATCH -p itc_cluster,conroy,hernquist
 #SBATCH -p hernquist_ice
-#SBATCH -J REPLACE-REPli
+#SBATCH -J GSEcorM018R65l4
 #SBATCH -n 64
 #SBATCH -N 1
 #SBATCH --ntasks-per-node=64
@@ -13,7 +13,7 @@
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
 #SBATCH --mail-type=FAIL
-#SBATCH --mem-per-cpu=7900
+#SBATCH --mem-per-cpu=3800
 #SBATCH -t 7-00:00           # Runtime in D-HH:MM
 
 source ./load-modules.sh
@@ -35,5 +35,5 @@ cd arepo
 make clean ; make -j
 cd ../
 
-mpiexec --mca mpi_leave_pinned 0 --mca oob_tcp_listen_mode listen_thread -np $SLURM_NTASKS  arepo/Arepo param_lvlN.txt 
+mpiexec --mca mpi_leave_pinned 0 --mca oob_tcp_listen_mode listen_thread -np $SLURM_NTASKS  arepo/Arepo param_lvl4.txt 
 

@@ -1,9 +1,9 @@
 #!/bin/sh
 ##SBATCH -p itc_cluster,shared,conroy
 #SBATCH -p hernquist_ice
-#SBATCH -J REPLACE-REPli
-#SBATCH -n 64
-#SBATCH -N 1
+#SBATCH -J merge3l3
+#SBATCH -n 256
+#SBATCH -N 4
 #SBATCH --ntasks-per-node=64
 #SBATCH -o output/OUTPUT.%j.out
 #SBATCH -e output/ERROR.%j.err
@@ -35,5 +35,5 @@ cd arepo
 make clean ; make -j
 cd ../
 
-mpiexec --mca mpi_leave_pinned 0 --mca oob_tcp_listen_mode listen_thread -np $SLURM_NTASKS  arepo/Arepo param_lvlN.txt 
+mpiexec --mca mpi_leave_pinned 0 --mca oob_tcp_listen_mode listen_thread -np $SLURM_NTASKS  arepo/Arepo param_lvl3.txt 1
 

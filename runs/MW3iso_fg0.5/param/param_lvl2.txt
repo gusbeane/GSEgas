@@ -1,14 +1,14 @@
-InitCondFile                                      ICs/MW_ICs.dat-with-grid 
+InitCondFile                                      ICs/ics
 OutputDir                                         output
 SnapshotFileBase                                  snapshot
 OutputListFilename                                /ptmp/mpa/lsales/sim_dwarfs/dwarf1/outputlist_final.txt
 ICFormat                                          3
 SnapFormat                                        3
 TimeLimitCPU                                      604800
-CpuTimeBetRestartFile                             8000
+CpuTimeBetRestartFile                             2000
 ResubmitOn                                        0
 ResubmitCommand                                   my-scriptfile
-MaxMemSize                                        3500
+MaxMemSize                                        7500
 TimeBegin                                         0
 TimeMax                                           8.0 
 ComovingIntegrationOn                             0
@@ -19,7 +19,7 @@ Omega0                                            1
 OmegaLambda                                       0
 OmegaBaryon                                       0
 HubbleParam                                       1.0
-BoxSize                                           100
+BoxSize                                           600
 OutputListOn                                      0
 TimeBetSnapshot                                   0.005
 TimeOfFirstSnapshot                               0
@@ -80,7 +80,7 @@ TreecoolFile                                      /n/holystore01/LABS/hernquist_
 %TreecoolFile                                      /home6/abeane/arepo-tables/TREECOOL_fg_dec11
 DensThreshold                                     100
 FeedbackEfficiency                                1.0
-FeedbackRadiusLimiterFactor                       40. % corresponds to 300 pc  1.5     0.2
+FeedbackRadiusLimiterFactor                       800. % corresponds to 300 pc  1.5     0.2
 DustOpacityRadiationFeedback                      10.     5.
 %OpticalDepthIRMax                                 100.
 %RadiationFeedbackEta1                             1.
@@ -110,8 +110,8 @@ MinMetalTemp                                      10000
 MeanVolume                                         21.17348061253556 
 ReferenceGasPartMass                              7.5e-07 
 MinimumDensityOnStartUp                           1.e-10
-GasMetallicityInSolar                             1.0
+%GasMetallicityInSolar                             1.0
 SelfShieldingFile                                 ./arepo/data/SelfShielding_Rahmati12
-%TracerMCPerCell                                    4
+TracerMCPerCell                                    4
 WindSpeedFactor                                   1.0
 

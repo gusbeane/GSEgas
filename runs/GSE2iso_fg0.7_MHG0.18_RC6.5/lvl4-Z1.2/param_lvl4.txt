@@ -8,7 +8,7 @@ TimeLimitCPU                                      604800
 CpuTimeBetRestartFile                             2000
 ResubmitOn                                        0
 ResubmitCommand                                   my-scriptfile
-MaxMemSize                                        7500
+MaxMemSize                                        3500
 TimeBegin                                         0
 TimeMax                                           8.0 
 ComovingIntegrationOn                             0
@@ -110,7 +110,7 @@ MinMetalTemp                                      10000
 MeanVolume                                        162.68635849464277
 ReferenceGasPartMass                              6.0e-06 
 MinimumDensityOnStartUp                           1.e-10
-GasMetallicityInSolar                             1.0
+GasMetallicityInSolar                             0.0630957 % [Z/H] = -1.2 
 SelfShieldingFile                                 ./arepo/data/SelfShielding_Rahmati12
 %TracerMCPerCell                                    4
 WindSpeedFactor                                   1.0

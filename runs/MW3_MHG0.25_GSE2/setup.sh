@@ -8,7 +8,7 @@ export ICS_DIR=../../../ics/MW3_MHG0.25_GSE2
 source load-modules.sh
 
 #for i in 5 4 3 2 1
-for i in 4
+for i in 3
 do
     mkdir lvl${i}
     cd lvl${i}

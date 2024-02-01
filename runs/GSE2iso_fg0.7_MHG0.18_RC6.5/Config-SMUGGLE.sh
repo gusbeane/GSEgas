@@ -361,10 +361,10 @@ OUTPUT_COORDINATES_IN_DOUBLEPRECISION    # will always output coordinates in dou
 #---------------------------------------- Passive Tracers
 #TRACER_FIELD                        # passive scalar field which is advected in proportion to fluid mass fluxes
 
-#TRACER_MC=5                         # Monte Carlo tracer particles: master switch (value specifies output parttype)
-#GENERATE_TRACER_MC_IN_ICS           # add a fixed number (given in the parameter file) of MC tracers to each gas cell in ICs
-#TRACER_MC_NUM_FLUID_QUANTITIES=13   # number of fluid quantities to be stored for MC tracers - must match the number in TRACER_MC_STORE_WHAT
-#TRACER_MC_STORE_WHAT=1+2+4          # bit mask for quantities to store (see allvars.h for bitmask)
+TRACER_MC=5                         # Monte Carlo tracer particles: master switch (value specifies output parttype)
+GENERATE_TRACER_MC_IN_ICS           # add a fixed number (given in the parameter file) of MC tracers to each gas cell in ICs
+TRACER_MC_NUM_FLUID_QUANTITIES=3   # number of fluid quantities to be stored for MC tracers - must match the number in TRACER_MC_STORE_WHAT
+TRACER_MC_STORE_WHAT=1+2+4          # bit mask for quantities to store (see allvars.h for bitmask)
 #TRACER_NO_RESET_EACH_SNAP           # do not set tracked fluid quantities to zero after writing each snapshot
 #TRACER_MC_CHECKS                    # carries out frequent consistency checks
 
