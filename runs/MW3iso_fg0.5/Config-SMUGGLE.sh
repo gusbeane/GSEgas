@@ -361,10 +361,10 @@ OUTPUT_COORDINATES_IN_DOUBLEPRECISION    # will always output coordinates in dou
 #---------------------------------------- Passive Tracers
 #TRACER_FIELD                        # passive scalar field which is advected in proportion to fluid mass fluxes
 
-#TRACER_MC=5                         # Monte Carlo tracer particles: master switch (value specifies output parttype)
-#GENERATE_TRACER_MC_IN_ICS           # add a fixed number (given in the parameter file) of MC tracers to each gas cell in ICs
-#TRACER_MC_NUM_FLUID_QUANTITIES=13   # number of fluid quantities to be stored for MC tracers - must match the number in TRACER_MC_STORE_WHAT
-#TRACER_MC_STORE_WHAT=1+2+4          # bit mask for quantities to store (see allvars.h for bitmask)
+TRACER_MC=5                         # Monte Carlo tracer particles: master switch (value specifies output parttype)
+GENERATE_TRACER_MC_IN_ICS           # add a fixed number (given in the parameter file) of MC tracers to each gas cell in ICs
+TRACER_MC_NUM_FLUID_QUANTITIES=3   # number of fluid quantities to be stored for MC tracers - must match the number in TRACER_MC_STORE_WHAT
+TRACER_MC_STORE_WHAT=1+2+4          # bit mask for quantities to store (see allvars.h for bitmask)
 #TRACER_NO_RESET_EACH_SNAP           # do not set tracked fluid quantities to zero after writing each snapshot
 #TRACER_MC_CHECKS                    # carries out frequent consistency checks
 
@@ -660,8 +660,8 @@ GFM_STELLAR_EVOLUTION=0                #stellar evolution: 0->default, 1->no mas
 #GFM_CONST_IMF=1                        #0 for Chabrier (default), 1 for a pure power-law (requires parameter IMFslope, e.g. -2.35 for Salpeter)
 #GFM_VARIABLE_IMF=0                     #0 for a pure power-law that depends on DM-veldisp
 #GFM_PREENRICH                          #pre enrich gas at given redshift
-GFM_SET_METALLICITY                    #set the metallicity of gas in solar metallicity units
-GFM_NO_METAL_ENRICHMENT                #disable metal production by SNII and AGB stars
+#GFM_SET_METALLICITY                    #set the metallicity of gas in solar metallicity units
+#GFM_NO_METAL_ENRICHMENT                #disable metal production by SNII and AGB stars
 #GFM_EXACT_NUMNGB                       #use direct neighbor count instead of kernel weighted neighbor count
 #GFM_WINDS                              #decoupled ISM winds
 #GFM_WINDS_VARIABLE=0                   #decoupled ISM winds: 0->scale winds with halo mass, requires FoF, 1->sigma winds
@@ -700,6 +700,7 @@ GFM_DISCRETE_ENRICHMENT                #allow stars to enrich nearby gas from st
 #GFM_SPROCESS                           #adds s-process elements, need to exist in yield tables
 #GFM_SNIA_ENERGY_INJECTION              #add thermal energy if Ia's
 #GFM_SINGLE_CELL_INJECTION
+GFM_METALLICITY_IN_ICS
 
 #-------------------------------------- Dust physics
 #GFM_DUST                               #formation and evolution of dust, requires GFM_STELLAR_EVOLUTION
