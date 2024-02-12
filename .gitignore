@@ -36,6 +36,7 @@ create_ics_output.txt
 BG_output.txt
 arepo_BG/
 arepo_BG-old/
+gas_density.txt
 
 # runs/
 runs/lvl*
