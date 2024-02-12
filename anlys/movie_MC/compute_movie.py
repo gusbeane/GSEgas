@@ -34,11 +34,35 @@ def _runner(path, pathMC, snap, COM, nres, ptypes=[0, 2, 3, 4],
                         combineFiles=True)
     
     MC = h5.File(pathMC + '/MC_Prop_' + str(snap).zfill(3) + '.h5', mode='r')
+    
+    Hxy_s = {}
+    Hxz_s = {}
+    Hxy_g = {}
+    Hxz_g = {}
 
-    # Compute projection
-    Hxy_s, Hxz_s, Hxy_g, Hxz_g = compute_projections(sn, MC, COM, nres, rng=rng)
-    # Hxy_s, Hxz_s, Hxy_g, Hxz_g = None, None, None, None
-
+    # GSE gas
+    is_gas = MC['PartType5/PartType'][:] == 0
+    is_GSE = MC['PartType5/Membership'][:] == 2
+    is_GSE_gas = np.logical_and(is_gas, is_GSE)
+    
+    Hxy_s_, Hxz_s_, Hxy_g_, Hxz_g_ = compute_projections(sn, MC, COM, is_GSE_gas, nres=nres, rng=rng)
+    Hxy_s['GSE_gas'] = Hxy_s_
+    Hxz_s['GSE_gas'] = Hxz_s_
+    Hxy_g['GSE_gas'] = Hxy_g_
+    Hxz_g['GSE_gas'] = Hxz_g_
+    
+    # CGM cold
+    is_gas = MC['PartType5/PartType'][:] == 0
+    is_CGM = MC['PartType5/Membership'][:] == 1
+    is_cold = MC['PartType5/Temperature'][:] < 3E4
+    is_CGM_cold = np.logical_and(np.logical_and(is_gas, is_CGM), is_cold)
+    
+    Hxy_s_, Hxz_s_, Hxy_g_, Hxz_g_ = compute_projections(sn, MC, COM, is_CGM_cold, nres=nres, rng=rng)
+    Hxy_s['CGM_cold'] = Hxy_s_
+    Hxz_s['CGM_cold'] = Hxz_s_
+    Hxy_g['CGM_cold'] = Hxy_g_
+    Hxz_g['CGM_cold'] = Hxz_g_
+    
     MC.close()
 
     # Grab time
@@ -62,7 +86,7 @@ def run(snap, path, pathMC, name, fout, nres, nsnap, rng, COM_key):
                         fields=['Coordinates'],
                         combineFiles=True)
         COM = np.array([sn.BoxSize, sn.BoxSize, sn.BoxSize])/2.
-        COM_list = np.full((nsnap, 3), COM)    
+        COM_list = np.full((nsnap, 3), COM)
     else:
         basepath_COM = '../COM/'
         COM_fpath = basepath_COM + 'COM_' + name + '.npy'
@@ -90,52 +114,64 @@ def run(snap, path, pathMC, name, fout, nres, nsnap, rng, COM_key):
         f = h5.File('frames/'+fout+'/frame'+str(snap).zfill(3)+'.h5', mode='w')
         
         f.create_dataset('COM', data=COM)
-        f.create_dataset('Hxy_s', data=Hxy_s)
-        f.create_dataset('Hxz_s', data=Hxz_s)
-        f.create_dataset('Hxy_g', data=Hxy_g)
-        f.create_dataset('Hxz_g', data=Hxz_g)
+        for key in Hxy_s.keys():
+            f.create_dataset('Hxy_s/'+key, data=Hxy_s[key])
+            f.create_dataset('Hxz_s/'+key, data=Hxz_s[key])
+            f.create_dataset('Hxy_g/'+key, data=Hxy_g[key])
+            f.create_dataset('Hxz_g/'+key, data=Hxz_g[key])
         f.create_dataset('Time', data=time)
 
     elif snap == -1:
-        nsnap = len(glob.glob('frames/'+fout+'/frame*.h5'))
-        Hxy_s = []
-        Hxz_s = []
-        Hxy_g = []
-        Hxz_g = []
-        Time = []
+        f = h5.File('frames/'+fout+'/frame'+str(0).zfill(3)+'.h5', mode='r')
+        keys = list(f['Hxy_s'].keys())
+        f.close()
         
-        for i in range(nsnap):
-            f = h5.File('frames/'+fout+'/frame'+str(i).zfill(3)+'.h5', mode='r')
+        for key in keys:
+        
+            nsnap = len(glob.glob('frames/'+fout+'/frame*.h5'))
+            Hxy_s = []
+            Hxz_s = []
+            Hxy_g = []
+            Hxz_g = []
+            Time = []
+        
+            for i in range(nsnap):
+                f = h5.File('frames/'+fout+'/frame'+str(i).zfill(3)+'.h5', mode='r')
             
-            Hxy_s.append(f['Hxy_s'][:])
-            Hxz_s.append(f['Hxz_s'][:])
-            Hxy_g.append(f['Hxy_g'][:])
-            Hxz_g.append(f['Hxz_g'][:])
+                Hxy_s.append(f['Hxy_s'][key][:])
+                Hxz_s.append(f['Hxz_s'][key][:])
+                Hxy_g.append(f['Hxy_g'][key][:])
+                Hxz_g.append(f['Hxz_g'][key][:])
             
-            Time.append(f['Time'][()])
+                Time.append(f['Time'][()])
         
-            f.close()
+                f.close()
         
-        Hxy_s = np.array(Hxy_s)
-        Hxz_s = np.array(Hxz_s)
-        Hxy_g = np.array(Hxy_g)
-        Hxz_g = np.array(Hxz_g)
+            Hxy_s = np.array(Hxy_s)
+            Hxz_s = np.array(Hxz_s)
+            Hxy_g = np.array(Hxy_g)
+            Hxz_g = np.array(Hxz_g)
         
-        print(Hxy_s.shape)
-        print(Time)
+            print(Hxy_s.shape)
+            print(Time)
         
-        # Make movies
-        H_list = [Hxy_s, Hxz_s, Hxy_g, Hxz_g]
-        vmin_list = [1E-3, 1E-3, 1E-4, 1E-4]
-        vmax_list = [1E0, 1E0, 1E-1, 1E-1]
-        fname_list = ['movies/'+fout+'_star_xy.mp4',
-                      'movies/'+fout+'_star_xz.mp4',
-                      'movies/'+fout+'_gas_xy.mp4',
-                      'movies/'+fout+'_gas_xz.mp4',
-                      ]
+            if key=='CGM_cold':
+                cmap = 'Blues'
+            else:
+                cmap = 'viridis'
+        
+            # Make movies
+            H_list = [Hxy_g, Hxz_g, Hxy_g, Hxz_g]
+            vmin_list = [1E-4, 1E-4, 1E-6, 1E-6]
+            vmax_list = [1E-1, 1E-1, 1E-3, 1E-3]
+            fname_list = ['movies/'+fout+'_'+key+'_gas_xy.mp4',
+                          'movies/'+fout+'_'+key+'_gas_xz.mp4',
+                          'movies/'+fout+'_'+key+'_gas_lowdens_xy.mp4',
+                          'movies/'+fout+'_'+key+'_gas_lowdens_xz.mp4',
+                          ]
 
-        _ = Parallel(n_jobs=4) (delayed(make_movie)(H, Time, H.shape[1], vmin, vmax, fname) 
-                                for H, vmin, vmax, fname in zip(H_list, vmin_list, vmax_list, fname_list))
+            _ = Parallel(n_jobs=4) (delayed(make_movie)(H, Time, H.shape[1], vmin, vmax, fname, cmap) 
+                                    for H, vmin, vmax, fname in zip(H_list, vmin_list, vmax_list, fname_list))
         
 if __name__ == '__main__':
     basepath = '../../runs/'
@@ -156,6 +192,8 @@ if __name__ == '__main__':
     MW3_GSE2_merge2_pro = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut10_pro'
     MW3_GSE2_merge3 = 'MW3_MHG0.25_GSE2'
     MW3_GSE2_merge4 = 'MW3_MHG0.35_GSE2'
+    MW3_GSE6_merge0 = 'MW3_MHG0.25_GSE6'
+    MW3_GSE6_merge1 = 'MW3_MHG0.25_GSE6_kick'
 
     rng0 = [[-80, 80], [-80, 80]]
     rng1 = [[-5, 5], [-5, 5]]
@@ -191,6 +229,8 @@ if __name__ == '__main__':
                  (MW3_GSE2_merge4, 'lvl4', rng0, 'Tot_COM'), # 24
                  (MW3iso_corona4, 'lvl4', rng0, 'BoxCenter'), # 25
                  (GSE3iso_fg07, 'lvl4', rng1, 'BoxCenter'), # 26
+                 (MW3_GSE6_merge0, 'lvl4', rng5, 'Tot_COM'), # 27
+                 (MW3_GSE6_merge1, 'lvl4', rng5, 'Tot_COM'), # 28
                  ]
 
     i = int(sys.argv[1])

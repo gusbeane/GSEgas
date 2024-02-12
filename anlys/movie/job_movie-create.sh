@@ -1,5 +1,5 @@
 #!/bin/sh
-#SBATCH -p itc_cluster,shared,conroy,hernquist,hernquist_ice
+#SBATCH -p itc_cluster,conroy,hernquist,hernquist_ice
 ##SBATCH -p hernquist_ice
 #SBATCH -J movie 
 #SBATCH -n 1
@@ -11,7 +11,7 @@
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
 #SBATCH --mail-type=FAIL
-#SBATCH --mem=1G
+#SBATCH --mem=2G
 #SBATCH -t 1-00:00           # Runtime in D-HH:MM
 
 source ../../load-modules.sh

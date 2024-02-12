@@ -1,7 +1,6 @@
 #!/bin/sh
-##SBATCH -p itc_cluster,shared,conroy,hernquist,hernquist_ice
-#SBATCH -p hernquist,hernquist_ice,itc_cluster,conroy
-#SBATCH -J COM
+#SBATCH -p itc_cluster,shared,conroy,hernquist,hernquist_ice
+#SBATCH -J acc
 #SBATCH -n 48
 #SBATCH -N 1
 #SBATCH -o logs/OUTPUT.%j.out
@@ -17,5 +16,5 @@ source ../../load-modules.sh
 
 ulimit -c unlimited
 
-python3 compute_COM.py ${SLURM_NTASKS} $1
+python3 compute_acc.py ${SLURM_NTASKS} $1
 

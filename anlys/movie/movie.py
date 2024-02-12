@@ -32,7 +32,7 @@ class animate_maker(object):
         return (self.im, self.txt)
 
 def make_movie(H, time, nres, vmin, vmax, fout,
-               fps=16):
+               fps=32):
     
     # initialize fig and ax, remove boundary
     fig, ax = plt.subplots(1, figsize=(2, 2))
