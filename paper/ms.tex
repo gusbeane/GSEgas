@@ -42,14 +42,14 @@
 % \revised{April 1, 2021}
 %\accepted{\today}
 
-\shorttitle{Hydrodynamics of the GSE Merger}
+\shorttitle{The CGM of Merging Galaxies}
 \shortauthors{Beane et al.}
 
 \graphicspath{{./}{fig/}}
 
 \begin{document}
 
-\title{Diluting the Merger Scenario for the Alpha Bimodality}
+\title{Stimulated Accretion from Circumgalactic Media Interactions}
 
 \author{Angus Beane}
 \affiliation{Center for Astrophysics $|$ Harvard \& Smithsonian,  Cambridge, MA, USA}
@@ -63,37 +63,27 @@ University of Bologna, Bologna, Italy}
 
 \author{others}
 
-%% Note that the \and command from previous versions of AASTeX is now
-%% depreciated in this version as it is no longer necessary. AASTeX 
-%% automatically takes care of all commas and "and"s between authors names.
-
-%% AASTeX 6.31 has the new \collaboration and \nocollaboration commands to
-%% provide the collaboration status of a group of authors. These commands 
-%% can be used either before or after the list of corresponding authors. The
-%% argument for \collaboration is the collaboration identifier. Authors are
-%% encouraged to surround collaboration identifiers with ()s. The 
-%% \nocollaboration command takes no argument and exists to indicate that
-%% the nearby authors are not part of surrounding collaborations.
-
 %% Mark off the abstract in the ``abstract'' environment. 
 \begin{abstract}
-  The merger at $z\sim2$ between the proto-Milky Way and the
-  Gaia-Sausage-Enceladus (GSE) satellite shaped the present day stellar halo and
-  possibly led to the formation of the alpha-abundance bimodality seen in the
-  disk today. Cosmological zoom simulations of GSE-like mergers have shown that
-  the alpha bimodality can be explained by a dilution of the Milky Way's metal
-  content by GSE. However, radial migration processes alone can also produce
-  alpha bimodalities without the need for a fresh, metal-poor gas supply. We
-  present simulations of a controlled GSE-like merger. Our simulations include
-  gaseous disks, circumgalactic media, and a modern model for the interstellar
-  medium, star formation, and stellar feedback. We argue that because GSE's
-  orbit was mildly retrograde but mostly polar on second pericentric passage,
-  the gas from GSE was able to penetrate the inner disk of the Milky Way. It
-  therefore dilutes the inner Galaxy more strongly than the outer Galaxy. Models
-  which explain the alpha bimodality from the GSE merger require the outer disk
-  to be more diluted than the inner disk. It would seem that our results stand
-  in direct opposition with the picture that the alpha bimodality resulted from
-  the GSE merger.
+  It is now well-established that galaxies host extended gaseous haloes dubbed
+  the circumgalactic medium (CGM) which play a critical role in receiving and
+  providing gas from and to the disk. Typically metal-poor, the CGM is a major
+  actor in the nuclear abundance evolution of galaxies. While aspects of
+  isolated CGM, such as its rotation and multiphase nature, have been studied,
+  the interaction between the CGM of two merging galaxies is less well
+  understood. In this work, we present hydrodynamic simulations of a controlled
+  galaxy merger, roughly resembling a merger the Milky Way experienced early in
+  its history. Unsurprisingly, the CGM of the satellite galaxy is stripped early
+  in the merger -- mostly during its first pericentric passage (check). This has
+  the effect of stimulating the accretion of gas from the host's CGM onto its
+  disk. This occurs due to two effects: (1) Cold gas from the satellite's CGM
+  mixes with gas in the host's CGM and cools it to a regime where cooling is
+  more efficient, thus reducing the gas' thermal pressure support. (2) The
+  satellite deepens the potential well of the host galaxy, reducing its
+  free-fall time. These effects combine to enhance the accretion of gas onto the
+  host's disk. In our setup (for which there is significant uncertainty), the
+  bulk amount of gas accreted on the disk can increase by a factor of $\sim2$
+  (\textcolor{red}{checl}).
 \end{abstract}
 
 %% Keywords should appear after the \end{abstract} command. 
@@ -104,21 +94,6 @@ University of Bologna, Bologna, Italy}
 %% to include these concepts in their preprints.
 \keywords{Classical Novae (251) --- Ultraviolet astronomy(1736) --- History of 
 astronomy(1868) --- Interdisciplinary astronomy(804)}
-
-%% From the front matter, we move on to the body of the paper.
-%% Sections are demarcated by \section and \subsection, respectively.
-%% Observe the use of the LaTeX \label
-%% command after the \subsection to give a symbolic KEY to the
-%% subsection for cross-referencing in a \ref command.
-%% You can use LaTeX's \ref and \label commands to keep track of
-%% cross-references to sections, equations, tables, and figures.
-%% That way, if you change the order of any elements, LaTeX will
-%% automatically renumber them.
-%%
-%% We recommend that authors also use the natbib \citep
-%% and \citet commands to identify citations.  The citations are
-%% tied to the reference list via symbolic KEYs. The KEY corresponds
-%% to the KEY in the \bibitem in the reference list below. 
 
 \section{Introduction} \label{sec:intro}
 The present day Milky Way formed through a combination of external interactions
