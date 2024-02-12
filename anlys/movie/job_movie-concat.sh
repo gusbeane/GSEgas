@@ -1,5 +1,5 @@
 #!/bin/sh
-#SBATCH -p itc_cluster,shared,conroy,hernquist,hernquist_ice
+#SBATCH -p itc_cluster,conroy,hernquist,hernquist_ice
 ##SBATCH -p hernquist_ice
 #SBATCH -J movie 
 #SBATCH -n 6

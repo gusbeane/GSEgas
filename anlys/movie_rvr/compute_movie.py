@@ -14,11 +14,12 @@ import matplotlib as mpl
 
 from joblib import Parallel, delayed
 
-def _runner(pathMC, snap):
+def _runner(pathMC, snap, rbins = np.linspace(20, 180, 180),
+                        vrbins = np.linspace(-200, 150, 180)):
     
     MC = h5.File(pathMC + '/MC_Prop_' + str(snap).zfill(3) + '.h5', mode='r')
     
-    Hrvr, Hrvr_T = compute_projections(MC)
+    Hrvr, Hrvr_T = compute_projections(MC, rbins=rbins, vrbin=vrbins)
     
     time = MC['Header'].attrs['Time']
     
@@ -30,16 +31,20 @@ def _runner(pathMC, snap):
     
     return output
 
-def run(snap, pathMC, fout):
+def run(snap, nsnap, pathMC, fout, rbins = np.linspace(20, 180, 180),
+                        vrbins = np.linspace(-200, 150, 180)):
 
     try:
         os.makedirs('frames/'+fout)
     except FileExistsError:
         pass
+    
+    if snap >= nsnap:
+        return None
 
     if snap >= 0:
     
-        out = _runner(pathMC, snap)
+        out = _runner(pathMC, snap, rbins=rbins, vrbins=vrbins)
 
         Hrvr = out[0]
         Hrvr_T = out[1]
@@ -50,6 +55,8 @@ def run(snap, pathMC, fout):
         f.create_dataset('Hrvr', data=Hrvr)
         f.create_dataset('Hrvr_T', data=Hrvr_T)
         f.create_dataset('Time', data=time)
+        
+        f.close()
 
     elif snap == -1:
         nsnap = len(glob.glob('frames/'+fout+'/frame*.h5'))
@@ -81,8 +88,10 @@ def run(snap, pathMC, fout):
                        ]
         
         cmap_list = ['viridis', 'bwr']
+        extent = [rbins[0], rbins[-1], vrbins[0], vrbins[-1]]
 
-        _ = Parallel(n_jobs=2) (delayed(make_movie)(H, Time, H.shape[1], H.shape[2], norm, fname, cmap) 
+        _ = Parallel(n_jobs=2) (delayed(make_movie)(H, Time, H.shape[1], H.shape[2], norm, 
+                                                    fname, cmap, extent) 
                                 for H, norm, fname, cmap in 
                                 zip(H_list, norm_list, fname_list, cmap_list))
         
@@ -172,4 +181,4 @@ if __name__ == '__main__':
     rng = rng_list[i]
     COM_key = COM_key_list[i]
     
-    out = run(snap, pathMC, fout)
+    out = run(snap, nsnap, pathMC, fout)

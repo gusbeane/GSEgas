@@ -10,11 +10,19 @@ from numba import njit
 
 from joblib import Parallel, delayed
 
-MW_Disk_Metal = -0.3
-MW_CGM_Metal = -1.3
-GSE_Disk_Metal = -1.2
-GSE_CGM_Metal = -1.7
+metal_dict = {}
+metal_dict[0] = {}
+metal_dict[1] = {}
 
+metal_dict[0]['MW_Disk'] = -0.3
+metal_dict[0]['MW_CGM'] = -1.3
+metal_dict[0]['GSE_Disk'] = -1.2
+metal_dict[0]['GSE_CGM'] = -1.7
+
+metal_dict[1]['MW_Disk'] = -0.3
+metal_dict[1]['MW_CGM'] = -1.3
+metal_dict[1]['GSE_Disk'] = -1.
+metal_dict[1]['GSE_CGM'] = -1.2
 
 @njit
 def _MC_inner_loop(ParentIDs, ParticleIDs):
@@ -37,29 +45,63 @@ def _MC_inner_loop(ParentIDs, ParticleIDs):
     
     return key
 
-def extract_MC_info(sn0_prop, sn):
+def get_n_T(sn):
+    UnitLength = sn.parameters.UnitLength_in_cm
+    UnitMass = sn.parameters.UnitMass_in_g
+    UnitVelocity = sn.parameters.UnitVelocity_in_cm_per_s
+
+    UnitTime = UnitLength / UnitVelocity
+    UnitEnergy = UnitMass * UnitVelocity**2
+
+    HYDROGEN_MASSFRAC = 0.76
+    GAMMA = 5./3.
+    PROTONMASS = 1.67262178e-24
+    BOLTZMANN = 1.38065e-16
+
+    InternalEnergy = sn.part0.InternalEnergy.value
+    ElectronAbundance = sn.part0.ElectronAbundance
+    Density = sn.part0.Density.value
+    
+    mu = 4 * PROTONMASS / (1 + 3 * HYDROGEN_MASSFRAC + 4 * HYDROGEN_MASSFRAC * ElectronAbundance)
+    T = (GAMMA - 1.) * (InternalEnergy / BOLTZMANN) * (UnitEnergy / UnitMass) * mu
+
+    n = Density / mu
+    n *= UnitMass/UnitLength**3
+    
+    return n, T
+    
+def extract_MC_info(sn0_prop, sn, metal):
     ParentIDs = sn.part5.ParentID
     TracerIDs = sn.part5.TracerID
     
+    NumberDensity_Part0, Temperature_Part0 = get_n_T(sn)
+    
     # Get standard quantities
     if sn.NumPart_Total[4] > 0:
+        Temperature_Part4 = np.full(sn.NumPart_Total[4], -1)
+        NumberDensity_Part4 = np.full(sn.NumPart_Total[4], -1)
+        
         ParticleIDs = np.concatenate((sn.part0.ParticleIDs, sn.part4.ParticleIDs))
         Coordinates = np.concatenate((sn.part0.Coordinates, sn.part4.Coordinates))
         Velocities = np.concatenate((sn.part0.Velocities, sn.part4.Velocities))
         GFM_Metallicity = np.concatenate((sn.part0.GFM_Metallicity, sn.part4.GFM_Metallicity))
+        NumberDensity = np.concatenate((NumberDensity_Part0, NumberDensity_Part4))
+        Temperature = np.concatenate((Temperature_Part0, Temperature_Part4))
         PartType = np.concatenate((np.full(sn.NumPart_Total[0], 0), np.full(sn.NumPart_Total[4], 4)))
     else:
         ParticleIDs = sn.part0.ParticleIDs
         Coordinates = sn.part0.Coordinates
         Velocities = sn.part0.Velocities
         GFM_Metallicity = sn.part0.GFM_Metallicity
+        NumberDensity = NumberDensity_Part0
+        Temperature = Temperature_Part0
         PartType = np.full(sn.NumPart_Total[0], 0)
     
     # Get initial membership based on metallicity
-    MW_Disk = 10.**(MW_Disk_Metal) * 0.0127
-    MW_CGM = 10.**(MW_CGM_Metal) * 0.0127
-    GSE_Disk = 10.**(GSE_Disk_Metal) * 0.0127
-    GSE_CGM = 10.**(GSE_CGM_Metal) * 0.0127
+    MW_Disk = 10.**(metal['MW_Disk']) * 0.0127
+    MW_CGM = 10.**(metal['MW_CGM']) * 0.0127
+    GSE_Disk = 10.**(metal['GSE_Disk']) * 0.0127
+    GSE_CGM = 10.**(metal['GSE_CGM']) * 0.0127
     
     PartMembership0 = np.full(sn0_prop['NumPart_Total[0]'], -1)
     
@@ -89,14 +131,16 @@ def extract_MC_info(sn0_prop, sn):
     MC_Prop['Coordinates'] = Coordinates[key]
     MC_Prop['Velocities']  = Velocities[key]
     MC_Prop['GFM_Metallicity'] = GFM_Metallicity[key]
+    MC_Prop['Temperature'] = Temperature[key]
+    MC_Prop['NumberDensity'] = NumberDensity[key]
     MC_Prop['PartType']    = PartType[key]
-    MC_Prop['Membership']  = MCMembershipsn
+    MC_Prop['Membership']  = MCMembershipsn.astype(np.int8)
     MC_Prop['TracerID'] = TracerIDs
     MC_Prop['ParentID'] = ParentIDs
     
     # now reorder based on TracerID
     key = np.argsort(TracerIDs)
-    for field in ['Coordinates', 'Velocities', 'GFM_Metallicity', 
+    for field in ['Coordinates', 'Velocities', 'GFM_Metallicity', 'Temperature', 'NumberDensity',
                   'PartType', 'Membership', 'TracerID', 'ParentID']:
         MC_Prop[field] = MC_Prop[field][key]
     
@@ -134,11 +178,11 @@ def add_rotate_pos(MC_Prop, MW_COM, MW_COMV, MW_AngMom):
     
     return MC_Prop
     
-def _runner(path, ic, name, COM_file, sn0_prop, snap):
+def _runner(path, ic, name, COM_file, sn0_prop, snap, metal):
     sn = arepo.Snapshot(path + '/output/', snap, 
                         combineFiles=True)
     
-    MC_Prop = extract_MC_info(sn0_prop, sn)
+    MC_Prop = extract_MC_info(sn0_prop, sn, metal)
     
     MW_COM    = COM_file['MW_COM'][snap]
     MW_COMV   = COM_file['MW_COMV'][snap]
@@ -151,6 +195,8 @@ def _runner(path, ic, name, COM_file, sn0_prop, snap):
     t.create_dataset('PartType5/Coordinates', data=MC_Prop['Coordinates'])
     t.create_dataset('PartType5/Velocities', data=MC_Prop['Velocities'])
     t.create_dataset('PartType5/GFM_Metallicity', data=MC_Prop['GFM_Metallicity'])
+    t.create_dataset('PartType5/NumberDensity', data=MC_Prop['NumberDensity'])
+    t.create_dataset('PartType5/Temperature', data=MC_Prop['Temperature'])
     t.create_dataset('PartType5/PartType', data=MC_Prop['PartType'])
     t.create_dataset('PartType5/Membership', data=MC_Prop['Membership'])
     t.create_dataset('PartType5/TracerID', data=MC_Prop['TracerID'])
@@ -187,7 +233,7 @@ def get_sn0_prop(path):
     
     return sn0_prop
     
-def run(path, ic, name, nproc):
+def run(path, ic, name, nproc, metal):
     
     if not os.path.exists(name):
         os.mkdir(name)
@@ -199,7 +245,7 @@ def run(path, ic, name, nproc):
     
     sn0_prop = get_sn0_prop(path)
     
-    _ = Parallel(n_jobs=nproc) (delayed(_runner)(path, ic, name, COM_file, sn0_prop, i) for i in tqdm(range(nsnap)))
+    _ = Parallel(n_jobs=nproc) (delayed(_runner)(path, ic, name, COM_file, sn0_prop, i, metal) for i in tqdm(range(nsnap)))
 
 if __name__ == '__main__':
     nproc = int(sys.argv[1])
@@ -217,26 +263,50 @@ if __name__ == '__main__':
     MW3_GSE2_merge6 = 'MW3_MHG0.35_GSE2_e0.25'
     MW3_GSE5_merge0 = 'MW3_MHG0.25_GSE5'
     MW3_GSE3_merge0 = 'MW3_MHG0.35_GSE3'
+    MW3_GSE2N_merge0 = 'MW3_MHG0.25_GSE2N'
 
-    pair_list = [(MW3iso_corona3, 'lvl4'), # 0
-                 (MW3iso_corona4, 'lvl4'), # 1
-                 (MW3_GSE2_merge2, 'lvl4'), # 2
-                 (MW3_GSE2_merge3, 'lvl4'), # 3
-                 (MW3_GSE2_merge4, 'lvl4'), # 4
-                 (MW3_GSE2_merge5, 'lvl4'), # 5
-                 (MW3_GSE2_merge6, 'lvl4'), # 6
-                 (MW3_GSE5_merge0, 'lvl4'), # 7
-                 (MW3_GSE3_merge0, 'lvl4'), # 8
+    MW3_GSE6_merge0 = 'MW3_MHG0.25_GSE6'
+    MW3_GSE6_merge1 = 'MW3_MHG0.25_GSE6_kick'
+
+    MW4_GSE6_merge0 = 'MW4_MHG0.25_GSE6'
+    MW4iso_corona0 = 'MW4iso_fg0.2_MHG0.25_RC9'
+
+    MW4iso_corona4 = 'MW4iso_fg0.2_MHG0.15_RC9'
+    MW4_GSE6_merge2 = 'MW4_MHG0.15_GSE6_kick'
+    MW4_GSE6_merge3 = 'MW4_MHG0.15_GSE6_kick120'
+
+    MW4_GSE2_MHG05 = 'MW4_MHG0.25_GSE2_MHG0.5'
+
+    pair_list = [(MW3iso_corona3, 'lvl4', 0), # 0
+                 (MW3iso_corona4, 'lvl4', 0), # 1
+                 (MW3_GSE2_merge2, 'lvl4', 0), # 2
+                 (MW3_GSE2_merge3, 'lvl4', 0), # 3
+                 (MW3_GSE2_merge4, 'lvl4', 0), # 4
+                 (MW3_GSE2_merge5, 'lvl4', 0), # 5
+                 (MW3_GSE2_merge6, 'lvl4', 0), # 6
+                 (MW3_GSE5_merge0, 'lvl4', 0), # 7
+                 (MW3_GSE3_merge0, 'lvl4', 0), # 8
+                 (MW3_GSE6_merge0, 'lvl4', 0), # 9
+                 (MW3_GSE6_merge1, 'lvl4', 0), # 10
+                 (MW3_GSE2N_merge0, 'lvl4', 0), # 11
+                 (MW4_GSE6_merge0, 'lvl4', 0), # 12
+                 (MW4iso_corona0, 'lvl4', 0), # 13
+                 (MW4iso_corona4, 'lvl4', 0), # 14
+                 (MW4_GSE6_merge2, 'lvl4', 0), # 15
+                 (MW4_GSE6_merge3, 'lvl4', 0), # 16
+                 (MW4_GSE2_MHG05, 'lvl4', 1), # 17
                  ]
 
 
-    name_list = [           p[0] + '-' + p[1] for p in pair_list]
-    path_list = [basepath + 'runs/' + p[0] + '/' + p[1] for p in pair_list]
-    ic_list   = [basepath + 'ics/' + p[0] + '/' + p[1] for p in pair_list]
+    name_list  = [           p[0] + '-' + p[1] for p in pair_list]
+    path_list  = [basepath + 'runs/' + p[0] + '/' + p[1] for p in pair_list]
+    ic_list    = [basepath + 'ics/' + p[0] + '/' + p[1] for p in pair_list]
+    metal_list = [p[2] for p in pair_list]
     
     i = int(sys.argv[2])
     path = path_list[i]
     name = name_list[i]
     ic = ic_list[i]
+    metal = metal_dict[metal_list[i]]
 
-    out = run(path, ic, name, nproc)
+    out = run(path, ic, name, nproc, metal)

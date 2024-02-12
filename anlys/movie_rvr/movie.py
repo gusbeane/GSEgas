@@ -31,20 +31,24 @@ class animate_maker(object):
         
         return (self.im, self.txt)
 
-def make_movie(H, time, nresx, nresy, norm, fout, cmap,
+def make_movie(H, time, nresx, nresy, norm, fout, cmap, extent,
                fps=16):
     
     # initialize fig and ax, remove boundary
-    fig, ax = plt.subplots(1, figsize=(2, 2))
+    fig, ax = plt.subplots(1, figsize=(4, 4))
     # fig.subplots_adjust(0, 0, 1, 1)
     # ax.axis("off")
 
     # initialize im
     im = ax.imshow(np.full((nresx, nresy), norm.vmin), origin='lower', 
-                   norm=norm, cmap=cmap)
+                   norm=norm, cmap=cmap, extent=extent)
 
+    ax.set(xlabel='r [kpc]', ylabel='v_r [km/s]')
+    
     # initialize time if needed
-    txt = ax.text(0.6, 0.85, ' ', transform=ax.transAxes, fontsize=7, c='k')
+    txt = ax.text(0.6, 0.85, ' ', transform=ax.transAxes, fontsize=12, c='k')
+    
+    fig.tight_layout()
 
     animate = animate_maker(H, time, im, txt, norm)
 

@@ -54,7 +54,7 @@ def get_massMC(ParticleIDs, ParentIDs, TracerMass):
     
     return massMC
 
-def compute_projections(sn, MC, COM, nres=256, rng=[[-15, 15], [-15, 15]]):
+def compute_projections(sn, MC, COM, selection, nres=256, rng=[[-15, 15], [-15, 15]]):
     dx = (rng[0][1]-rng[0][0]) / nres
     dy = (rng[1][1]-rng[1][0]) / nres
     surf_area = dx * dy
@@ -77,11 +77,7 @@ def compute_projections(sn, MC, COM, nres=256, rng=[[-15, 15], [-15, 15]]):
         mass = sn.part0.mass.value
         vol = mass/rho
 
-        is_gas = MC['PartType5/PartType'][:] == 0
-        is_GSE = MC['PartType5/Membership'][:] == 2
-        is_GSE_gas = np.logical_and(is_gas, is_GSE)
-
-        massMC = get_massMC(sn.part0.ParticleIDs, MC['PartType5/ParentID'][is_GSE_gas],
+        massMC = get_massMC(sn.part0.ParticleIDs, MC['PartType5/ParentID'][selection],
                             MC['Header'].attrs['TracerMass'])
 
         rhoMC = massMC / vol

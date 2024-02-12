@@ -25,13 +25,13 @@ class animate_maker(object):
         H_[H_ < self.vmin] = self.vmin
         #self.H[frame][self.H[frame] < self.vmin] = self.vmin
 
-        self.im.set_data(self.H[frame].T)
+        self.im.set_data(H_.T)
         
         self.txt.set_text('t='+'{0:.2f}'.format(self.time[frame])+' Gyr')
         
         return (self.im, self.txt)
 
-def make_movie(H, time, nres, vmin, vmax, fout,
+def make_movie(H, time, nres, vmin, vmax, fout, cmap,
                fps=16):
     
     # initialize fig and ax, remove boundary
@@ -41,7 +41,7 @@ def make_movie(H, time, nres, vmin, vmax, fout,
 
     # initialize im
     im = ax.imshow(np.full((nres, nres), vmin), origin='lower', 
-                   norm=mpl.colors.LogNorm(vmin=vmin, vmax=vmax))
+                   norm=mpl.colors.LogNorm(vmin=vmin, vmax=vmax), cmap=cmap)
 
     # initialize time if needed
     txt = ax.text(0.6, 0.85, ' ', transform=ax.transAxes, fontsize=7, c='w')
