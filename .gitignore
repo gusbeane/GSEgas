@@ -11,6 +11,9 @@ anlys/MC/*/*.h5
 anlys/COM/*.npy
 anlys/dilution/*.npy
 
+anlysTNG/tracer/subhalo*
+anlysTNG/*/logs
+
 # paper/
 paper/ms.pdf
 paper/ms.aux
@@ -54,5 +57,17 @@ uses-machines.txt
 *-usedvalues
 sfrrate.txt
 
-IDs.p
+*.tar.gz
 
+data/
+
+IDs.p
+anlys/CGMacc/*.npy
+anlys/*/log*
+lspace.txt
+
+
+# TNG
+TNG/tables
+running
+running_done
