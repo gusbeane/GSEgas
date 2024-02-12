@@ -1,0 +1,112 @@
+
+%----  Relevant files 
+OutputDir           output
+InitCondFile        ICs/ics_tng50_zoom_gr187_z1
+SnapshotFileBase    snap
+OutputListFilename  output_list.txt
+
+%---- File formats
+ICFormat           3
+SnapFormat         3 
+
+%---- CPU-time limits
+TimeLimitCPU           604800 % 7 days
+CpuTimeBetRestartFile  10800 % 3 hours
+FlushCpuTimeDiff       120
+
+ResubmitOn        0
+ResubmitCommand   my-scriptfile 
+
+%----- Memory alloction
+MaxMemSize         3500 % 2650 % previous e configuration: 18*2550
+
+%---- Caracteristics of run
+TimeBegin           0.0078125  % Begin of the simulation
+TimeMax	            1.0        % End of the simulation
+
+%---- Basic code options that set the type of simulation
+ComovingIntegrationOn    1 
+PeriodicBoundariesOn     1
+CoolingOn		 0
+StarformationOn	     	 0
+
+%---- Cosmological parameters
+Omega0	              0.3089
+OmegaLambda           0.6911
+OmegaBaryon           0.0486
+HubbleParam           0.6774
+BoxSize               35000.0
+
+%---- Output frequency and output paramaters
+OutputListOn              1 
+TimeBetSnapshot           0.0
+TimeOfFirstSnapshot       0.0
+TimeBetStatistics         0.01
+NumFilesPerSnapshot       8
+NumFilesWrittenInParallel 8
+
+%---- Accuracy of time integration
+TypeOfTimestepCriterion  0 
+ErrTolIntAccuracy        0.012 
+CourantFac               0.3
+MaxSizeTimestep          0.005
+MinSizeTimestep          2.0e-9 
+
+%---- Treatment of empty space and temperature limits (not used)
+InitGasTemp                           244.8095 
+MinGasTemp                            5.0
+MinimumDensityOnStartUp               1.0e-20
+LimitUBelowThisDensity                0.0
+LimitUBelowCertainDensityToThisValue  0.0
+MinEgySpec                            0.0
+
+%---- Tree algorithm, force accuracy, domain update frequency
+TypeOfOpeningCriterion                1
+ErrTolTheta                           0.7
+ErrTolForceAcc                        0.0025
+MultipleDomains                       8 
+TopNodeFactor                         2.5
+ActivePartFracForNewDomainDecomp      0.005
+ 
+%---- Initial density estimate
+DesNumNgb              64 
+MaxNumNgbDeviation     4 
+
+%---- System of units
+UnitLength_in_cm         3.085678e21        ;  1.0 kpc
+UnitMass_in_g            1.989e43           ;  1.0e10 solar masses
+UnitVelocity_in_cm_per_s 1e5                ;  1 km/sec
+GravityConstantInternal  0
+
+%---- Gravitational softening lengths
+SofteningComovingType0  0.39 % not used
+SofteningComovingType1  0.39
+SofteningComovingType2  0.78
+SofteningComovingType3  6.24
+SofteningComovingType4  6.24 % not used
+SofteningComovingType5  6.24 % not used
+
+SofteningMaxPhysType0   0.195 % not used
+SofteningMaxPhysType1   0.195
+SofteningMaxPhysType2   0.39
+SofteningMaxPhysType3   3.12
+SofteningMaxPhysType4   3.12 % not used
+SofteningMaxPhysType5   3.12 % not used
+
+SofteningTypeOfPartType0 0 % not used
+SofteningTypeOfPartType1 1
+SofteningTypeOfPartType2 2
+SofteningTypeOfPartType3 3
+SofteningTypeOfPartType4 1 % not used
+SofteningTypeOfPartType5 1 % not used
+
+GasSoftFactor             2.5  % not used
+
+%----- Mesh regularization options
+CellShapingSpeed       0.5 % not used
+CellShapingFactor      1.0 % not used      
+
+%----- Subfind
+ErrTolThetaSubfind     0.7
+DesLinkNgb             20
+
