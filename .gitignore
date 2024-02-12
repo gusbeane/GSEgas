@@ -11,8 +11,8 @@ anlys/MC/*/*.h5
 anlys/COM/*.npy
 anlys/dilution/*.npy
 
-anlysTNG/tracer/subhalo*
-anlysTNG/*/logs
+TNG/anlys/tracer/subhalo*
+TNG/anlys/*/logs
 
 # paper/
 paper/ms.pdf
