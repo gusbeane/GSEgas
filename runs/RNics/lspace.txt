@@ -1,5 +1,0 @@
-28K	./param
-556M	./lvl4-RNsoft
-1.4T	./lvl4
-24K	./scripts
-1.4T	.
