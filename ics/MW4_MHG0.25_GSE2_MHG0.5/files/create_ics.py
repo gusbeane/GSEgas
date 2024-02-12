@@ -124,6 +124,9 @@ ics.part2.vel[:] = np.concatenate((sn_MW.part2.vel, vel_GSE_part2))
 ics.part3.pos[:] = sn_MW.part3.pos
 ics.part3.vel[:] = sn_MW.part3.vel
 
+ics.addField('PassiveScalars', [4, 0, 0, 0, 0, 0])
+ics.part0.PassiveScalars[:] = np.concatenate((sn_MW.part0.PassiveScalars[key_MW], sn_GSE.part0.PassiveScalars[key_GSE]))
+
 current_id = 0
 for i in range(6):
     if npart[i] > 0:

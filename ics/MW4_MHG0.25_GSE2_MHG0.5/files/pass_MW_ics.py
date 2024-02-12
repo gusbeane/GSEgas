@@ -109,7 +109,7 @@ ics.part2.vel[:] = sn_MW.part2.vel
 ics.part3.pos[:] = sn_MW.part3.pos + shift
 ics.part3.vel[:] = sn_MW.part3.vel
 
-# Set metallicities
+# Set metals
 metal_fractions_MW_disk = get_initial_mass_fractions(zsolar_MW_disk) 
 metal_fractions_MW_halo = get_initial_mass_fractions(zsolar_MW_halo) 
 
@@ -120,11 +120,21 @@ metal_fractions = np.concatenate((metal_frac_arr_MW_disk, metal_frac_arr_MW_halo
 
 ics.part0.GFM_Metals[:] = metal_fractions 
 
+# Set metallicities
+
 metallicity_MW_disk = np.full(N_GAS, zsolar_MW_disk * GFM_SOLAR_METALLICITY)
 metallicity_MW_halo = np.full(sn_MW.NumPart_Total[0] - N_GAS, zsolar_MW_halo * GFM_SOLAR_METALLICITY)
 metallicity = np.concatenate((metallicity_MW_disk, metallicity_MW_halo))
 
 ics.part0.GFM_Metallicity[:] = metallicity
+
+# Set passive scalars
+ics.addField('PassiveScalars', [4, 0, 0, 0, 0, 0])
+passive_disk = np.repeat(np.array([1, 0, 0, 0], dtype=float).reshape(1, -1), N_GAS, axis=0)
+passive_halo = np.repeat(np.array([0, 1, 0, 0], dtype=float).reshape(1, -1), sn_MW.NumPart_Total[0] - N_GAS, axis=0)
+passive = np.concatenate((passive_disk, passive_halo))
+
+ics.part0.PassiveScalars[:] = passive
 
 # Set ids
 current_id = 0
