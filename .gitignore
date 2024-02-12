@@ -69,6 +69,8 @@ anlys/CGMacc/*.npy
 anlys/*/log*
 lspace.txt
 
+hosts
+eos.txt
 
 # TNG
 TNG/tables
