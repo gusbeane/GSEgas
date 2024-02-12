@@ -38,6 +38,8 @@ arepo_BG/
 arepo_BG-old/
 gas_density.txt
 
+..bfg-report
+
 # runs/
 runs/lvl*
 *fpsync*.out
