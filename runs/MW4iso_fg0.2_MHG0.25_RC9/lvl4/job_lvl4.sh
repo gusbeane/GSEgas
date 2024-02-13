@@ -2,8 +2,8 @@
 #SBATCH -p itc_cluster,hernquist,conroy
 ##SBATCH -p hernquist_ice
 #SBATCH -J MW4isol4
-#SBATCH -n 192
-#SBATCH -N 4
+#SBATCH -n 96
+#SBATCH -N 2
 #SBATCH --ntasks-per-node=48
 #SBATCH -o output/OUTPUT.%j.out
 #SBATCH -e output/ERROR.%j.err
