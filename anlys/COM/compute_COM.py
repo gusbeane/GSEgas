@@ -128,37 +128,17 @@ if __name__ == '__main__':
     MW3_GSE2N_merge0 = 'MW3_MHG0.25_GSE2N'
     MW4_GSE6_merge0 = 'MW4_MHG0.25_GSE6'
     MW4iso_corona3 = 'MW4iso_fg0.2_MHG0.25_RC9'
-    MW4iso_corona4 = 'MW4iso_fg0.2_MHG0.15_RC9'
     MW4_GSE6_merge2 = 'MW4_MHG0.15_GSE6_kick'
     MW4_GSE6_merge3 = 'MW4_MHG0.15_GSE6_kick120'
 
+    MW4iso_corona4 = 'MW4iso_fg0.2_MHG0.15_RC9'
     MWN0_GSEN0_BH = 'MWN0_GSEN0-BH'
     MW4_GSE2_MHG05 = 'MW4_MHG0.25_GSE2_MHG0.5'
 
-    pair_list = [(MW3iso_corona3, 'lvl4'), # 0
-                 (MW3_GSE2_merge2, 'lvl4'), # 1
-                 (MW3_GSE2_merge2_pro, 'lvl4'), # 2
-                 (MW3_GSE2_merge3, 'lvl4'), # 3
-                 (MW3_GSE2_merge4, 'lvl4'), # 4
-                 (MW3_GSE2_merge5, 'lvl4'), # 5
-                 (MW3_GSE2_merge6, 'lvl4'), # 6
-                 (MW3_GSE5_merge0, 'lvl4'), # 7
-                 (MW3_GSE3_merge0, 'lvl4'), # 8
-                 (MW3iso_corona4, 'lvl4'), # 9
-                 (MW3_GSE6_merge0, 'lvl4'), # 10
-                 (MW3_GSE2_merge3, 'lvl3'), # 11
-                 (MW3_GSE6_merge1, 'lvl4'), # 12
-                 (MW3_GSE2N_merge0, 'lvl4'), # 13
-                 (MW4iso_corona3, 'lvl4'), # 14
-                 (MW4_GSE6_merge0, 'lvl4'), # 15
-                 (MW4_GSE6_merge2, 'lvl4'), # 16
-                 (MW4iso_corona4, 'lvl4'), # 17
-                 (MW4_GSE6_merge3, 'lvl4'), # 18
-                 (MWN0_GSEN0_BH, 'lvl4'), # 19
-                 (MWN0_GSEN0_BH, 'lvl3'), # 20
-                 (MW4_GSE2_MHG05, 'lvl4'), # 21
-                 (MW4_GSE2_MHG05, 'lvl4-GFM'), # 22
-                 ]
+    pair_list = [
+                 (MW4iso_corona3, 'lvl4'), # 0
+                 (MW4_GSE2_MHG05, 'lvl4'), # 1
+                ]
 
 
     name_list = [           p[0] + '-' + p[1] for p in pair_list]
@@ -167,8 +147,12 @@ if __name__ == '__main__':
     # p[1][:4] in ics is to remove anything like -GFM from the lvl, since the ics are just for
     # lvl4 and lvl4-GFM is a runtime modification (ie.. lvl4-GFM uses the same ics as lvl4)
 
-    nsnap_list = [len(glob.glob(path+'/output/snapdir*/*.0.hdf5')) for path in path_list]
-  
+    nsnap_list = []
+    for path in path_list:
+        nsnap0 = len(glob.glob(path+'/output/snap*.hdf5'))
+        nsnap1 = len(glob.glob(path+'/output/snapdir*/*.0.hdf5'))
+        nsnap_list.append(max(nsnap0, nsnap1))
+
     i = int(sys.argv[2])
     path = path_list[i]
     name = name_list[i]
