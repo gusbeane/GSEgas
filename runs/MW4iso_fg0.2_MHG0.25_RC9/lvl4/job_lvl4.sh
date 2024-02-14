@@ -1,10 +1,10 @@
 #!/bin/sh
-#SBATCH -p itc_cluster,hernquist,conroy
-##SBATCH -p hernquist_ice
-#SBATCH -J MW4isol4
-#SBATCH -n 96
-#SBATCH -N 2
-#SBATCH --ntasks-per-node=48
+##SBATCH -p itc_cluster,hernquist,conroy
+#SBATCH -p hernquist_ice
+#SBATCH -J MW4iso_l4
+#SBATCH -n 64
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=64
 #SBATCH -o output/OUTPUT.%j.out
 #SBATCH -e output/ERROR.%j.err
 #SBATCH --exclusive
@@ -13,7 +13,7 @@
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
 #SBATCH --mail-type=FAIL
-#SBATCH --mem-per-cpu=3800
+#SBATCH --mem-per-cpu=7800
 #SBATCH -t 7-00:00           # Runtime in D-HH:MM
 
 source ./load-modules.sh
