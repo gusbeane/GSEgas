@@ -175,6 +175,47 @@ universe.} For our fiducial central densities, this value is $1.07$ and $0.28$
 for the Milky Way and GSE respectively using the universal values from
 \cite{2014AA...571A..16P}. An early argument by 
 
+\subsection{Dilution Profile}\label{ssec:dilprof}
+
+Hi. We next examine the constitution of gas in the disk at $t=5\,\textrm{Gyr}$, i.e.
+post-merger when the disk has settled. We compute the ``dilution fraction'' --
+the fraction of gas in a given annulus in the disk ($|z|<3\,\textrm{kpc}$) that
+originated from GSE or its CGM, and show this in the upper panel of
+Figure~\ref{fig:dil}. The dilution factor varies from $\sim10\%$ in the inner
+disk to only a few percent in the outer disk. In fact, of all GSE gas with
+$R<15\,\textrm{kpc}$, $x\%$ is within $y$.
+
+In the bottom panel of Figure~\ref{fig:dil}, we attempt to illustrate how much
+the dilution of the disk impacts its metallicity. We assign the gas in the disk
+which was originally part of the Milky Way disk and CGM a metallicity of
+$[\textrm{Z}/\textrm{H}]=-0.3$ and the gas from the GSE disk and CGM a
+metallicity of $[\textrm{Z}/\textrm{H}]=-1.2$. We compute the metallicity of
+each annulus assuming these two gas components are well mixed.\footnote{Only
+about $1\%$ of cells in the disk contain tracer particles only from GSE.}
+Because there is little dilution in the outer disk, the metallicity hardly
+changes from $-0.3$. In the inner disk where dilution is stronger, the
+metallicity drops to $\sim-0.35$. We also plot horizontal dashed lines at the
+assumed metallicity of Milky Way gas ($-0.3$) and the approximate metallicity of
+the start of the low-alpha sequence ($-0.6$), i.e. the target metallicity of the
+GSE merger.
+
+% 1% number is in dilution_profile notebook
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\columnwidth]{dil.pdf}
+  \caption{The dilution and metallicity profiles of the disk resulting from the
+  merger between the Milky Way and GSE. The upper panel shows the ``dilution
+  fraction'' -- the fraction of gas at each annulus originating from the disk or
+  CGM of GSE. The lower panel shows the metallicity profile of the disk,
+  assuming metallicities of $[\textrm{Z}/\textrm{H}]=-0.3$ and $-1.2$ for gas
+  from the Milky Way and GSE, respectively. The dashed lines at
+  $[\textrm{Z}/\textrm{H}]=-0.3$ and $-0.6$ are the approximate metallicites of
+  the end of the high-alpha and the beginning of the low-alpha sequences. The
+  disk is defined as having $|z|<3\,\textrm{kpc}$.}
+  \label{fig:dil}
+\end{figure}
+
 \bibliography{ref}{}
 \bibliographystyle{aasjournal}
 
