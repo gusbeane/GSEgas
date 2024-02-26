@@ -135,9 +135,20 @@ if __name__ == '__main__':
     MWN0_GSEN0_BH = 'MWN0_GSEN0-BH'
     MW4_GSE2_MHG05 = 'MW4_MHG0.25_GSE2_MHG0.5'
 
+    MW4_GSE2N = 'MW4_MHG0.25_GSE2N'
+    MW4_GSE2_MHG05_pro = 'MW4_MHG0.25_GSE2_MHG0.5_pro'
+
+    MW4iso_corona4_vphi01 = 'MW4iso_fg0.2_MHG0.25_RC9_vphi0.1'
+
     pair_list = [
                  (MW4iso_corona3, 'lvl4'), # 0
                  (MW4_GSE2_MHG05, 'lvl4'), # 1
+                 
+                 (MW4iso_corona3, 'lvl4-noB'), # 2
+                 (MW4_GSE2_MHG05, 'lvl4-noB'), # 3
+                 (MW4_GSE2N, 'lvl4-noB'), # 4
+                 (MW4_GSE2_MHG05_pro, 'lvl4-noB'), # 5
+                 (MW4iso_corona4_vphi01, 'lvl4-noB'), # 6
                 ]
 
 

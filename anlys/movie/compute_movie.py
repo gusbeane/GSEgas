@@ -137,59 +137,13 @@ def run(snap, path, name, fout, nres, nsnap, rng, COM_key):
         
 if __name__ == '__main__':
     basepath = '../../runs/'
-    
-
-    Nbody = 'Nbody'
-    MW3iso_fg05 = 'MW3iso_fg0.5'
-    GSE2iso_fg07 = 'GSE2iso_fg0.7'
-    GSE3iso_fg07 = 'GSE3iso_fg0.7'
-    GSE4iso_fg07 = 'GSE4iso_fg0.7'
-    GSE5iso_fg07 = 'GSE5iso_fg0.7'
-    MW3iso_corona1 = 'MW3iso_fg0.7_MHG0.1_RC30'
-    MW3iso_corona2 = 'MW3iso_fg0.7_MHG0.15_RC9'
-    MW3iso_corona3 = 'MW3iso_fg0.7_MHG0.25_RC9'
-    MW3iso_corona4 = 'MW3iso_fg0.7_MHG0.35_RC9'
-    GSE2iso_corona1 = 'GSE2iso_fg0.7_MHG0.18_RC6.5'
-    MW3_GSE2_merge0 = 'MW3_MHG0.25_GSE2_MHG0.18'
-    MW3_GSE2_merge1 = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut30'
-    MW3_GSE2_merge2 = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut10'
-    MW3_GSE2_merge2_pro = 'MW3_MHG0.25_GSE2_MHG0.18_Rcut10_pro'
-    MW3_GSE2_merge3 = 'MW3_MHG0.25_GSE2'
-    MW3_GSE2_merge4 = 'MW3_MHG0.35_GSE2'
-    MW3_GSE2_merge5 = 'MW3_MHG0.35_GSE2_Vvir110'
-    MW3_GSE2_merge6 = 'MW3_MHG0.35_GSE2_e0.25'
-    MW3_GSE5_merge0 = 'MW3_MHG0.25_GSE5'
-    MW3_GSE3_merge0 = 'MW3_MHG0.35_GSE3'
-    MW3_GSE6_merge0 = 'MW3_MHG0.25_GSE6'
-    Seq1iso_fg07 = 'Seq1iso_fg0.7'
-    Seq2iso_fg07 = 'Seq2iso_fg0.7'
-    GSE2_Seq1 = 'GSE2_Seq1'
-    GSE2_Seq1_R16 = 'GSE2_Seq1_R16'
-    GSE2_Seq1_R24 = 'GSE2_Seq1_R24'
-    GSE2_Seq1_R48 = 'GSE2_Seq1_R48'
-    GSE2_Seq1_R48_eta05 = 'GSE2_Seq1_R48_eta0.5'
-    GSE2_Seq1_R48_eta02 = 'GSE2_Seq1_R48_eta0.2'
-    GSE6_Seq2_R48_eta02 = 'GSE6_Seq2_R48_eta0.2'
-    GSE6_Seq2_R48_eta02_vz = 'GSE6_Seq2_R48_eta0.2_vz'
-    GSE6_Seq2_R48_eta05 = 'GSE6_Seq2_R48_eta0.5'
-    GSE6_Seq2_R48_eta05_vz = 'GSE6_Seq2_R48_eta0.5_vz'
-    GSE6_Seq2_R96_eta05 = 'GSE6_Seq2_R96_eta0.5'
-    GSE6_Seq2_R96_eta05_vz = 'GSE6_Seq2_R96_eta0.5_vz'
-    GSE6_Seq2_R96_eta02 = 'GSE6_Seq2_R96_eta0.2'
-    GSE6_Seq2_R96_eta02_vz = 'GSE6_Seq2_R96_eta0.2_vz'
-    GSE6_Seq2_Rp30_Ri60_e06 = 'GSE6_Seq2_Rp30_Ri60_e0.6'
-    GSE6_Seq2_Rp30_Ri60_e07 = 'GSE6_Seq2_Rp30_Ri60_e0.7'
-    GSE6iso_fg07 = 'GSE6iso_fg0.7'
-    MW3_GSE6_merge1 = 'MW3_MHG0.25_GSE6_kick'
-    MW4_GSE6_merge0 = 'MW4_MHG0.25_GSE6'
-    MW4iso_corona3 = 'MW4iso_fg0.2_MHG0.25_RC9'
-    MW3_GSE2N_merge0 = 'MW3_MHG0.25_GSE2N'
-
-    MW4iso_corona4 = 'MW4iso_fg0.2_MHG0.15_RC9'
-    MW4_GSE6_merge2 = 'MW4_MHG0.15_GSE6_kick'
 
     GSE2iso_corona2 = 'GSE2iso_fg0.7_MHG0.5_RC6.5'
     MW4_GSE2_MHG05 = 'MW4_MHG0.25_GSE2_MHG0.5'
+    MW4_GSE2_MHG05_pro = 'MW4_MHG0.25_GSE2_MHG0.5_pro'
+    MW4_GSE2N = 'MW4_MHG0.25_GSE2N'
+    MW4iso_corona3 = 'MW4iso_fg0.2_MHG0.25_RC9'
+    MW4iso_corona4_vphi01 = 'MW4iso_fg0.2_MHG0.25_RC9_vphi0.1'
 
     rng0 = [[-80, 80], [-80, 80]]
     rng1 = [[-5, 5], [-5, 5]]
@@ -199,75 +153,19 @@ if __name__ == '__main__':
     rng5 = [[-40, 40], [-40, 40]]
     rng6 = [[-140, 140], [-140, 140]]
 
-    pair_list = [(MW3iso_fg05, 'lvl3', rng2, 'BoxCenter'), # 0
-                 (MW3iso_fg05, 'lvl2', rng2, 'BoxCenter'), # 1
-                 (MW3iso_fg05, 'lvl2-limiter', rng2, 'BoxCenter'), # 2
-                 (MW3iso_fg05, 'lvl2-limiter2', rng2, 'BoxCenter'), # 3
-                 (GSE2iso_fg07, 'lvl4', rng1, 'BoxCenter'), # 4
-                 (GSE2iso_fg07, 'lvl3', rng1, 'BoxCenter'), # 5
-                 (MW3iso_corona1, 'lvl4', rng2, 'BoxCenter'), # 6
-                 (MW3iso_corona1, 'lvl3', rng2, 'BoxCenter'), # 7
-                 (MW3iso_corona2, 'lvl4', rng2, 'BoxCenter'), # 8
-                 (MW3iso_corona2, 'lvl3', rng2, 'BoxCenter'), # 9
-                 (MW3iso_corona3, 'lvl4', rng0, 'BoxCenter'), # 10
-                 (MW3iso_corona4, 'lvl4', rng0, 'BoxCenter'), # 11
-                 (GSE2iso_corona1, 'lvl4', rng1, 'BoxCenter'), # 12
-                 (GSE2iso_corona1, 'lvl3', rng1, 'BoxCenter'), # 13
-                 (MW3_GSE2_merge0, 'lvl4', rng0, 'Tot_COM'), # 14
-                 (MW3_GSE2_merge0, 'lvl4', rng4, 'GSE_COM'), # 15
-                 (MW3_GSE2_merge1, 'lvl4', rng0, 'Tot_COM'), # 16
-                 (MW3_GSE2_merge2, 'lvl4', rng0, 'Tot_COM'), # 17
-                 (MW3_GSE2_merge2_pro, 'lvl4', rng0, 'Tot_COM'), # 18
-                 (MW3_GSE2_merge0, 'lvl4', rng0, 'MW_COM'), # 19
-                 (MW3_GSE2_merge1, 'lvl4', rng0, 'MW_COM'), # 20
-                 (MW3_GSE2_merge2, 'lvl4', rng0, 'MW_COM'), # 21
-                 (MW3_GSE2_merge3, 'lvl4', rng0, 'Tot_COM'), # 22
-                 (MW3_GSE2_merge4, 'lvl4', rng0, 'Tot_COM'), # 23
-                 (MW3_GSE2_merge5, 'lvl4', rng0, 'Tot_COM'), # 24
-                 (MW3_GSE2_merge6, 'lvl4', rng0, 'Tot_COM'), # 25
-                 (MW3_GSE3_merge0, 'lvl4', rng0, 'Tot_COM'), # 26
-                 (MW3iso_corona4, 'lvl4', rng0, 'BoxCenter'), # 27
-                 (GSE3iso_fg07, 'lvl4', rng1, 'BoxCenter'), # 28
-                 (GSE2iso_fg07, 'lvl4', rng4, 'BoxCenter'), # 29
-                 (GSE4iso_fg07, 'lvl4', rng4, 'BoxCenter'), # 30
-                 (GSE5iso_fg07, 'lvl4', rng4, 'BoxCenter'), # 31
-                 (GSE2iso_fg07, 'lvl4-fSN', rng4, 'BoxCenter'), # 32
-                 (MW3_GSE5_merge0, 'lvl4', rng0, 'Tot_COM'), # 33
-                 (Seq1iso_fg07, 'lvl4', rng1, 'BoxCenter'), # 34
-                 (GSE2_Seq1, 'lvl4', rng4, 'BoxCenter'), # 35
-                 (GSE2_Seq1_R16, 'lvl4', rng3, 'BoxCenter'), # 36
-                 (GSE2_Seq1_R24, 'lvl4', rng5, 'BoxCenter'), # 37
-                 (GSE2_Seq1_R48, 'lvl4', rng0, 'BoxCenter'), # 38
-                 (GSE2_Seq1_R48_eta05, 'lvl4', rng0, 'BoxCenter'), # 39
-                 (GSE6iso_fg07, 'lvl4', rng3, 'BoxCenter'), # 40
-                 (GSE6iso_fg07, 'lvl4-adiabatic', rng3, 'BoxCenter'), # 41
-                 (MW3_GSE6_merge0, 'lvl4', rng6, 'Tot_COM'), # 42
-                 (GSE2_Seq1_R48_eta02, 'lvl4', rng0, 'BoxCenter'), # 43
-                 (Seq2iso_fg07, 'lvl4', rng2, 'BoxCenter'), # 44
-                 (GSE6_Seq2_R48_eta02, 'lvl4', rng0, 'BoxCenter'), # 45
-                 (GSE6_Seq2_R48_eta02_vz, 'lvl4', rng0, 'BoxCenter'), # 46
-                 (GSE6_Seq2_R48_eta05, 'lvl4', rng0, 'BoxCenter'), # 47
-                 (GSE6_Seq2_R48_eta05_vz, 'lvl4', rng0, 'BoxCenter'), # 48
-                 (GSE6_Seq2_R96_eta05, 'lvl4', rng0, 'BoxCenter'), # 49
-                 (GSE6_Seq2_R96_eta05_vz, 'lvl4', rng0, 'BoxCenter'), # 50
-                 (GSE6_Seq2_R96_eta02, 'lvl4', rng0, 'BoxCenter'), # 51
-                 (GSE6_Seq2_R96_eta02_vz, 'lvl4', rng0, 'BoxCenter'), # 52
-                 (GSE6_Seq2_Rp30_Ri60_e06, 'lvl4', rng0, 'BoxCenter'), # 53
-                 (GSE6_Seq2_Rp30_Ri60_e07, 'lvl4', rng0, 'BoxCenter'), # 54
-                 (MW3_GSE2_merge3, 'lvl3', rng0, 'Tot_COM'), # 55
-                 (MW3_GSE6_merge1, 'lvl4', rng6, 'Tot_COM'), # 56
-                 (MW4_GSE6_merge0, 'lvl4', rng0, 'Tot_COM'), # 57
-                 (MW4iso_corona3, 'lvl4', rng0, 'Tot_COM'), # 58
-                 (MW3_GSE2N_merge0, 'lvl4', rng6, 'Tot_COM'), # 59
-                 (MW4iso_corona4, 'lvl4', rng6, 'Tot_COM'), # 60
-                 (MW4_GSE6_merge2, 'lvl4', rng6, 'Tot_COM'), # 61
-                 (GSE2iso_corona1, 'lvl4-oldcommit', rng3, 'BoxCenter'), # 62
-                 (GSE2iso_corona1, 'lvl4-solar', rng3, 'BoxCenter'), # 63
-                 (GSE2iso_corona1, 'lvl3', rng3, 'BoxCenter'), # 64
-                 (GSE2iso_corona2, 'lvl4', rng3, 'BoxCenter'), # 65
-                 (GSE2iso_corona2, 'lvl4', rng0, 'BoxCenter'), # 66
-                 (MW4_GSE2_MHG05, 'lvl4', rng0, 'Tot_COM'), # 67
-                 (MW4_GSE2_MHG05, 'lvl4', rng6, 'Tot_COM'), # 68
+    pair_list = [
+                 (MW4iso_corona3, 'lvl4', rng0, 'Tot_COM'), # 0
+                 (MW4iso_corona3, 'lvl4', rng5, 'Tot_COM'), # 1
+                 (MW4iso_corona3, 'lvl4', rng6, 'Tot_COM'), # 2
+                 (MW4_GSE2_MHG05, 'lvl4', rng0, 'Tot_COM'), # 3
+                 (MW4_GSE2_MHG05, 'lvl4', rng6, 'Tot_COM'), # 4
+                 
+                 (MW4iso_corona3, 'lvl4-noB', rng6, 'Tot_COM'), # 5
+                 (MW4_GSE2_MHG05, 'lvl4-noB', rng6, 'Tot_COM'), # 6
+                 (MW4_GSE2N, 'lvl4-noB', rng6, 'Tot_COM'), # 7
+                 (MW4_GSE2_MHG05_pro, 'lvl4-noB', rng6, 'Tot_COM'), # 8
+
+                 (MW4iso_corona4_vphi01, 'lvl4-noB', rng6, 'Tot_COM'), # 9
                  ]
 
     i = int(sys.argv[1])
