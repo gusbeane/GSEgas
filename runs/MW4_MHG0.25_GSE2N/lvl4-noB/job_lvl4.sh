@@ -1,7 +1,7 @@
 #!/bin/sh
 ##SBATCH -p itc_cluster,hernquist,conroy
 #SBATCH -p hernquist_ice
-#SBATCH -J MW4GSE2_l4
+#SBATCH -J MW4GSE2N_l4
 #SBATCH -n 64
 #SBATCH -N 1
 #SBATCH --ntasks-per-node=64

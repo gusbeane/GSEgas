@@ -153,5 +153,5 @@ PhotometricsTablePath                             /n/holylfs05/LABS/hernquist_la
 FactorForSofterEQS                                0.3
 TempForSofterEQS                                  1e4
 WindDumpFactor                                    0.6
-MHDSeedDir                                        4
-MHDSeedValue                                      1.0e-14
+%MHDSeedDir                                        4
+%MHDSeedValue                                      1.0e-14
