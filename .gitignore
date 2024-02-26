@@ -76,3 +76,8 @@ eos.txt
 TNG/tables
 running
 running_done
+
+
+.*.swp
+eqs.txt
+surface_density.txt
