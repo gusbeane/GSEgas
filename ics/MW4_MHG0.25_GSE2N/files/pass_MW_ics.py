@@ -126,6 +126,14 @@ metallicity = np.concatenate((metallicity_MW_disk, metallicity_MW_halo))
 
 ics.part0.GFM_Metallicity[:] = metallicity
 
+# set passive scalars
+ics.addField('PassiveScalars', [4, 0, 0, 0, 0, 0])
+passive_disk = np.repeat(np.array([1, 0, 0, 0], dtype=float).reshape(1, -1), N_GAS, axis=0)
+passive_halo = np.repeat(np.array([0, 1, 0, 0], dtype=float).reshape(1, -1), sn_MW.NumPart_Total[0] - N_GAS, axis=0)
+passive = np.concatenate((passive_disk, passive_halo))
+
+ics.part0.PassiveScalars[:] = passive
+
 # Set ids
 current_id = 0
 for i in range(6):

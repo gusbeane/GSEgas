@@ -123,6 +123,7 @@ ics = arepo.ICs('ics.hdf5', npart, masses=masses)
 
 ics.addField("GFM_Metallicity", pres=[1,0,0,0,0,0])
 ics.addField("GFM_Metals", pres=[10,0,0,0,0,0])
+ics.addField("PassiveScalars", pres=[4,0,0,0,0,0])
 
 print(npart)
 print(masses)
@@ -135,6 +136,7 @@ if Npart0_GSE > 0:
     ics.part0.u[:]   = np.concatenate((sn_MW.part0.u[key_MW], sn_GSE.part0.u[key_GSE]))
     ics.part0.GFM_Metallicity[:] = np.concatenate((sn_MW.part0.GFM_Metallicity[key_MW], sn_GSE.part0.GFM_Metallicity[key_GSE]))
     ics.part0.GFM_Metals[:] = np.concatenate((sn_MW.part0.GFM_Metals[key_MW], sn_GSE.part0.GFM_Metals[key_GSE]))
+    ics.part0.PassiveScalars[:] = np.concatenate((sn_MW.part0.PassiveScalars[key_MW], sn_GSE.part0.PassiveScalars[key_GSE]))
 else:
     ics.part0.pos[:] = sn_MW.part0.pos[key_MW]
     ics.part0.mass[:] = sn_MW.part0.mass[key_MW] 
@@ -142,6 +144,7 @@ else:
     ics.part0.u[:]   = sn_MW.part0.u[key_MW]
     ics.part0.GFM_Metallicity[:] = sn_MW.part0.GFM_Metallicity[key_MW]
     ics.part0.GFM_Metals[:] = sn_MW.part0.GFM_Metals[key_MW]
+    ics.part0.PassiveScalars[:] = sn_MW.part0.PassiveScalars[key_MW]
     
 
 ics.part1.pos[:] = np.concatenate((sn_MW.part1.pos, pos_GSE_part1))
