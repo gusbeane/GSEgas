@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# cd arepo ; make -j CONFIG=Config_post.sh BUILD=build_post EXEC=Arepo_post ; cd ../
+
+# Step 0: Ensure exactly one command line argument is given
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <PARAM>"
+    exit 1
+fi
+PARAM="$1"
+
+# Step 1: Make a directory called output-bak if it does not exist
+mkdir -p output-bak
+
+# Step 2: Make a directory called postlog if it does not exist
+mkdir -p postlog
+
+# Step 3: Search the directory called output for all files matching the pattern and extract the snapshot number
+# Create an array to store snapshot numbers (as integers for correct sorting later)
+declare -a SNAPNUMS=()
+
+# Iterate over matching files and extract numbers
+for file in output/snapshot_*.hdf5; do
+    if [[ $file =~ snapshot_([0-9]+).hdf5 ]]; then
+        # Add extracted number to the array
+        SNAPNUM_DECIMAL=$((10#${BASH_REMATCH[1]}))
+        SNAPNUMS+=("$SNAPNUM_DECIMAL")
+    fi
+done
+
+# Sort the snapshot numbers in ascending order
+IFS=$'\n' SNAPNUMS=($(sort -n <<<"${SNAPNUMS[*]}"))
+unset IFS
+
+# Step 4: Loop through each snapshot number
+for SNAPNUM in "${SNAPNUMS[@]}"; do
+    # Ensure SNAPNUM is zero-padded to a minimum width of 3
+    printf -v PADDED_SNAPNUM "%03d" "$SNAPNUM"
+    
+    printf "\rWorking on snapshot ${SNAPNUM}..." >&2
+
+    # sleep 0.1
+    # echo "$SNAPNUM"
+    # echo "$PADDED_SNAPNUM"
+    # echo
+
+    # 4a: Make a backup of the snapshot
+    cp "output/snapshot_${PADDED_SNAPNUM}.hdf5" "output-bak/snapshot_${PADDED_SNAPNUM}.hdf5"
+    
+    # 4b: Run mpirun and exit early if it fails
+    if ! mpirun -np "${SLURM_NTASKS}" arepo/Arepo_post "$PARAM" 18 "$SNAPNUM" > "postlog/${PADDED_SNAPNUM}.log" 2> "postlog/${PADDED_SNAPNUM}.err"; then
+        echo "mpirun command failed for snapshot $PADDED_SNAPNUM. Exiting."
+        exit 1
+    fi
+    
+    # 4c: Replace the old snapshot
+    # mv "output/snapshot_potupdated_${PADDED_SNAPNUM}.hdf5" "output/snapshot_${PADDED_SNAPNUM}.hdf5"
+    exit 0
+done
+
+echo -e "\nProcessing complete." >&2
+
