@@ -81,3 +81,6 @@ running_done
 .*.swp
 eqs.txt
 surface_density.txt
+*.out
+*.err
+post/
