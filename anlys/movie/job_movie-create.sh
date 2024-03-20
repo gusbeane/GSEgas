@@ -7,12 +7,12 @@
 #SBATCH --array=0-1000
 #SBATCH -o logs/OUTPUT_frames.%j.out
 #SBATCH -e logs/ERROR_frames.%j.err
-#SBATCH --mail-user=angus.beane@cfa.harvard.edu
+#SBATCH --mail-user=slurmsara@gmail.com
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
 #SBATCH --mail-type=FAIL
 #SBATCH --mem=2G
-#SBATCH -t 1-00:00           # Runtime in D-HH:MM
+#SBATCH -t 0-00:15           # Runtime in D-HH:MM
 
 source ../../load-modules.sh
 

@@ -41,14 +41,17 @@ def compute_projections(sn, COM, nres=256, rng=[[-15, 15], [-15, 15]]):
     surf_area = dx * dy
     
     # First do stars
-    pos, mass = get_pos_mass(sn, [2, 3, 4])
-    pos = pos - COM
+    if sn.NumPart_Total[2]+sn.NumPart_Total[3]+sn.NumPart_Total[4] > 0:
+        pos, mass = get_pos_mass(sn, [2, 3, 4])
+        pos = pos - COM
 
-    Hxy_s, _, _ = np.histogram2d(pos[:,0], pos[:,1], bins=(nres, nres), 
-        range=rng, weights=mass/surf_area)
+        Hxy_s, _, _ = np.histogram2d(pos[:,0], pos[:,1], bins=(nres, nres), 
+            range=rng, weights=mass/surf_area)
 
-    Hxz_s, _, _ = np.histogram2d(pos[:,0], pos[:,2], bins=(nres, nres), 
-        range=rng, weights=mass/surf_area)
+        Hxz_s, _, _ = np.histogram2d(pos[:,0], pos[:,2], bins=(nres, nres), 
+            range=rng, weights=mass/surf_area)
+    else:
+        Hxy_s = Hxz_s = np.zeros((nres, nres))
 
     # Now do gas
     if sn.NumPart_Total[0] > 0:

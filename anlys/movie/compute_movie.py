@@ -53,6 +53,8 @@ def run(snap, path, name, fout, nres, nsnap, rng, COM_key):
         pass
     
     if COM_key == 'BoxCenter':
+        print('using BoxCenter')
+        print('path to output: ', path+'/output/')
         sn = arepo.Snapshot(path + '/output/', 0, 
                         parttype=0, 
                         fields=['Coordinates'],
@@ -68,6 +70,7 @@ def run(snap, path, name, fout, nres, nsnap, rng, COM_key):
         nsnap = len(COM_list)
     
     # Make sure that the snap exists
+    print('nsnap =', nsnap)
     if snap >= nsnap:
         return -1
 
@@ -101,6 +104,9 @@ def run(snap, path, name, fout, nres, nsnap, rng, COM_key):
         Time = []
         
         for i in range(nsnap):
+            if not os.path.isfile('frames/'+fout+'/frame'+str(i).zfill(3)+'.h5'):
+                break
+
             f = h5.File('frames/'+fout+'/frame'+str(i).zfill(3)+'.h5', mode='r')
             
             Hxy_s.append(f['Hxy_s'][:])
@@ -121,15 +127,17 @@ def run(snap, path, name, fout, nres, nsnap, rng, COM_key):
         print(Time)
         
         # Make movies
-        H_list = [Hxy_s, Hxz_s, Hxy_g, Hxz_g, Hxy_g, Hxz_g]
-        vmin_list = [1E-3, 1E-3, 1E-4, 1E-4, 1E-5, 1E-5]
-        vmax_list = [1E0, 1E0, 1E-1, 1E-1, 1E-2, 1E-2]
+        H_list = [Hxy_s, Hxz_s, Hxy_g, Hxz_g, Hxy_g, Hxz_g, Hxy_g, Hxz_g]
+        vmin_list = [1E-3, 1E-3, 1E-4, 1E-4, 1E-5, 1E-5, 1E-6, 1E-6]
+        vmax_list = [1E0, 1E0, 1E-1, 1E-1, 1E-2, 1E-2, 1E-3, 1E-3]
         fname_list = ['movies/'+fout+'_star_xy.mp4',
                       'movies/'+fout+'_star_xz.mp4',
                       'movies/'+fout+'_gas_xy.mp4',
                       'movies/'+fout+'_gas_xz.mp4',
                       'movies/'+fout+'_lowdens_gas_xy.mp4',
                       'movies/'+fout+'_lowdens_gas_xz.mp4',
+                      'movies/'+fout+'_lowdens2_gas_xy.mp4',
+                      'movies/'+fout+'_lowdens2_gas_xz.mp4',
                       ]
 
         _ = Parallel(n_jobs=4) (delayed(make_movie)(H, Time, H.shape[1], vmin, vmax, fname) 
@@ -143,7 +151,18 @@ if __name__ == '__main__':
     MW4_GSE2_MHG05_pro = 'MW4_MHG0.25_GSE2_MHG0.5_pro'
     MW4_GSE2N = 'MW4_MHG0.25_GSE2N'
     MW4iso_corona3 = 'MW4iso_fg0.2_MHG0.25_RC9'
+
     MW4iso_corona4_vphi01 = 'MW4iso_fg0.2_MHG0.25_RC9_vphi0.1'
+    MW4_vphi01_GSE2_MHG05 = 'MW4_MHG0.25_vphi0.1_GSE2_MHG0.5'
+    MW4_vphi01_GSE2N = 'MW4_MHG0.25_vphi0.1_GSE2N'
+ 
+    MW4iso_corona4_vphi02 = 'MW4iso_fg0.2_MHG0.25_RC9_vphi0.2'
+    MW4_vphi02_GSE2_MHG05 = 'MW4_MHG0.25_vphi0.2_GSE2_MHG0.5'
+    MW4_vphi02_GSE2N = 'MW4_MHG0.25_vphi0.2_GSE2N'
+
+    MW5iso = 'MW5iso'
+
+    MW6iso = 'MW6iso'
 
     rng0 = [[-80, 80], [-80, 80]]
     rng1 = [[-5, 5], [-5, 5]]
@@ -166,6 +185,31 @@ if __name__ == '__main__':
                  (MW4_GSE2_MHG05_pro, 'lvl4-noB', rng6, 'Tot_COM'), # 8
 
                  (MW4iso_corona4_vphi01, 'lvl4-noB', rng6, 'Tot_COM'), # 9
+                 (MW4_vphi01_GSE2_MHG05, 'lvl4-noB', rng6, 'Tot_COM'), # 10
+                 (MW4_vphi01_GSE2N, 'lvl4-noB', rng6, 'Tot_COM'), # 11
+                 
+                 (MW4iso_corona4_vphi02, 'lvl4-noB', rng6, 'Tot_COM'), # 12
+                 (MW4_vphi02_GSE2_MHG05, 'lvl4-noB', rng6, 'Tot_COM'), # 13
+                 (MW4_vphi02_GSE2N, 'lvl4-noB', rng6, 'Tot_COM'), # 14
+                 
+                 (MW5iso, 'lvl5-beta05', rng0, 'Tot_COM'), # 15
+                 (MW5iso, 'lvl5-beta06', rng0, 'Tot_COM'), # 16
+                 (MW5iso, 'lvl5-beta067', rng0, 'Tot_COM'), # 17
+                 (MW5iso, 'lvl5-beta07', rng0, 'Tot_COM'), # 18
+                 (MW5iso, 'lvl5-beta08', rng0, 'Tot_COM'), # 19
+                 
+                 (MW6iso, 'lvl5-beta05-adi-dens', rng0, 'BoxCenter'), # 20
+                 (MW6iso, 'lvl5-beta06-adi-dens', rng0, 'BoxCenter'), # 21
+                 (MW6iso, 'lvl5-beta067-adi-dens', rng0, 'BoxCenter'), # 22
+                 (MW6iso, 'lvl5-beta07-adi-dens', rng0, 'BoxCenter'), # 23
+                 (MW6iso, 'lvl5-beta08-adi-dens', rng0, 'BoxCenter'), # 24
+                 
+                 (MW6iso, 'lvl5-beta05-dens', rng0, 'BoxCenter'), # 25
+                 (MW6iso, 'lvl5-beta06-dens', rng0, 'BoxCenter'), # 26
+                 (MW6iso, 'lvl5-beta067-dens', rng0, 'BoxCenter'), # 27
+                 (MW6iso, 'lvl5-beta07-dens', rng0, 'BoxCenter'), # 28
+                 (MW6iso, 'lvl5-beta08-dens', rng0, 'BoxCenter'), # 29
+
                  ]
 
     i = int(sys.argv[1])
@@ -184,8 +228,11 @@ if __name__ == '__main__':
     
     COM_key_list = [p[3] for p in pair_list]
 
-    nsnap_list = [len(glob.glob(path+'/output/snapdir*/*.0.hdf5')) for path in path_list]
-
+    nsnap_list = []
+    for path in path_list:
+        nsnap1 = len(glob.glob(path+'/output/snapdir*/*.0.hdf5'))
+        nsnap2 = len(glob.glob(path+'/output/snapshot_*.hdf5'))
+        nsnap_list.append(max(nsnap1, nsnap2))
   
     path = path_list[i]
     name = name_list[i]

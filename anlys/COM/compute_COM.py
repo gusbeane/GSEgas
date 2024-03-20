@@ -139,7 +139,15 @@ if __name__ == '__main__':
     MW4_GSE2_MHG05_pro = 'MW4_MHG0.25_GSE2_MHG0.5_pro'
 
     MW4iso_corona4_vphi01 = 'MW4iso_fg0.2_MHG0.25_RC9_vphi0.1'
+    MW4_vphi01_GSE2_MHG05 = 'MW4_MHG0.25_vphi0.1_GSE2_MHG0.5'
+    MW4_vphi01_GSE2N = 'MW4_MHG0.25_vphi0.1_GSE2N'
+    
+    MW4iso_corona4_vphi02 = 'MW4iso_fg0.2_MHG0.25_RC9_vphi0.2'
+    MW4_vphi02_GSE2_MHG05 = 'MW4_MHG0.25_vphi0.2_GSE2_MHG0.5'
+    MW4_vphi02_GSE2N = 'MW4_MHG0.25_vphi0.2_GSE2N'
 
+    MW5iso = 'MW5iso'
+    
     pair_list = [
                  (MW4iso_corona3, 'lvl4'), # 0
                  (MW4_GSE2_MHG05, 'lvl4'), # 1
@@ -148,7 +156,20 @@ if __name__ == '__main__':
                  (MW4_GSE2_MHG05, 'lvl4-noB'), # 3
                  (MW4_GSE2N, 'lvl4-noB'), # 4
                  (MW4_GSE2_MHG05_pro, 'lvl4-noB'), # 5
+                 
                  (MW4iso_corona4_vphi01, 'lvl4-noB'), # 6
+                 (MW4_vphi01_GSE2_MHG05, 'lvl4-noB'), # 7
+                 (MW4_vphi01_GSE2N, 'lvl4-noB'), # 8
+                 
+                 (MW4iso_corona4_vphi02, 'lvl4-noB'), # 9
+                 (MW4_vphi02_GSE2_MHG05, 'lvl4-noB'), # 10
+                 (MW4_vphi02_GSE2N, 'lvl4-noB'), # 11
+                 
+                 (MW5iso, 'lvl5-beta05'), # 12
+                 (MW5iso, 'lvl5-beta06'), # 13
+                 (MW5iso, 'lvl5-beta067'), # 14
+                 (MW5iso, 'lvl5-beta07'), # 15
+                 (MW5iso, 'lvl5-beta08'), # 16
                 ]
 
 
