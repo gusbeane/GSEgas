@@ -1,0 +1,66 @@
+befoer read param
+befoer units
+43007.1 0.1 978.028 
+before structure
+RHO0=9.60835e-06, RHO0_old=9.60835e-06
+fc=0.971007
+halo_spinfactor 0.109235
+R200: 129
+M200: 49.9148
+RH: 40.4233
+Total mass is: 49.9148
+before H calc
+after H calc
+aa
+
+Use 1216 MByte for BH-tree.
+
+2079250
+a
+Feedback energy per formed solar mass in stars= 1.3955e+49  ergs
+a
+b
+c
+u4=210.482
+
+A0= 3000  
+Computed: PhysDensThresh= 0.000598348  (int units)         0.18406 h^2 cm^-3
+EXPECTED FRACTION OF COLD GAS AT THRESHOLD = 0.904362
+
+tcool=3.2706e-06 dens=0.027755 egyhot=2104.82
+before integrate surfdens
+NumGasScaleLengths = 10
+integrating surface density...
+done.
+before integrate surfdens
+b
+set dummy particles...
+Start computing vertical force field.
+integrate and adjust...
+set dummy particles...
+Start computing vertical force field.
+integrate and adjust...
+set dummy particles...
+Start computing vertical force field.
+integrate and adjust...
+set dummy particles...
+Start computing vertical force field.
+integrate and adjust...
+set dummy particles...
+Start computing vertical force field.
+integrate and adjust...
+A
+Start computing force field.
+Force field finished.
+B
+comp vstream gas
+done
+disk velocity dispersion field...
+done.
+halo velocity dispersion field...
+done.
+corona velocity dispersion field...
+done.
+bulge velocity dispersion field...
+done.
+C

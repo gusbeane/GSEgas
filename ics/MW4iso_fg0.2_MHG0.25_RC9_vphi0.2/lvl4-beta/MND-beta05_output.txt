@@ -1,0 +1,197 @@
+befoer read param
+befoer units
+43007.1 0.1 978.028 
+before structure
+RHO0=1.19239e-06, RHO0_old=9.60835e-06
+RHO0=1.19239e-06, r=10, RC=9, Beta=0.5
+rho=6.52414e-07, menc=0.00338042
+RHO0=1.19239e-06, r=30, RC=9, Beta=0.5
+rho=1.83667e-07, menc=0.034063
+RHO0=1.19239e-06, r=-1, RC=9, Beta=0.5
+rho=0, menc=0
+RHO0=1.19239e-06, r=1000, RC=9, Beta=0.5
+rho=1.01802e-09, menc=8.51151
+RHO0=1.19239e-06, r=1, RC=9, Beta=0.5
+rho=1.18147e-06, menc=4.96714e-06
+fc=0.971007
+halo_spinfactor 0.109235
+R200: 129
+M200: 49.9148
+RH: 40.4233
+Total mass is: 49.9148
+before H calc
+after H calc
+aa
+
+Use 1216 MByte for BH-tree.
+
+2079250
+a
+Feedback energy per formed solar mass in stars= 1.3955e+49  ergs
+a
+b
+c
+u4=210.482
+
+A0= 3000  
+Computed: PhysDensThresh= 0.000598348  (int units)         0.18406 h^2 cm^-3
+EXPECTED FRACTION OF COLD GAS AT THRESHOLD = 0.904362
+
+tcool=3.2706e-06 dens=0.027755 egyhot=2104.82
+before integrate surfdens
+NumGasScaleLengths = 10
+integrating surface density...
+done.
+before integrate surfdens
+b
+set dummy particles...
+Start computing vertical force field.
+integrate and adjust...
+set dummy particles...
+Start computing vertical force field.
+integrate and adjust...
+set dummy particles...
+Start computing vertical force field.
+integrate and adjust...
+set dummy particles...
+Start computing vertical force field.
+integrate and adjust...
+set dummy particles...
+Start computing vertical force field.
+integrate and adjust...
+A
+Start computing force field.
+Force field finished.
+B
+comp vstream gas
+done
+disk velocity dispersion field...
+done.
+halo velocity dispersion field...
+done.
+corona velocity dispersion field...
+done.
+bulge velocity dispersion field...
+done.
+C
+set gas positions...
+set halo positions...
+RHO0=1.19239e-06, r=30, RC=9, Beta=0.5
+RHO0=1.19239e-06
+R=30, Menc=0.034063, Mtot=12.4787, Menc/Mtot=0.0027297, rho=1.83667e-07
+q=0, R=1.44279e-106, Menc=1.4822e-323, Menc/Mtot=0, rho=1.19239e-06
+q=0.01, R=63.895, Menc=0.124787, Menc/Mtot=0.01, rho=6.2113e-08
+q=0.02, R=98.514, Menc=0.249574, Menc/Mtot=0.02, rho=3.27211e-08
+q=0.03, R=127.677, Menc=0.374361, Menc/Mtot=0.03, rho=2.2233e-08
+q=0.04, R=153.768, Menc=0.499148, Menc/Mtot=0.04, rho=1.68411e-08
+q=0.05, R=177.783, Menc=0.623934, Menc/Mtot=0.05, rho=1.35555e-08
+q=0.06, R=200.259, Menc=0.748721, Menc/Mtot=0.06, rho=1.13432e-08
+q=0.07, R=221.53, Menc=0.873508, Menc/Mtot=0.07, rho=9.75208e-09
+q=0.08, R=241.819, Menc=0.998295, Menc/Mtot=0.08, rho=8.55256e-09
+q=0.09, R=261.286, Menc=1.12308, Menc/Mtot=0.09, rho=7.6159e-09
+q=0.1, R=280.051, Menc=1.24787, Menc/Mtot=0.1, rho=6.86421e-09
+q=0.11, R=298.205, Menc=1.37266, Menc/Mtot=0.11, rho=6.24761e-09
+q=0.12, R=315.82, Menc=1.49744, Menc/Mtot=0.12, rho=5.73269e-09
+q=0.13, R=332.956, Menc=1.62223, Menc/Mtot=0.13, rho=5.2962e-09
+q=0.14, R=349.661, Menc=1.74702, Menc/Mtot=0.14, rho=4.92149e-09
+q=0.15, R=365.975, Menc=1.8718, Menc/Mtot=0.15, rho=4.5963e-09
+q=0.16, R=381.932, Menc=1.99659, Menc/Mtot=0.16, rho=4.31144e-09
+q=0.17, R=397.563, Menc=2.12138, Menc/Mtot=0.17, rho=4.05982e-09
+q=0.18, R=412.891, Menc=2.24616, Menc/Mtot=0.18, rho=3.83596e-09
+q=0.19, R=427.939, Menc=2.37095, Menc/Mtot=0.19, rho=3.63551e-09
+q=0.2, R=442.727, Menc=2.49574, Menc/Mtot=0.2, rho=3.45496e-09
+q=0.21, R=457.272, Menc=2.62052, Menc/Mtot=0.21, rho=3.2915e-09
+q=0.22, R=471.589, Menc=2.74531, Menc/Mtot=0.22, rho=3.14281e-09
+q=0.23, R=485.691, Menc=2.8701, Menc/Mtot=0.23, rho=3.00698e-09
+q=0.24, R=499.591, Menc=2.99489, Menc/Mtot=0.24, rho=2.8824e-09
+q=0.25, R=513.301, Menc=3.11967, Menc/Mtot=0.25, rho=2.76773e-09
+q=0.26, R=526.829, Menc=3.24446, Menc/Mtot=0.26, rho=2.66184e-09
+q=0.27, R=540.186, Menc=3.36925, Menc/Mtot=0.27, rho=2.56376e-09
+q=0.28, R=553.38, Menc=3.49403, Menc/Mtot=0.28, rho=2.47264e-09
+q=0.29, R=566.417, Menc=3.61882, Menc/Mtot=0.29, rho=2.38778e-09
+q=0.3, R=579.307, Menc=3.74361, Menc/Mtot=0.3, rho=2.30856e-09
+q=0.31, R=592.054, Menc=3.86839, Menc/Mtot=0.31, rho=2.23442e-09
+q=0.32, R=604.666, Menc=3.99318, Menc/Mtot=0.32, rho=2.16489e-09
+q=0.33, R=617.147, Menc=4.11797, Menc/Mtot=0.33, rho=2.09957e-09
+q=0.34, R=629.504, Menc=4.24275, Menc/Mtot=0.34, rho=2.03807e-09
+q=0.35, R=641.74, Menc=4.36754, Menc/Mtot=0.35, rho=1.98007e-09
+q=0.36, R=653.86, Menc=4.49233, Menc/Mtot=0.36, rho=1.92528e-09
+q=0.37, R=665.87, Menc=4.61711, Menc/Mtot=0.37, rho=1.87344e-09
+q=0.38, R=677.771, Menc=4.7419, Menc/Mtot=0.38, rho=1.82432e-09
+q=0.39, R=689.569, Menc=4.86669, Menc/Mtot=0.39, rho=1.77771e-09
+q=0.4, R=701.267, Menc=4.99148, Menc/Mtot=0.4, rho=1.73342e-09
+q=0.41, R=712.868, Menc=5.11626, Menc/Mtot=0.41, rho=1.69128e-09
+q=0.42, R=724.376, Menc=5.24105, Menc/Mtot=0.42, rho=1.65115e-09
+q=0.43, R=735.793, Menc=5.36584, Menc/Mtot=0.43, rho=1.61287e-09
+q=0.44, R=747.121, Menc=5.49062, Menc/Mtot=0.44, rho=1.57633e-09
+q=0.45, R=758.365, Menc=5.61541, Menc/Mtot=0.45, rho=1.54141e-09
+q=0.46, R=769.526, Menc=5.7402, Menc/Mtot=0.46, rho=1.50801e-09
+q=0.47, R=780.606, Menc=5.86498, Menc/Mtot=0.47, rho=1.47602e-09
+q=0.48, R=791.608, Menc=5.98977, Menc/Mtot=0.48, rho=1.44536e-09
+q=0.49, R=802.534, Menc=6.11456, Menc/Mtot=0.49, rho=1.41594e-09
+q=0.5, R=813.387, Menc=6.23934, Menc/Mtot=0.5, rho=1.3877e-09
+q=0.51, R=824.167, Menc=6.36413, Menc/Mtot=0.51, rho=1.36057e-09
+q=0.52, R=834.877, Menc=6.48892, Menc/Mtot=0.52, rho=1.33447e-09
+q=0.53, R=845.519, Menc=6.6137, Menc/Mtot=0.53, rho=1.30936e-09
+q=0.54, R=856.095, Menc=6.73849, Menc/Mtot=0.54, rho=1.28518e-09
+q=0.55, R=866.605, Menc=6.86328, Menc/Mtot=0.55, rho=1.26187e-09
+q=0.56, R=877.052, Menc=6.98807, Menc/Mtot=0.56, rho=1.23939e-09
+q=0.57, R=887.438, Menc=7.11285, Menc/Mtot=0.57, rho=1.2177e-09
+q=0.58, R=897.762, Menc=7.23764, Menc/Mtot=0.58, rho=1.19676e-09
+q=0.59, R=908.028, Menc=7.36243, Menc/Mtot=0.59, rho=1.17653e-09
+q=0.6, R=918.236, Menc=7.48721, Menc/Mtot=0.6, rho=1.15696e-09
+q=0.61, R=928.388, Menc=7.612, Menc/Mtot=0.61, rho=1.13804e-09
+q=0.62, R=938.484, Menc=7.73679, Menc/Mtot=0.62, rho=1.11973e-09
+q=0.63, R=948.527, Menc=7.86157, Menc/Mtot=0.63, rho=1.10199e-09
+q=0.64, R=958.516, Menc=7.98636, Menc/Mtot=0.64, rho=1.08481e-09
+q=0.65, R=968.454, Menc=8.11115, Menc/Mtot=0.65, rho=1.06816e-09
+q=0.66, R=978.341, Menc=8.23593, Menc/Mtot=0.66, rho=1.05201e-09
+q=0.67, R=988.178, Menc=8.36072, Menc/Mtot=0.67, rho=1.03634e-09
+q=0.68, R=997.966, Menc=8.48551, Menc/Mtot=0.68, rho=1.02113e-09
+q=0.69, R=1007.71, Menc=8.61029, Menc/Mtot=0.69, rho=1.00636e-09
+q=0.7, R=1017.4, Menc=8.73508, Menc/Mtot=0.7, rho=9.92016e-10
+q=0.71, R=1027.05, Menc=8.85987, Menc/Mtot=0.71, rho=9.78072e-10
+q=0.72, R=1036.65, Menc=8.98466, Menc/Mtot=0.72, rho=9.64514e-10
+q=0.73, R=1046.21, Menc=9.10944, Menc/Mtot=0.73, rho=9.51328e-10
+q=0.74, R=1055.72, Menc=9.23423, Menc/Mtot=0.74, rho=9.38496e-10
+q=0.75, R=1065.2, Menc=9.35902, Menc/Mtot=0.75, rho=9.26007e-10
+q=0.76, R=1074.63, Menc=9.4838, Menc/Mtot=0.76, rho=9.13845e-10
+q=0.77, R=1084.02, Menc=9.60859, Menc/Mtot=0.77, rho=9.01999e-10
+q=0.78, R=1093.36, Menc=9.73338, Menc/Mtot=0.78, rho=8.90456e-10
+q=0.79, R=1102.67, Menc=9.85816, Menc/Mtot=0.79, rho=8.79205e-10
+q=0.8, R=1111.94, Menc=9.98295, Menc/Mtot=0.8, rho=8.68234e-10
+q=0.81, R=1121.17, Menc=10.1077, Menc/Mtot=0.81, rho=8.57534e-10
+q=0.82, R=1130.37, Menc=10.2325, Menc/Mtot=0.82, rho=8.47095e-10
+q=0.83, R=1139.52, Menc=10.3573, Menc/Mtot=0.83, rho=8.36906e-10
+q=0.84, R=1148.64, Menc=10.4821, Menc/Mtot=0.84, rho=8.2696e-10
+q=0.85, R=1157.73, Menc=10.6069, Menc/Mtot=0.85, rho=8.17247e-10
+q=0.86, R=1166.77, Menc=10.7317, Menc/Mtot=0.86, rho=8.0776e-10
+q=0.87, R=1175.79, Menc=10.8565, Menc/Mtot=0.87, rho=7.98491e-10
+q=0.88, R=1184.77, Menc=10.9812, Menc/Mtot=0.88, rho=7.89432e-10
+q=0.89, R=1193.71, Menc=11.106, Menc/Mtot=0.89, rho=7.80576e-10
+q=0.9, R=1202.62, Menc=11.2308, Menc/Mtot=0.9, rho=7.71917e-10
+q=0.91, R=1211.5, Menc=11.3556, Menc/Mtot=0.91, rho=7.63447e-10
+q=0.92, R=1220.35, Menc=11.4804, Menc/Mtot=0.92, rho=7.55162e-10
+q=0.93, R=1229.16, Menc=11.6052, Menc/Mtot=0.93, rho=7.47054e-10
+q=0.94, R=1237.94, Menc=11.73, Menc/Mtot=0.94, rho=7.39119e-10
+q=0.95, R=1246.69, Menc=11.8548, Menc/Mtot=0.95, rho=7.3135e-10
+q=0.96, R=1255.41, Menc=11.9795, Menc/Mtot=0.96, rho=7.23744e-10
+q=0.97, R=1264.11, Menc=12.1043, Menc/Mtot=0.97, rho=7.16293e-10
+q=0.98, R=1272.77, Menc=12.2291, Menc/Mtot=0.98, rho=7.08995e-10
+q=0.99, R=1281.4, Menc=12.3539, Menc/Mtot=0.99, rho=7.01844e-10
+set disk positions...
+done.
+D
+set halo velocities...
+rangecount=0
+done.
+set corona velocities...
+rangecount=0
+done.
+set disk velocities...done.
+set gas velocities...done.
+set bulge velocities...done.
+Hello, World!Hello, World!Hello, World!Hello, World!saving initial conditions to file `.//MW_ICs-beta05.dat'
+
+Hello, World!done.
+Disk scale length: 2.07096

@@ -1,0 +1,42 @@
+OutputDir               ./ 
+OutputFile              MW_ICs-beta07.dat
+CC                      4.1 
+V200                    129.0
+LAMBDA                  0.025
+MD                      0.015
+MB                      0.016
+MBH                     0.0
+JD                      0.013
+GasFraction             0.2
+DiskHeight              0.45
+BulgeSize               0.14
+N_HALO                  1596839
+N_DISK                  99802 
+N_GAS                   24951 
+N_BULGE                 133070
+MHG                     0.25
+RC                      9.0
+BoxSize                 600.0
+RadialDispersionFactor  1.0
+%HalogasMetallicityInSolar 0.0501187 % -1.3
+%GasMetallicityInSolar   0.501187 % -0.3
+VelPhiFactor            0.2
+Beta                    0.7
+
+%RadialDispersionFactor0  9.84937936e-01
+%RadialDispersionFactor1  1.58385470e-01
+%RadialDispersionFactor2  -2.31262645e-02
+%RadialDispersionFactor3  8.33609458e-04
+%RadialDispersionFactorRmax  12.0
+HI_GasMassFraction      0.0
+HI_GasDiskScaleLength   4
+MaxGasDiskHeight        1.0
+MaxSfrTimescale         4.5
+FactorSN                0.1
+FactorEVP               3000
+TempSupernova           3.0e8
+TempClouds              1000
+FactorForSofterEQS      0
+%REDSHIFT                0.0
+%Omega_m0                1.0
+%Omega_L0                0.0
