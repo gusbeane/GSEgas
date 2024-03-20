@@ -1,0 +1,756 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 60.66     81.30    81.30  2373103     0.00     0.00  force_treeevaluate
+ 17.99    105.41    24.11        5     4.82     6.84  force_treebuild
+  9.84    118.60    13.19        1    13.19    13.27  integrate_surfacedensity
+  7.52    128.69    10.08        5     2.02     2.02  force_update_node_recursive
+  1.25    130.36     1.67 33592131     0.00     0.00  splint
+  0.63    131.21     0.85        5     0.17     7.01  set_dummy_particles
+  0.62    132.04     0.83 15868340     0.00     0.00  find_abundances_and_rates
+  0.25    132.38     0.34  1071452     0.00     0.00  corona_q_to_r
+  0.23    132.69     0.31  1998784     0.00     0.00  convert_u_to_temp
+  0.18    132.93     0.24 17478665     0.00     0.00  halogas_mass
+  0.13    133.10     0.17  1959522     0.00     0.00  polint
+  0.12    133.26     0.16  9796134     0.00     0.00  trapzd
+  0.07    133.36     0.10  1959153     0.00     0.00  qromb
+  0.07    133.45     0.09     4105     0.00     0.00  spline
+  0.05    133.52     0.07        5     0.01     0.19  integrate_and_adjust
+  0.04    133.58     0.06  2455419     0.00     0.00  eqn_of_state
+  0.04    133.63     0.05 33295333     0.00     0.00  splint_xl_yl_D2yl
+  0.03    133.67     0.04        1     0.04     0.61  set_corona_positions
+  0.02    133.70     0.03  1998784     0.00     0.00  CoolingRate
+  0.02    133.73     0.03        1     0.03     0.53  compute_velocity_dispersions_disk
+  0.01    133.75     0.02 15105546     0.00     0.00  halogas_rho
+  0.01    133.77     0.02 13869556     0.00     0.00  dmax
+  0.01    133.79     0.02  1998784     0.00     0.00  GetCoolingTime
+  0.01    133.81     0.02  1847279     0.00     0.00  comp_Dphi_z_bulge
+  0.01    133.83     0.02   789507     0.00     0.00  comp_rho_halo
+  0.01    133.85     0.02   624936     0.00     0.00  gasdev
+  0.01    133.87     0.02       26     0.00     0.00  determine_cumulative_gasdensity
+  0.01    133.89     0.02        1     0.02     0.02  set_corona_velocities
+  0.01    133.91     0.02        1     0.02     0.02  set_gas_positions
+  0.01    133.93     0.02        1     0.02     0.05  set_halo_velocities
+  0.01    133.94     0.01  3923202     0.00     0.00  vector
+  0.01    133.95     0.01  1847279     0.00     0.00  comp_Dphi_z
+  0.01    133.96     0.01   795210     0.00     0.00  ran1
+  0.01    133.97     0.01   525824     0.00     0.00  comp_Dphi_R_disk_tree
+  0.01    133.98     0.01        5     0.00     9.01  compute_vertical_force_field
+  0.01    133.99     0.01        1     0.01     0.69  compute_velocity_dispersions_bulge
+  0.01    134.00     0.01        1     0.01     0.69  compute_velocity_dispersions_corona
+  0.01    134.01     0.01        1     0.01     0.71  compute_velocity_dispersions_halo
+  0.01    134.02     0.01        1     0.01     0.01  set_bulge_velocities
+  0.01    134.03     0.01                             AbundanceRatios
+  0.00    134.03     0.01  2396658     0.00     0.00  halo_mass
+  0.00    134.04     0.01        1     0.01     0.01  structure
+  0.00    134.04     0.00  3923149     0.00     0.00  free_vector
+  0.00    134.04     0.00  2373195     0.00     0.00  dmin
+  0.00    134.04     0.00  1998784     0.00     0.00  CoolingRateFromU
+  0.00    134.04     0.00  1847279     0.00     0.00  comp_Dphi_Z_disk_tree
+  0.00    134.04     0.00  1847279     0.00     0.00  comp_Dphi_z_halo
+  0.00    134.04     0.00   789507     0.00     0.00  comp_rho_bulge
+  0.00    134.04     0.00   789507     0.00     0.00  comp_rho_corona
+  0.00    134.04     0.00   789507     0.00     0.00  comp_rho_disk
+  0.00    134.04     0.00   789507     0.00     0.00  halo_rho
+  0.00    134.04     0.00   525824     0.00     0.00  comp_Dphi_R
+  0.00    134.04     0.00   525824     0.00     0.00  comp_Dphi_R_bulge
+  0.00    134.04     0.00   525824     0.00     0.00  comp_Dphi_R_halo
+  0.00    134.04     0.00   296798     0.00     0.00  const_integral_hernquist
+  0.00    134.04     0.00   296798     0.00     0.00  splint_integral
+  0.00    134.04     0.00   190661     0.00     0.00  halo_q_to_r
+  0.00    134.04     0.00    26680     0.00     0.00  bessi0
+  0.00    134.04     0.00    26680     0.00     0.00  bessi1
+  0.00    134.04     0.00    23644     0.00     0.00  jdisk_int
+  0.00    134.04     0.00    23553     0.00     0.00  mass_cumulative_bulge
+  0.00    134.04     0.00    23552     0.00     0.00  bessk0
+  0.00    134.04     0.00    23552     0.00     0.00  bessk1
+  0.00    134.04     0.00    23552     0.00     0.00  mass_total_dark
+  0.00    134.04     0.00     9338     0.00     0.00  surface_density_gasdisk
+  0.00    134.04     0.00     8687     0.00     0.00  Integrand_hernquist
+  0.00    134.04     0.00       92     0.00     0.00  disk_angmomentum
+  0.00    134.04     0.00       33     0.00     0.00  gc_int
+  0.00    134.04     0.00       30     0.00     0.00  matrix
+  0.00    134.04     0.00       10     0.00     0.00  mymalloc
+  0.00    134.04     0.00        4     0.00     0.00  fc
+  0.00    134.04     0.00        2     0.00     0.00  SetZeroIonization
+  0.00    134.04     0.00        2     0.00     0.00  dvector
+  0.00    134.04     0.00        1     0.00     0.00  InitCool
+  0.00    134.04     0.00        1     0.00     0.00  InitCoolMemory
+  0.00    134.04     0.00        1     0.00     0.00  IonizeParams
+  0.00    134.04     0.00        1     0.00     0.00  IonizeParamsFunction
+  0.00    134.04     0.00        1     0.00     0.00  MakeCoolingTable
+  0.00    134.04     0.00        1     0.00    36.05  compute_radial_force_field
+  0.00    134.04     0.00        1     0.00     0.27  compute_vstream_gas
+  0.00    134.04     0.00        1     0.00     0.00  dump_eqn_of_state
+  0.00    134.04     0.00        1     0.00     0.00  dump_gas_density
+  0.00    134.04     0.00        1     0.00     0.00  dump_veldisp_field
+  0.00    134.04     0.00        1     0.00     0.00  force_treeallocate
+  0.00    134.04     0.00        1     0.00     0.00  gc
+  0.00    134.04     0.00        1     0.00     0.00  init
+  0.00    134.04     0.00        1     0.00     0.00  init_central_densities
+  0.00    134.04     0.00        1     0.00    13.27  init_clouds
+  0.00    134.04     0.00        1     0.00     0.00  init_units
+  0.00    134.04     0.00        1     0.00     0.06  integrate_gasdensity
+  0.00    134.04     0.00        1     0.00     0.00  read_parameterfile
+  0.00    134.04     0.00        1     0.00     0.00  save_particles
+  0.00    134.04     0.00        1     0.00     0.00  set_bulge_positions
+  0.00    134.04     0.00        1     0.00     0.00  set_disk_positions
+  0.00    134.04     0.00        1     0.00     0.00  set_disk_velocities
+  0.00    134.04     0.00        1     0.00     0.00  set_gas_velocities
+  0.00    134.04     0.00        1     0.00     0.00  set_halo_positions
+  0.00    134.04     0.00        1     0.00     0.02  set_integral
+  0.00    134.04     0.00        1     0.00     0.00  set_sfr_parameters
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 0.01% of 134.04 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]    100.0    0.00  134.03                 main [1]
+                0.01   45.03       5/5           compute_vertical_force_field [5]
+                0.00   36.05       1/1           compute_radial_force_field [6]
+                0.85   34.19       5/5           set_dummy_particles [7]
+                0.00   13.27       1/1           init_clouds [11]
+                0.07    0.88       5/5           integrate_and_adjust [22]
+                0.01    0.70       1/1           compute_velocity_dispersions_halo [24]
+                0.01    0.68       1/1           compute_velocity_dispersions_corona [25]
+                0.01    0.68       1/1           compute_velocity_dispersions_bulge [26]
+                0.04    0.57       1/1           set_corona_positions [27]
+                0.03    0.50       1/1           compute_velocity_dispersions_disk [29]
+                0.00    0.27       1/1           compute_vstream_gas [31]
+                0.00    0.06       1/1           integrate_gasdensity [36]
+                0.02    0.03       1/1           set_halo_velocities [37]
+                0.02    0.00       1/1           set_gas_positions [46]
+                0.02    0.00       1/1           set_corona_velocities [45]
+                0.00    0.02       1/1           set_integral [47]
+                0.01    0.00       1/1           set_bulge_velocities [49]
+                0.01    0.00       1/1           structure [54]
+                0.00    0.00       1/1           set_disk_velocities [56]
+                0.00    0.00       1/26          determine_cumulative_gasdensity [44]
+                0.00    0.00       1/1           init [64]
+                0.00    0.00       1/1           set_halo_positions [65]
+                0.00    0.00       1/1           read_parameterfile [95]
+                0.00    0.00       1/1           init_units [94]
+                0.00    0.00       1/1           init_central_densities [93]
+                0.00    0.00       1/1           dump_gas_density [90]
+                0.00    0.00       1/1           set_disk_positions [98]
+                0.00    0.00       1/1           set_bulge_positions [97]
+                0.00    0.00       1/1           set_gas_velocities [99]
+                0.00    0.00       1/1           dump_veldisp_field [91]
+                0.00    0.00       1/1           save_particles [96]
+-----------------------------------------------
+               18.01    0.00  525824/2373103     comp_Dphi_R_disk_tree [10]
+               63.29    0.00 1847279/2373103     comp_Dphi_Z_disk_tree [4]
+[2]     60.7   81.30    0.00 2373103         force_treeevaluate [2]
+-----------------------------------------------
+                0.00    0.30    8687/1847279     Integrand_hernquist [30]
+                0.00   18.01  525312/1847279     compute_radial_force_field [6]
+                0.01   45.03 1313280/1847279     compute_vertical_force_field [5]
+[3]     47.3    0.01   63.33 1847279         comp_Dphi_z [3]
+                0.00   63.29 1847279/1847279     comp_Dphi_Z_disk_tree [4]
+                0.00    0.03 1847279/1847279     comp_Dphi_z_halo [39]
+                0.02    0.00 1847279/1847279     comp_Dphi_z_bulge [42]
+-----------------------------------------------
+                0.00   63.29 1847279/1847279     comp_Dphi_z [3]
+[4]     47.2    0.00   63.29 1847279         comp_Dphi_Z_disk_tree [4]
+               63.29    0.00 1847279/2373103     force_treeevaluate [2]
+                0.00    0.00 1847279/2373195     dmin [67]
+-----------------------------------------------
+                0.01   45.03       5/5           main [1]
+[5]     33.6    0.01   45.03       5         compute_vertical_force_field [5]
+                0.01   45.03 1313280/1847279     comp_Dphi_z [3]
+-----------------------------------------------
+                0.00   36.05       1/1           main [1]
+[6]     26.9    0.00   36.05       1         compute_radial_force_field [6]
+                0.00   18.03  525824/525824      comp_Dphi_R [9]
+                0.00   18.01  525312/1847279     comp_Dphi_z [3]
+-----------------------------------------------
+                0.85   34.19       5/5           main [1]
+[7]     26.1    0.85   34.19       5         set_dummy_particles [7]
+               24.11   10.08       5/5           force_treebuild [8]
+-----------------------------------------------
+               24.11   10.08       5/5           set_dummy_particles [7]
+[8]     25.5   24.11   10.08       5         force_treebuild [8]
+               10.08    0.00       5/5           force_update_node_recursive [13]
+-----------------------------------------------
+                0.00   18.03  525824/525824      compute_radial_force_field [6]
+[9]     13.5    0.00   18.03  525824         comp_Dphi_R [9]
+                0.01   18.01  525824/525824      comp_Dphi_R_disk_tree [10]
+                0.00    0.01  525824/525824      comp_Dphi_R_halo [53]
+                0.00    0.00  525824/525824      comp_Dphi_R_bulge [71]
+-----------------------------------------------
+                0.01   18.01  525824/525824      comp_Dphi_R [9]
+[10]    13.4    0.01   18.01  525824         comp_Dphi_R_disk_tree [10]
+               18.01    0.00  525824/2373103     force_treeevaluate [2]
+                0.00    0.00  525824/2373195     dmin [67]
+-----------------------------------------------
+                0.00   13.27       1/1           main [1]
+[11]     9.9    0.00   13.27       1         init_clouds [11]
+               13.19    0.08       1/1           integrate_surfacedensity [12]
+                0.00    0.00       1/1           dump_eqn_of_state [62]
+                0.00    0.00       1/1998784     GetCoolingTime [19]
+                0.00    0.00       2/2           SetZeroIonization [83]
+                0.00    0.00       1/1           set_sfr_parameters [100]
+                0.00    0.00       1/1           InitCool [85]
+-----------------------------------------------
+               13.19    0.08       1/1           init_clouds [11]
+[12]     9.9   13.19    0.08       1         integrate_surfacedensity [12]
+                0.00    0.07  150528/2455419     eqn_of_state [18]
+-----------------------------------------------
+                             149956096             force_update_node_recursive [13]
+               10.08    0.00       5/5           force_treebuild [8]
+[13]     7.5   10.08    0.00       5+149956096 force_update_node_recursive [13]
+                             149956096             force_update_node_recursive [13]
+-----------------------------------------------
+                0.00    0.00       1/1959153     gc [63]
+                0.00    0.00      92/1959153     disk_angmomentum [61]
+                0.00    0.00     511/1959153     set_integral [47]
+                0.02    0.46  385690/1959153     compute_velocity_dispersions_disk [29]
+                0.03    0.63  524286/1959153     compute_velocity_dispersions_halo [24]
+                0.03    0.63  524286/1959153     compute_velocity_dispersions_bulge [26]
+                0.03    0.63  524287/1959153     compute_velocity_dispersions_corona [25]
+[14]     1.8    0.10    2.34 1959153         qromb [14]
+                0.16    2.00 9796134/9796134     trapzd [15]
+                0.17    0.01 1959522/1959522     polint [33]
+-----------------------------------------------
+                0.16    2.00 9796134/9796134     qromb [14]
+[15]     1.6    0.16    2.00 9796134         trapzd [15]
+                0.05    1.66 33295333/33295333     splint_xl_yl_D2yl [16]
+                0.00    0.30    8687/8687        Integrand_hernquist [30]
+                0.00    0.00   23644/23644       jdisk_int [59]
+                0.00    0.00      33/33          gc_int [79]
+-----------------------------------------------
+                0.05    1.66 33295333/33295333     trapzd [15]
+[16]     1.3    0.05    1.66 33295333         splint_xl_yl_D2yl [16]
+                1.66    0.00 33295333/33592131     splint [17]
+-----------------------------------------------
+                0.01    0.00  296798/33592131     splint_integral [48]
+                1.66    0.00 33295333/33592131     splint_xl_yl_D2yl [16]
+[17]     1.2    1.67    0.00 33592131         splint [17]
+-----------------------------------------------
+                0.00    0.00     121/2455419     dump_eqn_of_state [62]
+                0.00    0.06  118452/2455419     integrate_gasdensity [36]
+                0.00    0.07  150528/2455419     integrate_surfacedensity [12]
+                0.01    0.26  524286/2455419     compute_vstream_gas [31]
+                0.04    0.82 1662032/2455419     integrate_and_adjust [22]
+[18]     0.9    0.06    1.21 2455419         eqn_of_state [18]
+                0.02    1.19 1998783/1998784     GetCoolingTime [19]
+-----------------------------------------------
+                0.00    0.00       1/1998784     init_clouds [11]
+                0.02    1.19 1998783/1998784     eqn_of_state [18]
+[19]     0.9    0.02    1.19 1998784         GetCoolingTime [19]
+                0.00    1.19 1998784/1998784     CoolingRateFromU [20]
+-----------------------------------------------
+                0.00    1.19 1998784/1998784     GetCoolingTime [19]
+[20]     0.9    0.00    1.19 1998784         CoolingRateFromU [20]
+                0.31    0.75 1998784/1998784     convert_u_to_temp [21]
+                0.03    0.10 1998784/1998784     CoolingRate [34]
+-----------------------------------------------
+                0.31    0.75 1998784/1998784     CoolingRateFromU [20]
+[21]     0.8    0.31    0.75 1998784         convert_u_to_temp [21]
+                0.73    0.00 13869556/15868340     find_abundances_and_rates [23]
+                0.02    0.00 13869556/13869556     dmax [41]
+-----------------------------------------------
+                0.07    0.88       5/5           main [1]
+[22]     0.7    0.07    0.88       5         integrate_and_adjust [22]
+                0.04    0.82 1662032/2455419     eqn_of_state [18]
+                0.02    0.00      25/26          determine_cumulative_gasdensity [44]
+                0.00    0.00    8825/9338        surface_density_gasdisk [78]
+-----------------------------------------------
+                0.10    0.00 1998784/15868340     CoolingRate [34]
+                0.73    0.00 13869556/15868340     convert_u_to_temp [21]
+[23]     0.6    0.83    0.00 15868340         find_abundances_and_rates [23]
+-----------------------------------------------
+                0.01    0.70       1/1           main [1]
+[24]     0.5    0.01    0.70       1         compute_velocity_dispersions_halo [24]
+                0.03    0.63  524286/1959153     qromb [14]
+                0.02    0.00    1026/4105        spline [35]
+                0.02    0.00  789507/789507      comp_rho_halo [43]
+-----------------------------------------------
+                0.01    0.68       1/1           main [1]
+[25]     0.5    0.01    0.68       1         compute_velocity_dispersions_corona [25]
+                0.03    0.63  524287/1959153     qromb [14]
+                0.02    0.00    1026/4105        spline [35]
+                0.00    0.00  789507/789507      comp_rho_corona [57]
+-----------------------------------------------
+                0.01    0.68       1/1           main [1]
+[26]     0.5    0.01    0.68       1         compute_velocity_dispersions_bulge [26]
+                0.03    0.63  524286/1959153     qromb [14]
+                0.02    0.00    1026/4105        spline [35]
+                0.00    0.00  789507/789507      comp_rho_bulge [68]
+-----------------------------------------------
+                0.04    0.57       1/1           main [1]
+[27]     0.5    0.04    0.57       1         set_corona_positions [27]
+                0.34    0.23 1071452/1071452     corona_q_to_r [28]
+                0.00    0.00       1/17478665     halogas_mass [32]
+-----------------------------------------------
+                0.34    0.23 1071452/1071452     set_corona_positions [27]
+[28]     0.4    0.34    0.23 1071452         corona_q_to_r [28]
+                0.21    0.00 15082006/17478665     halogas_mass [32]
+                0.02    0.00 14010554/15105546     halogas_rho [40]
+-----------------------------------------------
+                0.03    0.50       1/1           main [1]
+[29]     0.4    0.03    0.50       1         compute_velocity_dispersions_disk [29]
+                0.02    0.46  385690/1959153     qromb [14]
+                0.02    0.00    1026/4105        spline [35]
+                0.00    0.00  789507/789507      comp_rho_disk [69]
+-----------------------------------------------
+                0.00    0.30    8687/8687        trapzd [15]
+[30]     0.2    0.00    0.30    8687         Integrand_hernquist [30]
+                0.00    0.30    8687/1847279     comp_Dphi_z [3]
+                0.00    0.00    8687/15105546     halogas_rho [40]
+-----------------------------------------------
+                0.00    0.27       1/1           main [1]
+[31]     0.2    0.00    0.27       1         compute_vstream_gas [31]
+                0.01    0.26  524286/2455419     eqn_of_state [18]
+-----------------------------------------------
+                0.00    0.00       1/17478665     set_corona_positions [27]
+                0.00    0.00       3/17478665     structure [54]
+                0.00    0.00   23552/17478665     mass_total_dark [60]
+                0.01    0.00  525824/17478665     comp_Dphi_R_halo [53]
+                0.03    0.00 1847279/17478665     comp_Dphi_z_halo [39]
+                0.21    0.00 15082006/17478665     corona_q_to_r [28]
+[32]     0.2    0.24    0.00 17478665         halogas_mass [32]
+-----------------------------------------------
+                0.17    0.01 1959522/1959522     qromb [14]
+[33]     0.1    0.17    0.01 1959522         polint [33]
+                0.01    0.00 3919044/3923202     vector [50]
+                0.00    0.00 3919044/3923149     free_vector [66]
+-----------------------------------------------
+                0.03    0.10 1998784/1998784     CoolingRateFromU [20]
+[34]     0.1    0.03    0.10 1998784         CoolingRate [34]
+                0.10    0.00 1998784/15868340     find_abundances_and_rates [23]
+-----------------------------------------------
+                0.00    0.00       1/4105        set_integral [47]
+                0.02    0.00    1026/4105        compute_velocity_dispersions_halo [24]
+                0.02    0.00    1026/4105        compute_velocity_dispersions_disk [29]
+                0.02    0.00    1026/4105        compute_velocity_dispersions_corona [25]
+                0.02    0.00    1026/4105        compute_velocity_dispersions_bulge [26]
+[35]     0.1    0.09    0.00    4105         spline [35]
+                0.00    0.00    4105/3923202     vector [50]
+                0.00    0.00    4105/3923149     free_vector [66]
+-----------------------------------------------
+                0.00    0.06       1/1           main [1]
+[36]     0.0    0.00    0.06       1         integrate_gasdensity [36]
+                0.00    0.06  118452/2455419     eqn_of_state [18]
+-----------------------------------------------
+                0.02    0.03       1/1           main [1]
+[37]     0.0    0.02    0.03       1         set_halo_velocities [37]
+                0.02    0.01  537585/624936      gasdev [38]
+-----------------------------------------------
+                0.00    0.00   37437/624936      set_disk_velocities [56]
+                0.00    0.00   49914/624936      set_bulge_velocities [49]
+                0.02    0.01  537585/624936      set_halo_velocities [37]
+[38]     0.0    0.02    0.01  624936         gasdev [38]
+                0.01    0.00  795210/795210      ran1 [51]
+-----------------------------------------------
+                0.00    0.03 1847279/1847279     comp_Dphi_z [3]
+[39]     0.0    0.00    0.03 1847279         comp_Dphi_z_halo [39]
+                0.03    0.00 1847279/17478665     halogas_mass [32]
+                0.00    0.00 1847279/2396658     halo_mass [55]
+-----------------------------------------------
+                0.00    0.00    8687/15105546     Integrand_hernquist [30]
+                0.00    0.00  296798/15105546     const_integral_hernquist [58]
+                0.00    0.00  789507/15105546     comp_rho_corona [57]
+                0.02    0.00 14010554/15105546     corona_q_to_r [28]
+[40]     0.0    0.02    0.00 15105546         halogas_rho [40]
+-----------------------------------------------
+                0.02    0.00 13869556/13869556     convert_u_to_temp [21]
+[41]     0.0    0.02    0.00 13869556         dmax [41]
+-----------------------------------------------
+                0.02    0.00 1847279/1847279     comp_Dphi_z [3]
+[42]     0.0    0.02    0.00 1847279         comp_Dphi_z_bulge [42]
+-----------------------------------------------
+                0.02    0.00  789507/789507      compute_velocity_dispersions_halo [24]
+[43]     0.0    0.02    0.00  789507         comp_rho_halo [43]
+                0.00    0.00  789507/789507      halo_rho [70]
+-----------------------------------------------
+                0.00    0.00       1/26          main [1]
+                0.02    0.00      25/26          integrate_and_adjust [22]
+[44]     0.0    0.02    0.00      26         determine_cumulative_gasdensity [44]
+-----------------------------------------------
+                0.02    0.00       1/1           main [1]
+[45]     0.0    0.02    0.00       1         set_corona_velocities [45]
+-----------------------------------------------
+                0.02    0.00       1/1           main [1]
+[46]     0.0    0.02    0.00       1         set_gas_positions [46]
+-----------------------------------------------
+                0.00    0.02       1/1           main [1]
+[47]     0.0    0.00    0.02       1         set_integral [47]
+                0.00    0.01  296798/296798      splint_integral [48]
+                0.00    0.00     511/1959153     qromb [14]
+                0.00    0.00  296798/296798      const_integral_hernquist [58]
+                0.00    0.00       1/4105        spline [35]
+-----------------------------------------------
+                0.00    0.01  296798/296798      set_integral [47]
+[48]     0.0    0.00    0.01  296798         splint_integral [48]
+                0.01    0.00  296798/33592131     splint [17]
+-----------------------------------------------
+                0.01    0.00       1/1           main [1]
+[49]     0.0    0.01    0.00       1         set_bulge_velocities [49]
+                0.00    0.00   49914/624936      gasdev [38]
+-----------------------------------------------
+                0.00    0.00      53/3923202     init [64]
+                0.00    0.00    4105/3923202     spline [35]
+                0.01    0.00 3919044/3923202     polint [33]
+[50]     0.0    0.01    0.00 3923202         vector [50]
+-----------------------------------------------
+                0.01    0.00  795210/795210      gasdev [38]
+[51]     0.0    0.01    0.00  795210         ran1 [51]
+-----------------------------------------------
+                                                 <spontaneous>
+[52]     0.0    0.01    0.00                 AbundanceRatios [52]
+-----------------------------------------------
+                0.00    0.01  525824/525824      comp_Dphi_R [9]
+[53]     0.0    0.00    0.01  525824         comp_Dphi_R_halo [53]
+                0.01    0.00  525824/17478665     halogas_mass [32]
+                0.00    0.00  525824/2396658     halo_mass [55]
+-----------------------------------------------
+                0.01    0.00       1/1           main [1]
+[54]     0.0    0.01    0.00       1         structure [54]
+                0.00    0.00      92/92          disk_angmomentum [61]
+                0.00    0.00       1/1           gc [63]
+                0.00    0.00       3/17478665     halogas_mass [32]
+                0.00    0.00       2/2396658     halo_mass [55]
+                0.00    0.00       4/4           fc [82]
+-----------------------------------------------
+                0.00    0.00       1/2396658     set_halo_positions [65]
+                0.00    0.00       2/2396658     structure [54]
+                0.00    0.00   23552/2396658     mass_total_dark [60]
+                0.00    0.00  525824/2396658     comp_Dphi_R_halo [53]
+                0.00    0.00 1847279/2396658     comp_Dphi_z_halo [39]
+[55]     0.0    0.01    0.00 2396658         halo_mass [55]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[56]     0.0    0.00    0.00       1         set_disk_velocities [56]
+                0.00    0.00   37437/624936      gasdev [38]
+-----------------------------------------------
+                0.00    0.00  789507/789507      compute_velocity_dispersions_corona [25]
+[57]     0.0    0.00    0.00  789507         comp_rho_corona [57]
+                0.00    0.00  789507/15105546     halogas_rho [40]
+-----------------------------------------------
+                0.00    0.00  296798/296798      set_integral [47]
+[58]     0.0    0.00    0.00  296798         const_integral_hernquist [58]
+                0.00    0.00  296798/15105546     halogas_rho [40]
+-----------------------------------------------
+                0.00    0.00   23644/23644       trapzd [15]
+[59]     0.0    0.00    0.00   23644         jdisk_int [59]
+                0.00    0.00   23552/23552       mass_total_dark [60]
+                0.00    0.00   23552/23553       mass_cumulative_bulge [75]
+                0.00    0.00   23552/26680       bessi0 [73]
+                0.00    0.00   23552/23552       bessk0 [76]
+                0.00    0.00   23552/26680       bessi1 [74]
+                0.00    0.00   23552/23552       bessk1 [77]
+-----------------------------------------------
+                0.00    0.00   23552/23552       jdisk_int [59]
+[60]     0.0    0.00    0.00   23552         mass_total_dark [60]
+                0.00    0.00   23552/17478665     halogas_mass [32]
+                0.00    0.00   23552/2396658     halo_mass [55]
+-----------------------------------------------
+                0.00    0.00      92/92          structure [54]
+[61]     0.0    0.00    0.00      92         disk_angmomentum [61]
+                0.00    0.00      92/1959153     qromb [14]
+                0.00    0.00      92/2373195     dmin [67]
+-----------------------------------------------
+                0.00    0.00       1/1           init_clouds [11]
+[62]     0.0    0.00    0.00       1         dump_eqn_of_state [62]
+                0.00    0.00     121/2455419     eqn_of_state [18]
+-----------------------------------------------
+                0.00    0.00       1/1           structure [54]
+[63]     0.0    0.00    0.00       1         gc [63]
+                0.00    0.00       1/1959153     qromb [14]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[64]     0.0    0.00    0.00       1         init [64]
+                0.00    0.00      53/3923202     vector [50]
+                0.00    0.00      30/30          matrix [80]
+                0.00    0.00       2/2           dvector [84]
+                0.00    0.00       1/1           force_treeallocate [92]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[65]     0.0    0.00    0.00       1         set_halo_positions [65]
+                0.00    0.00       1/2396658     halo_mass [55]
+                0.00    0.00  190661/190661      halo_q_to_r [72]
+-----------------------------------------------
+                0.00    0.00    4105/3923149     spline [35]
+                0.00    0.00 3919044/3923149     polint [33]
+[66]     0.0    0.00    0.00 3923149         free_vector [66]
+-----------------------------------------------
+                0.00    0.00      92/2373195     disk_angmomentum [61]
+                0.00    0.00  525824/2373195     comp_Dphi_R_disk_tree [10]
+                0.00    0.00 1847279/2373195     comp_Dphi_Z_disk_tree [4]
+[67]     0.0    0.00    0.00 2373195         dmin [67]
+-----------------------------------------------
+                0.00    0.00  789507/789507      compute_velocity_dispersions_bulge [26]
+[68]     0.0    0.00    0.00  789507         comp_rho_bulge [68]
+-----------------------------------------------
+                0.00    0.00  789507/789507      compute_velocity_dispersions_disk [29]
+[69]     0.0    0.00    0.00  789507         comp_rho_disk [69]
+-----------------------------------------------
+                0.00    0.00  789507/789507      comp_rho_halo [43]
+[70]     0.0    0.00    0.00  789507         halo_rho [70]
+-----------------------------------------------
+                0.00    0.00  525824/525824      comp_Dphi_R [9]
+[71]     0.0    0.00    0.00  525824         comp_Dphi_R_bulge [71]
+-----------------------------------------------
+                0.00    0.00  190661/190661      set_halo_positions [65]
+[72]     0.0    0.00    0.00  190661         halo_q_to_r [72]
+-----------------------------------------------
+                0.00    0.00    3128/26680       bessk0 [76]
+                0.00    0.00   23552/26680       jdisk_int [59]
+[73]     0.0    0.00    0.00   26680         bessi0 [73]
+-----------------------------------------------
+                0.00    0.00    3128/26680       bessk1 [77]
+                0.00    0.00   23552/26680       jdisk_int [59]
+[74]     0.0    0.00    0.00   26680         bessi1 [74]
+-----------------------------------------------
+                0.00    0.00       1/23553       set_bulge_positions [97]
+                0.00    0.00   23552/23553       jdisk_int [59]
+[75]     0.0    0.00    0.00   23553         mass_cumulative_bulge [75]
+-----------------------------------------------
+                0.00    0.00   23552/23552       jdisk_int [59]
+[76]     0.0    0.00    0.00   23552         bessk0 [76]
+                0.00    0.00    3128/26680       bessi0 [73]
+-----------------------------------------------
+                0.00    0.00   23552/23552       jdisk_int [59]
+[77]     0.0    0.00    0.00   23552         bessk1 [77]
+                0.00    0.00    3128/26680       bessi1 [74]
+-----------------------------------------------
+                0.00    0.00     513/9338        init_central_densities [93]
+                0.00    0.00    8825/9338        integrate_and_adjust [22]
+[78]     0.0    0.00    0.00    9338         surface_density_gasdisk [78]
+-----------------------------------------------
+                0.00    0.00      33/33          trapzd [15]
+[79]     0.0    0.00    0.00      33         gc_int [79]
+-----------------------------------------------
+                0.00    0.00      30/30          init [64]
+[80]     0.0    0.00    0.00      30         matrix [80]
+-----------------------------------------------
+                0.00    0.00      10/10          InitCoolMemory [86]
+[81]     0.0    0.00    0.00      10         mymalloc [81]
+-----------------------------------------------
+                0.00    0.00       4/4           structure [54]
+[82]     0.0    0.00    0.00       4         fc [82]
+-----------------------------------------------
+                0.00    0.00       2/2           init_clouds [11]
+[83]     0.0    0.00    0.00       2         SetZeroIonization [83]
+-----------------------------------------------
+                0.00    0.00       2/2           init [64]
+[84]     0.0    0.00    0.00       2         dvector [84]
+-----------------------------------------------
+                0.00    0.00       1/1           init_clouds [11]
+[85]     0.0    0.00    0.00       1         InitCool [85]
+                0.00    0.00       1/1           IonizeParams [87]
+                0.00    0.00       1/1           MakeCoolingTable [89]
+-----------------------------------------------
+                0.00    0.00       1/1           IonizeParamsFunction [88]
+[86]     0.0    0.00    0.00       1         InitCoolMemory [86]
+                0.00    0.00      10/10          mymalloc [81]
+-----------------------------------------------
+                0.00    0.00       1/1           InitCool [85]
+[87]     0.0    0.00    0.00       1         IonizeParams [87]
+                0.00    0.00       1/1           IonizeParamsFunction [88]
+-----------------------------------------------
+                0.00    0.00       1/1           IonizeParams [87]
+[88]     0.0    0.00    0.00       1         IonizeParamsFunction [88]
+                0.00    0.00       1/1           InitCoolMemory [86]
+-----------------------------------------------
+                0.00    0.00       1/1           InitCool [85]
+[89]     0.0    0.00    0.00       1         MakeCoolingTable [89]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[90]     0.0    0.00    0.00       1         dump_gas_density [90]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[91]     0.0    0.00    0.00       1         dump_veldisp_field [91]
+-----------------------------------------------
+                0.00    0.00       1/1           init [64]
+[92]     0.0    0.00    0.00       1         force_treeallocate [92]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[93]     0.0    0.00    0.00       1         init_central_densities [93]
+                0.00    0.00     513/9338        surface_density_gasdisk [78]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[94]     0.0    0.00    0.00       1         init_units [94]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[95]     0.0    0.00    0.00       1         read_parameterfile [95]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[96]     0.0    0.00    0.00       1         save_particles [96]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[97]     0.0    0.00    0.00       1         set_bulge_positions [97]
+                0.00    0.00       1/23553       mass_cumulative_bulge [75]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[98]     0.0    0.00    0.00       1         set_disk_positions [98]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[99]     0.0    0.00    0.00       1         set_gas_velocities [99]
+-----------------------------------------------
+                0.00    0.00       1/1           init_clouds [11]
+[100]    0.0    0.00    0.00       1         set_sfr_parameters [100]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [52] AbundanceRatios        [31] compute_vstream_gas    [36] integrate_gasdensity
+  [34] CoolingRate            [58] const_integral_hernquist [12] integrate_surfacedensity
+  [20] CoolingRateFromU       [21] convert_u_to_temp      [59] jdisk_int
+  [19] GetCoolingTime         [28] corona_q_to_r          [75] mass_cumulative_bulge
+  [85] InitCool               [44] determine_cumulative_gasdensity [60] mass_total_dark
+  [86] InitCoolMemory         [61] disk_angmomentum       [80] matrix
+  [30] Integrand_hernquist    [41] dmax                   [81] mymalloc
+  [87] IonizeParams           [67] dmin                   [33] polint
+  [88] IonizeParamsFunction   [62] dump_eqn_of_state      [14] qromb
+  [89] MakeCoolingTable       [90] dump_gas_density       [51] ran1
+  [83] SetZeroIonization      [91] dump_veldisp_field     [95] read_parameterfile
+  [73] bessi0                 [84] dvector                [96] save_particles
+  [74] bessi1                 [18] eqn_of_state           [97] set_bulge_positions
+  [76] bessk0                 [82] fc                     [49] set_bulge_velocities
+  [77] bessk1                 [23] find_abundances_and_rates [27] set_corona_positions
+   [9] comp_Dphi_R            [92] force_treeallocate     [45] set_corona_velocities
+  [71] comp_Dphi_R_bulge       [8] force_treebuild        [98] set_disk_positions
+  [10] comp_Dphi_R_disk_tree   [2] force_treeevaluate     [56] set_disk_velocities
+  [53] comp_Dphi_R_halo       [13] force_update_node_recursive [7] set_dummy_particles
+   [4] comp_Dphi_Z_disk_tree  [66] free_vector            [46] set_gas_positions
+   [3] comp_Dphi_z            [38] gasdev                 [99] set_gas_velocities
+  [42] comp_Dphi_z_bulge      [63] gc                     [65] set_halo_positions
+  [39] comp_Dphi_z_halo       [79] gc_int                 [37] set_halo_velocities
+  [68] comp_rho_bulge         [55] halo_mass              [47] set_integral
+  [57] comp_rho_corona        [72] halo_q_to_r           [100] set_sfr_parameters
+  [69] comp_rho_disk          [70] halo_rho               [35] spline
+  [43] comp_rho_halo          [32] halogas_mass           [17] splint
+   [6] compute_radial_force_field [40] halogas_rho        [48] splint_integral
+  [26] compute_velocity_dispersions_bulge [64] init       [16] splint_xl_yl_D2yl
+  [25] compute_velocity_dispersions_corona [93] init_central_densities [54] structure
+  [29] compute_velocity_dispersions_disk [11] init_clouds [78] surface_density_gasdisk
+  [24] compute_velocity_dispersions_halo [94] init_units  [15] trapzd
+   [5] compute_vertical_force_field [22] integrate_and_adjust [50] vector

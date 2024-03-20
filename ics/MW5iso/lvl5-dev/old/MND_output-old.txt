@@ -1,0 +1,478 @@
+43007.1 0.1 978.028 
+fc=0.971007
+halo_spinfactor 0.109235
+RS: 31.4634
+RHO_0: 0.000154518
+R200: 129
+M200: 49.9148
+RH: 40.4233
+Total mass is: 49.9148
+Dark Halo Hernquist RH= 40.4233
+
+Use 608 MByte for BH-tree.
+
+Feedback energy per formed solar mass in stars= 1.3955e+49  ergs
+u4=210.482
+
+A0= 3000  
+Computed: PhysDensThresh= 0.000854783  (int units)         0.262942 h^2 cm^-3
+EXPECTED FRACTION OF COLD GAS AT THRESHOLD = 0.904362
+
+tcool=4.67228e-06 dens=0.027755 egyhot=2104.82
+NumGasScaleLengths = 8
+integrating surface density...
+done.
+r=7.36231  RhoGas[rbin][0] = 1.00532e-05  sigma=0.000144662   rbin=315
+r=7.17176  RhoGas[rbin][0] = 1.21478e-05  sigma=0.000159479   rbin=314
+r=6.98613  RhoGas[rbin][0] = 1.46788e-05  sigma=0.000175371   rbin=313
+r=6.80531  RhoGas[rbin][0] = 1.7737e-05  sigma=0.000192373   rbin=312
+r=6.62918  RhoGas[rbin][0] = 2.08608e-05  sigma=0.000210518   rbin=311
+r=6.45759  RhoGas[rbin][0] = 2.52071e-05  sigma=0.000229838   rbin=310
+r=6.29046  RhoGas[rbin][0] = 2.96465e-05  sigma=0.000250361   rbin=309
+r=6.12764  RhoGas[rbin][0] = 3.48677e-05  sigma=0.000272113   rbin=308
+r=5.96904  RhoGas[rbin][0] = 4.10085e-05  sigma=0.000295119   rbin=307
+r=5.81455  RhoGas[rbin][0] = 4.82307e-05  sigma=0.000319398   rbin=306
+r=5.66405  RhoGas[rbin][0] = 5.67249e-05  sigma=0.000344968   rbin=305
+r=5.51745  RhoGas[rbin][0] = 6.49355e-05  sigma=0.000371843   rbin=304
+r=5.37465  RhoGas[rbin][0] = 7.63716e-05  sigma=0.000400034   rbin=303
+r=5.23554  RhoGas[rbin][0] = 8.7426e-05  sigma=0.000429549   rbin=302
+r=5.10003  RhoGas[rbin][0] = 0.00010008  sigma=0.000460393   rbin=301
+r=4.96802  RhoGas[rbin][0] = 0.000114566  sigma=0.000492566   rbin=300
+r=4.83944  RhoGas[rbin][0] = 0.000131149  sigma=0.000526068   rbin=299
+r=4.71418  RhoGas[rbin][0] = 0.000150132  sigma=0.000560891   rbin=298
+r=4.59217  RhoGas[rbin][0] = 0.000167279  sigma=0.000597029   rbin=297
+r=4.47331  RhoGas[rbin][0] = 0.000191491  sigma=0.000634469   rbin=296
+r=4.35753  RhoGas[rbin][0] = 0.000213362  sigma=0.000673197   rbin=295
+r=4.24474  RhoGas[rbin][0] = 0.000244244  sigma=0.000713193   rbin=294
+r=4.13488  RhoGas[rbin][0] = 0.000272139  sigma=0.000754438   rbin=293
+r=4.02786  RhoGas[rbin][0] = 0.00030322  sigma=0.000796908   rbin=292
+r=3.92361  RhoGas[rbin][0] = 0.000337851  sigma=0.000840576   rbin=291
+r=3.82205  RhoGas[rbin][0] = 0.000376436  sigma=0.000885414   rbin=290
+r=3.72313  RhoGas[rbin][0] = 0.000408241  sigma=0.00093139   rbin=289
+r=3.62676  RhoGas[rbin][0] = 0.000454866  sigma=0.00097847   rbin=288
+r=3.53289  RhoGas[rbin][0] = 0.000506816  sigma=0.00102662   rbin=287
+r=3.44145  RhoGas[rbin][0] = 0.000549636  sigma=0.0010758   rbin=286
+r=3.35238  RhoGas[rbin][0] = 0.000596074  sigma=0.00112597   rbin=285
+r=3.26561  RhoGas[rbin][0] = 0.000664151  sigma=0.00117709   rbin=284
+r=3.18109  RhoGas[rbin][0] = 0.000720264  sigma=0.00122912   rbin=283
+r=3.09875  RhoGas[rbin][0] = 0.000781118  sigma=0.00128202   rbin=282
+r=3.01855  RhoGas[rbin][0] = 0.000847114  sigma=0.00133573   rbin=281
+r=2.94042  RhoGas[rbin][0] = 0.000918686  sigma=0.00139021   rbin=280
+r=2.86432  RhoGas[rbin][0] = 0.000996304  sigma=0.00144542   rbin=279
+r=2.79018  RhoGas[rbin][0] = 0.00108048  sigma=0.00150131   rbin=278
+r=2.71796  RhoGas[rbin][0] = 0.00114051  sigma=0.00155783   rbin=277
+r=2.64761  RhoGas[rbin][0] = 0.00123687  sigma=0.00161493   rbin=276
+r=2.57909  RhoGas[rbin][0] = 0.00134138  sigma=0.00167257   rbin=275
+r=2.51233  RhoGas[rbin][0] = 0.0014159  sigma=0.00173069   rbin=274
+r=2.44731  RhoGas[rbin][0] = 0.00153553  sigma=0.00178925   rbin=273
+r=2.38397  RhoGas[rbin][0] = 0.00162085  sigma=0.0018482   rbin=272
+r=2.32226  RhoGas[rbin][0] = 0.0017109  sigma=0.00190749   rbin=271
+r=2.26216  RhoGas[rbin][0] = 0.00185546  sigma=0.00196707   rbin=270
+r=2.20361  RhoGas[rbin][0] = 0.00195855  sigma=0.0020269   rbin=269
+r=2.14657  RhoGas[rbin][0] = 0.00206737  sigma=0.00208693   rbin=268
+r=2.09101  RhoGas[rbin][0] = 0.00218223  sigma=0.00214711   rbin=267
+r=2.03689  RhoGas[rbin][0] = 0.00230348  sigma=0.00220741   rbin=266
+r=1.98417  RhoGas[rbin][0] = 0.00243146  sigma=0.00226777   rbin=265
+r=1.93281  RhoGas[rbin][0] = 0.00256656  sigma=0.00232816   rbin=264
+r=1.88279  RhoGas[rbin][0] = 0.00270916  sigma=0.00238853   rbin=263
+r=1.83406  RhoGas[rbin][0] = 0.00285968  sigma=0.00244884   rbin=262
+r=1.78659  RhoGas[rbin][0] = 0.00301857  sigma=0.00250906   rbin=261
+r=1.74035  RhoGas[rbin][0] = 0.00310129  sigma=0.00256914   rbin=260
+r=1.6953  RhoGas[rbin][0] = 0.0032736  sigma=0.00262904   rbin=259
+r=1.65142  RhoGas[rbin][0] = 0.00345549  sigma=0.00268874   rbin=258
+r=1.60868  RhoGas[rbin][0] = 0.00355019  sigma=0.0027482   rbin=257
+r=1.56704  RhoGas[rbin][0] = 0.00374744  sigma=0.00280739   rbin=256
+r=1.52648  RhoGas[rbin][0] = 0.00385014  sigma=0.00286626   rbin=255
+r=1.48697  RhoGas[rbin][0] = 0.00406405  sigma=0.0029248   rbin=254
+r=1.44849  RhoGas[rbin][0] = 0.00417543  sigma=0.00298298   rbin=253
+r=1.411  RhoGas[rbin][0] = 0.00440742  sigma=0.00304076   rbin=252
+r=1.37448  RhoGas[rbin][0] = 0.00452821  sigma=0.00309812   rbin=251
+r=1.3389  RhoGas[rbin][0] = 0.0047798  sigma=0.00315504   rbin=250
+r=1.30425  RhoGas[rbin][0] = 0.00491079  sigma=0.00321149   rbin=249
+r=1.27049  RhoGas[rbin][0] = 0.00504537  sigma=0.00326745   rbin=248
+r=1.23761  RhoGas[rbin][0] = 0.00518364  sigma=0.00332289   rbin=247
+r=1.20557  RhoGas[rbin][0] = 0.00547165  sigma=0.00337781   rbin=246
+r=1.17437  RhoGas[rbin][0] = 0.0056216  sigma=0.00343218   rbin=245
+r=1.14397  RhoGas[rbin][0] = 0.00577566  sigma=0.00348598   rbin=244
+r=1.11436  RhoGas[rbin][0] = 0.00593394  sigma=0.0035392   rbin=243
+r=1.08552  RhoGas[rbin][0] = 0.00609656  sigma=0.00359183   rbin=242
+r=1.05743  RhoGas[rbin][0] = 0.00626364  sigma=0.00364384   rbin=241
+r=1.03006  RhoGas[rbin][0] = 0.00643529  sigma=0.00369524   rbin=240
+r=1.0034  RhoGas[rbin][0] = 0.00661165  sigma=0.003746   rbin=239
+r=0.977426  RhoGas[rbin][0] = 0.00679284  sigma=0.00379611   rbin=238
+r=0.952128  RhoGas[rbin][0] = 0.006979  sigma=0.00384558   rbin=237
+r=0.927484  RhoGas[rbin][0] = 0.00717026  sigma=0.00389438   rbin=236
+r=0.903478  RhoGas[rbin][0] = 0.00736676  sigma=0.00394251   rbin=235
+r=0.880094  RhoGas[rbin][0] = 0.00756865  sigma=0.00398998   rbin=234
+r=0.857315  RhoGas[rbin][0] = 0.00777607  sigma=0.00403676   rbin=233
+r=0.835125  RhoGas[rbin][0] = 0.00798917  sigma=0.00408286   rbin=232
+r=0.81351  RhoGas[rbin][0] = 0.00798917  sigma=0.00412827   rbin=231
+r=0.792454  RhoGas[rbin][0] = 0.00820811  sigma=0.00417299   rbin=230
+r=0.771943  RhoGas[rbin][0] = 0.00843306  sigma=0.00421702   rbin=229
+r=0.751964  RhoGas[rbin][0] = 0.00866416  sigma=0.00426036   rbin=228
+r=0.732501  RhoGas[rbin][0] = 0.00890161  sigma=0.004303   rbin=227
+r=0.713542  RhoGas[rbin][0] = 0.00890161  sigma=0.00434495   rbin=226
+r=0.695073  RhoGas[rbin][0] = 0.00914555  sigma=0.00438621   rbin=225
+r=0.677083  RhoGas[rbin][0] = 0.00939619  sigma=0.00442678   rbin=224
+r=0.659558  RhoGas[rbin][0] = 0.00939619  sigma=0.00446665   rbin=223
+r=0.642487  RhoGas[rbin][0] = 0.00965369  sigma=0.00450584   rbin=222
+r=0.625858  RhoGas[rbin][0] = 0.00991825  sigma=0.00454435   rbin=221
+r=0.609659  RhoGas[rbin][0] = 0.00991825  sigma=0.00458218   rbin=220
+r=0.59388  RhoGas[rbin][0] = 0.0101901  sigma=0.00461933   rbin=219
+r=0.578508  RhoGas[rbin][0] = 0.0101901  sigma=0.00465581   rbin=218
+r=0.563535  RhoGas[rbin][0] = 0.0104693  sigma=0.00469162   rbin=217
+r=0.548949  RhoGas[rbin][0] = 0.0104693  sigma=0.00472677   rbin=216
+r=0.534741  RhoGas[rbin][0] = 0.0107562  sigma=0.00476126   rbin=215
+r=0.520901  RhoGas[rbin][0] = 0.011051  sigma=0.0047951   rbin=214
+r=0.507418  RhoGas[rbin][0] = 0.011051  sigma=0.0048283   rbin=213
+r=0.494285  RhoGas[rbin][0] = 0.0113539  sigma=0.00486086   rbin=212
+r=0.481492  RhoGas[rbin][0] = 0.0113539  sigma=0.00489278   rbin=211
+r=0.469029  RhoGas[rbin][0] = 0.011665  sigma=0.00492409   rbin=210
+r=0.45689  RhoGas[rbin][0] = 0.011665  sigma=0.00495477   rbin=209
+r=0.445064  RhoGas[rbin][0] = 0.011665  sigma=0.00498485   rbin=208
+r=0.433545  RhoGas[rbin][0] = 0.0119847  sigma=0.00501432   rbin=207
+r=0.422323  RhoGas[rbin][0] = 0.0119847  sigma=0.00504319   rbin=206
+r=0.411393  RhoGas[rbin][0] = 0.0123131  sigma=0.00507148   rbin=205
+r=0.400745  RhoGas[rbin][0] = 0.0123131  sigma=0.00509919   rbin=204
+r=0.390372  RhoGas[rbin][0] = 0.0123131  sigma=0.00512633   rbin=203
+r=0.380269  RhoGas[rbin][0] = 0.0126506  sigma=0.0051529   rbin=202
+r=0.370426  RhoGas[rbin][0] = 0.0126506  sigma=0.00517892   rbin=201
+r=0.360839  RhoGas[rbin][0] = 0.0129973  sigma=0.00520439   rbin=200
+r=0.351499  RhoGas[rbin][0] = 0.0129973  sigma=0.00522933   rbin=199
+r=0.342401  RhoGas[rbin][0] = 0.0129973  sigma=0.00525373   rbin=198
+r=0.333539  RhoGas[rbin][0] = 0.0133535  sigma=0.00527761   rbin=197
+r=0.324906  RhoGas[rbin][0] = 0.0133535  sigma=0.00530097   rbin=196
+r=0.316497  RhoGas[rbin][0] = 0.0133535  sigma=0.00532384   rbin=195
+r=0.308305  RhoGas[rbin][0] = 0.0137194  sigma=0.0053462   rbin=194
+r=0.300325  RhoGas[rbin][0] = 0.0137194  sigma=0.00536808   rbin=193
+r=0.292552  RhoGas[rbin][0] = 0.0137194  sigma=0.00538947   rbin=192
+r=0.28498  RhoGas[rbin][0] = 0.0137194  sigma=0.00541039   rbin=191
+r=0.277604  RhoGas[rbin][0] = 0.0140954  sigma=0.00543085   rbin=190
+r=0.270419  RhoGas[rbin][0] = 0.0140954  sigma=0.00545086   rbin=189
+r=0.26342  RhoGas[rbin][0] = 0.0140954  sigma=0.00547042   rbin=188
+r=0.256602  RhoGas[rbin][0] = 0.0144817  sigma=0.00548954   rbin=187
+r=0.24996  RhoGas[rbin][0] = 0.0144817  sigma=0.00550823   rbin=186
+r=0.243491  RhoGas[rbin][0] = 0.0144817  sigma=0.00552649   rbin=185
+r=0.237189  RhoGas[rbin][0] = 0.0144817  sigma=0.00554434   rbin=184
+r=0.231049  RhoGas[rbin][0] = 0.0148785  sigma=0.00556179   rbin=183
+r=0.225069  RhoGas[rbin][0] = 0.0148785  sigma=0.00557884   rbin=182
+r=0.219244  RhoGas[rbin][0] = 0.0148785  sigma=0.00559549   rbin=181
+r=0.213569  RhoGas[rbin][0] = 0.0148785  sigma=0.00561176   rbin=180
+r=0.208042  RhoGas[rbin][0] = 0.0148785  sigma=0.00562766   rbin=179
+r=0.202657  RhoGas[rbin][0] = 0.0152863  sigma=0.00564319   rbin=178
+r=0.197412  RhoGas[rbin][0] = 0.0152863  sigma=0.00565836   rbin=177
+r=0.192302  RhoGas[rbin][0] = 0.0152863  sigma=0.00567317   rbin=176
+r=0.187325  RhoGas[rbin][0] = 0.0152863  sigma=0.00568764   rbin=175
+r=0.182476  RhoGas[rbin][0] = 0.0152863  sigma=0.00570177   rbin=174
+r=0.177753  RhoGas[rbin][0] = 0.0157052  sigma=0.00571556   rbin=173
+r=0.173153  RhoGas[rbin][0] = 0.0157052  sigma=0.00572904   rbin=172
+r=0.168671  RhoGas[rbin][0] = 0.0157052  sigma=0.00574219   rbin=171
+r=0.164305  RhoGas[rbin][0] = 0.0157052  sigma=0.00575503   rbin=170
+r=0.160053  RhoGas[rbin][0] = 0.0157052  sigma=0.00576757   rbin=169
+r=0.15591  RhoGas[rbin][0] = 0.0157052  sigma=0.00577981   rbin=168
+r=0.151875  RhoGas[rbin][0] = 0.0161356  sigma=0.00579176   rbin=167
+r=0.147944  RhoGas[rbin][0] = 0.0161356  sigma=0.00580342   rbin=166
+r=0.144115  RhoGas[rbin][0] = 0.0161356  sigma=0.0058148   rbin=165
+r=0.140385  RhoGas[rbin][0] = 0.0161356  sigma=0.00582591   rbin=164
+r=0.136751  RhoGas[rbin][0] = 0.0161356  sigma=0.00583676   rbin=163
+r=0.133212  RhoGas[rbin][0] = 0.0161356  sigma=0.00584734   rbin=162
+r=0.129764  RhoGas[rbin][0] = 0.0161356  sigma=0.00585766   rbin=161
+r=0.126405  RhoGas[rbin][0] = 0.0161356  sigma=0.00586774   rbin=160
+r=0.123133  RhoGas[rbin][0] = 0.0165778  sigma=0.00587757   rbin=159
+r=0.119946  RhoGas[rbin][0] = 0.0165778  sigma=0.00588716   rbin=158
+r=0.116842  RhoGas[rbin][0] = 0.0165778  sigma=0.00589652   rbin=157
+r=0.113818  RhoGas[rbin][0] = 0.0165778  sigma=0.00590566   rbin=156
+r=0.110872  RhoGas[rbin][0] = 0.0165778  sigma=0.00591457   rbin=155
+r=0.108002  RhoGas[rbin][0] = 0.0165778  sigma=0.00592326   rbin=154
+r=0.105207  RhoGas[rbin][0] = 0.0165778  sigma=0.00593174   rbin=153
+r=0.102484  RhoGas[rbin][0] = 0.0165778  sigma=0.00594001   rbin=152
+r=0.0998312  RhoGas[rbin][0] = 0.0165778  sigma=0.00594808   rbin=151
+r=0.0972473  RhoGas[rbin][0] = 0.0170321  sigma=0.00595595   rbin=150
+r=0.0947303  RhoGas[rbin][0] = 0.0170321  sigma=0.00596362   rbin=149
+r=0.0922784  RhoGas[rbin][0] = 0.0170321  sigma=0.00597111   rbin=148
+r=0.08989  RhoGas[rbin][0] = 0.0170321  sigma=0.00597841   rbin=147
+r=0.0875634  RhoGas[rbin][0] = 0.0170321  sigma=0.00598554   rbin=146
+r=0.0852971  RhoGas[rbin][0] = 0.0170321  sigma=0.00599248   rbin=145
+r=0.0830893  RhoGas[rbin][0] = 0.0170321  sigma=0.00599926   rbin=144
+r=0.0809388  RhoGas[rbin][0] = 0.0170321  sigma=0.00600586   rbin=143
+r=0.0788439  RhoGas[rbin][0] = 0.0170321  sigma=0.0060123   rbin=142
+r=0.0768032  RhoGas[rbin][0] = 0.0170321  sigma=0.00601858   rbin=141
+r=0.0748153  RhoGas[rbin][0] = 0.0170321  sigma=0.00602471   rbin=140
+r=0.0728789  RhoGas[rbin][0] = 0.0174989  sigma=0.00603068   rbin=139
+r=0.0709926  RhoGas[rbin][0] = 0.0174989  sigma=0.00603651   rbin=138
+r=0.0691551  RhoGas[rbin][0] = 0.0174989  sigma=0.00604219   rbin=137
+r=0.0673652  RhoGas[rbin][0] = 0.0174989  sigma=0.00604772   rbin=136
+r=0.0656216  RhoGas[rbin][0] = 0.0174989  sigma=0.00605312   rbin=135
+r=0.0639232  RhoGas[rbin][0] = 0.0174989  sigma=0.00605838   rbin=134
+r=0.0622687  RhoGas[rbin][0] = 0.0174989  sigma=0.00606352   rbin=133
+r=0.060657  RhoGas[rbin][0] = 0.0174989  sigma=0.00606852   rbin=132
+r=0.059087  RhoGas[rbin][0] = 0.0174989  sigma=0.0060734   rbin=131
+r=0.0575577  RhoGas[rbin][0] = 0.0174989  sigma=0.00607815   rbin=130
+r=0.056068  RhoGas[rbin][0] = 0.0174989  sigma=0.00608279   rbin=129
+r=0.0546168  RhoGas[rbin][0] = 0.0174989  sigma=0.00608731   rbin=128
+r=0.0532031  RhoGas[rbin][0] = 0.0174989  sigma=0.00609171   rbin=127
+r=0.0518261  RhoGas[rbin][0] = 0.0174989  sigma=0.006096   rbin=126
+r=0.0504847  RhoGas[rbin][0] = 0.0174989  sigma=0.00610019   rbin=125
+r=0.049178  RhoGas[rbin][0] = 0.0174989  sigma=0.00610427   rbin=124
+r=0.0479052  RhoGas[rbin][0] = 0.0174989  sigma=0.00610825   rbin=123
+r=0.0466653  RhoGas[rbin][0] = 0.0179784  sigma=0.00611213   rbin=122
+r=0.0454574  RhoGas[rbin][0] = 0.0179784  sigma=0.0061159   rbin=121
+r=0.0442809  RhoGas[rbin][0] = 0.0179784  sigma=0.00611959   rbin=120
+r=0.0431348  RhoGas[rbin][0] = 0.0179784  sigma=0.00612318   rbin=119
+r=0.0420183  RhoGas[rbin][0] = 0.0179784  sigma=0.00612668   rbin=118
+r=0.0409308  RhoGas[rbin][0] = 0.0179784  sigma=0.00613009   rbin=117
+r=0.0398714  RhoGas[rbin][0] = 0.0179784  sigma=0.00613341   rbin=116
+r=0.0388394  RhoGas[rbin][0] = 0.0179784  sigma=0.00613665   rbin=115
+r=0.0378342  RhoGas[rbin][0] = 0.0179784  sigma=0.00613981   rbin=114
+r=0.0368549  RhoGas[rbin][0] = 0.0179784  sigma=0.00614289   rbin=113
+r=0.035901  RhoGas[rbin][0] = 0.0179784  sigma=0.00614589   rbin=112
+r=0.0349718  RhoGas[rbin][0] = 0.0179784  sigma=0.00614881   rbin=111
+r=0.0340666  RhoGas[rbin][0] = 0.0179784  sigma=0.00615166   rbin=110
+r=0.0331849  RhoGas[rbin][0] = 0.0179784  sigma=0.00615443   rbin=109
+r=0.032326  RhoGas[rbin][0] = 0.0179784  sigma=0.00615714   rbin=108
+r=0.0314893  RhoGas[rbin][0] = 0.0179784  sigma=0.00615978   rbin=107
+r=0.0306743  RhoGas[rbin][0] = 0.0179784  sigma=0.00616235   rbin=106
+r=0.0298804  RhoGas[rbin][0] = 0.0179784  sigma=0.00616485   rbin=105
+r=0.029107  RhoGas[rbin][0] = 0.0179784  sigma=0.00616729   rbin=104
+r=0.0283536  RhoGas[rbin][0] = 0.0179784  sigma=0.00616967   rbin=103
+r=0.0276197  RhoGas[rbin][0] = 0.0179784  sigma=0.00617199   rbin=102
+r=0.0269049  RhoGas[rbin][0] = 0.0179784  sigma=0.00617424   rbin=101
+r=0.0262085  RhoGas[rbin][0] = 0.0179784  sigma=0.00617645   rbin=100
+r=0.0255302  RhoGas[rbin][0] = 0.0179784  sigma=0.00617859   rbin=99
+r=0.0248694  RhoGas[rbin][0] = 0.0179784  sigma=0.00618068   rbin=98
+r=0.0242257  RhoGas[rbin][0] = 0.0179784  sigma=0.00618272   rbin=97
+r=0.0235987  RhoGas[rbin][0] = 0.0179784  sigma=0.0061847   rbin=96
+r=0.0229879  RhoGas[rbin][0] = 0.0179784  sigma=0.00618663   rbin=95
+r=0.0223929  RhoGas[rbin][0] = 0.0179784  sigma=0.00618852   rbin=94
+r=0.0218133  RhoGas[rbin][0] = 0.0179784  sigma=0.00619035   rbin=93
+r=0.0212487  RhoGas[rbin][0] = 0.0179784  sigma=0.00619214   rbin=92
+r=0.0206987  RhoGas[rbin][0] = 0.0179784  sigma=0.00619388   rbin=91
+r=0.020163  RhoGas[rbin][0] = 0.0184711  sigma=0.00619558   rbin=90
+r=0.0196411  RhoGas[rbin][0] = 0.0184711  sigma=0.00619724   rbin=89
+r=0.0191328  RhoGas[rbin][0] = 0.0184711  sigma=0.00619885   rbin=88
+r=0.0186376  RhoGas[rbin][0] = 0.0184711  sigma=0.00620042   rbin=87
+r=0.0181552  RhoGas[rbin][0] = 0.0184711  sigma=0.00620195   rbin=86
+r=0.0176853  RhoGas[rbin][0] = 0.0184711  sigma=0.00620344   rbin=85
+r=0.0172275  RhoGas[rbin][0] = 0.0184711  sigma=0.0062049   rbin=84
+r=0.0167816  RhoGas[rbin][0] = 0.0184711  sigma=0.00620631   rbin=83
+r=0.0163473  RhoGas[rbin][0] = 0.0184711  sigma=0.00620769   rbin=82
+r=0.0159242  RhoGas[rbin][0] = 0.0184711  sigma=0.00620904   rbin=81
+r=0.015512  RhoGas[rbin][0] = 0.0184711  sigma=0.00621035   rbin=80
+r=0.0151105  RhoGas[rbin][0] = 0.0184711  sigma=0.00621162   rbin=79
+r=0.0147194  RhoGas[rbin][0] = 0.0184711  sigma=0.00621287   rbin=78
+r=0.0143384  RhoGas[rbin][0] = 0.0184711  sigma=0.00621408   rbin=77
+r=0.0139673  RhoGas[rbin][0] = 0.0184711  sigma=0.00621526   rbin=76
+r=0.0136058  RhoGas[rbin][0] = 0.0184711  sigma=0.00621641   rbin=75
+r=0.0132537  RhoGas[rbin][0] = 0.0184711  sigma=0.00621753   rbin=74
+r=0.0129106  RhoGas[rbin][0] = 0.0184711  sigma=0.00621862   rbin=73
+r=0.0125765  RhoGas[rbin][0] = 0.0184711  sigma=0.00621968   rbin=72
+r=0.0122509  RhoGas[rbin][0] = 0.0184711  sigma=0.00622072   rbin=71
+r=0.0119339  RhoGas[rbin][0] = 0.0184711  sigma=0.00622173   rbin=70
+r=0.011625  RhoGas[rbin][0] = 0.0184711  sigma=0.00622271   rbin=69
+r=0.0113241  RhoGas[rbin][0] = 0.0184711  sigma=0.00622367   rbin=68
+r=0.011031  RhoGas[rbin][0] = 0.0184711  sigma=0.0062246   rbin=67
+r=0.0107455  RhoGas[rbin][0] = 0.0184711  sigma=0.00622551   rbin=66
+r=0.0104674  RhoGas[rbin][0] = 0.0184711  sigma=0.0062264   rbin=65
+r=0.0101964  RhoGas[rbin][0] = 0.0184711  sigma=0.00622726   rbin=64
+r=0.00993253  RhoGas[rbin][0] = 0.0184711  sigma=0.0062281   rbin=63
+r=0.00967545  RhoGas[rbin][0] = 0.0184711  sigma=0.00622892   rbin=62
+r=0.00942503  RhoGas[rbin][0] = 0.0184711  sigma=0.00622972   rbin=61
+r=0.00918108  RhoGas[rbin][0] = 0.0184711  sigma=0.0062305   rbin=60
+r=0.00894345  RhoGas[rbin][0] = 0.0184711  sigma=0.00623126   rbin=59
+r=0.00871197  RhoGas[rbin][0] = 0.0184711  sigma=0.00623199   rbin=58
+r=0.00848648  RhoGas[rbin][0] = 0.0184711  sigma=0.00623271   rbin=57
+r=0.00826683  RhoGas[rbin][0] = 0.0184711  sigma=0.00623341   rbin=56
+r=0.00805286  RhoGas[rbin][0] = 0.0184711  sigma=0.0062341   rbin=55
+r=0.00784443  RhoGas[rbin][0] = 0.0184711  sigma=0.00623476   rbin=54
+r=0.0076414  RhoGas[rbin][0] = 0.0184711  sigma=0.00623541   rbin=53
+r=0.00744362  RhoGas[rbin][0] = 0.0184711  sigma=0.00623604   rbin=52
+r=0.00725096  RhoGas[rbin][0] = 0.0184711  sigma=0.00623666   rbin=51
+r=0.00706329  RhoGas[rbin][0] = 0.0184711  sigma=0.00623725   rbin=50
+r=0.00688047  RhoGas[rbin][0] = 0.0184711  sigma=0.00623784   rbin=49
+r=0.00670239  RhoGas[rbin][0] = 0.0184711  sigma=0.00623841   rbin=48
+r=0.00652891  RhoGas[rbin][0] = 0.0184711  sigma=0.00623896   rbin=47
+r=0.00635992  RhoGas[rbin][0] = 0.0184711  sigma=0.0062395   rbin=46
+r=0.00619531  RhoGas[rbin][0] = 0.0184711  sigma=0.00624003   rbin=45
+r=0.00603496  RhoGas[rbin][0] = 0.0184711  sigma=0.00624054   rbin=44
+r=0.00587876  RhoGas[rbin][0] = 0.0184711  sigma=0.00624104   rbin=43
+r=0.0057266  RhoGas[rbin][0] = 0.0184711  sigma=0.00624152   rbin=42
+r=0.00557838  RhoGas[rbin][0] = 0.0184711  sigma=0.006242   rbin=41
+r=0.005434  RhoGas[rbin][0] = 0.0184711  sigma=0.00624246   rbin=40
+r=0.00529336  RhoGas[rbin][0] = 0.0184711  sigma=0.00624291   rbin=39
+r=0.00515635  RhoGas[rbin][0] = 0.0184711  sigma=0.00624334   rbin=38
+r=0.00502289  RhoGas[rbin][0] = 0.0184711  sigma=0.00624377   rbin=37
+r=0.00489288  RhoGas[rbin][0] = 0.0184711  sigma=0.00624419   rbin=36
+r=0.00476624  RhoGas[rbin][0] = 0.0184711  sigma=0.00624459   rbin=35
+r=0.00464288  RhoGas[rbin][0] = 0.0184711  sigma=0.00624498   rbin=34
+r=0.00452271  RhoGas[rbin][0] = 0.0184711  sigma=0.00624537   rbin=33
+r=0.00440565  RhoGas[rbin][0] = 0.0184711  sigma=0.00624574   rbin=32
+r=0.00429162  RhoGas[rbin][0] = 0.0184711  sigma=0.00624611   rbin=31
+r=0.00418054  RhoGas[rbin][0] = 0.0184711  sigma=0.00624646   rbin=30
+r=0.00407234  RhoGas[rbin][0] = 0.0184711  sigma=0.00624681   rbin=29
+r=0.00396694  RhoGas[rbin][0] = 0.0184711  sigma=0.00624714   rbin=28
+r=0.00386426  RhoGas[rbin][0] = 0.0184711  sigma=0.00624747   rbin=27
+r=0.00376424  RhoGas[rbin][0] = 0.0184711  sigma=0.00624779   rbin=26
+r=0.00366682  RhoGas[rbin][0] = 0.0184711  sigma=0.0062481   rbin=25
+r=0.00357191  RhoGas[rbin][0] = 0.0184711  sigma=0.00624841   rbin=24
+r=0.00347946  RhoGas[rbin][0] = 0.0184711  sigma=0.0062487   rbin=23
+r=0.0033894  RhoGas[rbin][0] = 0.0184711  sigma=0.00624899   rbin=22
+r=0.00330167  RhoGas[rbin][0] = 0.0184711  sigma=0.00624927   rbin=21
+r=0.00321622  RhoGas[rbin][0] = 0.0184711  sigma=0.00624955   rbin=20
+r=0.00313297  RhoGas[rbin][0] = 0.0184711  sigma=0.00624981   rbin=19
+r=0.00305189  RhoGas[rbin][0] = 0.0184711  sigma=0.00625007   rbin=18
+r=0.00297289  RhoGas[rbin][0] = 0.0184711  sigma=0.00625032   rbin=17
+r=0.00289595  RhoGas[rbin][0] = 0.0184711  sigma=0.00625057   rbin=16
+r=0.00282099  RhoGas[rbin][0] = 0.0184711  sigma=0.00625081   rbin=15
+r=0.00274798  RhoGas[rbin][0] = 0.0184711  sigma=0.00625104   rbin=14
+r=0.00267685  RhoGas[rbin][0] = 0.0184711  sigma=0.00625127   rbin=13
+r=0.00260757  RhoGas[rbin][0] = 0.0184711  sigma=0.00625149   rbin=12
+r=0.00254008  RhoGas[rbin][0] = 0.0184711  sigma=0.00625171   rbin=11
+r=0.00247434  RhoGas[rbin][0] = 0.0184711  sigma=0.00625192   rbin=10
+r=0.00241029  RhoGas[rbin][0] = 0.0184711  sigma=0.00625212   rbin=9
+r=0.00234791  RhoGas[rbin][0] = 0.0184711  sigma=0.00625232   rbin=8
+r=0.00228714  RhoGas[rbin][0] = 0.0184711  sigma=0.00625252   rbin=7
+r=0.00222794  RhoGas[rbin][0] = 0.0184711  sigma=0.00625271   rbin=6
+r=0.00217028  RhoGas[rbin][0] = 0.0184711  sigma=0.00625289   rbin=5
+r=0.0021141  RhoGas[rbin][0] = 0.0184711  sigma=0.00625307   rbin=4
+r=0.00205939  RhoGas[rbin][0] = 0.0184711  sigma=0.00625325   rbin=3
+r=0.00200608  RhoGas[rbin][0] = 0.0184711  sigma=0.00625342   rbin=2
+r=0.00195416  RhoGas[rbin][0] = 0.0184711  sigma=0.00625358   rbin=1
+r=0  RhoGas[rbin][0] = 0.0184711  sigma=0.00625984   rbin=0
+set dummy particles...
+z=0.040668 zbin=116 Zcumul[zbin+1]=0.0943524 Zcumul[zbin]=0.0919243  
+Start computing vertical force field.
+integrate and adjust...
+
+
+
+
+
+
+
+
+
+
+set dummy particles...
+z=0.0155824 zbin=80 Zcumul[zbin+1]=0.0957961 Zcumul[zbin]=0.0933283  
+Start computing vertical force field.
+integrate and adjust...
+
+
+
+
+
+
+
+
+
+
+set dummy particles...
+z=0.0141188 zbin=76 Zcumul[zbin+1]=0.0952012 Zcumul[zbin]=0.0927491  
+Start computing vertical force field.
+integrate and adjust...
+
+
+
+
+
+
+
+
+
+
+set dummy particles...
+z=0.0139779 zbin=76 Zcumul[zbin+1]=0.0961555 Zcumul[zbin]=0.0936792  
+Start computing vertical force field.
+integrate and adjust...
+
+
+
+
+
+
+
+
+
+
+set dummy particles...
+z=0.013965 zbin=75 Zcumul[zbin+1]=0.0937658 Zcumul[zbin]=0.0913505  
+Start computing vertical force field.
+integrate and adjust...
+
+
+
+
+
+
+
+
+
+
+Start computing force field.
+Force field finished.
+comp vstream gas
+done
+disk velocity dispersion field...
+done.
+halo velocity dispersion field...
+done.
+bulge velocity dispersion field...
+done.
+set gas positions...
+R=2.79063e-07 q=3.90799e-14 rold=2.79088e-07 iter=201
+R=2.79435e-07 q=3.90799e-14 rold=2.79063e-07 iter=202
+R=2.79013e-07 q=3.90799e-14 rold=2.79435e-07 iter=203
+R=2.79386e-07 q=3.90799e-14 rold=2.79013e-07 iter=204
+R=2.79361e-07 q=3.90799e-14 rold=2.79386e-07 iter=205
+R=2.78939e-07 q=3.90799e-14 rold=2.79361e-07 iter=206
+R=2.78914e-07 q=3.90799e-14 rold=2.78939e-07 iter=207
+R=2.78889e-07 q=3.90799e-14 rold=2.78914e-07 iter=208
+R=2.78864e-07 q=3.90799e-14 rold=2.78889e-07 iter=209
+R=2.79635e-07 q=3.90799e-14 rold=2.78864e-07 iter=210
+R=2.79213e-07 q=3.90799e-14 rold=2.79635e-07 iter=211
+set halo positions...
+set disk positions...
+set halo velocities...
+i= 104313   R= 70.1157 vr= 44.2687  vz= -37.9665  vphi= -48.4723  xyz= -69.6935|7.68259|101.322  v_xyz= -38.691|53.0309|-37.9665
+i= 104314   R= 72.5754 vr= 28.3307  vz= -51.1008  vphi= 55.2914  xyz= 23.5103|68.6618|-24.8658  v_xyz= -43.1324|44.7143|-51.1008
+i= 104315   R= 19.3329 vr= 12.8869  vz= 42.745  vphi= -69.0329  xyz= -16.2472|-10.4782|-43.7376  v_xyz= -48.2449|51.0298|42.745
+i= 104316   R= 259.952 vr= 14.4984  vz= -1.62141  vphi= 72.4524  xyz= -183.778|-183.849|-2.67731  v_xyz= 40.9914|-61.4757|-1.62141
+ir= 366  iz= 335  ur= 0.879935  uz= 0.614659
+VelDispPhi_halo[ir][iz]= 5364.43
+VelDispPhi_halo[ir+1][iz]= 5317.24
+VelDispPhi_halo[ir][iz+1]= 5356.37
+VelDispPhi_halo[ir+1][iz+1]= 5309.5
+---
+VelStreamPhi_halo[ir][iz]= 12.1369
+VelStreamPhi_halo[ir+1][iz]= 12.1844
+VelStreamPhi_halo[ir][iz+1]= 12.0826
+VelStreamPhi_halo[ir+1][iz+1]= 12.1321
+vphi= 125.505    vstream_phi= 12.1464  vdisp_phi= 5318.13  gasdev(&dum)= 0.667988
+i= 104317   R= 28.6996 vr= -49.0296  vz= 7.56943  vphi= 125.505  xyz= -28.533|3.08718|-12.6422  v_xyz= 35.2446|-130.051|7.56943
+i= 104318   R= 22.4259 vr= -73.5745  vz= -30.0052  vphi= 150.003  xyz= -21.623|-5.94673|19.0291  v_xyz= 110.717|-125.123|-30.0052
+i= 104319   R= 58.189 vr= 20.2625  vz= 9.58799  vphi= -54.837  xyz= -22.1406|-53.8122|-67.5904  v_xyz= -58.4221|2.12678|9.58799
+ir= 389  iz= 356  ur= 0.308548  uz= 0.527472
+VelDispPhi_halo[ir][iz]= 4063.42
+VelDispPhi_halo[ir+1][iz]= 4013.16
+VelDispPhi_halo[ir][iz+1]= 4055.54
+VelDispPhi_halo[ir+1][iz+1]= 4005.64
+---
+VelStreamPhi_halo[ir][iz]= 11.7989
+VelStreamPhi_halo[ir+1][iz]= 11.8135
+VelStreamPhi_halo[ir][iz+1]= 11.7459
+VelStreamPhi_halo[ir+1][iz+1]= 11.7625
+i= 104320   R= 51.6802 vr= -37.1714  vz= 136.753  vphi= -12.5049  xyz= -2.62148|51.6137|-21.8774  v_xyz= 14.3743|-36.4892|136.753
+rangecount=7852
+done.
+set disk velocities...done.
+set gas velocities...done.
+set bulge velocities...done.
+saveing initial conditions to file `.//MW_ICs-old.dat'
+
+writing circular velocity curve + Toomre's Q
+done.
+writing improved circular velocity curve
+done.
+writing two component Toomre Q parameter
+Disk scale length: 1.95416
+R200: 129
