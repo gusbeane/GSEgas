@@ -164,6 +164,10 @@ if __name__ == '__main__':
 
     MW6iso = 'MW6iso'
 
+    MW7iso = 'MW7iso'
+    GSE4iso = 'GSE4iso'
+    MW7_GSE4 = 'MW7_GSE4'
+
     rng0 = [[-80, 80], [-80, 80]]
     rng1 = [[-5, 5], [-5, 5]]
     rng2 = [[-8, 8], [-8, 8]]
@@ -209,7 +213,18 @@ if __name__ == '__main__':
                  (MW6iso, 'lvl5-beta067-dens', rng0, 'BoxCenter'), # 27
                  (MW6iso, 'lvl5-beta07-dens', rng0, 'BoxCenter'), # 28
                  (MW6iso, 'lvl5-beta08-dens', rng0, 'BoxCenter'), # 29
-
+                 
+                 (MW6iso, 'lvl5-beta08-fbar02-dens', rng0, 'BoxCenter'), # 30
+                 (MW6iso, 'lvl5-beta08-fbar02-vphi03-dens', rng0, 'BoxCenter'), # 31
+                 (MW6iso, 'lvl5-beta08-fbar02-vphi04-dens', rng0, 'BoxCenter'), # 32
+                 
+                 (MW6iso, 'lvl4-beta08-fbar02-vphi03-dens', rng0, 'BoxCenter'), # 33
+                    
+                 (MW6iso, 'lvl5-beta08-fbar008-dens-Z0', rng0, 'BoxCenter'), # 34
+                 
+                 (MW7iso, 'lvl5', rng0, 'BoxCenter'), # 35
+                 (GSE4iso, 'lvl5', rng0, 'BoxCenter'), # 36
+                 (MW7_GSE4, 'lvl5', rng6, 'BoxCenter'), # 37
                  ]
 
     i = int(sys.argv[1])
