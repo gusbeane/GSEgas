@@ -1,0 +1,61 @@
+43007.1 0.1 978.028 
+M_DM_INR200=11.4233, halo_mass(R200)=11.4233
+M_HALOGAS_INR200=1.26925, halogas_mass(R200)=1.26925
+double check
+M_DM_INR200=11.4233, halo_mass(R200)=11.4233
+M_HALOGAS_INR200=1.26925, halogas_mass(R200)=1.26926
+
+RHO0=5.75235e-05
+RC=6.5
+BETA=0.8
+N_HALO=80817
+N_DISK=0
+N_GAS=0
+N_BULGE=0
+N_HALOGAS=119181
+N_HALO * PartMassHalo=19.3961
+N_HALOGAS * PartMassGas=5.72069
+fc=0.983978
+halo_spinfactor 0.0348875
+R200: 97.5
+M200: 21.5513
+RH: 29.5478
+Total mass is: 21.5513
+aa
+
+Use 608 MByte for BH-tree.
+
+119181
+a
+Feedback energy per formed solar mass in stars= 1.3955e+49  ergs
+a
+b
+c
+u4=210.482
+
+A0= 3000  
+Computed: PhysDensThresh= 0.000598348  (int units)         0.18406 h^2 cm^-3
+EXPECTED FRACTION OF COLD GAS AT THRESHOLD = 0.904362
+
+tcool=3.2706e-06 dens=0.027755 egyhot=2104.82
+Start computing force field.
+Force field finished.
+comp vstream gas
+done
+halo velocity dispersion field...
+done.
+corona velocity dispersion field...
+done.
+set halo positions...
+set corona positions...
+done.
+set halo velocities...
+rangecount=3816
+done.
+set corona velocities...
+rangecount=0
+done.
+Hello, World!Hello, World!Hello, World!Hello, World!saving initial conditions to file `.//GSE_ICs-fbar01-vphi04.dat'
+
+Hello, World!done.
+Disk scale length: 0.560524
