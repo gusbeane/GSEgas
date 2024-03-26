@@ -200,7 +200,7 @@ NODEREFINE_BACKGROUND_GRID
 
 #--------------------------------------- Mesh-relaxing or mesh-adding (this will not carry out a simulation)
 #MESHRELAX                     # this keeps the mass constant and only regularizes the mesh
-#MESHRELAX_DENSITY_IN_INPUT
+MESHRELAX_DENSITY_IN_INPUT
 #ADDBACKGROUNDGRID=16
 #AMR_REMAP
 
