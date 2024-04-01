@@ -3,7 +3,6 @@ import numpy as np
 import os
 import sys
 import pickle
-from scipy.spatial import KDTree
 
 from numba import njit
 
@@ -28,6 +27,8 @@ Vvir = 129.
 e = 0.5
 pro = 1.
 angle = -165
+
+Rcut_GSE = 30
 
 def separate(pos, vel, Rstart, Vvir, e, pro):
     vrad = np.sqrt(Vvir*Vvir - Vvir*e*Vvir*e)
@@ -90,28 +91,14 @@ pos_cen, vel_cen = separate(np.array([[0.,0.,0.]]), np.array([[0., 0., 0.]]), Rs
 pos_cen, vel_cen = rotate(pos_cen, vel_cen, angle)
 pos_cen += shift
 
-print('pos_cen =', pos_cen)
+rpart0_MW = np.linalg.norm(sn_MW.part0.pos - pos_cen, axis=1)
+rpart0_GSE = np.linalg.norm(pos_GSE_part0 - pos_cen, axis=1)
 
-# rpart0_MW = np.linalg.norm(sn_MW.part0.pos - pos_cen, axis=1)
-# rpart0_GSE = np.linalg.norm(pos_GSE_part0 - pos_cen, axis=1)
+key_MW = np.logical_not(rpart0_MW < Rcut_GSE)
+key_GSE = rpart0_GSE < Rcut_GSE
 
-# key_MW = np.logical_not(rpart0_MW < Rcut_GSE)
-# key_GSE = rpart0_GSE < Rcut_GSE
-
-tree_MW  = KDTree(sn_MW.part0.pos)
-_, key_close = tree_MW.query(pos_GSE_part0)
-MW_rho  = sn_MW.part0.mass[key_close]
-
-# key_GSE is all the ones we are keeping
-key_GSE = sn_GSE.part0.mass > MW_rho
-Npart0_GSE = len(np.where(key_GSE)[0])
-
-# now, need to remove all MW cells which have their closest
-# GSE cell be one that we are keeping
-tree_GSE = KDTree(pos_GSE_part0)
-_, key_close = tree_GSE.query(sn_MW.part0.pos)
-key_MW = np.logical_not(np.isin(key_close, np.where(key_GSE)[0]))
 Npart0_MW = len(np.where(key_MW)[0])
+Npart0_GSE = len(np.where(key_GSE)[0])
 
 # create ics
 npart = np.array( [0,  0,  0,  0,  0,  0])
