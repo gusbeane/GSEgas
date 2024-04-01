@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# $1 = number of snaps
+# $2 = position in pair list (see compute_movie.py)
+# $3 = resolution
+
 export LOGS_DIR=logs-$1-$2-$3
 mkdir ${LOGS_DIR}
 

@@ -33,6 +33,10 @@ def _runner(path, snap, COM, nres, ptypes=[0, 2, 3, 4],
                         fields=['Coordinates', 'Velocities', 'Masses', 'Density'],
                         combineFiles=True)
     
+    if COM == 'Subhalo':
+        sub = arepo.Subfind(path + '/output/', snap)
+        COM = sub.SubhaloPos[0]
+    
     # Compute projection
     Hxy_s, Hxz_s, Hxy_g, Hxz_g = compute_projections(sn, COM, nres, rng=rng)
     # Hxy_s, Hxz_s, Hxy_g, Hxz_g = None, None, None, None
@@ -60,7 +64,9 @@ def run(snap, path, name, fout, nres, nsnap, rng, COM_key):
                         fields=['Coordinates'],
                         combineFiles=True)
         COM = np.array([sn.BoxSize, sn.BoxSize, sn.BoxSize])/2.
-        COM_list = np.full((nsnap, 3), COM)    
+        COM_list = np.full((nsnap, 3), COM)
+    elif COM_key == 'Subhalo':
+        COM_list = [COM_key] * nsnap
     else:
         basepath_COM = '../COM/'
         COM_fpath = basepath_COM + 'COM_' + name + '.npy'
@@ -76,7 +82,6 @@ def run(snap, path, name, fout, nres, nsnap, rng, COM_key):
 
     if snap >= 0:
     
-        logging.debug('before _runner')
         out = _runner(path, snap, COM_list[snap], nres, rng=rng)
 
         COM = out[0]
@@ -168,6 +173,10 @@ if __name__ == '__main__':
     GSE4iso = 'GSE4iso'
     MW7_GSE4 = 'MW7_GSE4'
 
+    MW8iso = 'MW8iso'
+
+    MW9_GSE5 = 'MW9_GSE5'
+
     rng0 = [[-80, 80], [-80, 80]]
     rng1 = [[-5, 5], [-5, 5]]
     rng2 = [[-8, 8], [-8, 8]]
@@ -224,7 +233,23 @@ if __name__ == '__main__':
                  
                  (MW7iso, 'lvl5', rng0, 'BoxCenter'), # 35
                  (GSE4iso, 'lvl5', rng0, 'BoxCenter'), # 36
-                 (MW7_GSE4, 'lvl5', rng6, 'BoxCenter'), # 37
+                 (MW7_GSE4, 'lvl5-rcut', rng6, 'BoxCenter'), # 37
+                 (MW7_GSE4, 'lvl4-rcut', rng6, 'BoxCenter'), # 38
+                 (MW7_GSE4, 'lvl5-denscut', rng6, 'BoxCenter'), # 39
+        
+                 (MW7_GSE4, 'lvl5-rcut', rng6, 'Subhalo'), # 40
+                 
+                 (MW7iso, 'lvl5', rng5, 'Subhalo'), # 41
+                 (MW6iso, 'lvl5-beta08-dens-newsoft', rng5, 'Subhalo'), # 42
+                 (MW6iso, 'lvl5-beta08-dens-newsoft-Z2', rng5, 'Subhalo'), # 43
+                 (MW6iso, 'lvl5-beta05-dens-newsoft', rng5, 'Subhalo'), # 44
+
+                 (GSE4iso, 'lvl5-fb02-newsoft', rng5, 'Subhalo'), # 45
+                 (MW8iso, 'lvl5', rng5, 'Subhalo'), # 46
+                 (MW8iso, 'lvl5-vp01', rng5, 'Subhalo'), # 47
+                 
+                 (MW9_GSE5, 'lvl5', rng6, 'Subhalo'), # 48
+                 (MW9_GSE5, 'lvl4', rng6, 'Subhalo'), # 49
                  ]
 
     i = int(sys.argv[1])
