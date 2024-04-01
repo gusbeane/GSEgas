@@ -1,0 +1,428 @@
+
+   __    ____  ____  ____  _____
+  /__\  (  _ \( ___)(  _ \(  _  )
+ /(__)\  )   / )__)  )___/ )(_)(
+(__)(__)(_)\_)(____)(__)  (_____)
+
+
+PINNING: We are not using OpenMP.
+
+
+This is Arepo, version Arepo 0.1 (git: 763e6294d2c010ea51e1a116d6bb375cf041b87a).
+
+Running with 16 MPI tasks.
+
+Apparently we're using 1 compute nodes (we have a minimum of 16 MPI tasks per node, and a maximum of 16)
+
+Code was compiled with the following compiler and flags:
+mpicc      -std=c99 -O3 -g -Wall -Wno-unused-but-set-variable -Wno-uninitialized -Wno-unknown-pragmas -Wno-unused-function -march=native -DMPICH_IGNORE_CXX_SEEK -DMPICH_IGNORE_CXX_SEEK -I/include -DH5_USE_16_API  -I/n/sw/helmod-rocky8/apps/Core/gsl/2.7-fasrc01/include  -I/include        -I./build     
+
+
+Code was compiled with settings:
+
+        NTYPES=6
+        COOLING
+        UVB_SELF_SHIELDING
+        USE_SFR
+        VORONOI
+        REGULARIZE_MESH_CM_DRIFT
+        REGULARIZE_MESH_CM_DRIFT_USE_SOUNDSPEED
+        REGULARIZE_MESH_FACE_ANGLE
+        TREE_BASED_TIMESTEPS
+        REFINEMENT_SPLIT_CELLS
+        REFINEMENT_MERGE_CELLS
+        MESHRELAX_DENSITY_IN_INPUT
+        SELFGRAVITY
+        HIERARCHICAL_GRAVITY
+        CELL_CENTER_GRAVITY
+        GRAVITY_NOT_PERIODIC
+        ENFORCE_JEANS_STABILITY_OF_CELLS_EEOS
+        ENFORCE_JEANS_STABILITY_OF_CELLS
+        EVALPOTENTIAL
+        NSOFTTYPES=3
+        ADAPTIVE_HYDRO_SOFTENING
+        CHUNKING
+        DOUBLEPRECISION=1
+        OUTPUT_COORDINATES_IN_DOUBLEPRECISION
+        FOF
+        FOF_PRIMARY_LINK_TYPES=2
+        FOF_SECONDARY_LINK_TYPES=1+16+32
+        SUBFIND
+        SOFTEREQS
+        BLACK_HOLES
+        BH_THERMALFEEDBACK
+        DRAINGAS=3
+        BH_EXACT_INTEGRATION
+        BH_BONDI_DEFAULT
+        BH_DO_NOT_PREVENT_MERGERS
+        BH_NEW_CENTERING
+        BH_PRESSURE_CRITERION
+        BH_ADIOS_WIND
+        BH_ADIOS_WIND_WITH_QUASARTHRESHOLD
+        BH_ADIOS_WIND_WITH_VARIABLE_QUASARTHRESHOLD
+        BH_ADIOS_RANDOMIZED
+        BH_ADIOS_ONLY_ABOVE_MINIMUM_DENSITY
+        RUNNING_SAFETY_FILE
+        VORONOI_DYNAMIC_UPDATE
+        NO_MPI_IN_PLACE
+        NO_ISEND_IRECV_IN_DOMAIN
+        FIX_PATHSCALE_MPI_STATUS_IGNORE_BUG
+        ENLARGE_DYNAMIC_RANGE_IN_TIME
+        OUTPUT_CPU_CSV
+        OUTPUT_CENTER_OF_MASS
+        OUTPUT_PRESSURE
+        OUTPUTPOTENTIAL
+        HAVE_HDF5
+        OUTPUT_COOLHEAT
+        OUTPUT_CSND
+        DEBUG
+        PASSIVE_SCALARS=4
+        GFM
+        GFM_STELLAR_EVOLUTION=0
+        GFM_CONST_IMF=0
+        GFM_WINDS
+        GFM_WINDS_VARIABLE=1
+        GFM_WINDS_VARIABLE_HUBBLE
+        GFM_WIND_ENERGY_METAL_DEPENDENCE
+        GFM_WINDS_STRIPPING
+        GFM_WINDS_THERMAL_NEWDEF
+        GFM_COOLING_METAL
+        GFM_AGN_RADIATION
+        GFM_STELLAR_PHOTOMETRICS
+        GFM_OUTPUT_MASK=1+2+4+8+16+32+64+128
+        GFM_NORMALIZED_METAL_ADVECTION
+        GFM_OUTPUT_BIRTH_POS
+        GFM_CHEMTAGS
+        GFM_DISCRETE_ENRICHMENT
+        GFM_SPLITFE
+        GFM_RPROCESS
+        GFM_SET_METALLICITY
+
+Command line arguments:
+  <arepo/Arepo> <param_lvl5.txt> 
+ParameterFile='param_lvl5.txt', RestartFlag=0
+
+touching a running-file: ./running 
+Obtaining parameters from file 'param_lvl5.txt':
+
+        InitCondFile                                      ICs/MW_GSE
+        OutputDir                                         output
+        SnapshotFileBase                                  snapshot
+        OutputListFilename                                /ptmp/mpa/lsales/sim_dwarfs/dwarf1/outputlist_final.txt
+        ICFormat                                          3
+        SnapFormat                                        3
+        TimeLimitCPU                                      604800
+        CpuTimeBetRestartFile                             2000
+        ResubmitOn                                        0
+        ResubmitCommand                                   my-scriptfile
+        MaxMemSize                                        7500
+        TimeBegin                                         0
+        TimeMax                                           10
+        ComovingIntegrationOn                             0
+        PeriodicBoundariesOn                              0
+        CoolingOn                                         1
+        StarformationOn                                   1
+        Omega0                                            1
+        OmegaLambda                                       0
+        OmegaBaryon                                       0
+        HubbleParam                                       1
+        BoxSize                                           1290
+        OutputListOn                                      0
+        TimeBetSnapshot                                   0.025
+        TimeOfFirstSnapshot                               0
+        TimeBetStatistics                                 0.2
+        NumFilesPerSnapshot                               1
+        NumFilesWrittenInParallel                         1
+        TypeOfTimestepCriterion                           0
+        ErrTolIntAccuracy                                 0.025
+        CourantFac                                        0.4
+        MaxSizeTimestep                                   0.005
+        MinSizeTimestep                                   0
+        CritOverDensity                                   57.7
+        TemperatureThresh                                 0
+        CritPhysDensity                                   0
+        FactorEVP                                         573
+        TempSupernova                                     5.73e+07
+        TempClouds                                        1000
+        MaxSfrTimescale                                   2.27
+        InitGasTemp                                       10000
+        MinGasTemp                                        5
+        LimitUBelowThisDensity                            0
+        LimitUBelowCertainDensityToThisValue              0
+        MinEgySpec                                        0
+        TypeOfOpeningCriterion                            1
+        ErrTolTheta                                       0.35
+        ErrTolForceAcc                                    0.0025
+        MultipleDomains                                   32
+        TopNodeFactor                                     3
+        ActivePartFracForNewDomainDecomp                  0.05
+        DesNumNgb                                         64
+        MaxNumNgbDeviation                                1
+        UnitLength_in_cm                                  3.08568e+21
+        UnitMass_in_g                                     1.989e+43
+        UnitVelocity_in_cm_per_s                          100000
+        GravityConstantInternal                           0
+        GasSoftFactor                                     2.5
+        SofteningComovingType0                            0.5
+        SofteningComovingType1                            0.5
+        SofteningComovingType2                            1
+        SofteningMaxPhysType0                             1
+        SofteningMaxPhysType1                             1
+        SofteningMaxPhysType2                             1
+        SofteningTypeOfPartType0                          0
+        SofteningTypeOfPartType1                          1
+        SofteningTypeOfPartType2                          1
+        SofteningTypeOfPartType3                          1
+        SofteningTypeOfPartType4                          1
+        SofteningTypeOfPartType5                          2
+        MinimumComovingHydroSoftening                     0.1
+        AdaptiveHydroSofteningSpacing                     1.2
+        CellShapingSpeed                                  0.5
+        CellMaxAngleFactor                                2.25
+        TargetGasMassFactor                               1
+        RefinementCriterion                               1
+        DerefinementCriterion                             1
+        TreecoolFile                                      ./arepo/data/TREECOOL_fg_dec11
+        IMF_MinMass_Msun                                  0.1
+        IMF_MaxMass_Msun                                  100
+        AGB_MassTransferOn                                1
+        SNIa_MassTransferOn                               1
+        SNII_MassTransferOn                               1
+        SNII_MinMass_Msun                                 8
+        SNII_MaxMass_Msun                                 100
+        SNIa_Rate_TAU                                     0.04
+        SNIa_Rate_Norm                                    0.0013
+        YieldTablePath                                    /n/holylfs05/LABS/hernquist_lab/Users/abeane/GSEgas/TNG/tables/Arepo_GFM_Tables_TNG/Yields
+        DesNumNgbEnrichment                               64
+        MaxNumNgbDeviationEnrichment                      1
+        ReferenceGasPartMass                              4.8e-05
+        MinimumDensityOnStartUp                           1e-10
+        SelfShieldingFile                                 ./arepo/data/SelfShielding_Rahmati12
+        NSNS_MassTransferOn                               1
+        NSNS_Rate_TAU                                     0.1
+        NSNS_MassPerEvent                                 5000
+        NSNS_per_SNIa                                     0.001
+        WindEnergyIn1e51erg                               3.6
+        WindFreeTravelMaxTimeFactor                       0.025
+        WindFreeTravelDensFac                             0.05
+        ThermalWindFraction                               0.1
+        VariableWindVelFactor                             7.4
+        VariableWindSpecMomentum                          0
+        MinWindVel                                        350
+        TimeBetOnTheFlyFoF                                0.1
+        WindEnergyReductionFactor                         0.25
+        WindEnergyReductionMetallicity                    0.002
+        WindEnergyReductionExponent                       2
+        BlackHoleCenteringMassMultiplier                  1000
+        BlackHoleAccretionFactor                          1
+        BlackHoleFeedbackFactor                           0.1
+        BlackHoleEddingtonFactor                          1
+        SeedBlackHoleMass                                 8e-05
+        MinFoFMassForNewSeed                              5
+        DesNumNgbBlackHole                                646
+        BlackHoleMaxAccretionRadius                       1e+20
+        BlackHoleRadiativeEfficiency                      0.2
+        RadioFeedbackFactor                               1
+        RadioFeedbackMinDensityFactor                     0.01
+        RadioFeedbackReiorientationFactor                 20
+        QuasarThreshold                                   0.002
+        CoolingTablePath                                  /n/holylfs05/LABS/hernquist_lab/Users/abeane/GSEgas/TNG/tables/Arepo_GFM_Tables_TNG/Cooling/cooling_metal_AGN_Compton_self_shielding_Rahmati12.hdf5
+        MinMetalTemp                                      10000
+        PhotometricsTablePath                             /n/holylfs05/LABS/hernquist_lab/Users/abeane/GSEgas/TNG/tables/Arepo_GFM_Tables_TNG/Photometrics/
+        TreecoolFileAGN                                   ./arepo/data/TREECOOL_AGN
+        SelfShieldingDensity                              0.1295
+        ObscurationFactor                                 0.3
+        ObscurationSlope                                  0.07
+        FactorForSofterEQS                                0.3
+        TempForSofterEQS                                  10000
+        WindDumpFactor                                    0.6
+        GasMetallicityInSolar                             1e-10
+        DesLinkNgb                                        20
+        ErrTolThetaSubfind                                0.7
+
+WARNING: Code warning on task=0, function read_parameter_file(), file src/parameters.c, line 3702: Code was compiled with ENFORCE_JEANS_STABILITY_OF_CELLS together with another EOS. Please make sure you really want this.
+
+HEALTHTEST:          CPU performance:     0.729 sec              7.982%  variation   | Best=0.723666 on Task=14/Node=0, Worst=0.781819 on Task=15/Node=0, test took 0.78197 sec (sum=6.89547e+06)
+HEALTHTEST:           Full hypercube:    1557.9 MB/s per pair    0.129%  variation   | Best=1559.5 on Task=15/Node=0, Worst=1557.49 on Task=7/Node=0, test took 0.0995882 sec
+HEALTHTEST: Intranode cube, 1st node:    1562.2 MB/s per pair    0.062%  variation   | Best=1562.81 on Task=14/Node=0, Worst=1561.84 on Task=11/Node=0, test took 0.0989668 sec
+
+BEGRUN: Size of particle structure       136  [bytes]
+BEGRUN: Size of SPH particle structure   1144  [bytes]
+BEGRUN: Size of gravity tree node         80  [bytes]
+BEGRUN: Size of star particle structure  288  [bytes]
+BEGRUN: Size of BH particle structure    280  [bytes]
+
+BEGRUN: Hubble (internal units)   = 0.1
+BEGRUN: G (internal units)        = 43018.7
+BEGRUN: UnitMass_in_g             = 1.989e+43
+BEGRUN: UnitLength_in_cm          = 3.08568e+21
+BEGRUN: UnitTime_in_s             = 3.08568e+16
+BEGRUN: UnitVelocity_in_cm_per_s  = 100000
+BEGRUN: UnitDensity_in_cgs        = 6.7699e-22
+BEGRUN: UnitEnergy_in_cgs         = 1.989e+53
+
+BEGRUN: MinEgySpec set to 0.0507646 based on MinGasTemp=5
+GFM_STELLAR_EVOLUTION: IMF normalization -> norm_factor=0.999989   N_tot=1.4929   M_tot=1 M_sun   N_SNII=0.0118008   M_SNII=0.22578 M_sun
+GFM_STELLAR_EVOLUTION: Rescaling FactorSN(beta) to 0.22578
+GFM_STELLAR_EVOLUTION: Rescaling WindEgySpecSN to 2.62778e+06 (internal units) = 5.22666e+49 (erg/Msun)
+GFM_STELLAR_EVOLUTION: IMF initialized.
+GFM_STELLAR_EVOLUTION: SNIa Header Complete...
+GFM_STELLAR_EVOLUTION: SNII Header Complete...
+GFM_STELLAR_EVOLUTION: AGB Header Complete...
+GFM_STELLAR_EVOLUTION: SNIa yields and total metals complete...
+GFM_STELLAR_EVOLUTION: SNII mass, metallicity, ejected mass, yields, and total metals complete...
+GFM_STELLAR_EVOLUTION: AGB mass, metallicity, ejected mass, yields, and total metals complete...
+GFM_STELLAR_EVOLUTION: Computing yield for Hydrogen   	 index=00
+GFM_STELLAR_EVOLUTION: Computing yield for Helium     	 index=01
+GFM_STELLAR_EVOLUTION: Computing yield for Carbon     	 index=02
+GFM_STELLAR_EVOLUTION: Computing yield for Nitrogen   	 index=03
+GFM_STELLAR_EVOLUTION: Computing yield for Oxygen     	 index=04
+GFM_STELLAR_EVOLUTION: Computing yield for Neon       	 index=05
+GFM_STELLAR_EVOLUTION: Computing yield for Magnesium  	 index=06
+GFM_STELLAR_EVOLUTION: Computing yield for Silicon    	 index=07
+GFM_STELLAR_EVOLUTION: Computing yield for Iron       	 index=08
+GFM_STELLAR_EVOLUTION: Augmenting yield for OtherMetals 	 index=09
+GFM_STELLAR_EVOLUTION: Computing ejecta
+GFM_STELLAR_EVOLUTION: Yields initialized.
+GFM_COOLING_METAL: initializing from file /n/holylfs05/LABS/hernquist_lab/Users/abeane/GSEgas/TNG/tables/Arepo_GFM_Tables_TNG/Cooling/cooling_metal_AGN_Compton_self_shielding_Rahmati12.hdf5
+GFM_COOLING_METAL: N_Redshift              = 51
+GFM_COOLING_METAL: N_BolFlux               = 12
+GFM_COOLING_METAL: N_MetallicityInSolar    = 6
+GFM_COOLING_METAL: N_HydrogenNumberDensity = 51
+GFM_COOLING_METAL: N_Temperature           = 200
+GFM_COOLING_METAL: allocated cooling arrays
+GFM_COOLING_METAL: reading 0000000408/0000000408 Bytes
+GFM_COOLING_METAL: reading 0000000096/0000000096 Bytes
+GFM_COOLING_METAL: reading 0000000048/0000000048 Bytes
+GFM_COOLING_METAL: reading 0000000408/0000000408 Bytes
+GFM_COOLING_METAL: reading 0000001600/0000001600 Bytes
+GFM_COOLING_METAL: reading 0011750400/0011750400 Bytes
+GFM_COOLING_METAL: initializing cooling table with highest redshift bins, between z=9.8 and z=10
+GFM_COOLING_METAL: cooling arrays read in
+GFM_COOLING_METAL: initialized cooling table with highest redshift bins, between z=9.8 and z=10
+GFM_COOLING_METAL: Metal line cooling rates initialized.
+GFM_STELLAR_PHOTOMETRICS: opening file...
+GFM_STELLAR_PHOTOMETRICS: done.
+GFM_STELLAR_PHOTOMETRICS: found 6 LogMetallicity entries
+GFM_STELLAR_PHOTOMETRICS: found 220 LogAgeInGyr entries
+GFM_STELLAR_PHOTOMETRICS: allocated stellar photometrics arrays...
+GFM_STELLAR_PHOTOMETRICS: stellar photometrics arrays read in...
+GFM_STELLAR_PHOTOMETRICS: Stellar photometrics initialized.
+GFM_AGN_RADIATION: initialized.
+GFM_COOLING_METAL: All.MinMetalTemp=10000 LogMinMetalTemp=4 MetallicityFloor=1e-20 LogMetallicityFloorInSolar=-18.1038
+COOLING: read ionization table with 215 entries in file `./arepo/data/TREECOOL_fg_dec11'.
+COOLING: using 214 ionization table entries from file `./arepo/data/TREECOOL_fg_dec11'.
+COOLING/GFM_AGN_RADIATION read `./arepo/data/TREECOOL_AGN': 1 1.57369e-08 1.59036e-08 1.07074e-09 1.30959e-19 3.51277e-19 2.80581e-20
+UVB_SELF_SHIELDING: read self shielding table with 7 entries in file `./arepo/data/SelfShielding_Rahmati12'.
+UVB_SELF_SHIELDING: using 7 self shielding table entries from file `./arepo/data/SelfShielding_Rahmati12'.
+GFM_COOLING: time, time begin = 0.000000e+00	0.000000e+00
+INIT: 15/15 Scalars used.
+INIT: 20/20 Gradients used.
+READIC: Reading file `ICs/MW_GSE.hdf5' on task=0 and distribute it to 0 to 15 (contains 463095 particles).
+ALLOCATE: initial allocation for MaxPart = 42566
+ALLOCATE: initial allocation for MaxPartSph = 17220
+ALLOCATE: initial allocation for MaxPartStar = 2341
+ALLOCATE: initial allocation for MaxPartBHs = 2341
+
+READIC: filenr=0, 'ICs/MW_GSE.hdf5' contains:
+READIC: Type 0 (gas):     187346  (tot=         187346) masstab= 0
+READIC: Type 1 (halo):    275749  (tot=         275749) masstab= 0.00024
+READIC: Type 2 (disk):         0  (tot=              0) masstab= 0
+READIC: Type 3 (bulge):        0  (tot=              0) masstab= 0
+READIC: Type 4 (stars):        0  (tot=              0) masstab= 0
+READIC: Type 5 (bndry):        0  (tot=              0) masstab= 0
+
+READIC: reading block 0 (Coordinates)...
+READIC: reading block 1 (Velocities)...
+READIC: reading block 2 (ParticleIDs)...
+READIC: reading block 3 (Masses)...
+READIC: reading block 6 (InternalEnergy)...
+READIC: reading block 7 (Density)...
+	Dataset Density not present for particle type 0, using zero.
+READIC: reading block 10 (CenterOfMass)...
+	Dataset CenterOfMass not present for particle type 0, using zero.
+READIC: reading block 30 (ElectronAbundance)...
+	Dataset ElectronAbundance not present for particle type 0, using zero.
+READIC: reading block 35 (StarFormationRate)...
+	Dataset StarFormationRate not present for particle type 0, using zero.
+READIC: reading block 40 (BH_Mass)...
+READIC: reading block 41 (BH_Mdot)...
+READIC: reading block 42 (BH_MdotBondi)...
+READIC: reading block 43 (BH_MdotEddington)...
+READIC: reading block 44 (BH_Hsml)...
+READIC: reading block 46 (BH_U)...
+READIC: reading block 47 (BH_Density)...
+READIC: reading block 48 (BH_Pressure)...
+READIC: reading block 51 (BH_Progs)...
+READIC: reading block 52 (BH_CumMassGrowth_QM)...
+READIC: reading block 53 (BH_CumEgyInjection_QM)...
+READIC: reading block 56 (BH_CumMassGrowth_RM)...
+READIC: reading block 57 (BH_CumEgyInjection_RM)...
+READIC: reading block 58 (BH_MPB_CumEgyLow)...
+READIC: reading block 59 (BH_MPB_CumEgyHigh)...
+READIC: reading block 65 (BH_HostHaloMass)...
+READIC: reading block 76 (Potential)...
+	Dataset Potential not present for particle type 0, using zero.
+	Dataset Potential not present for particle type 1, using zero.
+READIC: reading block 136 (GFM_StellarFormationTime)...
+READIC: reading block 137 (GFM_InitialMass)...
+READIC: reading block 138 (GFM_Metallicity)...
+	Dataset GFM_Metallicity not present for particle type 0, using zero.
+READIC: reading block 139 (GFM_Metallicity)...
+READIC: reading block 140 (GFM_Metals)...
+	Dataset GFM_Metals not present for particle type 0, using zero.
+READIC: reading block 141 (GFM_Metals)...
+READIC: reading block 157 (GFM_WindHostHaloMass)...
+	Dataset GFM_WindHostHaloMass not present for particle type 0, using zero.
+READIC: reading block 158 (GFM_WindDMVelDisp)...
+	Dataset GFM_WindDMVelDisp not present for particle type 0, using zero.
+READIC: reading block 160 (GFM_AGNRadiation)...
+	Dataset GFM_AGNRadiation not present for particle type 0, using zero.
+READIC: reading block 167 (PassiveScalars)...
+READIC: reading block 168 (PassiveScalars)...
+GFM: Converting metal abundances to masses ... 
+READIC: reading done (took 0.109801 sec).
+READIC: Total number of particles :  463095
+
+GFM_COOLING_METAL: reading cooling table for current time, between z=0 and z=0.2
+GFM_COOLING_METAL: reading 0011750400/0011750400 bytes
+INIT: Adaptive hydro softening, minimum gravitational softening for cells: 0.1
+INIT: Adaptive hydro softening, maximum gravitational softening for cells: 9736.85
+INIT: Adaptive hydro softening, number of softening values: 64
+REFINEMENT: The given reference cell mass is 4.8e-05
+REFINEMENT: setting All.TargetGasMass=4.8e-05
+INIT: MeanVolume=11458.4
+INIT: Testing ID uniqueness...
+INIT: success.  took=0.00498741 sec
+VORONOI: init connectivity
+VORONOI: done with init of connectivity
+DOMAIN: Begin domain decomposition (sync-point 0).
+DOMAIN: NTopleaves=2682, determination of top-level tree involved 14 iterations and took 0.00768845 sec
+DOMAIN: cost summation for top-level tree took 0.00225393 sec
+DOMAIN: balance reached among multiple-domains=1.67347, average leave-nodes per domain=5.23828  (took 4.1181e-05 sec)
+DOMAIN: combining multiple-domains took 0.00366884 sec
+DOMAIN: task reshuffling took 0.00963459 sec
+DOMAIN: Eliminated 0 derefined/swallowed gas cells, merged away 0 black holes/sinks, removed 0 recoupled wind particles.
+DOMAIN: particle rearrangement work took 0.0197468 sec
+DOMAIN: Resizing P and Sph storage
+DOMAIN: exchange of 431787 particles done. (took 0.0303539 sec)
+DOMAIN: domain decomposition done. (took in total 0.0804596 sec)
+DOMAIN: Peano-Hilbert order done, took 0.00809745 sec.
+NGBTREE: Ngb-tree construction.  (presently allocated=45.4516 MB)
+NGBTREE: Ngb-tree construction done. took 0.00308164 sec  <numnodes>=8555  NTopnodes=3065 NTopleaves=2682
+FORCETREE: Tree construction.  (inserting 187346 points)
+FORCETREE: Tree construction done.  <avg imported/local ratio>=0 <numnodes>=8541.12 NTopnodes=3065 NTopleaves=2682 tree-build-scalability=0.663576
+DENSITY: ngb iteration   1: need to repeat for       183744 particles. (took 0.135182 sec)
+DENSITY: ngb iteration   2: need to repeat for       179215 particles. (took 0.094619 sec)
+DENSITY: ngb iteration   3: need to repeat for       171458 particles. (took 0.0797879 sec)
+DENSITY: ngb iteration   4: need to repeat for       155744 particles. (took 0.0713093 sec)
+DENSITY: ngb iteration   5: need to repeat for       124564 particles. (took 0.0636707 sec)
+DENSITY: ngb iteration   6: need to repeat for        66714 particles. (took 0.0514165 sec)
+DENSITY: ngb iteration   7: need to repeat for        20881 particles. (took 0.0327028 sec)
+DENSITY: ngb iteration   8: need to repeat for         5386 particles. (took 0.0141638 sec)
+DENSITY: ngb iteration   9: need to repeat for         2005 particles. (took 0.00491913 sec)
+DENSITY: ngb iteration  10: need to repeat for          691 particles. (took 0.00241047 sec)
+DENSITY: ngb iteration  11: need to repeat for          131 particles. (took 0.00115637 sec)
+DENSITY: ngb iteration  12: need to repeat for            2 particles. (took 0.000398377 sec)
+VORONOI: Create Delaunay mesh
+VORONOI: iter=0: 187346 local points, points/sec/task = 1.34204e+07, took 0.000872486 secs

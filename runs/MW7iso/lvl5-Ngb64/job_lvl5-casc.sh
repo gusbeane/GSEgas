@@ -1,6 +1,6 @@
 #!/bin/sh
 #SBATCH -p itc_cluster,hernquist,conroy
-#SBATCH -J GSE4_l4
+#SBATCH -J MW7_ngb64_l5
 #SBATCH -n 96
 #SBATCH -N 2
 #SBATCH --ntasks-per-node=48
@@ -23,5 +23,5 @@ make clean > ../output/MAKE.out 2> ../output/MAKE.err
 make -j >> ../output/MAKE.out 2> ../output/MAKE.err
 cd ../
 
-mpiexec --mca mpi_leave_pinned 0 --mca oob_tcp_listen_mode listen_thread -np $SLURM_NTASKS  arepo/Arepo param_lvl4.txt 
+mpiexec --mca mpi_leave_pinned 0 --mca oob_tcp_listen_mode listen_thread -np $SLURM_NTASKS  arepo/Arepo param_lvl5.txt 
 

@@ -1,8 +1,8 @@
 #!/bin/sh
 #SBATCH -p itc_cluster,hernquist,conroy
-#SBATCH -J GSE4_l4
-#SBATCH -n 96
-#SBATCH -N 2
+#SBATCH -J MW7_GSE4_l4
+#SBATCH -n 48
+#SBATCH -N 1
 #SBATCH --ntasks-per-node=48
 #SBATCH -o output/OUTPUT.%j.out
 #SBATCH -e output/ERROR.%j.err
