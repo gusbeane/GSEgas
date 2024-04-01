@@ -13,9 +13,13 @@ cd beta${beta}
 #do
 #    for vphi in 01 02 03
 #    do
-for RC in 9 20 30 40
+#for RC in 9 20 30 40
+#do
+#    for vphi in 02 03
+#    do
+for RC in 9
 do
-    for vphi in 02 03
+    for vphi in 02
     do
     cd RC${RC}-vphi${vphi}
             echo "working on beta=${beta}, RC=${RC}, vphi=${vphi}"

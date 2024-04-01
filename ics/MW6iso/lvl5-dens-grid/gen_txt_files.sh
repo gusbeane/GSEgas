@@ -1,6 +1,7 @@
 #!/bin/bash
 
-for beta in 08 07 067 06 05
+#for beta in 08 07 067 06 05
+for beta in 09
 do
     mkdir -p beta${beta}
     cd beta${beta}
