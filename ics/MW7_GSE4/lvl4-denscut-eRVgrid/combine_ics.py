@@ -7,8 +7,8 @@ from scipy.spatial import KDTree
 
 from numba import njit
 
-if len(sys.argv) != 4:
-    print('usage: ', sys.argv[0], 'MW_ICs GSE_ICs MW_GSE_ICs')
+if len(sys.argv) != 7:
+    print('usage: ', sys.argv[0], 'MW_ICs GSE_ICs MW_GSE_ICs Rstart Vvir e')
 
 MW_fname = sys.argv[1]
 GSE_fname = sys.argv[2]
@@ -23,11 +23,13 @@ BoxSize_GSE = sn_GSE.BoxSize
 shift = np.array([BoxSize/2., BoxSize/2., BoxSize/2.])
 shift_GSE = np.array([BoxSize_GSE/2., BoxSize_GSE/2., BoxSize_GSE/2.])
 
-Rstart = 129.
-Vvir = 129.
-e = 0.5
+Rstart = float(sys.argv[4])
+Vvir = float(sys.argv[5])
+e = float(sys.argv[6])
 pro = 1.
 angle = -165
+
+print('Rstart=', Rstart, 'Vvir=', Vvir, 'e=', e)
 
 def separate(pos, vel, Rstart, Vvir, e, pro):
     vrad = np.sqrt(Vvir*Vvir - Vvir*e*Vvir*e)

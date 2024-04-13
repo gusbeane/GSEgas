@@ -24,7 +24,7 @@ shift = np.array([BoxSize/2., BoxSize/2., BoxSize/2.])
 shift_GSE = np.array([BoxSize_GSE/2., BoxSize_GSE/2., BoxSize_GSE/2.])
 
 Rstart = 129.
-Vvir = 129.
+Vvir = 110.
 e = 0.5
 pro = 1.
 angle = -165
