@@ -78,9 +78,9 @@ def make_fig(subsMW, subsGSE, reset):
     ax[1].plot(datMW['Time'], datMW['Size'], c=tb_c[0])
     ax[1].plot(datGSE['Time'], datGSE['Size'], c=tb_c[1])
     
-    ax[1].axhline(2*1.68, c=tb_c[0], ls='dashed')
-    ax[1].axhline(2.5, c=tb_c[1], ls='dashed')
-    ax[1].axvline(3, c='k', ls='dashed', alpha=0.5)
+    # ax[1].axhline(2*1.68, c=tb_c[0], ls='dashed')
+    # ax[1].axhline(2.5, c=tb_c[1], ls='dashed')
+    # ax[1].axvline(3, c='k', ls='dashed', alpha=0.5)
     
     ax[1].set(xlim=(0, 8), xlabel=r'$t\,[\,\textrm{Gyr}\,]$')
     ax[1].set(ylim=(0, 5), ylabel=r'$\textrm{galaxy size}\,[\,\textrm{kpc}\,]$')
