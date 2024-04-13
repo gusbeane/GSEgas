@@ -86,3 +86,6 @@ surface_density.txt
 post/
 
 OUTPUT.txt
+
+box/box*.txt
+box/tables/
