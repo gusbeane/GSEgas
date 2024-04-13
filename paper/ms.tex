@@ -1,41 +1,27 @@
-%% Beginning of file 'sample631.tex'
-%%
-%% Modified 2021 March
-%%
-%% This is a sample manuscript marked up using the
-%% AASTeX v6.31 LaTeX 2e macros.
-%%
-%% AASTeX is now based on Alexey Vikhlinin's emulateapj.cls 
-%% (Copyright 2000-2015).  See the classfile for details.
-
-%% AASTeX requires revtex4-1.cls and other external packages such as
-%% latexsym, graphicx, amssymb, longtable, and epsf.  Note that as of 
-%% Oct 2020, APS now uses revtex4.2e for its journals but remember that 
-%% AASTeX v6+ still uses v4.1. All of these external packages should 
-%% already be present in the modern TeX distributions but not always.
-%% For example, revtex4.1 seems to be missing in the linux version of
-%% TexLive 2020. One should be able to get all packages from www.ctan.org.
-%% In particular, revtex v4.1 can be found at 
-%% https://www.ctan.org/pkg/revtex4-1.
-
-%% The first piece of markup in an AASTeX v6.x document is the \documentclass
-%% command. LaTeX will ignore any data that comes before this command. The 
-%% documentclass can take an optional argument to modify the output style.
-%% The command below calls the preprint style which will produce a tightly 
-%% typeset, one-column, single-spaced document.  It is the default and thus
-%% does not need to be explicitly stated.
-%%
-%% using aastex version 6.3
 \documentclass[linenumbers, twocolumn]{aastex631}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{newtxtext,newtxmath}
+\usepackage{hyperref}
 
 \newcommand{\vdag}{(v)^\dagger}
 \newcommand\aastex{AAS\TeX}
 \newcommand\latex{La\TeX}
 
 \newcommand{\Msun}{\ensuremath{M_{\odot}}}
+\newcommand{\Gyr}{\ensuremath{\textrm{Gyr}}}
+\newcommand{\Myr}{\ensuremath{\textrm{Myr}}}
 \newcommand{\yr}{\ensuremath{\textrm{yr}}}
 \newcommand{\kpc}{\ensuremath{\textrm{kpc}}}
 \newcommand{\pc}{\ensuremath{\textrm{pc}}}
+\newcommand{\tocite}{\textcolor{blue}{cite}}
+\newcommand{\FeH}{\ensuremath{[\textrm{Fe}/\textrm{H}]}}
+\newcommand{\MgFe}{\ensuremath{[\textrm{Mg}/\textrm{Fe}]}}
+\newcommand{\alphaFe}{\ensuremath{[\alpha/\textrm{Fe}]}}
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
 
 %% Reintroduced the \received and \accepted commands from AASTeX v5.2
 % \received{March 1, 2021}
