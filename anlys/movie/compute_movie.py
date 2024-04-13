@@ -172,6 +172,7 @@ if __name__ == '__main__':
     MW7iso = 'MW7iso'
     GSE4iso = 'GSE4iso'
     MW7_GSE4 = 'MW7_GSE4'
+    MW7_GSE4_grid_l4 = 'MW7_GSE4-eRVgrid-lvl4'
 
     MW8iso = 'MW8iso'
 
@@ -250,6 +251,23 @@ if __name__ == '__main__':
                  
                  (MW9_GSE5, 'lvl5', rng6, 'Subhalo'), # 48
                  (MW9_GSE5, 'lvl4', rng6, 'Subhalo'), # 49
+
+                 (MW7iso, 'lvl5-Ngb64-artburst', rng5, 'Subhalo'), # 50
+                 (MW7iso, 'lvl5-Ngb64-artburst-windE2', rng5, 'Subhalo'), # 51
+                 (MW7iso, 'lvl5-Ngb64-artburst-auriga', rng5, 'Subhalo'), # 52
+                 
+                 (MW7_GSE4, 'lvl5-denscut-Ngb64', rng0, 'Subhalo'), # 53 
+                 (MW7_GSE4, 'lvl5-denscut-Ngb64', rng3, 'Subhalo'), # 54 
+                 (MW7_GSE4, 'lvl5-denscut-Ngb64', rng5, 'Subhalo'), # 55 
+                 (MW7_GSE4, 'lvl5-denscut-Ngb64-steep1', rng0, 'Subhalo'), # 56
+                 (MW7_GSE4, 'lvl5-denscut-Ngb64-steep1', rng3, 'Subhalo'), # 57 
+                 (MW7_GSE4, 'lvl5-denscut-Ngb64-steep1', rng5, 'Subhalo'), # 58 
+                 
+                 (MW7_GSE4_grid_l4, 'lvl4-Rs142-Vv142-e04', rng6, 'Subhalo'), # 59
+                 (MW7_GSE4_grid_l4, 'lvl4-Rs142-Vv142-e04', rng0, 'Subhalo'), # 60
+
+                 (MW7iso, 'lvl4-Ngb64', rng6, 'Subhalo'), # 61
+                 (MW7iso, 'lvl4-Ngb64', rng0, 'Subhalo'), # 61
                  ]
 
     i = int(sys.argv[1])
