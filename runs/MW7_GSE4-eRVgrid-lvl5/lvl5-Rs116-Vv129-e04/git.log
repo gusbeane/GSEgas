@@ -1,0 +1,20 @@
+Cloning into 'arepo'...
+done.
+Note: switching to '763e6294d2c010ea51e1a116d6bb375cf041b87a'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+Updating files:  94% (917/975)Updating files:  95% (927/975)Updating files:  96% (936/975)Updating files:  97% (946/975)Updating files:  98% (956/975)Updating files:  99% (966/975)Updating files: 100% (975/975)Updating files: 100% (975/975), done.
