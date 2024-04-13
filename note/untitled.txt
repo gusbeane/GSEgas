@@ -1,0 +1,3 @@
+Some simulations show a bimodality and some don't. It seems to be the case that a starburst followed by a quiescent phase is the key, but I have some cases (in particular the isolated burst case) where the bimodality doesn't form.
+
+There's a separate problem which is that the starburst/quiescent phase has some resolution dependence. This has something to do with the non-convergence of the model for this particular setup, but it's not clear to me how to actually fix this. I've tried lots of different things. I'm starting to think that going back to SMUGGLE might make things simpler (hahaha).

@@ -69,6 +69,30 @@ class Galaxy(object):
             print('subID=', subID, 'doesnt exist')
             return
         
+        # don't orient, just use box frame
+        if self.sn.NumPart_Total[4] < 64:
+            COM = self.sub.SubhaloPos[subID]
+            COMV = self.sub.SubhaloVel[subID]
+            
+            for pt,Npart in enumerate(self.sn.NumPart_Total):
+                if Npart == 0:
+                    continue
+            
+                part = getattr(self.sn, 'part'+str(pt))
+                pos = part.Coordinates.value - COM
+                vel = part.Velocities.value - COMV
+    
+                pos_rot = np.copy(pos)
+                vel_rot = np.copy(vel)
+        
+                part.RotatedCoordinates = np.copy(pos_rot)
+                part.RotatedVelocities = np.copy(vel_rot)
+        
+                part.rotpos = part.RotatedCoordinates.view()
+                part.rotvel = part.RotatedVelocities.view()
+            
+            return
+        
         # get COM as subhalo pos
         COM = self.sub.SubhaloPos[subID]
         pos = self.sn.part4.pos.value - COM
