@@ -1,0 +1,286 @@
+
+   __    ____  ____  ____  _____
+  /__\  (  _ \( ___)(  _ \(  _  )
+ /(__)\  )   / )__)  )___/ )(_)(
+(__)(__)(_)\_)(____)(__)  (_____)
+
+
+PINNING: We are not using OpenMP.
+
+
+-------------------------------------------------------------------------------------------------------------------------
+AvailMem:	 Largest =  114645.20 Mb (on task=   0), Smallest =  114645.20 Mb (on task=   0), Average =  114645.20 Mb
+Total Mem:	 Largest =  192844.53 Mb (on task=   0), Smallest =  192844.53 Mb (on task=   0), Average =  192844.53 Mb
+Committed_AS:	 Largest =   78199.33 Mb (on task=   0), Smallest =   78199.33 Mb (on task=   0), Average =   78199.33 Mb
+SwapTotal:	 Largest =       0.00 Mb (on task=   0), Smallest =       0.00 Mb (on task=   0), Average =       0.00 Mb
+SwapFree:	 Largest =       0.00 Mb (on task=   0), Smallest =       0.00 Mb (on task=   0), Average =       0.00 Mb
+AllocMem:	 Largest =   78199.33 Mb (on task=   0), Smallest =   78199.33 Mb (on task=   0), Average =   78199.33 Mb
+-------------------------------------------------------------------------------------------------------------------------
+Task=0 has the maximum commited memory and is host: holy7c16205.rc.fas.harvard.edu
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This is Arepo, version Arepo 0.1 (git: 763e6294d2c010ea51e1a116d6bb375cf041b87a).
+
+Running with 16 MPI tasks.
+
+Apparently we're using 1 compute nodes (we have a minimum of 16 MPI tasks per node, and a maximum of 16)
+
+Code was compiled with the following compiler and flags:
+mpicc      -std=c99 -O3 -g -Wall -Wno-unused-but-set-variable -Wno-uninitialized -Wno-unknown-pragmas -Wno-unused-function -march=native -DMPICH_IGNORE_CXX_SEEK -DMPICH_IGNORE_CXX_SEEK -I/include -DH5_USE_16_API  -I/n/sw/helmod-rocky8/apps/Core/gsl/2.7-fasrc01/include  -I/include        -I./build     
+
+
+Code was compiled with settings:
+
+        NTYPES=6
+        COOLING
+        UVB_SELF_SHIELDING
+        USE_SFR
+        VORONOI
+        REGULARIZE_MESH_CM_DRIFT
+        REGULARIZE_MESH_CM_DRIFT_USE_SOUNDSPEED
+        REGULARIZE_MESH_FACE_ANGLE
+        TREE_BASED_TIMESTEPS
+        REFINEMENT_SPLIT_CELLS
+        REFINEMENT_MERGE_CELLS
+        MESHRELAX_DENSITY_IN_INPUT
+        SELFGRAVITY
+        HIERARCHICAL_GRAVITY
+        CELL_CENTER_GRAVITY
+        GRAVITY_NOT_PERIODIC
+        EVALPOTENTIAL
+        ADAPTIVE_HYDRO_SOFTENING
+        CHUNKING
+        DOUBLEPRECISION=1
+        DOUBLEPRECISION_FFTW
+        OUTPUT_COORDINATES_IN_DOUBLEPRECISION
+        FOF
+        FOF_PRIMARY_LINK_TYPES=2
+        FOF_SECONDARY_LINK_TYPES=1+16+32
+        SUBFIND
+        RUNNING_SAFETY_FILE
+        VORONOI_DYNAMIC_UPDATE
+        VORONOI_MESH_KEEP_DT_AND_DTC
+        NO_MPI_IN_PLACE
+        NO_ISEND_IRECV_IN_DOMAIN
+        FIX_PATHSCALE_MPI_STATUS_IGNORE_BUG
+        ENLARGE_DYNAMIC_RANGE_IN_TIME
+        OUTPUT_PRESSURE
+        OUTPUTPOTENTIAL
+        OUTPUTACCELERATION
+        OUTPUT_SOFTENINGS
+        HAVE_HDF5
+        OUTPUT_COOLHEAT
+        DEBUG
+        HOST_MEMORY_REPORTING
+        PASSIVE_SCALARS=4
+        GFM
+        GFM_STELLAR_EVOLUTION=0
+        GFM_SET_METALLICITY
+        GFM_COOLING_METAL
+        GFM_OUTPUT_MASK=1+2+4+8+16+32+64+128
+        GFM_NORMALIZED_METAL_ADVECTION
+        GFM_OUTPUT_BIRTH_POS
+        GFM_DISCRETE_ENRICHMENT
+        SMUGGLE_STELLAR_EVOLUTION
+        SMUGGLE_SFR
+        SMUGGLE_STAR_FEEDBACK
+        SMUGGLE_STAR_FEEDBACK_TIME_LIMITER
+        SMUGGLE_COMPUTE_SFR_FROM_H2
+        SMUGGLE_OUTPUT_STELLAR_FEEDBACK
+        SMUGGLE_OUTPUT_MOLECULAR_FRACTION
+        SMUGGLE_OUTPUT_VIRIAL_PARAM
+        SMUGGLE_RADIATION_FEEDBACK
+        SMUGGLE_RADIATION_FEEDBACK_DEBUG
+        SMUGGLE_OMEGA_WEIGHT_SN
+        SMUGGLE_MOLEC_COOLING
+        SMUGGLE_COSMIC_RAY_HEATING
+        SMUGGLE_PHOTOELECTRIC_HEATING
+        SMUGGLE_SN_COOLING_RADIUS_BOOST
+        SMUGGLE_DISCRETE_SN
+        SMUGGLE_AGB_WINDS
+        SMUGGLE_STOCHASTIC_HII_PHOTOIONIZATION=0
+        SMUGGLE_FACE_AREA_BALANCE
+
+Command line arguments:
+  <arepo/Arepo> <param_lvl5.txt> 
+ParameterFile='param_lvl5.txt', RestartFlag=0
+
+touching a running-file: ./running 
+Obtaining parameters from file 'param_lvl5.txt':
+
+        InitCondFile                                      ICs/ics
+        OutputDir                                         output
+        SnapshotFileBase                                  snapshot
+        OutputListFilename                                /ptmp/mpa/lsales/sim_dwarfs/dwarf1/outputlist_final.txt
+        ICFormat                                          3
+        SnapFormat                                        3
+        TimeLimitCPU                                      604800
+        CpuTimeBetRestartFile                             2000
+        ResubmitOn                                        0
+        ResubmitCommand                                   my-scriptfile
+        MaxMemSize                                        3500
+        TimeBegin                                         0
+        TimeMax                                           10
+        ComovingIntegrationOn                             0
+        PeriodicBoundariesOn                              0
+        CoolingOn                                         1
+        StarformationOn                                   1
+        Omega0                                            1
+        OmegaLambda                                       0
+        OmegaBaryon                                       0
+        HubbleParam                                       1
+        BoxSize                                           1290
+        OutputListOn                                      0
+        TimeBetSnapshot                                   0.025
+        TimeOfFirstSnapshot                               0
+        TimeBetStatistics                                 0.2
+        NumFilesPerSnapshot                               1
+        NumFilesWrittenInParallel                         1
+        TypeOfTimestepCriterion                           0
+        ErrTolIntAccuracy                                 0.025
+        CourantFac                                        0.4
+        MaxSizeTimestep                                   0.0005
+        MinSizeTimestep                                   0
+        CritOverDensity                                   57.7
+        SfrEfficiency                                     0.01
+        InitGasTemp                                       10000
+        MinGasTemp                                        5
+        LimitUBelowThisDensity                            0
+        LimitUBelowCertainDensityToThisValue              0
+        MinEgySpec                                        0
+        TypeOfOpeningCriterion                            1
+        ErrTolTheta                                       0.35
+        ErrTolForceAcc                                    0.0025
+        MultipleDomains                                   32
+        TopNodeFactor                                     3
+        DesNumNgb                                         64
+        MaxNumNgbDeviation                                1
+        UnitLength_in_cm                                  3.08568e+21
+        UnitMass_in_g                                     1.989e+43
+        UnitVelocity_in_cm_per_s                          100000
+        GravityConstantInternal                           0
+        GasSoftFactor                                     2.5
+        SofteningComovingType0                            0.08
+        SofteningComovingType1                            0.08
+        SofteningComovingType2                            0.08
+        SofteningComovingType3                            0.08
+        SofteningComovingType4                            0.08
+        SofteningComovingType5                            0.08
+        SofteningMaxPhysType0                             1
+        SofteningMaxPhysType1                             1
+        SofteningMaxPhysType2                             1
+        SofteningMaxPhysType3                             1
+        SofteningMaxPhysType4                             1
+        SofteningMaxPhysType5                             1
+        SofteningTypeOfPartType0                          0
+        SofteningTypeOfPartType1                          1
+        SofteningTypeOfPartType2                          1
+        SofteningTypeOfPartType3                          1
+        SofteningTypeOfPartType4                          1
+        SofteningTypeOfPartType5                          1
+        MinimumComovingHydroSoftening                     0.01
+        AdaptiveHydroSofteningSpacing                     1.2
+        ActivePartFracForNewDomainDecomp                  0.05
+        CellShapingSpeed                                  0.5
+        CellMaxAngleFactor                                2.25
+        TargetGasMassFactor                               1
+        RefinementCriterion                               1
+        DerefinementCriterion                             1
+        TreecoolFile                                      /n/holystore01/LABS/hernquist_lab/Users/abeane/ArepoTables/TREECOOL_fg_dec11
+        DensThreshold                                     100
+        FeedbackEfficiency                                1
+        FeedbackRadiusLimiterFactor                       200
+        DustOpacityRadiationFeedback                      10
+        InputTimeHeatRadiationFeedback                    0.005
+        InputTimeMomRadiationFeedback                     0.005
+        LumToMassRatioRadiationFeedback                   1000
+        RadiationFeedbackAvgPhotonEnergyineV              17
+        PhotoionizationGasTemp                            17000
+        IMF_MinMass_Msun                                  0.1
+        IMF_MaxMass_Msun                                  100
+        AGB_MassTransferOn                                1
+        SNIa_MassTransferOn                               1
+        SNII_MassTransferOn                               1
+        OB_MassTransferOn                                 1
+        SNII_MinMass_Msun                                 8
+        SNII_MaxMass_Msun                                 100
+        SNIa_Rate_TAU                                     0.04
+        SNIa_Rate_Norm                                    0.0013
+        YieldTablePath                                    /n/holystore01/LABS/hernquist_lab/Users/abeane/ArepoTables/Arepo_GFM_Tables/Yields
+        DesNumNgbEnrichment                               64
+        MaxNumNgbDeviationEnrichment                      4
+        CoolingTablePath                                  /n/holystore01/LABS/hernquist_lab/Users/abeane/ArepoTables/Arepo_GFM_Tables/Cooling/cooling_metal_UVB_self_shielding_Rahmati12.hdf5
+        MinMetalTemp                                      10000
+        ReferenceGasPartMass                              4.8e-05
+        MinimumDensityOnStartUp                           1e-10
+        SelfShieldingFile                                 ./arepo/data/SelfShielding_Rahmati12
+        WindSpeedFactor                                   1
+        GasMetallicityInSolar                             1e-10
+        DesLinkNgb                                        20
+        ErrTolThetaSubfind                                0.7
+
+
+HEALTHTEST:          CPU performance:     0.733 sec              8.174%  variation   | Best=0.723857 on Task=3/Node=0, Worst=0.783808 on Task=1/Node=0, test took 0.784072 sec (sum=6.89547e+06)
+HEALTHTEST:           Full hypercube:    1553.1 MB/s per pair    0.174%  variation   | Best=1555 on Task=12/Node=0, Worst=1552.3 on Task=1/Node=0, test took 0.0999952 sec
+HEALTHTEST: Intranode cube, 1st node:    1563.3 MB/s per pair    0.043%  variation   | Best=1563.69 on Task=0/Node=0, Worst=1563.01 on Task=2/Node=0, test took 0.0987921 sec
+
+BEGRUN: Size of particle structure       136  [bytes]
+BEGRUN: Size of SPH particle structure   1048  [bytes]
+BEGRUN: Size of gravity tree node         80  [bytes]
+BEGRUN: Size of star particle structure  504  [bytes]
+BEGRUN: Hubble (internal units)   = 0.1
+BEGRUN: G (internal units)        = 43018.7
+BEGRUN: UnitMass_in_g             = 1.989e+43
+BEGRUN: UnitLength_in_cm          = 3.08568e+21
+BEGRUN: UnitTime_in_s             = 3.08568e+16
+BEGRUN: UnitVelocity_in_cm_per_s  = 100000
+BEGRUN: UnitDensity_in_cgs        = 6.7699e-22
+BEGRUN: UnitEnergy_in_cgs         = 1.989e+53
+
+BEGRUN: MinEgySpec set to 0.0507646 based on MinGasTemp=5
+GFM_STELLAR_EVOLUTION: IMF normalization -> norm_factor=0.999989   N_tot=1.4929   M_tot=1 M_sun   N_SNII=0.0118008   M_SNII=0.22578 M_sun
+GFM_STELLAR_EVOLUTION: Rescaling FactorSN(beta) to 0.22578
+GFM_STELLAR_EVOLUTION: IMF initialized.
+GFM_STELLAR_EVOLUTION: SNIa Header Complete...
+GFM_STELLAR_EVOLUTION: SNII Header Complete...
+GFM_STELLAR_EVOLUTION: AGB Header Complete...
+GFM_STELLAR_EVOLUTION: SNIa yields and total metals complete...
+GFM_STELLAR_EVOLUTION: SNII mass, metallicity, ejected mass, yields, and total metals complete...
+GFM_STELLAR_EVOLUTION: AGB mass, metallicity, ejected mass, yields, and total metals complete...
+GFM_STELLAR_EVOLUTION: Computing yield for Hydrogen   	 index=00
+GFM_STELLAR_EVOLUTION: Computing yield for Helium     	 index=01
+GFM_STELLAR_EVOLUTION: Computing yield for Carbon     	 index=02
+GFM_STELLAR_EVOLUTION: Computing yield for Nitrogen   	 index=03
+GFM_STELLAR_EVOLUTION: Computing yield for Oxygen     	 index=04
+GFM_STELLAR_EVOLUTION: Computing yield for Neon       	 index=05
+GFM_STELLAR_EVOLUTION: Computing yield for Magnesium  	 index=06
+GFM_STELLAR_EVOLUTION: Computing yield for Silicon    	 index=07
+GFM_STELLAR_EVOLUTION: Computing yield for Iron       	 index=08
+GFM_STELLAR_EVOLUTION: Augmenting yield for OtherMetals 	 index=09
+GFM_STELLAR_EVOLUTION: Computing ejecta
+GFM_STELLAR_EVOLUTION: Yields initialized.
+GFM_COOLING_METAL: initializing from file /n/holystore01/LABS/hernquist_lab/Users/abeane/ArepoTables/Arepo_GFM_Tables/Cooling/cooling_metal_UVB_self_shielding_Rahmati12.hdf5
+GFM_COOLING_METAL: N_Redshift              = 51
+GFM_COOLING_METAL: N_MetallicityInSolar    = 1
+GFM_COOLING_METAL: N_HydrogenNumberDensity = 51
+GFM_COOLING_METAL: N_Temperature           = 200
+GFM_COOLING_METAL: allocated cooling arrays
+GFM_COOLING_METAL: reading 0000000408/0000000408 Bytes
+GFM_COOLING_METAL: reading 0000000008/0000000008 Bytes
+GFM_COOLING_METAL: reading 0000000408/0000000408 Bytes
+GFM_COOLING_METAL: reading 0000001600/0000001600 Bytes
+GFM_COOLING_METAL: reading 0000163200/0000163200 Bytes
+GFM_COOLING_METAL: initializing cooling table with highest redshift bins, between z=9.8 and z=10
+GFM_COOLING_METAL: cooling arrays read in
+GFM_COOLING_METAL: initialized cooling table with highest redshift bins, between z=9.8 and z=10
+GFM_COOLING_METAL: Metal line cooling rates initialized.
+GFM_COOLING_METAL: All.MinMetalTemp=10000 LogMinMetalTemp=4 MetallicityFloor=1e-20 LogMetallicityFloorInSolar=-18.1038
+COOLING: read ionization table with 215 entries in file `/n/holystore01/LABS/hernquist_lab/Users/abeane/ArepoTables/TREECOOL_fg_dec11'.
+COOLING: using 214 ionization table entries from file `/n/holystore01/LABS/hernquist_lab/Users/abeane/ArepoTables/TREECOOL_fg_dec11'.
+UVB_SELF_SHIELDING: read self shielding table with 7 entries in file `./arepo/data/SelfShielding_Rahmati12'.
+UVB_SELF_SHIELDING: using 7 self shielding table entries from file `./arepo/data/SelfShielding_Rahmati12'.
+GFM_COOLING: time, time begin = 0.000000e+00	0.000000e+00
+INIT: 15/15 Scalars used.
+INIT: 20/20 Gradients used.
+TERMINATE: ******!!!!!******  Code termination on task=0, function find_files(), file src/read_ic.c, line 2019: Can't find initial conditions file, neither as 'ICs/ics.0.hdf5'
+nor as 'ICs/ics.hdf5'

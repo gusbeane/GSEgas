@@ -424,7 +424,7 @@ ENLARGE_DYNAMIC_RANGE_IN_TIME  # This extends the dynamic range of the integer t
 
 #PERFORMANCE_TEST_SPARSE_MPI_ALLTOALL
 #BITS_PER_DIMENSION=42      # Peano-Hilbert order
-#OVERRIDE_PEANOGRID_WARNING
+OVERRIDE_PEANOGRID_WARNING
 
 
 #--------------------------------------- Output/Input options

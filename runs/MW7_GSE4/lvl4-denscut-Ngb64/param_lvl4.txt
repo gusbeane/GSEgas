@@ -4,7 +4,7 @@ SnapshotFileBase                                  snapshot
 OutputListFilename                                /ptmp/mpa/lsales/sim_dwarfs/dwarf1/outputlist_final.txt
 ICFormat                                          3
 SnapFormat                                        3
-TimeLimitCPU                                      604800
+TimeLimitCPU                                      259200 %604800
 CpuTimeBetRestartFile                             2000
 ResubmitOn                                        0
 ResubmitCommand                                   my-scriptfile
