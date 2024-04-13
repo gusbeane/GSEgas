@@ -1,0 +1,254 @@
+
+   __    ____  ____  ____  _____
+  /__\  (  _ \( ___)(  _ \(  _  )
+ /(__)\  )   / )__)  )___/ )(_)(
+(__)(__)(_)\_)(____)(__)  (_____)
+
+
+PINNING: We are not using OpenMP.
+
+
+This is Arepo, version Arepo 0.1 (git: 763e6294d2c010ea51e1a116d6bb375cf041b87a).
+
+Running with 16 MPI tasks.
+
+Apparently we're using 1 compute nodes (we have a minimum of 16 MPI tasks per node, and a maximum of 16)
+
+Code was compiled with the following compiler and flags:
+mpicc      -std=c99 -O3 -g -Wall -Wno-unused-but-set-variable -Wno-uninitialized -Wno-unknown-pragmas -Wno-unused-function -march=native -DMPICH_IGNORE_CXX_SEEK -DMPICH_IGNORE_CXX_SEEK -I/include -DH5_USE_16_API  -I/n/sw/helmod-rocky8/apps/Core/gsl/2.7-fasrc01/include  -I/include        -I./build     
+
+
+Code was compiled with settings:
+
+        NTYPES=6
+        COOLING
+        UVB_SELF_SHIELDING
+        USE_SFR
+        VORONOI
+        REGULARIZE_MESH_CM_DRIFT
+        REGULARIZE_MESH_CM_DRIFT_USE_SOUNDSPEED
+        REGULARIZE_MESH_FACE_ANGLE
+        TREE_BASED_TIMESTEPS
+        REFINEMENT_SPLIT_CELLS
+        REFINEMENT_MERGE_CELLS
+        MESHRELAX_DENSITY_IN_INPUT
+        SELFGRAVITY
+        HIERARCHICAL_GRAVITY
+        CELL_CENTER_GRAVITY
+        GRAVITY_NOT_PERIODIC
+        ENFORCE_JEANS_STABILITY_OF_CELLS_EEOS
+        ENFORCE_JEANS_STABILITY_OF_CELLS
+        EVALPOTENTIAL
+        GUS_ARTIFICIAL_BURST
+        ADAPTIVE_HYDRO_SOFTENING
+        CHUNKING
+        DOUBLEPRECISION=1
+        OUTPUT_COORDINATES_IN_DOUBLEPRECISION
+        FOF
+        FOF_PRIMARY_LINK_TYPES=2
+        FOF_SECONDARY_LINK_TYPES=1+16+32
+        SUBFIND
+        SOFTEREQS
+        BLACK_HOLES
+        BH_THERMALFEEDBACK
+        DRAINGAS=3
+        BH_EXACT_INTEGRATION
+        BH_BONDI_DEFAULT
+        BH_DO_NOT_PREVENT_MERGERS
+        BH_NEW_CENTERING
+        BH_PRESSURE_CRITERION
+        BH_ADIOS_WIND
+        BH_ADIOS_WIND_WITH_QUASARTHRESHOLD
+        BH_ADIOS_WIND_WITH_VARIABLE_QUASARTHRESHOLD
+        BH_ADIOS_RANDOMIZED
+        BH_ADIOS_ONLY_ABOVE_MINIMUM_DENSITY
+        RUNNING_SAFETY_FILE
+        VORONOI_DYNAMIC_UPDATE
+        NO_MPI_IN_PLACE
+        NO_ISEND_IRECV_IN_DOMAIN
+        FIX_PATHSCALE_MPI_STATUS_IGNORE_BUG
+        ENLARGE_DYNAMIC_RANGE_IN_TIME
+        OUTPUT_CPU_CSV
+        OUTPUT_CENTER_OF_MASS
+        OUTPUT_PRESSURE
+        OUTPUTPOTENTIAL
+        HAVE_HDF5
+        OUTPUT_COOLHEAT
+        OUTPUT_CSND
+        DEBUG
+        PASSIVE_SCALARS=4
+        GFM
+        GFM_STELLAR_EVOLUTION=0
+        GFM_CONST_IMF=0
+        GFM_WINDS
+        GFM_WINDS_VARIABLE=1
+        GFM_WINDS_VARIABLE_HUBBLE
+        GFM_WIND_ENERGY_METAL_DEPENDENCE
+        GFM_WINDS_STRIPPING
+        GFM_WINDS_THERMAL
+        GFM_COOLING_METAL
+        GFM_AGN_RADIATION
+        GFM_STELLAR_PHOTOMETRICS
+        GFM_OUTPUT_MASK=1+2+4+8+16+32+64+128
+        GFM_NORMALIZED_METAL_ADVECTION
+        GFM_OUTPUT_BIRTH_POS
+        GFM_CHEMTAGS
+        GFM_DISCRETE_ENRICHMENT
+        GFM_SPLITFE
+        GFM_RPROCESS
+        GFM_SET_METALLICITY
+
+Command line arguments:
+  <arepo/Arepo> <param_lvl5.txt> 
+ParameterFile='param_lvl5.txt', RestartFlag=0
+
+touching a running-file: ./running 
+Obtaining parameters from file 'param_lvl5.txt':
+
+        InitCondFile                                      ICs/MW
+        OutputDir                                         output
+        SnapshotFileBase                                  snapshot
+        OutputListFilename                                /ptmp/mpa/lsales/sim_dwarfs/dwarf1/outputlist_final.txt
+        ICFormat                                          3
+        SnapFormat                                        3
+        TimeLimitCPU                                      604800
+        CpuTimeBetRestartFile                             2000
+        ResubmitOn                                        0
+        ResubmitCommand                                   my-scriptfile
+        MaxMemSize                                        3500
+        TimeBegin                                         0
+        TimeMax                                           10
+        ComovingIntegrationOn                             0
+        PeriodicBoundariesOn                              0
+        CoolingOn                                         1
+        StarformationOn                                   1
+        Omega0                                            1
+        OmegaLambda                                       0
+        OmegaBaryon                                       0
+        HubbleParam                                       1
+        BoxSize                                           1290
+        OutputListOn                                      0
+        TimeBetSnapshot                                   0.025
+        TimeOfFirstSnapshot                               0
+        TimeBetStatistics                                 0.2
+        NumFilesPerSnapshot                               1
+        NumFilesWrittenInParallel                         1
+        TypeOfTimestepCriterion                           0
+        ErrTolIntAccuracy                                 0.025
+        CourantFac                                        0.4
+        MaxSizeTimestep                                   0.005
+        MinSizeTimestep                                   0
+        CritOverDensity                                   57.7
+        InitGasTemp                                       10000
+        MinGasTemp                                        5
+        LimitUBelowThisDensity                            0
+        LimitUBelowCertainDensityToThisValue              0
+        MinEgySpec                                        0
+        TypeOfOpeningCriterion                            1
+        ErrTolTheta                                       0.35
+        ErrTolForceAcc                                    0.0025
+        MultipleDomains                                   32
+        TopNodeFactor                                     3
+        DesNumNgb                                         64
+        MaxNumNgbDeviation                                1
+        UnitLength_in_cm                                  3.08568e+21
+        UnitMass_in_g                                     1.989e+43
+        UnitVelocity_in_cm_per_s                          100000
+        GravityConstantInternal                           0
+        GasSoftFactor                                     2.5
+        SofteningComovingType0                            0.08
+        SofteningComovingType1                            0.08
+        SofteningComovingType2                            0.08
+        SofteningComovingType3                            0.08
+        SofteningComovingType4                            0.08
+        SofteningComovingType5                            0.08
+        SofteningMaxPhysType0                             1
+        SofteningMaxPhysType1                             1
+        SofteningMaxPhysType2                             1
+        SofteningMaxPhysType3                             1
+        SofteningMaxPhysType4                             1
+        SofteningMaxPhysType5                             1
+        SofteningTypeOfPartType0                          0
+        SofteningTypeOfPartType1                          1
+        SofteningTypeOfPartType2                          1
+        SofteningTypeOfPartType3                          1
+        SofteningTypeOfPartType4                          1
+        SofteningTypeOfPartType5                          1
+        MinimumComovingHydroSoftening                     0.02
+        AdaptiveHydroSofteningSpacing                     1.2
+        ActivePartFracForNewDomainDecomp                  0.05
+        CellShapingSpeed                                  0.5
+        CellMaxAngleFactor                                2.25
+        TargetGasMassFactor                               1
+        RefinementCriterion                               1
+        DerefinementCriterion                             1
+        TreecoolFile                                      ./arepo/data/TREECOOL_fg_dec11
+        IMF_MinMass_Msun                                  0.1
+        IMF_MaxMass_Msun                                  100
+        AGB_MassTransferOn                                1
+        SNIa_MassTransferOn                               1
+        SNII_MassTransferOn                               1
+        SNII_MinMass_Msun                                 8
+        SNII_MaxMass_Msun                                 100
+        SNIa_Rate_TAU                                     0.04
+        SNIa_Rate_Norm                                    0.0013
+        YieldTablePath                                    /n/holylfs05/LABS/hernquist_lab/Users/abeane/GSEgas/TNG/tables/Arepo_GFM_Tables_TNG/Yields
+        DesNumNgbEnrichment                               64
+        MaxNumNgbDeviationEnrichment                      1
+        CoolingTablePath                                  /n/holylfs05/LABS/hernquist_lab/Users/abeane/GSEgas/TNG/tables/Arepo_GFM_Tables_TNG/Cooling/cooling_metal_AGN_Compton_self_shielding_Rahmati12.hdf5
+        MinMetalTemp                                      10000
+        ReferenceGasPartMass                              4.8e-05
+        MinimumDensityOnStartUp                           1e-10
+        SelfShieldingFile                                 ./arepo/data/SelfShielding_Rahmati12
+        TimeBetOnTheFlyFoF                                0.1
+        TemperatureThresh                                 0
+        CritPhysDensity                                   0
+        FactorEVP                                         573
+        TempSupernova                                     5.73e+07
+        TempClouds                                        1000
+        MaxSfrTimescale                                   2.27
+        WindEnergyIn1e51erg                               1.6944
+        WindFreeTravelMaxTimeFactor                       0.01
+        WindFreeTravelDensFac                             0.05
+Error in file param_lvl5.txt: Tag 'ThermalWindFraction' not allowed.
+        VariableWindVelFactor                             3.46
+        VariableWindSpecMomentum                          0
+        MinWindVel                                        0
+        BlackHoleCenteringMassMultiplier                  1000
+        BlackHoleAccretionFactor                          1
+        BlackHoleFeedbackFactor                           0.1
+        BlackHoleEddingtonFactor                          1
+        SeedBlackHoleMass                                 8e-05
+        MinFoFMassForNewSeed                              5
+        DesNumNgbBlackHole                                646
+        BlackHoleMaxAccretionRadius                       1e+20
+        BlackHoleRadiativeEfficiency                      0.2
+        TreecoolFileAGN                                   ./arepo/data/TREECOOL_AGN
+        SelfShieldingDensity                              0.1295
+        ObscurationFactor                                 0.3
+        ObscurationSlope                                  0.07
+        RadioFeedbackFactor                               1
+        RadioFeedbackMinDensityFactor                     0.01
+        RadioFeedbackReiorientationFactor                 20
+        QuasarThreshold                                   0.002
+        WindEnergyReductionFactor                         0.25
+        WindEnergyReductionMetallicity                    0.002
+        WindEnergyReductionExponent                       2
+        NSNS_MassTransferOn                               1
+        NSNS_Rate_TAU                                     0.1
+        NSNS_MassPerEvent                                 5000
+        NSNS_per_SNIa                                     0.001
+        PhotometricsTablePath                             /n/holylfs05/LABS/hernquist_lab/Users/abeane/GSEgas/TNG/tables/Arepo_GFM_Tables_TNG/Photometrics/
+        FactorForSofterEQS                                0.3
+        TempForSofterEQS                                  10000
+        WindDumpFactor                                    0.6
+        GasMetallicityInSolar                             1e-10
+        DesLinkNgb                                        20
+        ErrTolThetaSubfind                                0.7
+        ArtificialBurstFactor                             10
+        ArtificialBurstBegin                              2
+        ArtificialBurstEnd                                2.25
+
+Error. I miss a value for tag 'ThermalWindFactor' in parameter file 'param_lvl5.txt'.
+TERMINATE: ******!!!!!******  Code termination on task=0, function read_parameter_file(), file src/parameters.c, line 3530: Parameter file param_lvl5.txt not valid.
+
