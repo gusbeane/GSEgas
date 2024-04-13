@@ -60,12 +60,12 @@ def make_fig(subsMW, subsGSE, reset):
             return 1
         datGSE = np.load(fnameGSE, allow_pickle=True).tolist()
     
-    fig, ax = plt.subplots(2, 1, figsize=(columnwidth, 1.25*columnwidth))
+    fig, ax = plt.subplots(2, 1, figsize=(columnwidth, 1.25*columnwidth), sharex=True)
     
     ax[0].plot(datMW['Time'], datMW['Mass'], c=tb_c[0], label=r'$\textrm{MW}$')
     ax[0].plot(datGSE['Time'], datGSE['Mass'], c=tb_c[1], label=r'$\textrm{GSE}$')
     
-    ax[0].set(xlim=(0, 8), xlabel=r'$t\,[\,\textrm{Gyr}\,]$')
+    ax[0].set(xlim=(0, 8))
     ax[0].set(ylim=(0.01, 2), ylabel=r'$\textrm{stellar mass}\,[\,10^{10}\,M_{\odot}\,]$')
     ax[0].set(yscale='log')
     
@@ -74,6 +74,7 @@ def make_fig(subsMW, subsGSE, reset):
     ax[0].axvline(3, c='k', ls='dashed', alpha=0.5)
     
     ax[0].legend(frameon=False)
+    ax[0].xaxis.set_tick_params(labelbottom=True)
     
     ax[1].plot(datMW['Time'], datMW['Size'], c=tb_c[0])
     ax[1].plot(datGSE['Time'], datGSE['Size'], c=tb_c[1])
@@ -82,9 +83,18 @@ def make_fig(subsMW, subsGSE, reset):
     # ax[1].axhline(2.5, c=tb_c[1], ls='dashed')
     # ax[1].axvline(3, c='k', ls='dashed', alpha=0.5)
     
-    ax[1].set(xlim=(0, 8), xlabel=r'$t\,[\,\textrm{Gyr}\,]$')
+    xticks = np.arange(0, 8+1, 1)
+    ax[1].set(xlim=(0, 8), xticks=xticks, xlabel=r'$t\,[\,\textrm{Gyr}\,]$')
     ax[1].set(ylim=(0, 5), ylabel=r'$\textrm{galaxy size}\,[\,\textrm{kpc}\,]$')
 
+    xminorticks = np.arange(0, 8+1, 0.25)
+    ax[1].set_xticks(xminorticks, minor=True)
+    
+    yticks = np.arange(0, 5+1, 1)
+    yminorticks = np.arange(0, 5+1, 0.25)
+    ax[1].set_yticks(yticks)
+    ax[1].set_yticks(yminorticks, minor=True)
+    
     fig.tight_layout()
     fig.savefig('mass_size.pdf')
     
