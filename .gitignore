@@ -84,3 +84,5 @@ surface_density.txt
 *.out
 *.err
 post/
+
+OUTPUT.txt
