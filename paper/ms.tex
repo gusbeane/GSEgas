@@ -122,6 +122,13 @@ proto-Milky Way mass galaxies at $z\sim2$ are properly simulated.
 In this work, we present hydrodynamic simulations of a controlled merger between
 a GSE analog and the $z\sim2$ proto-Milky Way. 
 
+\begin{figure*}
+  \centering
+  \includegraphics[width=\textwidth]{figure1.pdf}
+  \caption{\textbf{The abundance bimodality seen in the Milky Way can be reproduced in some idealized merger simulations.} In the upper panels, we show the distribution of stars in the \MgFe-\FeH plane. The left panel shows the observed distribution in the Milky Way from ASPCAP \red{cite}, while the right two panels show two idealized merger simulations. The idealized merger simulations are nearly identical, except that the bimodal simulation has a starting radius of $129\,\kpc$, while the unimodal simulation has a starting radius of $142\,\kpc$. We emphasize that the labels ``unimodal'' and ``bimodal'' are of the \textit{outcome} of the simulation, and do not reflect a particular choice in the setup. The bottom panels show the distribution of \MgFe at fixed \FeH. The colors indicate the fixed \FeH values, which are $-0.5$, $-0.375$, $-0.25$, and $0.25$. The Milky Way (left panels) exhibits a strong bimodal distribution of \MgFe at various \FeH. The idealized merger simulation marked as bimodal (center panels) also exhibits a bimodal distribution of \MgFe, though the structure is not as strongly defined. The idealized merger simulation marked as unimodal exhibits only weak structure, if any at all.}
+  \label{fig:fig1}
+\end{figure*}
+
 \section{Methods}\label{sec:methods}
 
 \subsection{Gaseous Halos}\label{ssec:gashalo} 
@@ -159,18 +166,34 @@ universe.} For our fiducial central densities, this value is $1.07$ and $0.28$
 for the Milky Way and GSE respectively using the universal values from
 \cite{2014AA...571A..16P}. An early argument by 
 
+\begin{figure*}
+  \centering
+  \includegraphics[width=\textwidth]{before_after.pdf}
+  \caption{\textbf{The high-$\alpha$ sequence forms before the merger, the low-$\alpha$ sequence forms after the merger.} This plot shows the sequence of events leading to the build-up of the low- and high-$\alpha$ sequences for our fiducial bimodal simulation. We have separated the high- and low-$\alpha$ sequences by a dashed line at $-0.1\FeH + 0.31$, which was chosen by eye to lie in the trough. The left panel shows all star particles in our solar neighborhood cut. The middle left panel shows the star particles that form before the merger ($\tform < 1.5\,\Gyr$), which form a weak sequence of star particles at the lowest \FeH and highest \MgFe. The middle right panel shows the star particles that form during the merger ($1.5\,\Gyr < \tform < 2.5\,\Gyr$). These star particless form the portion of the high-$\alpha$ sequence closest to the trough, and the density of star particless is higher than those that form before. The middle right panel shows the star particles which form after the merger ($\tform > 2.5\,\Gyr$). These star particles form almost entirely below the trough.}
+  \label{fig:before_after}
+\end{figure*}
 
 \begin{figure}
   \centering
-  \includegraphics[width=\columnwidth]{fig/cumprof.pdf}
-  \caption{The cumulative amount of the central's CGM gas accreted onto the disk
-  ($r<20\,\kpc$) as a function of time. The blue line shows the case of the
-  galaxy merger setup and the orange line shows the case of an isolated galaxy.
-  The effect of the merger is to increase the amount of mass accreted onto the
-  central. We stress that this plot does not include the mass from the satellite's
-  disk or CGM.}
-  \label{fig:cumprof}
+  \includegraphics[width=\columnwidth]{before_after_sfh.pdf}
+  \caption{\textbf{At fixed metallicity, the low- and high-$\alpha$ sequence are cleanly separated in time, with an intervening quiescent period.} Here we show the star formation history of the high- and low-$\alpha$ sequences. The blue (low-$\alpha$) and orange (high-$\alpha$) histograms correspond to the dashed line cut made in the \MgFe-\FeH plane in Figure~\ref{fig:before_after}, at a fixed metallicity of $\FeH\sim0$. One can see that there is a nearly perfect separation in time between the formation of the high-$\alpha$ and low-$\alpha$ sequence, except for a brief overlap which can be attributed to the inadequacy of the linear cut model of the two sequences. Separating the formation periods lies a quiescent period with a duration of $\sim300\,\Myr$. \red{make sfr per dex}.}
+  \label{fig:before_after_sfh}
 \end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\columnwidth]{before_after_sfh_by_iron.pdf}
+  \caption{\textbf{The timing of the quiescent period which divides the high- and low-$\alpha$ sequences is metallicity dependent.} The star formation history of stars at various fixed metallicities ($\FeH\sim0$, $-0.25$, and $-0.5\,\textrm{dex}$). As in Figure~\ref{fig:before_after_sfh}, there is a quiescent period period which separates the formation of the low- and high-$\alpha$ sequence \red{maybe a better way to show this?}. However, one can see that the timing of the quiescent period is metallicity-dependent. It occurs earlier at lower metallicity, by $\sim300\,\Myr$ for the metallicities shown in this plot. \red{make sfr per dex}.}
+  \label{fig:before_after_sfh_by_iron}
+\end{figure}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=\textwidth]{SFR_alpha.pdf}
+  \caption{\textbf{A global suppression of star formation is associcated with a decrease in \MgFe{}, which is seen in the bimodal simulation but not in the unimodal simulation.} Here, we show both the SFR of the central galaxy ($r<15\,\kpc$) and the median \MgFe{} for gas at $2\,\kpc<r<5\,\kpc$ at a fixed \FeH{} bin centered on $-0.2$ with width $0.02\,\dex$. The left panel shows the bimodal simulation while the right panel shows the unimodal simulation. The time of the merger (i.e., the second pericenter) is indicated by the vertical dashed line. In the bimodal simulation, the star formation is suppressed after the merger. This suppression of star formation is associated with a sudden drop in the median \MgFe{} of the gas. Neither the suppression of star formation nor the drop in \MgFe{} are seen in the unimodal simulation.}
+  \label{fig:SFR_alpha}
+\end{figure*}
+
 
 \bibliography{ref}{}
 \bibliographystyle{aasjournal}
@@ -240,6 +263,24 @@ of the current work. The presence of a classical bulge and the disk being
 dynamically hot is sufficient for the disk to be stable against bar
 instabilities.
 
+\section{Cause of Suppressed Star Formation}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=\textwidth]{SFR_Mgas_tdep.pdf}
+  \caption{\textbf{The suppression of star formation in the bimodal simulation is associated with both a reduction in gas mass as well as an increase in the depletion time.} The drop in star formation (blue line) at $\sim2.5-3\,\Gyr$ is associated with both a reduction in the total gas mass (red line) as well as an increase in the depletion time (green line). This shows that the SFR suppression is a result of both less gas mass and more inefficient star formation. \red{Should this only include the bimodal? Also, move to appendix?}}
+  \label{fig:SFR_Mgas_tdep}
+\end{figure*}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=242.26653pt]{MdotBH_rsep.pdf}
+  \caption{\textbf{The bimodal merger is associated with high accretion rates onto the central SMBH.} Around the time of each pericentric passage, and slightly after, the accretion rate (blue line) becomes very high. Here, it is shown as a fraction of the Eddington accretion rate. During the merger, the accretion rate reaches as high as Eddington at some times, but is always above $10\%$. The orbital separation between the central and satellite is shown in the orange line.}
+  \label{fig:MdotBH_rsep}
+\end{figure}
+
 \end{document}
 
 % End of file `sample631.tex'.
+
+% Ness 2019 
