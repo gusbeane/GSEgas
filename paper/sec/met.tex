@@ -1,0 +1,34 @@
+\section{Methods}\label{sec:methods}
+\subsection{Simulation Setup}\label{ssec:setup}
+Our goal in setting up the simulations in this work is not an attempt at matching any Milky Way observable in any detail. Our aim is to construct a setup resembling the merger between the Milky Way and GSE at $z\sim2$. However, there are great uncertainities associated with the state of the Milky Way and of GSE at this time. In Appendix~\ref{app:ics}, we discuss in more detail the choices made in tuning our setup to arrive at a system which is reasonably useful for understanding the Galaxy.
+
+Here, we provide an overview of some salient details of our setup. The interested reader is referred to Appendix~\ref{app:ics} for more details. In isolation, each galaxy is a compound halo setup, with a Hernquist dark matter halo and a gaseous halo with a $\beta$-profile. The dark matter halo is initialized to be in gravitational equilibrium with the total potential. The gaseous halo is in gravito-hydrostatic equilibrium, where the temperature is allowed to vary as a function of radius. The azimuthal velocity of the gaseous halo is given as a fraction of the circular velocity. There is no initial stellar disk or bulge, and the gaseous halo is initially metal-free. All star particles and metals are formed self-consistently. Both the central and satellite galaxies are setup in this way.
+
+In order to combine the galaxies, we follow \citet{2021ApJ...923...92N}, and place the satellite galaxy on a retrograde orbit. In the fiducial simulation, the satellite is placed at the virial radius ($129\,\kpc$), with the virial velocity ($129\,\kms$), and with a circularity of $0.5$. To test minor changes to the orbit, we ran a grid of simulations with $\pm10\%$ in each the starting radius and velocity, and $\pm0.1$ in the circularity, for a total of $27$ simulations.
+
+Some of the simulations in this orbital grid resulted in bimodal abundance distributions, while some had little to no structure in the abundance distribution plane. We show the abundance plane for all $27$ simulations in Appendix~\ref{app:allsims}, but for the main body of this work we consider two representative simulations in detail. For the bimodal simulation, we chose the simulation with $R_0=142\,\kpc$, $V_0=116\,\kms$, and $\eta=0.4$. For the unimodal simulation, the parameters are the same except that $R_0=129\,\kpc$.
+
+\subsection{Observed Abundances}\label{ssec:obs_abund}
+Our aim in this work is to demonstrate the feasibility of a mechanism for structure formation in the abundance plane. We are only making a qualitative comparison to data. Therefore, we use the ASPCAP DR17 catalog of stellar abundances (\citet{2016AJ....151..144G}; J.A.~Holtzman et al., in preparation), which is publicly available, well-established, and widely used.
+
+We first make some quality cuts, as well as restricting our sample to dwarfs. We require:
+\begin{itemize}[noitemsep]
+    \item $\textrm{SNR} > 200$,
+    \item $\textrm{VSCATTER} < 1\,\kms$,
+    \item STARFLAG not set,
+    \item $\varpi/\sigma_{\varpi} > 1$,
+    \item $\log{g} < 3.5$,
+    \item $\sigma_{\log{g}} < 0.2$,
+\end{itemize}
+where $\varpi$ is the parallax. We use the parallax, proper motion, and radial velocity from Gaia EDR3 \citep{2016AA...595A...1G, 2021AA...649A...1G, 2021AA...649A...2L, 2021AA...653A.160S}.
+
+We next make a selection on the angular momentum of stars in order to make a ``solar neighborhood'' selection.\footnote{The definition of the solar neighborhood is always changing.} We assume the solar radius and azimuthal velocity are $R_0=8\,\kpc$ and $V_0=220\,\kms$ \red{cite}, and select stars which have $L_z$ within $10\%$ of the solar angular momentum. We further require that $\left|z\right| < 3\,\kpc$.
+
+As is typically done, we use \FeH{} as an indicator of the total metallicity of a star. We use Mg alone as a representative of the $\alpha$-elements, though some authors choose to sum several $\alpha$-elements.
+
+\subsection{Simulation Solar Neighborhood}\label{ssec:solarneigh}
+When comparing galaxy simulations to the observed solar neighborhood, some ambiguity arises in how to make a ``solar neighborhood-like'' selection of star particles. Naturally, this selection is dependent on the posed question. In this work, this is the formation of the abundance bimodality. The Sun is known to sit near the end of the thick disk, where the thick and thin disk have comparable surface densities (the ratio of thick-to-thin is $\sim12\%$ \red{cite}). As a result, the abundance bimodality appears most strongly near the Sun -- further inwards the high-$\alpha$ sequence is more dominant and further outwards the high-$\alpha$ sequence vanishes \red{cite}.
+
+We mimic our selection of the solar neighborhood by also making a cut in angular momentum. However, in the simulation, the high-$\alpha$ disk is more compact than in the Galaxy. Therefore, in order to strike a balance between the low-$\alpha$ and high-$\alpha$ disks, we used an angular momentum cut which is $20\%$ that of our assumed solar angular momentum. In particular, we select all star particles with angular momenta within $30\%$ of $0.2\times8\,\kpc\times220\,\kms$ -- as well as requiring $\left| z \right| < 3\,\kpc$.
+
+This choice of angular momentum may seem unrealistic. However, it corresponds to roughly selecting star particles with radii between $2$ and $5\,\kpc$. The half-mass radius of the isolated central galaxy is $\sim2\,\kpc$ after $3\,\Gyr$ of evolution (the formation epoch of the high-$\alpha$ disk). For comparison, the scale-length of the thick disk is $\sim2\,\kpc$, which corresponds to a half-mass radius of $\sim3.36\,\kpc$ for an exponential disk. Our simulated galaxy does form more compactly, which is a justification for our ``solar neighborhood'' to lie at a lower angular momentum.
