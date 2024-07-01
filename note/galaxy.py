@@ -2,7 +2,7 @@ import numpy as np
 import arepo
 from numba import njit
 
-@njit
+# @njit
 def rodrigues_formula(k, v, theta):
     N = v.shape[0]
     v_rot = np.zeros(np.shape(v))
@@ -10,8 +10,9 @@ def rodrigues_formula(k, v, theta):
     ctheta = np.cos(theta)
     stheta = np.sin(theta)
     
-    for i in range(N):
-        v_rot[i] = v[i] * ctheta + np.cross(k, v[i]) * stheta + k * (np.dot(k, v[i])) * (1-ctheta)
+    # for i in range(N):
+        # v_rot[i] = v[i] * ctheta + np.cross(k, v[i]) * stheta + k * (np.dot(k, v[i])) * (1-ctheta)
+    v_rot = v * ctheta + np.cross(k, v) * stheta + k * np.dot(v, k)[:,np.newaxis] * (1-ctheta)
     
     return v_rot
 
@@ -63,7 +64,55 @@ class Galaxy(object):
         self.sn.addField('Temperature', [1, 0, 0, 0, 0, 0])
         self.sn.part0.Temperature[:] = np.copy(T)
         self.sn.part0.T = self.sn.part0.Temperature.view()
+    
+    def _orient(self, COM, COMV, k, theta):
+        for pt,Npart in enumerate(self.sn.NumPart_Total):
+            if Npart == 0:
+                continue
+            
+            part = getattr(self.sn, 'part'+str(pt))
+            pos = part.Coordinates.value - COM
+            vel = part.Velocities.value - COMV
+    
+            pos_rot = rodrigues_formula(k, pos.astype(np.float64), theta)
+            vel_rot = rodrigues_formula(k, vel.astype(np.float64), theta)
         
+            part.RotatedCoordinates = np.copy(pos_rot)
+            part.RotatedVelocities = np.copy(vel_rot)
+        
+            part.rotpos = part.RotatedCoordinates.view()
+            part.rotvel = part.RotatedVelocities.view()
+    
+    def _get_COM_COMV(self, subID=0, rhalf_fac=1):
+        # get COM as subhalo pos
+        COM = self.sub.SubhaloPos[subID]
+        
+        #if we have fewer than 64 star particles, use DM instead
+        pos = self.sn.part1.pos.value - COM
+        vel = self.sn.part1.vel.value
+        mass = np.full(self.sn.NumPart_Total[1], self.sn.MassTable[1])
+        is_star = np.full(self.sn.NumPart_Total[1], True)
+        if self.sn.NumPart_Total[4] > 0:
+            if np.sum(self.sn.part4.GFM_StellarFormationTime > 0) >= 64:
+                pos = self.sn.part4.pos.value - COM
+                vel = self.sn.part4.vel.value
+                mass = self.sn.part4.mass.value
+                is_star = self.sn.part4.GFM_StellarFormationTime > 0
+                
+        r = np.linalg.norm(pos, axis=1)
+        
+        # get stars within rhalf_fac * rhalf of COM
+        rhalf = np.maximum(self.sub.SubhaloHalfmassRadType[subID,4], 2)
+        in_rhalf = r < rhalf_fac * rhalf
+        is_star_in_rhalf = np.logical_and(is_star, in_rhalf)
+        
+        # get COMV as mass weighted vel of stars within rhalf_fac * rhalf of COM
+        vel_in_rhalf = vel[is_star_in_rhalf]
+        mass_in_rhalf = mass[is_star_in_rhalf]
+        COMV = np.average(vel_in_rhalf, axis=0, weights=mass_in_rhalf)
+        
+        return COM, COMV, is_star_in_rhalf
+    
     def do_orient(self, subID=0, rhalf_fac=1):
         if len(self.sub.SubhaloPos) <= subID:
             print('subID=', subID, 'doesnt exist')
@@ -93,26 +142,14 @@ class Galaxy(object):
             
             return
         
-        # get COM as subhalo pos
-        COM = self.sub.SubhaloPos[subID]
-        pos = self.sn.part4.pos.value - COM
-        r = np.linalg.norm(pos, axis=1)
-        
-        # get stars within rhalf_fac * rhalf of COM
-        rhalf = self.sub.SubhaloHalfmassRadType[subID,4]
-        in_rhalf = r < rhalf_fac * rhalf
-        is_star = self.sn.part4.GFM_StellarFormationTime > 0
-        is_star_in_rhalf = np.logical_and(is_star, in_rhalf)
-        
-        # get COMV as mass weighted vel of stars within rhalf_fac * rhalf of COM
-        vel_in_rhalf = self.sn.part4.Velocities[is_star_in_rhalf]
-        mass_in_rhalf = self.sn.part4.Masses[is_star_in_rhalf]
-        COMV = np.average(vel_in_rhalf, axis=0, weights=mass_in_rhalf)
+        COM, COMV, is_star_in_rhalf = self._get_COM_COMV(subID=subID, rhalf_fac=rhalf_fac)
     
         # compute ang mom
-        vel = self.sn.part4.vel.value - COMV
-        AngMom = np.cross(pos[is_star_in_rhalf], vel[is_star_in_rhalf])
-        AngMom *= mass_in_rhalf.reshape(-1, 1)
+        pos = (self.sn.part4.pos.value - COM)[is_star_in_rhalf]
+        vel = (self.sn.part4.vel.value - COMV)[is_star_in_rhalf]
+        mass = (self.sn.part4.mass.value)[is_star_in_rhalf]
+        AngMom = np.cross(pos, vel)
+        AngMom *= mass.reshape(-1, 1)
         AngMom = np.sum(AngMom, axis=0)
         
         self.CenterOfMass = CenterOfMass()
@@ -129,20 +166,5 @@ class Galaxy(object):
         self.CenterOfMass.theta = theta
         self.CenterOfMass.k = k
         
-        for pt,Npart in enumerate(self.sn.NumPart_Total):
-            if Npart == 0:
-                continue
-            
-            part = getattr(self.sn, 'part'+str(pt))
-            pos = part.Coordinates.value - COM
-            vel = part.Velocities.value - COMV
-    
-            pos_rot = rodrigues_formula(k, pos.astype(np.float64), theta)
-            vel_rot = rodrigues_formula(k, vel.astype(np.float64), theta)
-        
-            part.RotatedCoordinates = np.copy(pos_rot)
-            part.RotatedVelocities = np.copy(vel_rot)
-        
-            part.rotpos = part.RotatedCoordinates.view()
-            part.rotvel = part.RotatedVelocities.view()
+        self._orient(COM, COMV, k, theta)
                 
