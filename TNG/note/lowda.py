@@ -134,18 +134,20 @@ def load_zoom_group(outputDir, snapnum, nproc=16, types=[0, 4, 5], fields=None):
 class EmptyClass:
     pass
 
-def load_galaxy(snapnum, subID_99, rhalf_fac=2, phys=True, load_DM=False,
+def load_galaxy(snapnum, subID, subIDat99=True, rhalf_fac=2, phys=True, load_DM=False,
                 TNGbase='/n/holylfs05/LABS/hernquist_lab/IllustrisTNG/Runs/L35n2160TNG/output/'):
     # create output object
     galaxy = EmptyClass()
     
-    # subID_99 is the subhalo ID at snapshot 99
     header = arepo.Snapshot(TNGbase, snapnum, onlyHeader=True)
     h = header.HubbleParam
     a = header.Time
     galaxy.header = header
     
-    treeMPB = il.sublink.loadTree(TNGbase, 99, subID_99, onlyMPB=True)
+    if subIDat99:
+        treeMPB = il.sublink.loadTree(TNGbase, 99, subID, onlyMPB=True)
+    else:
+        treeMPB = il.sublink.loadTree(TNGbase, snapnum, subID, onlyMPB=True)
     galaxy.treeMPB = treeMPB
     
     # retrieve subID and subhalo at given snapnum
