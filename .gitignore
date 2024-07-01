@@ -90,3 +90,5 @@ OUTPUT.txt
 box/box*.txt
 box/tables/
 single_star/tables/
+
+plots/movie/*/*.mp4
