@@ -1,0 +1,107 @@
+Notes from SFH
+138265
+152693 (might be later)
+172175 - alpha-tform plot looks good at [Fe/H]=-0.25
+173605
+176051 - alpha-tform good at [Fe/H]=-0.25
+178140 - some structure, very complicated
+181911 - lots of wiggles
+184627 - alpha/Fe decreases pretty strongly
+185253 - lots of spikes but no dips, alpha-tform should be replotted
+193025 - nice ramps and decreasing alpha
+197301 - some gaps and descending alpha
+201842 - 
+202938 - pretty strong decline in alpha, some gaps
+208817 - some wiggles but also doesnt return to pre-dip behavior?
+218213 - make this one at slightly lower z
+226914 - some wiggles/ramps
+233856 - lots of burst/dip, but am i plotting this at the correct FeH?
+241728 - burst and dip, relative quiescent but not strong
+246391 - burst in sfh but no dip in alpha
+246755 - burst and associated downramp at Feh=0
+248052 - downramp but almost a reset of alpha
+259312 - nice spike in sfh associated with spike in alpha, but not really a gap
+260347 - 
+262670
+265671
+266628
+269775 - small gap in sfh, but alpha not declining enough to matter
+269914 - quiescent phase with dip and recovery, but again alpha not declining fast enough
+292983 - 
+307826 - strong decline with lots of structure
+321390 - same
+
+Notes from plane
+138265 - some weird structure though not necessarily a bimodality
+145447 - a bimodality, but the modes dont overlap in Fe so it doesnt show up in 1D hist
+147367 - some structure at FeH=-0.5
+155133 - a little bit of structure, seems correlated with gap in SFH at given FeH
+168294 - maybe a touch of a bimodality at high FeH
+172175 - a baby bimodality at high FeH
+173605 - bimodality at low FeH, no structure at higher FeH
+178140 - some real weird shells and stuff, esp at FeH=0
+179803 - very nice bimodality at FeH=-0.25
+184627 - a little bit of structure but no multimodality
+186577 - a little bit of forking behavior at high FeH
+193025 - very nice bimodality
+194867 - bimodality at FeH=-0.5, from sfh maybe dilution?
+201002 - some wild wild structure
+201842 - some nice bimodality at low FeH
+202938 - some bimodalities at lower FeH, has associated gaps w/ decline in alpha
+204085 - really weird hook thing? need to look at even higher FeH
+208817 - TONS of structure, lots of little gaps in conditional SFH
+211773 - very strong bimodality at -0.25
+216482 - strong bimodality at -0.25, sfh looks a bit weird at that FeH
+218213 - lower sequence is just forming!! look at lower z!
+222061 - at FeH=-0.75 a little bit of structure, marginally bimodal
+224515 - hint of structure at FeH=-0.75
+224995 - strong bimodality, with a tilted up feature? no clear gap in SFH
+226914 - weak bimodality, probably will be stronger at lower z
+233558 - weak but clear biomdality at -0.25
+233856 - def has structure, also in SFH
+241728 - def some structure, though not strong bimodal. associated with STRONG starburst
+246391 - def bimolda at low FeH, something weird at high FeH too
+246755 - biomdal at -0.25
+249507 - little bit of bimodal at -0.5
+255629 - weird spray of dist, goes to very high FeH
+259312 - seems to have a bimodality, but not in 1D hist - has a starburst
+262670 - def has two sequences
+266628 - seems to have two sequences that connect at higher FeH, this one has a weird SFH
+267462 - some structure for sure, but no strong multimodality
+270786 - weird extension to high FeH
+287601 - hint of structure at -0.5
+292983 - a little extension at around -1, not strong in 1D
+307826 - really weird stuff going on, lots of shells and ridges
+321390 - extension to high FeH as well, large SF burst at early times
+
+
+
+
+TODO
+218213 at lower z
+179803 need to make more plots, looks interesting
+201842 is strong candidate for PSB/quenching mechanism
+211773 look at more closely, wild structure
+241728 look at more closely, clear starburst and conditional SFH have clear quiescence - good candidate
+246391 look at more closely, has bimodality
+208817 look at more closely, tons and tons of structure
+
+
+to look at more closely
+211773
+241728
+246391
+201842
+179803
+218213
+224995
+226914
+233856
+249507
+251469
+259312
+260347
+262670
+266628
+307826
+
