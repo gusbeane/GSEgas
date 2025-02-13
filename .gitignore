@@ -92,3 +92,4 @@ box/tables/
 single_star/tables/
 
 plots/movie/*/*.mp4
+*.mp4
