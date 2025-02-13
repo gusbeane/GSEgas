@@ -21,6 +21,9 @@ paper/ms.log
 paper/mnras_guide.*
 paper/ms.blg
 paper/ms.synctex.gz
+paper/ms.fls
+paper/ms.fdb_latexmk
+paper/ms.bbl
 
 # ics/
 MakeNewDisk*/
