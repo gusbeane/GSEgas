@@ -161,6 +161,19 @@ When comparing galaxy simulations to the observed solar neighborhood, some ambig
 
 We mimic our selection of the solar neighborhood by also making a cut in angular momentum. However, in the simulation, the high-$\alpha$ disk is more compact than in the Galaxy. Therefore, in order to strike a balance between the low-$\alpha$ and high-$\alpha$ disks, we used an angular momentum cut which is $20\%$ that of our assumed solar angular momentum. In particular, we select all star particles with angular momenta within $30\%$ of $0.2\times8\,\kpc\times220\,\kms$ -- as well as requiring $\left| z \right| < 3\,\kpc$. This corresponds to roughly selecting star particles with radii between $2$ and $5\,\kpc$.
 
+\subsection{Bimodality Score}\label{ssec:bim_score}
+\edit1{Given the modest size of our suite, some method for scoring the degree of bimodality for a given 1D distribution is desirable. Tests of whether a distribution is bimodal or unimodal exist -- e.g., the Hartigan dip test \citep{10.1214/aos/1176346577}, but they lack the ability to rank order based on ``bimodalitiness.'' In order to do this, we fit a given distribution of \alphaFe{} as a two-component gaussian mixture model. The bimodality score $\mathcal{B}$ is then computed as
+\begin{equation}\label{eq:bimscore}
+\mathcal{B} = \frac{\left|\mu_1-\mu_2\right|}{\sqrt{\sigma_1^2-\sigma_2^2}}\times w(A_2, t, k)\textrm{,}
+\end{equation}
+where $(\mu_1, \sigma_1)$ is the mean and standard deviation of the higher weighted mode, $(\mu_2, \sigma_2)$ likewise for the less weighted mode, $A_2$ is the amplitude of the less weighted mode, and $w$ is a penalty function with parameters $t$ and $k$ given by
+\begin{equation}\label{eq:bimscore_penalty}
+w(A, t, k) = \left[1+e^{-k\left(A-t\right)}\right]^{-1}\text{.}
+\end{equation}
+We take $t$ and $k$ to be $0.1$ and $20$, respectively.}
+
+\edit1{This metric effectively measures the distance between two modes normalized by their variances, with a penalty when one mode is not highly weighted. These choices were made in order for the score to match by eye which distributions appear to have one as opposed to two peaks, and was found to empirically be more reliable than other statistics like peak-to-trough ratios or mode overlap. As demonstrated in Section~\ref{ssec:full_sim_suite}, a score of $\mathcal{B}>2.25$ appears to select the bimodal populations.}
+
 \section{Results}\label{sec:results}
 \subsection{Surface Density Projections}\label{ssec:projections}
 Before dissecting the simulated galaxies in detail, we first take a look at the surface density projections of the gas and stars in the central region, situated on the central galaxy in the bimodal simulation. This is shown in Figure~\ref{fig:projections}. In each grouping of four, the bottom and top rows show the face-on and edge-on views, respectively. The left and right columns show the gas (blue) and stellar (orange) surface density, respectively. Each panel is oriented with respect to the stellar angular momentum of the final snapshot ($t=8\,\Gyr$). The angular momentum is computed using all star particles within the half-mass radius.
