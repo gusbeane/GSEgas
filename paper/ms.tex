@@ -453,6 +453,28 @@ and Yale University.
 \bibliographystyle{aasjournal}
 
 \appendix
+\section{Star Formation Histories}\label{app:all_sfh}
+One potential avenue for creating an \FeH{}-dependent star formation gap is through quiescence. This is demonstrated by examining the global SFH in Figure~\ref{fig:all_sfh}, with the panels and colors showing each simulation in the grid ordered by their bimodality score $\mathcal{B}$ in the same way as Figures~\ref{fig:all_hist} and \ref{fig:all_scatter}. One can see that there is a global quiescent period in simulations~g, s, and x. Simulations~s and x have a bimodal pattern, while simulation~g has a unimodal pattern. As mentioned in Figure~\ref{fig:all_scatter}, simulation~g has an age gap but there is not enough star formation at $\FeH\sim0$ before the gap to result in a strong bimodality. Otherwise, while a global quiescent period is sufficient for generating an age gap, most simulations do not have a global quiescent period.
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=\textwidth]{sfh.pdf}
+  \caption{Global star formation history (SFH) for each simulation, plotted in the same order as Figures~\ref{fig:all_hist} and \ref{fig:all_scatter}, with increasing bimodality score $\mathcal{B}$ from left to right. The colors correspond to the same simulations as in previous figures. A global quiescent period, characterized by a significant dip in the SFR, is observed in simulations~g, s, and x. Among these, simulations~s and x exhibit strong bimodal \MgFe{} distributions, while simulation~g remains unimodal due to insufficient early star formation at $\FeH\sim0$ before the quiescent phase. Most other simulations do not display a clear global quiescent period, indicating that such a phase is not strictly necessary for bimodality to emerge.}
+  \label{fig:all_sfh}
+\end{figure*}
+
+\section{Cause of Suppressed Star Formation}\label{app:cause_qui}
+\edit1{In Figure~\ref{fig:MdotBH_rsep}, we demonstrate how the orbit of the bimodal simulation is closely related to the strength of BH feedback. On the $y$-axis, we show in blue the black hole accretion rate as a ratio of the maximum (Eddington) accretion rate at that time. In orange we show the orbital separation between the satellite and central galaxies. We see that the accretion rate is high early on at $\sim10\%$. At the time around coalescence at $\sim2\,\Gyr$, the accretion rate rises up to Eddington, before dropping to a much lower value $<10\%$ later on.}
+
+\edit1{In the TNG model, the strength of AGN feedback is directly tied to the BH's accretion rate \citep{2017MNRAS.465.3291W}. Therefore, it is reasonable to suspect that the feedback from the AGN is responsible for removing gas from the galaxy or keeping it above the star forming density threshold.}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=242.26653pt]{MdotBH_rsep.pdf}
+  \caption{\edit1{Evolution of black hole accretion rate and orbital separation over time in the bimodal simulation. The blue line shows the black hole accretion rate as a fraction of the Eddington rate, while the orange line shows the orbital separation between the satellite and central galaxies. The accretion rate peaks during coalescence at $\sim2\,\Gyr$, suggesting a strong connection between the merger and AGN activity.}}
+  \label{fig:MdotBH_rsep}
+\end{figure}
+
 \section{Abundance Plane of All Simulations}\label{app:allmerge}
 We show summary plots of the abundance planes of all simulations in our orbital grid in Figures~\ref{fig:allmerge0} to \ref{fig:allmerge8}.
 
@@ -518,21 +540,5 @@ We show summary plots of the abundance planes of all simulations in our orbital 
   \caption{A continuation of Figure~\ref{fig:allmerge0}.}
   \label{fig:allmerge8}
 \end{figure*}
-
-\section{Cause of Suppressed Star Formation}\label{app:cause_qui}
-
-\begin{figure*}
-  \centering
-  \includegraphics[width=\textwidth]{SFR_Mgas_tdep.pdf}
-  \caption{\textbf{The suppression of star formation in the bimodal simulation is associated with both a reduction in gas mass as well as an increase in the depletion time.} The drop in star formation (blue line) at $\sim2.5-3\,\Gyr$ is associated with both a reduction in the total gas mass (red line) as well as an increase in the depletion time (green line). This shows that the SFR suppression is a result of both less gas mass and more inefficient star formation.}
-  \label{fig:SFR_Mgas_tdep}
-\end{figure*}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=242.26653pt]{MdotBH_rsep.pdf}
-  \caption{\textbf{The bimodal merger is associated with high accretion rates onto the central SMBH.} Around the time of each pericentric passage, and slightly after, the accretion rate (blue line) becomes very high. Here, it is shown as a fraction of the Eddington accretion rate. During the merger, the accretion rate reaches as high as Eddington at some times, but is always above $10\%$. The orbital separation between the central and satellite is shown in the orange line.}
-  \label{fig:MdotBH_rsep}
-\end{figure}
 
 \end{document}
