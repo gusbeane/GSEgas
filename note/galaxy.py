@@ -92,12 +92,14 @@ class Galaxy(object):
         vel = self.sn.part1.vel.value
         mass = np.full(self.sn.NumPart_Total[1], self.sn.MassTable[1])
         is_star = np.full(self.sn.NumPart_Total[1], True)
+        used_DM = True
         if self.sn.NumPart_Total[4] > 0:
             if np.sum(self.sn.part4.GFM_StellarFormationTime > 0) >= 64:
                 pos = self.sn.part4.pos.value - COM
                 vel = self.sn.part4.vel.value
                 mass = self.sn.part4.mass.value
                 is_star = self.sn.part4.GFM_StellarFormationTime > 0
+                used_DM = False
                 
         r = np.linalg.norm(pos, axis=1)
         
@@ -111,7 +113,7 @@ class Galaxy(object):
         mass_in_rhalf = mass[is_star_in_rhalf]
         COMV = np.average(vel_in_rhalf, axis=0, weights=mass_in_rhalf)
         
-        return COM, COMV, is_star_in_rhalf
+        return COM, COMV, is_star_in_rhalf, used_DM
     
     def do_orient(self, subID=0, rhalf_fac=1):
         if len(self.sub.SubhaloPos) <= subID:
@@ -142,15 +144,19 @@ class Galaxy(object):
             
             return
         
-        COM, COMV, is_star_in_rhalf = self._get_COM_COMV(subID=subID, rhalf_fac=rhalf_fac)
+        COM, COMV, is_star_in_rhalf, used_DM = self._get_COM_COMV(subID=subID, rhalf_fac=rhalf_fac)
     
         # compute ang mom
-        pos = (self.sn.part4.pos.value - COM)[is_star_in_rhalf]
-        vel = (self.sn.part4.vel.value - COMV)[is_star_in_rhalf]
-        mass = (self.sn.part4.mass.value)[is_star_in_rhalf]
-        AngMom = np.cross(pos, vel)
-        AngMom *= mass.reshape(-1, 1)
-        AngMom = np.sum(AngMom, axis=0)
+        # if we used DM, just ignore all this
+        if used_DM:
+            AngMom = np.array([0, 0, 1])
+        else:
+            pos = (self.sn.part4.pos.value - COM)[is_star_in_rhalf]
+            vel = (self.sn.part4.vel.value - COMV)[is_star_in_rhalf]
+            mass = (self.sn.part4.mass.value)[is_star_in_rhalf]
+            AngMom = np.cross(pos, vel)
+            AngMom *= mass.reshape(-1, 1)
+            AngMom = np.sum(AngMom, axis=0)
         
         self.CenterOfMass = CenterOfMass()
         self.CenterOfMass.Coordinate = COM
@@ -160,8 +166,11 @@ class Galaxy(object):
         # now actually do the orientation
         AngMom_dir = AngMom/np.linalg.norm(AngMom)
         theta = np.arccos(np.dot(AngMom_dir, np.array([0, 0, 1])))
-        k = np.cross(AngMom, np.array([0, 0, 1.]))
-        k /= np.linalg.norm(k)
+        if theta==0:
+            k = np.array([0, 0, 1])
+        else:
+            k = np.cross(AngMom, np.array([0, 0, 1.]))
+            k /= np.linalg.norm(k)
 
         self.CenterOfMass.theta = theta
         self.CenterOfMass.k = k

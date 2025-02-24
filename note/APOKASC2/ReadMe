@@ -1,0 +1,238 @@
+J/ApJS/239/32  APOKASC-2 catalog of Kepler evolved stars  (Pinsonneault+, 2018)
+================================================================================
+The second APOKASC catalog: the empirical approach.
+    Pinsonneault M.H., Elsworth Y.P., Tayar J., Serenelli A., Stello D.,
+    Zinn J., Mathur S., Garcia R.A., Johnson J.A., Hekker S., Huber D.,
+    Kallinger T., Meszaros S., Mosser B., Stassun K., Girardi L.,
+    Rodrigues T.S., Aguirre V.S., An D., Basu S., Chaplin W.J., Corsaro E.,
+    Cunha K., Garcia-Hernandez D.A., Holtzman J., Jonsson H., Shetrone M.,
+    Smith V.V., Sobeck J.S., Stringfellow G.S., Zamora O., Beers T.C.,
+    Fernandez-Trincado J.G., Frinchaboy P.M., Hearty F.R., Nitschelm C.
+   <Astrophys. J. Suppl. Ser., 239, 32 (2018)>
+   =2018ApJS..239...32P
+================================================================================
+ADC_Keywords: Asteroseismology ; Stars, giant ; Abundances ; Stars, masses ;
+              Effective temperatures ; Surveys
+Keywords: stars: abundances ; stars: fundamental parameters ;
+          stars: oscillations (including pulsations)
+
+Abstract:
+    We present a catalog of stellar properties for a large sample of 6676
+    evolved stars with Apache Point Observatory Galactic Evolution
+    Experiment spectroscopic parameters and Kepler asteroseismic data
+    analyzed using five independent techniques. Our data include
+    evolutionary state, surface gravity, mean density, mass, radius, age,
+    and the spectroscopic and asteroseismic measurements used to derive
+    them. We employ a new empirical approach for combining asteroseismic
+    measurements from different methods, calibrating the inferred stellar
+    parameters, and estimating uncertainties. With high statistical
+    significance, we find that asteroseismic parameters inferred from the
+    different pipelines have systematic offsets that are not removed by
+    accounting for differences in their solar reference values. We include
+    theoretically motivated corrections to the large frequency spacing
+    ({Delta}{nu}) scaling relation, and we calibrate the zero-point of the
+    frequency of the maximum power ({nu}max) relation to be consistent
+    with masses and radii for members of star clusters. For most targets,
+    the parameters returned by different pipelines are in much better
+    agreement than would be expected from the pipeline-predicted random
+    errors, but 22% of them had at least one method not return a result
+    and a much larger measurement dispersion. This supports the usage of
+    multiple analysis techniques for asteroseismic stellar population
+    studies. The measured dispersion in mass estimates for fundamental
+    calibrators is consistent with our error model, which yields median
+    random and systematic mass uncertainties for RGB stars of order 4%.
+    Median random and systematic mass uncertainties are at the 9% and 8%
+    level, respectively, for red clump stars.
+
+Description:
+    Our 6676 targets have high-resolution (R~22000) H-band spectra from
+    the Apache Point Observatory Galactic Evolution Experiment (APOGEE)
+    project (Majewski+ 2017AJ....154...94M), which were obtained during
+    the third Sloan Digital Sky Survey, hereafter SDSS-III (Eisenstein+
+    2011AJ....142...72E), and analyzed during the fourth Sloan Digital Sky
+    Survey, hereafter SDSS-IV (Blanton+ 2017AJ....154...28B). Our
+    asteroseismic data were obtained by the Kepler mission (Borucki+
+    2010Sci...327..977B), analyzed by members of the Kepler
+    Asteroseismology Science Consortium (KASC), and interpreted by the
+    team using both asteroseismic and spectroscopic data.
+
+File Summary:
+--------------------------------------------------------------------------------
+ FileName    Lrecl  Records  Explanations
+--------------------------------------------------------------------------------
+ReadMe          80        .  This file
+table5.dat     243     6676  The APOKASC-2 catalog of stellar properties
+table6.dat     144     6677  Individual asteroseismic pipeline measurements
+--------------------------------------------------------------------------------
+
+See also:
+ VII/233 : The 2MASS Extended sources (IPAC/UMass, 2003-2006)
+ V/133   : Kepler Input Catalog (Kepler Mission Team, 2009)
+ J/ApJ/469/355  : Teff, B-V and BC relation (Flower, 1996)
+ J/A+A/333/231  : O-M stars model atmospheres (Bessell+ 1998)
+ J/A+A/497/497  : Physical parameters from JHK flux (Gonzalez-Hernandez+, 2009)
+ J/AJ/138/159   : NGC 6819 stellar radial-velocity and photometry (Hole+, 2009)
+ J/A+A/512/A54  : Teff and Fbol from Infrared Flux Method (Casagrande+, 2010)
+ J/AJ/142/112   : KIC photometric calibration (Brown+, 2011)
+ J/A+A/525/A131 : Solar-like oscillations in Kepler red giants (Hekker+, 2011)
+ J/A+A/543/A106 : UBVRI photometry in NGC6791 (Brogaard+, 2012)
+ J/ApJS/199/30  : Effective temp. scale for KIC stars (Pinsonneault+, 2012)
+ J/AJ/146/133   : Stellar parameters from SDSS-III APOGEE DR10 (Meszaros+, 2013)
+ J/ApJ/765/L41  : Asteroseismic classification of KIC objects (Stello+, 2013)
+ J/AJ/148/51    : WIYN Open Cluster. LXI. NGC 6819 phot. (Anthony-Twarog+, 2014)
+ J/ApJS/215/19  : APOKASC catalog of Kepler red giants (Pinsonneault+, 2014)
+ J/MNRAS/445/2758 : KIC giants Bayesian dist. & extinctions (Rodrigues+ 2014)
+ J/ApJS/221/24  : SDSS-III APOGEE H-band spectral line lists (Shetrone+, 2015)
+ J/A+A/573/A55  : Gaia-ESO Survey: Tr 20, NGC4815, NGC6705 (Tautvaisiene+, 2015)
+ J/AJ/151/66    : Veloc. of WOCS 24009 & WOCS 40007 in NGC 6819 (Brewer+, 2016)
+ J/AJ/151/144   : ASPCAP weights for 15 APOGEE chemical elements (Garcia+, 2016)
+ J/AJ/152/6     : Kepler stars param. using LAMOST + seismic data (Wang+, 2016)
+ J/ApJ/832/121  : 4-yr RV survey of red giant in EBs (Gaulme+, 2016)
+ J/MNRAS/456/3655 : Masses and ages of red giants (Martig+, 2016)
+ J/ApJ/823/114  : The Cannon: a new approach to determine masses (Ness+, 2016)
+ J/ApJ/844/102  : KIC parallaxes from asteroseismology vs Gaia (Huber+, 2017)
+ J/ApJS/233/23  : APOKASC catalog of KIC dwarfs and subgiants (Serenelli+, 2017)
+ J/AJ/153/136   : Planets & host stars with Gaia parallaxes (Stassun+, 2017)
+ J/A+A/616/A94  : KIC red giants radial modes amplitude+lifetime (Vrard+, 2018)
+
+Byte-by-byte Description of file: table5.dat
+--------------------------------------------------------------------------------
+   Bytes Format Units     Label          Explanations
+--------------------------------------------------------------------------------
+   1-  8 I8     ---       KIC            [1027110/12884930] Star number in the
+                                          Kepler Input Catalog (1)
+  10- 11 A2     ---       ---            [2M]
+  12- 27 A16    ---       2MASS          2MASS name (HHMMSSss+DDMMSSs; J2000)
+  29- 34 F6.1   K         Teff           [3848/7071]? SDSS DR14 Surface
+                                          Temperature
+  36- 40 F5.1   K       e_Teff           [41.9/196.1]? Uncertainty in Teff
+  42- 47 F6.3   [-]       FeH            [-2.6/0.6]? SDSS DR14 Total
+                                          Metallicity, [M/H]
+  49- 53 F5.3   [-]     e_FeH            [0.01/0.2]? Uncertainty in FeH
+  55- 60 F6.3   [-]       AFe            [-0.4/0.6]? SDSS DR14 [{alpha}/Fe]
+  62- 66 F5.3   [-]     e_AFe            [0.008/0.08]? Uncertainty in AFe
+  68- 74 F7.3   uHz       Numax          [2/250]? Frequency of maximum power
+                                          <{nu}_max_>
+  76- 80 F5.3   ---     e_Numax          [0.009/0.2]? Fractional Uncertainty
+                                          in Numax, {sigma}_Numax_/Numax
+  82- 87 F6.3   uHz       Dnu            [0.3/27.3]? Large frequency spacing
+                                          <{Delta}{nu}>
+  89- 93 F5.3   ---     e_Dnu            [0.004/0.4]? Fractional Uncertainty
+                                          in Dnu, {sigma}_Dnu_/Dnu
+  95-102 A8     ---       ES             Evolutionary State (2)
+ 104-109 F6.4   ---       Fdnu           [0.9/1.1]? Correction factor,
+                                          f_{Delta}{nu}_ (3)
+ 111-116 F6.4   ---     e_Fdnu           [0.0001/0.06]? Uncertainty in Fdnu
+ 118-122 F5.3   Msun      M(cor)         [0.6/3.5]? Corrected Mass (4)
+ 124-128 F5.3   ---     e_M(cor)         [0.03/0.9]? Fractional Random Mass
+                                          uncertainties,
+                                           {sigma}_ran_(M(cor))/M(cor)
+ 130-134 F5.3   ---     s_M(cor)         [0.02/0.4]? Fractional Systematic Mass
+                                          uncertainties,
+                                           {sigma}_sys_(M(cor))/M(cor)
+ 136-141 F6.3   Rsun      R(cor)         [3.6/51.4]? Corrected Radius (4)
+ 143-147 F5.3   ---     e_R(cor)         [0.01/0.5]? Fractional Random Radius
+                                          uncertainties,
+                                           {sigma}_ran_(R(cor))/R(cor)
+ 149-153 F5.3   ---     s_R(cor)         [0.009/0.1]? Fractional Systematic
+                                          Radius uncertainties,
+                                           {sigma}_sys_(R(cor))/R(cor)
+ 155-159 F5.3   [cm/s2]   logg(seis)     [1.1/3.4]? log of Asteroseismic
+                                          Surface Gravity
+ 161-165 F5.3   ---     e_logg(seis)     [0.005/0.08]? Fractional Random log(g)
+                                          uncertainties,
+                                           {sigma}_ran_log(g)/log(g)
+ 167-171 F5.3   ---     s_logg(seis)     [0.007/0.02]? Fractional Systematic
+                                          log(g) uncertainties,
+                                           {sigma}_sys_log(g)/log(g)
+ 173-181 E9.3   g/cm3     Rho            [1.5e-05/0.03]? Mean Density, <{rho}>
+ 183-187 F5.3   ---     e_Rho            [0.008/0.5]? Fractional Random <Rho>
+                                          uncertainties, {sigma}_ran_(Rho)/Rho
+ 189-193 F5.3   ---     s_Rho            [0.006/0.01]? Fractional Systematic
+                                          <Rho> uncertainties,
+                                           {sigma}_sys_(Rho)/Rho
+ 195-199 F5.3   Myr       LogAge         [2.4/4.3]? (log) Age (5)
+ 201-206 F6.3   Myr     E_LogAge         [0/99]? Upper (log) age uncertainty,
+                                          random errors
+ 208-214 F7.3   Myr     e_LogAge         [-99/-0.002]? Lower (log) age
+                                          uncertainty, random errors
+ 216-220 F5.3   mag       Av             [0/2.3]? Derived visual extinction, f
+                                          or R_V_=3.1; see text
+ 222-226 F5.3   mag     e_Av             [0.02/1.1]? Uncertainty (random errors)
+ 228-243 A16    ---       Notes          Notes (6)
+--------------------------------------------------------------------------------
+Note (1): Stars without parameters requiring asteroseismic inputs were
+    cases where the time series data was analyzed but no asteroseismic
+    parameters were returned.
+Note (2): Evolutionary State derived from asteroseismology if available from
+    Elsworth+ (2017MNRAS.466.3344E). Otherwise, uses DR13 spectroscopic
+    evolutionary states as described in  Holtzman+ (2018AJ....156..125H), noted
+    by (S) after class. Class as follows:
+  RGB      = shell-burning source only (first ascent red giant or
+              asymptotic giant);
+  RC       = star which has a core He-burning source;
+  AMB      = star where the spectroscopic state was ambiguous;
+  REJECT   = stars are ones with suspect or absent asteroseismic data;
+  Bad Teff = stars did not have reliable DR14 effective temperatures.
+Note (3): The Dnu correction factor Fdnu for each star was derived
+    iteratively from the combination of the spectroscopic, evolutionary
+    state and asteroseismic data with the models of Serenelli+ (in prep.).
+Note (4): Masses, radii and uncertainties were derived from the combined
+    asteroseismic and spectroscopic data as described in the text.
+Note (5): Ages were derived from the Serenelli+ (in prep.) models using
+    the catalog mass, radius, FeH and AFe.
+Note (6): The notes in the final column are included for stars whose
+  reported properties are either incomplete or uncertain. Notes as follows:
+  No Seis  = flags all stars without reported reliable asteroseismic values
+              (and, by extension, reported masses, radii, logg or mean density.)
+  No Fdnu  = flags stars where we could not obtain Fdnu correction factor;
+              the only derived quantity is the asteroseismic surface gravity
+  SeisUnc  = flags all stars with fractional uncertainties in Numax>0.05 or
+              Dnu>0.025;
+  AgeOld   = flags all stars with formal mean ages greater than 14Gyr.
+--------------------------------------------------------------------------------
+
+Byte-by-byte Description of file: table6.dat
+--------------------------------------------------------------------------------
+   Bytes Format Units   Label     Explanations
+--------------------------------------------------------------------------------
+   1-  8 I8     ---     KIC       [1027110/12884930] Star number in
+                                   the Kepler Input Catalog
+  10- 15 F6.2   uHz     Nmax-A2Z  [2.9/255.2]? A2Z Frequency of maximum power
+                                   {nu}_max_ (1)
+  17- 21 F5.2   uHz   e_Nmax-A2Z  [0/39]? Uncertainty (random) in Nmax-A2Z
+  23- 27 F5.2   uHz     Dnu-A2Z   [0.4/19]? A2Z Large Frequency Spacing
+  29- 32 F4.2   uHz   e_Dnu-A2Z   [0.02/7.7]? Uncertainty (random) in Dnu-A2Z
+  34- 39 F6.2   uHz     Nmax-CAN  [2/366]? CAN Frequency of maximum power (1)
+  41- 44 F4.2   uHz   e_Nmax-CAN  [0.02/9]? Uncertainty (random) in Nmax-CAN
+  46- 51 F6.3   uHz     Dnu-CAN   [0.4/28.6]? CAN Large Frequency Spacing
+  53- 57 F5.3   uHz   e_Dnu-CAN   [0.001/0.1]? Uncertainty (random) in Dnu-CAN
+  59- 63 F5.1   uHz     Nmax-COR  [2/331]? COR Frequency of maximum power (1)
+  65- 69 F5.2   uHz   e_Nmax-COR  [0.05/49]? Uncertainty (random) in Nmax-COR
+  71- 76 F6.3   uHz     Dnu-COR   [0.4/22.6]? COR Large Frequency Spacing
+  78- 82 F5.3   uHz   e_Dnu-COR   [0.05/0.2]? Uncertainty (random) in Dnu-COR
+  84- 89 F6.2   uHz     Nmax-OCT  [2/260]? OCT Frequency of maximum power (1)
+  91- 97 F7.2   uHz   e_Nmax-OCT  [0.01/1023]? Uncertainty (random) in Nmax-OCT
+  99-103 F5.2   uHz     Dnu-OCT   [0.3/29.2]? OCT Large Frequency Spacing
+ 105-108 F4.2   uHz   e_Dnu-OCT   [0.01/0.6]? Uncertainty (random) in Dnu-OCT
+ 110-118 F9.5   uHz     Nmax-SYD  [0.9/284]? SYD Frequency of maximum power (1)
+ 120-127 F8.5   uHz   e_Nmax-SYD  [0.003/68]? Uncertainty (random) in Nmax-SYD
+ 129-136 F8.5   uHz     Dnu-SYD   [0.3/23]? SYD Large Frequency Spacing
+ 138-144 F7.5   uHz   e_Dnu-SYD   [0.004/1]? Uncertainty (random) in Dnu-SYD
+--------------------------------------------------------------------------------
+Note (1): Individual Pipelines --
+   A2Z = Mathur et al. (2010A&A...511A..46M);
+   CAN = Kallinger et al. (2010A&A...522A...1K);
+   COR = Mosser & Appourchaux (2009A&A...508..877M);
+   OCT = Hekker et al. (2010MNRAS.402.2049H);
+   SYD = Huber et al. (2009CoAst.160...74H).
+--------------------------------------------------------------------------------
+
+History:
+   From electronic version of the journal
+
+References:
+   Pinsonneault et al.   APOKASC-1.   2014ApJS..215...19P   Cat. J/ApJS/215/19
+
+================================================================================
+(End)                     Prepared by [AAS], Emmanuelle Perret [CDS] 06-Feb-2019
